@@ -1,0 +1,14 @@
+# this is a sample crontab file
+# comments start with a '#'
+# jobs are relative to the pr directory where imagecron.php is begun. In our case, imagecron.php is in the eggs directory
+#mi  h    d    m    dow      job			comment
+
+*/5  *    *    *    *        mailout.php	#runs every 5 minute
+*/5  *    *    *    *        capture.php	#runs every 5 minute
+
+
+
+
+#*    2    *    *    Sun      samplejob.inc.php	#runs every Sunday at 2am
+
+#*/15 *    *    *    Mon-Fri  samplejob.inc.php	#runs every 15 minutes on Monday to Friday

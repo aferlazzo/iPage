@@ -1,0 +1,261 @@
+<?php
+		 ob_start ("ob_gzhandler");
+		 header ("content-type: text/css; charset: UTF-8");
+		 header ("cache-control: must-revalidate");
+		 $offset = 60 * 60;
+		 $expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
+		 header ($expire);
+?>
+#instructions{
+position:absolute;
+z-index:10;
+left:178px;
+top:350px;
+width:520px;
+}
+#instructions p{
+text-align:center;
+width:100%;
+padding:0;
+margin:10px 0 0 0;
+background-color:#2ec4cd;
+}
+FH#SuccessDiv {
+display : none;
+}
+
+/*.dialogBox{width:250px;height:72px;}
+
+.ui-dialog-titlebar, .ui-widget-header{height:30px !important;}*/
+
+
+form#formFundingRequest {
+margin:0;
+color : #000;
+width:680px;
+height:350px;
+}
+/*display the form's validation error messages in this format in these div elements... */
+
+.ErrorMessage, .error {
+color:transparent;
+height:24px;
+padding-left:40px;
+overflow:visible;
+/*background:url("../images/unchecked.gif") no-repeat 0px 0px;padding-left: 16px;*/
+}
+.error {background:yellow;}
+/*
+.success {left:3px;top:6px;color:#000;
+background:url("../images/checked.gif") no-repeat 0px 0px; padding-left: 16px;
+}
+ */
+
+label{
+/*vertical-align:top;*/
+margin:3px 0 0 10px;
+width:60px;
+display:inline-block;
+text-align:right;
+font-size:12px;
+overflow:visible;
+white-space:nowrap;
+}
+div#wrapper {
+height:100%;
+min-height:100%;
+margin : 8px auto;
+padding :20px 10px;
+width : 640px;
+background:#e86;
+}
+
+select {margin:0;}
+input text, textarea {
+font-family : Verdana, Arial, Helvetica, sans-serif;
+height : 20px;
+line-height : 20px;
+font-size : 15px;
+padding-left : 4px;
+border:1px dashed silver;
+}
+
+#FullName, #Phone, #Skype, #Email{width:185px;}
+input#LengthBox{width:20px;margin:0 5px;}
+/*
+.featurette div{width:530px;} /*white-space:nowrap;}
+*/
+
+/*
+.ui-state-hover {background-color:#025167;color:#fff;}
+.ui-state-active {background-color:#025167;color:#fff;}
+
+#Container0:hover, #Container1:hover, #Container2:hover,
+#Container0.ui-state-active, #Container1.ui-state-active, #Container2.ui-state-active,
+#Container0.ui-state-hover, #Container1 .ui-state-hover, #Container2.ui-state-hover{
+color:#000 !important; background:#fff !important;
+}
+*/
+.panel .panelContent
+{float:left;height:300px;width:500px;padding:10px;}
+/* for panel 0 */
+
+#Content0, #Content1,#Content2 {margin:5px 0;text-align:left;}
+#Content0 p, #Content1 p,#Content2 p{margin:0;}
+#Content2 {padding:0 0 0 60px;width:460px;}
+
+div#Start,div#FormHead0 {
+z-index:4;
+position:absolute;left:75px;top:280px;
+font-size:18px;
+font-weight:900;
+width:350px;
+height:60px;
+}
+div#Start {
+z-index:4;
+left:340px;top:55px;
+height:35px;
+width:270px;
+overflow:visible;
+}
+div#Request{
+position:absolute;left:55px;top:65px;
+}
+
+.hints{
+float:right;width:220px;margin:5px 8px 0 0;font-size:12px;
+}
+
+/* for jquery styled buttons like used in Currency */
+button { outline: 0; margin:0 2px 0 0; padding: .4em 1em; text-decoration:none !important;
+cursor:pointer; position: relative; text-align: center;color:#fff;}
+	/*'backgroundColor', '#025167'
+	'backgroundColor', '#5EC4CD'	*/
+	/* remove extra button width in IE */
+button.fg-button { width:auto; overflow:visible; }
+
+button{
+background:#5EC4CD;
+}
+button.selected{
+background:#025167;
+}
+input#Amount{width:180px;}
+label#ccc{vertical-align:top;}
+#CurrencyType {
+margin-left:3px;
+height:20px;width:70px;
+background:transparent url(../images/jqueryCurrency.png) no-repeat;
+background-position:0 0;
+display:inline-block;
+}
+#DollarSymbol, #EuroSymbol {
+background:transparent url(../images/jqueryCurrency.png) no-repeat;
+background-position:-60px 0;
+width:90px;
+height:120px;
+float:right;
+margin-right:150px;
+}
+#EuroSymbol {background-position:-150px 0;display:none;}
+
+div#SwiftType {
+margin-top:10px;
+margin-left:65px;height:100px;width:250px;
+}
+div#SwiftType label {text-align:left;}
+
+/* for Page 2 */
+
+div#FormHead2 {
+z-index:4;
+font-size:26px;
+font-weight:900;
+height:60px;
+}
+
+#Content2 label{
+margin-left:10px;
+text-align:left;
+width:350px;
+}
+
+textarea#Comments {
+border : 1px solid silver;
+width : 380px;
+height : 145px;
+margin : 5px;
+overflow : auto;
+background:#fff;
+}
+
+#CommentsEdiv{
+float:left;
+margin-left:10px !important;
+width:305px !important;
+height:95px;
+overflow:hidden;
+white-space:nowrap;
+}
+
+div#ExpandedComments{
+z-index:90;
+}
+#ExpandedComments p span{
+background-color:yellow;
+}
+#CommentsError{
+font-size:12px;
+width:300px;
+}
+
+div#CodeDiv{
+float:left;
+width:120px;
+height:60px;
+font-size:12px;
+text-align:center;
+}
+
+#CaptchaDiv{
+float:left;
+width:175px;
+height:60px;
+font-size:10px;
+overflow:hidden;
+white-space:nowrap;
+}
+#CaptchaError, #CaptchaCopyError{padding-left:0 !important;width:150px;}
+#Captcha{
+width:60px;margin:0 5px;
+}
+
+#ButtonDiv{
+float:left;
+text-align:center;
+width:80px;
+height:100px;
+font-size:10px;
+overflow:hidden;
+white-space:nowrap;
+}
+
+div#SendRequestBox {
+position:absolute;left:605px;top:350px;
+}
+div#error{
+position:absolute;left:58px;top:335px;width:600px;text-align:right;height:20px;
+}
+div#error span {background:red;color:#fff;}
+/* end of panels */
+
+a#FormH3Label0:hover,a#FormH3Label1:hover,a#FormH3Label2:hover,
+a#FormH3Label0:visited,a#FormH3Label1:visited,a#FormH3Label2:visited{
+background:transparent;
+border-bottom:0;
+}
+
+.panelValid { background:green; }
+/* see FundingRequest.js: when a h3 element has the panelValid class added to it,
+change the background to green so we have a visual for debugging */

@@ -1,0 +1,494 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@font-face {
+	font-family: 'KomikaTextRegular';
+	src: url('fonts/KOMTXT__-webfont.eot');
+	src: url('fonts/KOMTXT__-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/KOMTXT__-webfont.woff') format('woff'),
+		 url('fonts/KOMTXT__-webfont.ttf') format('truetype'),
+		 url('fonts/KOMTXT__-webfont.svg#KomikaTextRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+@font-face {
+	font-family: 'KomikaTextItalic';
+	src: url('fonts/KOMTXTI_-webfont.eot');
+	src: url('fonts/KOMTXTI_-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/KOMTXTI_-webfont.woff') format('woff'),
+		 url('fonts/KOMTXTI_-webfont.ttf') format('truetype'),
+		 url('fonts/KOMTXTI_-webfont.svg#KomikaTextItalic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+@font-face {
+	font-family: 'KomikaTextBold';
+	src: url('fonts/KOMTXTB_-webfont.eot');
+	src: url('fonts/KOMTXTB_-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/KOMTXTB_-webfont.woff') format('woff'),
+		 url('fonts/KOMTXTB_-webfont.ttf') format('truetype'),
+		 url('fonts/KOMTXTB_-webfont.svg#KomikaTextBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'KomikaTextBoldItalic';
+	src: url('fonts/KOMTXTBI-webfont.eot');
+	src: url('fonts/KOMTXTBI-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/KOMTXTBI-webfont.woff') format('woff'),
+		 url('fonts/KOMTXTBI-webfont.ttf') format('truetype'),
+		 url('fonts/KOMTXTBI-webfont.svg#KomikaTextBoldItalic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+@font-face {
+	font-family: 'KomikaTextKapsRegular';
+	src: url('fonts/KOMTXTK_-webfont.eot');
+	src: url('fonts/KOMTXTK_-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/KOMTXTK_-webfont.woff') format('woff'),
+		 url('fonts/KOMTXTK_-webfont.ttf') format('truetype'),
+		 url('fonts/KOMTXTK_-webfont.svg#KomikaTextKapsRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'KomikaTextKapsItalic';
+	src: url('fonts/KOMTXTKI-webfont.eot');
+	src: url('fonts/KOMTXTKI-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/KOMTXTKI-webfont.woff') format('woff'),
+		 url('fonts/KOMTXTKI-webfont.ttf') format('truetype'),
+		 url('fonts/KOMTXTKI-webfont.svg#KomikaTextKapsItalic') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+@font-face {
+	font-family: 'KomikaTextKapsBold';
+	src: url('fonts/KOMTXTKB-webfont.eot');
+	src: url('fonts/KOMTXTKB-webfont.eot?#iefix') format('embedded-opentype'),
+		 url('fonts/KOMTXTKB-webfont.woff') format('woff'),
+		 url('fonts/KOMTXTKB-webfont.ttf') format('truetype'),
+		 url('fonts/KOMTXTKB-webfont.svg#KomikaTextKapsBold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+
+}
+@font-face {
+  font-family: 'Bowlby One SC';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Bowlby One SC Regular'), local('BowlbyOneSC-Regular'), url('http://themes.googleusercontent.com/static/fonts/bowlbyonesc/v3/8ZkeXftTuzKBtmxOYXoReXSZ6Kd_eOJbDsY1hLBynIs.woff') format('woff');
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+body{
+	background: #F8E8C0;
+	font-family: arial, helvetica, sans;
+	overflow: scroll;
+}
+.bg{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#contact{
+	position:absolute;
+	z-index:20;
+	top:50px;
+	left:-242px;
+	overflow:hidden;
+}
+h2{
+	font-size:20px;
+	font-weight:700;
+	margin:50px 20px 20px;
+}
+h6 {
+	font-size: 70px;
+	font-weight: normal;
+	margin: 0;
+	text-shadow: 1px 3px 5px #000, -1px 2px 6px #000;
+	color: #e1d703;
+	font-family: 'Bowlby One SC',"Arial Black",sans-serif;
+	-ms-transform:rotate(-90deg); /* IE 9 */
+	-ms-transform-origin:37px -73px;
+	-moz-transform:rotate(-90deg); /* Firefox */
+	-moz-transform-origin:37px -73px;
+	-webkit-transform:rotate(-90deg); /* Safari and Chrome */
+	-webkit-transform-origin:37px -73px;
+	-o-transform:rotate(-90deg); /* Opera */
+	-o-transform-origin:37px -73px;
+	transform:rotate(-90deg);	
+	transform-origin:37px -73px;
+}
+p{
+	font-size:15px;
+	margin:20px;
+}
+h3{
+	font-size:26px;
+	font-family: 'Bowlby One SC';
+	margin: 45px 0 20px 57px;
+	color: white;
+	text-shadow: 2px -2px 2px black;
+}
+ul{
+	margin:20px 0 0 56px;
+	list-style-type: disc;
+	list-style-position: outside;
+
+	}
+li{
+	font-size:25px;
+	margin-bottom:12px;
+}
+a{text-decoration:none;}
+a:hover{color:#fff;background-color:#069;}
+#contact div:nth-child(1) {
+	float:left;
+	overflow:hidden;
+	color:#fff;
+	background-color:rgba(243,52,8,.75);
+	border-radius: 0 10px 10px 0;
+	width:242px;
+	height:211px;
+}
+#contact-tab{
+	background-color:rgba(243,52,8,.75);
+	color:#fff;
+	float:left;
+	overflow:hidden;
+	margin: 90px 0 0 -20px;
+	padding: 6px 0 0 6px;
+	border-radius:0 0 10px 10px;
+	width: 66px;
+	height: 26px;
+	cursor:pointer;
+	-ms-transform:rotate(-90deg); /* IE 9 */
+	-moz-transform:rotate(-90deg); /* Firefox */
+	-webkit-transform:rotate(-90deg); /* Safari and Chrome */
+	-o-transform:rotate(-90deg); /* Opera */
+	transform:rotate(-90deg);	
+}
+
+#cover, #comic-page{
+	position:relative;
+	border:4px solid #000;
+	border-radius: 4px;
+	width: 771px;
+	height: 830px;
+	margin:10px auto;
+	overflow: hidden;
+	background-color: #fff;
+	-moz-box-shadow: 2px -2px 15px #333;
+	-webkit-box-shadow: 2px -2px 15px #333;
+	-o-box-shadow: 2px -2px 15px #333;
+	box-shadow: 2px -2px 15px #333;
+}
+#comic-page{
+	background-color:rgba(255,255,255,.5);
+	border-radius:10px;
+	width:900px;
+	border-color:transparent;
+}
+#cover{display:none;height:752px;}
+#site-slice-border{
+	margin:10px auto 50px;
+	width:850px;
+	height:250px;
+	background-color:rgba(0,102,153,.35);
+	padding:10px;
+	border-radius:10px;
+	box-shadow: 2px -2px 11px #000, -2px 2px 11px #000;
+}
+.site-slice{
+	display:none;
+	width:850px;
+	height:250px;
+	overflow:hidden;
+	border-radius: 7px;
+}
+.site-slice:nth-child(1){
+	display:block;
+}
+
+.contrib{
+	display:none;
+	width:670px;
+}
+/*
+.contrib:nth-child(1){
+	display:block;
+}
+*/
+#top{
+	background-color: #d50001;
+	width:100%;
+	height: 190px;
+}
+#price{
+	background: url('../img/comicbook-sprite.png') 10px 13px no-repeat;
+	width: 75px;
+	height:75px;
+	border-radius:50%;
+	background-color: #fff;
+	position: relative;
+	top:20px;
+	left:680px;
+}
+#adventures{
+	background: url('../img/comicbook-sprite.png') 0px -63px no-repeat;
+	width: 505px;
+	height:45px;
+	position: relative;
+	top:-26px;
+	left:124px;
+}
+#front-end{
+	background: url('../img/comicbook-sprite.png') 0px -120px no-repeat;
+	width: 591px;
+	height:78px;
+	position: relative;
+	top:-38px;
+	left:77px;
+}
+#full-length{
+	background: url('../img/comicbook-sprite.png') 0px -203px no-repeat;
+	width: 791px;
+	height:59px;
+	position: relative;
+	top:-31px;
+	left:121px;
+	z-index:5;
+}
+
+#sbs-left{
+	background-color: #e1d703;
+	float: left;
+	width:231px;
+	height:565px;
+}
+#sbs-left p{
+	margin:60px 10px;
+	font-size:24px;
+	font-family: 'KomikaTextBoldItalic', arial;
+	/*font-family: arial;*/
+}
+#sbs-left a{padding:0 3px;}
+#veteran{
+	background: url('../img/comicbook-sprite.png') -62px -692px no-repeat;
+	width:478px;
+	height:95px;
+	position: relative;
+	top:49px;
+	left:1px;
+	text-align:center;
+	font-size:22px;
+	font-weight:700;
+	z-index:5;
+	color:#fff;
+}
+#sbs-right{
+	position: relative;
+	background: url('../img/sbs-right-bg.jpg') no-repeat;
+	float:right;
+	width:540px;
+	height:562px;
+}	
+
+#alfred-caption{
+	background: url('../img/comicbook-sprite.png') -9px -258px no-repeat;
+	width: 208px;
+	height:146px;
+	position: relative;
+	top:36px;
+	left:58px;
+}#alfred-head{
+	background: url('../img/comicbook-sprite.png') -363px -398px no-repeat;
+	width: 249px;
+	height:254px;
+	position: relative;
+	top:40px;
+	left:116px;
+	cursor:pointer;
+}
+#heroes{
+	background-image: url('../img/0.jpg');
+	width:140px;
+	height:180px;
+}
+#p2-head{
+	margin: 20px auto 0;
+	background-image: url('../img/p2-head.png');
+	width:794px;
+	height:66px;
+}
+#heroFrame{
+	position:absolute;
+	top:29px;
+	left:365px;
+	z-index:2;	
+	width:140px;
+	height:180px;
+	padding:7px;
+	border:1px solid #000;
+	background-color:#fff;
+	border-radius: 4px;
+}
+#dialog-box{
+	display:none;
+	position:absolute;
+	z-index:10;
+	top:13px;
+	left:8px;
+	width:754px;
+	background-color:rgba(0,0,0,.75);
+	border-radius:10px;
+	overflow:hidden;
+	height:730px;
+	box-shadow: 4px -4px 14px #333;
+}
+#dialog-box-close{
+	background: url('../img/comicbook-sprite.png') -98px -12px no-repeat;
+	width:26px;
+	height:26px;
+	cursor:pointer;	
+	position:absolute;
+	top:20px;
+	right:20px;
+}
+#dialog-box h1{
+	color:#fff;
+	font-weight:700;
+	font-size:80px;
+	margin:20px auto;
+	text-align:center;
+	text-shadow:3px -3px 14px #555;
+}
+#dialog-box p{
+	color:#fff;
+	margin:30px 40px;
+	font-size:30px;
+	line-height: 1.25;
+}
+#dialog-box p.small{font-size:15px;}
+#navigation{
+	top:379px;
+	left:699px;
+	width:58px;
+	height:58px;
+	position:absolute;
+	z-index:20;
+	border: 16px solid transparent;
+}
+#navigation-back{
+	top:379px;
+	left:699px;
+	position:absolute;
+	z-index:19;
+	border: 16px solid rgba(0,0,0,.1);
+	border-radius: 50%;
+	width: 75px;
+	height: 75px;
+	box-shadow: inset 1px -1px 3px #000, 1px -1px 3px #000;
+}
+#navigation span{
+	color:rgba(0,0,0,.1);
+	font-size:95px;
+	margin:-12px 0 0 -5px;
+	display:inline-block;
+}
+nav ul li{
+	position:absolute;
+	z-index:20;
+}
+nav ul {
+	list-style-type: none;
+}
+#star{cursor:pointer;}
+nav ul li{
+	cursor:pointer;
+}
+.circleDot0{
+	top:9px;
+	left:-12px;
+}
+.circleDot1{
+	top:-23px;
+	left:31px;
+}
+.circleDot2{
+	top:9px;
+	left:76px;
+}
+.circleDot3{
+	top:60px;
+	left:58px;
+}
+.circleDot4{
+	top:60px;
+	left:5px;
+}
+#return{
+	position: absolute;
+	bottom: 8px;
+	left: 15px;
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset=utf-8>
+		<title>Clipper - CSS Sprite Clipper</title>
+		<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+		<link rel="stylesheet" type='text/css' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+		<link rel="stylesheet" type='text/css' href="css/clipper.css">
+	</head>
+	<!-- Clipper was written by Anthony Ferlazzo, aferlazzo[at]gmail[dot]com, April/May 2011 -->
+	<body>
+		<header>
+			<h1><img id='scissors1' src='images/scissors.png' alt=''>Cli&nbsp;&nbsp;per</h1>
+		</header>
+		<h2>CSS Sprite Clipper</h2>
+		<form id='clipForm' class='rounded'>
+			<div id="tabs" class="ui-tabs">
+				<ul>
+					<li>
+						<a href="#inputTab">Input</a>
+					</li>
+					<li>
+						<a href="#outputTab">Output</a>
+					</li>
+					<li>
+						<a href="#instructionsTab">Quick Start</a>
+					</li>
+					<li>
+						<a href="#toDoTab">To Do</a>
+					</li>
+				</ul>
+				<div id="inputTab">
+						<!--	<label for='eFile'>Image File Pathname</label>	-->
+						<!-- for each input, the name argument is for form processing, the id is for jquery processing -->
+						<div id='notSupported'>
+							<input type='text' name='eFile' id='eFile'>
+							&nbsp;&nbsp;
+							<input type='button' id='btn' value='Show It'>
+						</div>
+						<div id='supportsHTML5'>
+							<input type="file" id="browsedFileName" tabindex='-1'name="browsedFileName">
+						</div>
+					<fieldset id='fsFullImageFields' class='rounded'>
+						<legend>
+							Image Container
+						</legend>
+						<div class='hh amtw rounded'>
+							<label for='eWidth'>Width</label>
+							<input disabled type='text' name='eWidth' id='eWidth' class='amt'>
+							px
+						</div>
+						<div class='hh amth rounded'>
+							<label for='eHeight'>Height</label>
+							<input disabled type='text' name='eHeight' id='eHeight' class='amt'>
+							px
+						</div>
+						<div id='contrast' class='hh amtw rounded'>
+							Background Contrast
+							<div id='contrastSlider'></div>
+						</div>
+						<div class='hh amth rounded'>
+							<div id='fgDiv'>
+								<input id='fgColor' checked='checked' type='radio' name='colors'> <label for='fgColor'>Image Color</label>
+							</div>
+							<div id='bkDiv'>
+								<input id='bkColor' type='radio' name='colors'> <label for='bkColor'>Background Color</label>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset id='fsTheRectangleFields' class='rounded'>
+						<legend>
+							Selected Area
+						</legend>
+						<div class='hh amtw rounded'>
+							<label for='theRectangleFieldsWidth'>Width </label>
+							<input type='text' value=0 tabindex='10' id='theRectangleFieldsWidth'	class='amt'>
+							px
+						</div>
+						<div class='hh amth rounded'>
+							<label for='theRectangleFieldsHeight'>Height </label>
+							<input type='text' value=0 tabindex='20' id='theRectangleFieldsHeight'	class='amt'>
+							px
+						</div>
+						<div class='hh amtw rounded'>
+							<label for='theRectangleFieldsLeft'>Left </label>
+							<input type='text' value=0 tabindex='30' id='theRectangleFieldsLeft'	class='amt'>
+							px
+						</div>
+						<div class='hh amth rounded'>
+							<label for='theRectangleFieldsTop'>Top </label>
+							<input type='text' value=0 tabindex='40' id='theRectangleFieldsTop'		class='amt'>
+							px
+						</div>
+						<div class='hh amtw rounded'>
+							<label for='theRectangleFieldsRight'>Right </label>
+							<input type='text' value=0 tabindex='50' id='theRectangleFieldsRight'	class='amt'>
+							px
+						</div>
+						<div class='hh amth rounded'>
+							<label for='theRectangleFieldsBottom'>Bottom </label>
+							<input type='text' value=0 tabindex='60' id='theRectangleFieldsBottom'	class='amt'>
+							px
+						</div>
+					</fieldset>
+				</div>
+				<div id="outputTab" class="ui-tabs-hide">
+					<fieldset id='fsOutputFields' class='rounded'>
+						<legend>
+							CSS For Selected Area
+						</legend>
+						<div id='css1Displayed'></div>
+						<div id='previewDiv' class='rounded'>
+							<div id='previewImage'>
+								<canvas id="previewCanvas" width="0" height="0"></canvas>
+							</div>
+						</div>
+						<div id='css2Displayed'></div>
+					</fieldset>
+				</div>
+				<div id="instructionsTab" class="ui-tabs-hide">
+					<fieldset id='fsQuickStart' class='rounded'>
+						<legend>
+							Overview
+						</legend>
+						<p>
+							The image file must first be selected from the local drive. Go to the Input tab and
+							click the button to browse and choose the file. The sprite file will be displayed
+							to the right.
+						</p>
+						<p>
+							Default operation is to click on an image on the sprite. You'll see a rectangle with a blue border grow around the
+							selected area. If you wish to expand or reduce the selected area simply click on the sprite
+							outside the presently selected area to cause the border to reappear, then click and drag to
+							manually select the desired area. This is useful for selecting text and other non-contiguous
+							images.
+						</p>
+						<p>
+							You can instead click and drag around an image you'd like to select. This is helpful when you wish to
+							select text, or multiple objects. If adjustments to the rectangle size, use the mouse along the
+							inner edges of the rectangle or update the pixel settings on the Input tab to grow or shrink the selection.
+						</p>
+						<p>
+							Go to the Output tab to copy the generated CSS of the clipped image to your HTML or CSS file.
+						</p>
+					</fieldset>
+					<fieldset id='referenceFields' class='rounded'>
+						<legend>
+							For Reference
+						</legend>
+						<div class='rel'>
+							<div id='refOriginalElement'>
+								<div id='refDescription'>
+									Entire
+									<br>
+									Image
+									<br>
+									File
+								</div>
+								<div id='refClippedArea'>
+									Clipped
+									<br>
+									Area
+								</div>
+								<div id='refTopLine'>
+									top
+								</div><div id='topArrow'></div>
+								<div id='refRightLine'>
+									right
+								</div><div id='rightArrow'></div>
+								<div id='refBottomLine'>
+									bottom
+								</div><div id='bottomArrow'></div>
+								<div id='refLeftLine'>
+									left
+								</div><div id='leftArrow'></div>
+								<div id='refClippedWidth'>
+									width
+								</div>
+								<div id='refClippedHeight'>
+									height
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+
+				<div id="toDoTab" class="ui-tabs-hide">
+					<fieldset id='fsToDo' class='rounded'>
+						<legend>
+							Needs
+						</legend>
+						<p>
+							The image file must first be selected from the local drive. Go to the Input tab and
+							click the button to browse and choose the file. An opaque view of the file will be displayed
+							to the right.
+						</p>
+						<p>
+							Presently the script must be restarted each time a new sprite is to be read and displayed.
+						</p>
+					</fieldset>
+				</div>
+			</div>
+			<!-- tabs -->
+		</form>
+		<div id='theImageWrapper'>
+			<div id='theImageContainer'><img id='theImage' class='theSpriteImage' src='' alt=''>
+			</div>
+			<div id='theClippedContainer'><img id='theClippedImage' class='theSpriteImage' src='' alt=''>
+			</div>
+			<canvas id="canvasId" width="0" height="0"></canvas>
+			<div id='theRectangle'></div>
+			<div id='onTop'></div>
+		</div>
+		<img id='temporaryImage' class='theSpriteImage' src='' alt=''>
+		<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+		<script type='text/javascript' src='js/clipper.js'></script>
+		<!--
+		<script type='text/javascript' src='js/live.js'></script>
+		-->
+	</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>test of resizable/draggable</title>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<link rel="stylesheet" type='text/css' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+<style>
+	div#theImageWrapper{
+	position:absolute;
+	top:75px;left:430px;
+	}
+
+	/* the stacked divs contain the opaque view of the image  (theImageContainer),
+	* a crystal clear view of the portion of the image being measured/altered/evaluated (theClippedContainer),
+	* and the layer holding the transparent draggable and resizable rectangle (theRectangle)
+		Layer Name			Stacked		z-index	Opacity		notes
+							Order
+		theRectangle		Top			12		1.0			draggable/resizable transparent rectangle
+		theClippedContainer	Middle		11		1.0			fully visible image in clipped area, hidden everywhere else
+		theImageContainer	Bottom		10		0.5			Opaque version of full image
+	*/
+	div#theImageContainer, div#theClippedContainer, div#theRectangle{
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+
+	div#theImageContainer{
+	z-index:10;
+	opacity:.5;
+	background-color:#666;
+	}
+
+	div#theClippedContainer{
+	background-color:#666;
+	z-index:11;
+	}
+
+	div#theRectangle{
+	z-index:12;
+	}
+	#theRectangleFields{
+	position:absolute;
+	top:80px;left:20px;
+	text-align:right;
+	}
+	#theImageFields{
+	position:absolute;
+	top:300px;left:20px;
+	text-align:right;
+	}
+	input{width:100px;text-align:right;}
+</style>
+</head>
+<body>
+	<h1>move &amp; resize inner rectangle</h1>
+		<fieldset id='theRectangleFields'>
+			<legend>Selected Rectangle</legend>
+			<div><label for='theRectangleFieldsTop'>Top</label>			<input type='text' class='amt' disabled id='theRectangleFieldsTop'> px</div>
+			<div><label for='theRectangleFieldsRight'>Right</label>		<input type='text' class='amt' disabled id='theRectangleFieldsRight'> px</div>
+			<div><label for='theRectangleFieldsBottom'>Bottom</label>	<input type='text' class='amt' disabled id='theRectangleFieldsBottom'> px</div>
+			<div><label for='theRectangleFieldsLeft'>Left</label>		<input type='text' class='amt' disabled id='theRectangleFieldsLeft'> px</div>
+			<div><label for='theRectangleFieldsWidth'>Width</label>		<input type='text' class='amt' disabled id='theRectangleFieldsWidth'> px</div>
+			<div><label for='theRectangleFieldsHeight'>Height</label>	<input type='text' class='amt' disabled id='theRectangleFieldsHeight'> px</div>
+		</fieldset>
+
+		<fieldset id='theImageFields'>
+			<legend>Image Container</legend>
+			<div><label for='eTop'>Top</label>				<input type='text' class='amt' disabled id='eTop'> px</div>
+			<div><label for='eRight'>Right</label>			<input type='text' class='amt' disabled id='eRight'> px</div>
+			<div><label for='eBottom'>Bottom</label>		<input type='text' class='amt' disabled id='eBottom'> px</div>
+			<div><label for='eLeft'>Left</label>			<input type='text' class='amt' disabled id='eLeft'> px</div>
+			<div><label for='eWidth'>Width</label>			<input type='text' class='amt' disabled id='eWidth'> px</div>
+			<div><label for='eHeight'>Height</label>		<input type='text' class='amt' disabled id='eHeight'> px</div>
+			<div id='zoomFactor'></div><div id='zoomLegend'><span id='zoomFactorText'>1</span>X Magnification</div>
+		</fieldset>
+
+		<div id='theImageWrapper'>
+			<div id='theImageContainer'><img id='theImage' src='x.png' alt=''></div>
+			<div id='theClippedContainer'><img id='theClippedImage'src='x.png' alt=''></div>
+			<div id='theRectangle'></div>
+		</div>
+
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+	<script type='text/javascript' src='js/ctest.js'></script>
+</body>
+</html>

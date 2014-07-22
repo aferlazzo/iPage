@@ -1,0 +1,39 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+$user			= $_COOKIE["UName"];
+Include("conn.php");
+$arid			= $_POST["arid"];
+$xCampaignState	= $_POST["CampaignState"]; //Active | Suspended
+
+$WithinScript = "I know the arid";
+include("settings.php");
+
+$SQL = "select * from autoresponders where arid=$arid";
+$result_ar = mysql_query($SQL) or die("editaraction (".__LINE__.") $SQL");
+$arrow = mysql_fetch_array($result_ar);
+if ($arrow->CampaignState= 
+if ($debugIt > 0)
+{
+	//logMessage ("editaraction (".__LINE__.") \$user: $user<br>");
+	logMessage ("editaraction (".__LINE__.") \$arid: '$arid'<br>");
+	if ($_POST["CampaignState"] != $arrow["CampaignState"])
+		logMessage ("UpdateCampaignState (".__LINE__.") \$CampaignState changed: '$arrow[CampaignState]' to '$_POST[CampaignState]'");
+}
+
+$strSQL  = "Update autoresponders set CampaignState='$xCampaignState' where arid=$arid";
+$result = mysql_query($strSQL, $link); 
+
+if ($result == true) 
+	echo "T";
+else
+	echo "F";
+
+?>

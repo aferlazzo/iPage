@@ -1,0 +1,153 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+$user			= $_COOKIE["UName"];
+$zEmail			= $_POST["Email"];
+$zUserName		= $_POST["UserName"];
+$arid			= $_POST["arid"];
+/*
+$ID				= $_POST["arid"];
+$vtype			= $_POST["vtype"];
+$MM				= $_POST["MM"];
+$DD				= $_POST["DD"];
+$YY				= $_POST["YY"];
+$hh				= $_POST["hh"];
+$mm				= $_POST["mm"];
+$MessageNumber	= $_POST["MessageNumber"];
+$Returned		= $_POST["Returned"];
+$uid			= $_POST["uid"];
+
+$LockKeyOnRow	= $_POST["LockKeyOnRow"];
+$LockExpiryTime	= $_POST["LockExpiryTime"];
+*/
+$SendDate = mktime($hh, $mm, 0, $MM, $DD, $YY);
+
+Include("conn.php");
+
+
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Find Subscriber Action</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="../css/niftyCorners.css">
+<script type="text/javascript" src="../js/PerfectResponse.js"></script>
+<script type="text/javascript" src="../js/nifty.js"></script>
+<style type="text/css" media="screen">
+div.Hdel, div.Hmsgno, div.Harid, div.Hemail, div.Huser, 
+div.del,div.user, div.email, div.arid, div.msgno 
+{float:left;padding:4px;white-space:nowrap;font-size:8pt;height:15px;}
+div.Huser, div.user {width:190px;text-align:left;}
+div.Hemail, div.email {width:250px;text-align:left;}
+div.Harid, div.arid {width:250px;text-align:left;}
+div.Hmsgno, div.msgno {width:50px;}
+div.Hdel, div.del {width:55px;}
+div.Huser, div.Hemail, div.Harid, div.Hmsgno, div.Hdel {height:33px;font-weight:bold;line-height:15px;}
+div#Report {width:844px;text-align:center;}
+h2{margin:0;}
+</style>
+<script type="text/javascript">
+<!--//
+
+function FixWidth(Inner, Outer)
+{
+	var InnerId = document.getElementById(Inner);
+	var OuterId = document.getElementById(Outer);
+	var myWidth = 0;
+
+	if (typeof(InnerId.clientWidth) == 'number') 
+		myWidth = InnerId.clientWidth;
+	else 
+	if (InnerId && typeof(InnerId.clientWidth) != 'undefined') // IE
+		myWidth = InnerId.clientWidth;
+	
+	OuterId.style.width = myWidth + "px";
+	//alert("Inner: "+Inner+" width: "+myWidth+" Outer: "+Outer);
+}
+//-->
+</script>
+</HEAD>
+<body>
+<div id="Wrapper"><div id="content">
+<?php
+$aridIsKnown=false;
+	//die("vtype $vtype<br/>");
+	
+	$aQuery = "SELECT * FROM autoresponders where user='$user' order by ardescription";
+	$AutoresponderResult 	= mysql_query("$aQuery", $link) or die("died $aQuery"); 
+	
+	//$NumberOfAutoresponders = mysql_num_rows($AutoresponderResult); 		
+	//print("<script type='text/javascript'>alert('NumberOfAutoresponders: $NumberOfAutoresponders');</script>");
+
+	if ($vtype == "email")
+		print("<div id='Report'><h2>&lt;$zEmail&gt; Subscription Matches</h2>\n");
+	if($vtype == 'username')
+		print("<div id='Report'><h2>'$zUserName' Subscription Matches</h2>\n");
+	print("<div class='Hdel'><br/>Del Edit</div><div class='Huser'><br/>Subscribed Name</div><div class='Hemail'><br />Email Address</div>\n");
+	print("<div class='Harid'><br/>Campaign</div><div class='Hmsgno'>Current<br />Msg No</div><br style='clear:left;'>\n\n");
+	
+	while ($AutoresponderRow = mysql_fetch_object($AutoresponderResult)) 
+	{
+		$arid			= $AutoresponderRow->arid;
+		$NextAridName	= $AutoresponderRow->ardescription;
+		//print("<script type='text/javascript'>alert('user: $user arid: $arid - $NextAridName');</script>");				
+
+		if ($aridIsKnown == false)
+		{
+			$WithinScript = "I know the arid";
+			include("settings.php");
+			$aridIsKnown = true;
+		}
+
+		if ($vtype == "email")
+			$UserQuery = "SELECT * FROM users WHERE email like '$zEmail' and arid=$arid and currentmsg < 252";
+		if($vtype == 'username')
+			$UserQuery = "SELECT * FROM users WHERE fname like '$zUserName' and arid=$arid and currentmsg < 252";
+
+		$Query = addslashes($UserQuery);		
+		//print("<script type='text/javascript'>alert('UserQuery: $Query');</script>");				
+		$UserResult = mysql_query("$UserQuery", $link) or die("FindSubscriberAction".__LINE__."died: $UserQuery");
+		$ucount=0;
+		while ($UserRow = mysql_fetch_object($UserResult)) 
+		{
+			$UserName = $UserRow->fname;
+			$Email = $UserRow->email;
+			$currentmsg = $UserRow->currentmsg;
+			$ThisDiv = $arid."Row".$ucount;
+			//print("<script type='text/javascript'>alert('id: $ThisDiv Email: $Email');</script>");				
+
+			print("<div id='$ThisDiv' style='height:24px;margin:0;padding:0;' onMouseover='this.style.backgroundColor=\"#fff\"' onMouseout='this.style.backgroundColor=\"transparent\"'>\n");
+			print("<form name='MyForm$ThisDiv' method='post' target='Main' action='EditSubscriberAction.php'>\n");
+			print("<div class='del'><input id='chk$ThisDiv' class='radiogroup' type='checkbox' style='height:16px;margin:0 5px 0 5px;;padding:0;vertical-align:bottom;' onclick='DeleteRow(\"$Email\", $arid, $ucount);'>\n");
+
+			print("<input type='hidden' name='Returned' value='false'>\n");
+			print("<input type='hidden' name='arid'  value='$arid'>\n");
+			print("<input type='hidden' name='Email' value='$Email'>\n");
+			print("<input type='hidden' name='uid'   value='$uid'>\n");
+			print("<input type='hidden' name='vtype' value='email'>\n");
+			print("<input id='Editchk$ThisDiv' class='radiogroup' type='checkbox' style='height:16px;margin:0;padding:0;vertical-align:bottom;' onclick='this.form.submit();'></div></form>\n");
+	
+			print("<div class='user'>$UserName</div><div class='email'>$Email</div><div class='arid'>$arid - $NextAridName</div>\n");
+			print("<div class='msgno'>$currentmsg</div><br style='clear:left;'></div>\n\n");
+			$ucount++;
+		}
+	}
+?>
+</div></div></div>
+<script type='text/javascript'>
+//alert("ThisDiv: <?php echo $ThisDiv ?> ");
+FixWidth('<?php echo $ThisDiv ?>', 'content');
+</script>
+</body>
+</html>

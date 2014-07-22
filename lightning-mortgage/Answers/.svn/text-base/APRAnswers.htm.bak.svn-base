@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Answers to Your APR Questions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="description" content="APR - Annual Percentage Rate explained, described, and defined. US only.">
+<meta name="keywords"
+content="APR, mortgage, closing costs, Annual Percentage Rate, bad credit, LIGHTNING MORTGAGE">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<link rel="stylesheet" href="../css/AnswersStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<!--[if IE 6]>
+<style type="text/css">
+html
+{
+scrollbar-base-color: #f5f2fe;
+scrollbar-arrow-color: #FFF;
+scrollbar-track-color: #6701A4;
+scrollbar-face-color: #93c;
+scrollbar-3dlight-color: #93c;
+}
+</style>
+<![endif]-->
+<script language="JavaScript" src="../js/Common.js" type="text/javascript"></script>
+<script src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en" type="text/javascript"></script>
+</head>
+<body>
+
+<!--ih:includeHTML file="../include/top.php"--><!-- ./include/top-root.php is a copy of the contents ./include/top.htm with the directory levels changed-->
+<div class="Top">
+	<div id='MS'>
+		<a href="http://www.lightning-mortgage.com/Answers/MortgageInsiderSecrets.htm" 
+		class="Top" style="display:block;">
+		<img src="../images/SignUp.jpg" width="90" height="50" border="0" 
+		onMouseover="this.src='../images/SignUpHover.jpg'" 
+		onMouseout="this.src='../images/SignUp.jpg'" alt="Mortgage Secrets sign-up" /></a>
+	</div><!--MS-->
+	<div id='TipTop'>
+		<a class="Logo" onfocus="if(this.blur) this.blur();" href="http://www.lightning-mortgage.com/index.htm">
+		<img src="../images/Lightning-Mortgage.jpg" style="border:none;"
+		alt="Lightning Mortgage - Mortgages, even with Bad Credit" title="Lucio is in the house!"></a>
+	</div><!--TipTop-->
+	<noscript>
+	<!--
+	<p style="text-align:center;border:5px dotted #fff;font-size:large;color:#fff;">
+	<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+	This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+	//-->
+	</noscript>
+	<br style="clear:both;"> <!-- tabs here -->
+	<div id="TabDiv">
+		<div id="navTab">
+			<script language="JavaScript" type="text/javascript">
+			<!--
+			ShowNewTabs(Directory);
+			//-->
+			</SCRIPT>
+		</div><!--navTab-->
+	</div><!-- TabDiv-->
+</div><!--Top-->
+
+<div class="TopFrame">
+	<div class="TFL"></div>
+	<div id='BelowTabs'>
+		<a href="http://www.lightning-mortgage.com/Survey.php" title="Take our Satisfaction Survey"
+		class="Top">Survey</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/Feedback.htm" title="Ask questions and give us feedback"
+		class="Top">Questions?</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/AboutUs.htm" title="About Us"
+		class="Top">About</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/ContactUs.htm" title="How to contact us"
+		class="Top">Contact</a>&nbsp;|
+		<a href="#" title="opens a new window" onclick="if (window.MapWindow) window.MapWindow.close();MapWindow=open('../Administrative/WhereWeLend.htm',
+			'pcalculator','height=520,width=600,top=0,left=0,alwaysRaised=yes,resizable=no,scrollbars=no,menubar=no,titlebar=yes,toolbar=no, scroll=yes');"
+		class="Top">Where We Lend</a><img src="../images/NewWindow.gif" alt="opens new window">
+	</div> <!-- BelowTabs -->
+	<div class="TFR">
+		<form style="margin:0;" action="http://www.google.com/cse" id="cse-search-box">
+			<input type="hidden" name="cx" value="004479662315342353177:6xh8ho2tt9s" />
+			<input type="hidden" name="ie" value="utf-8" />
+			<input type="text" name="q" style="font-size:x-small;width:100px;height:14px;margin-top:1px;border:silver;" />
+			<input type="submit" class="Submit" name="sa" value="Search" style="margin-top:1px;"
+				onMouseover="this.style.cursor='pointer';this.style.color='#009';this.style.background='#fff';"
+				onMouseout="this.style.color='#fff';this.style.background='transparent';">
+		</form>
+	</div><!--TFR-->
+</div>
+
+<div class="Main">
+	<div id="ContentBackground">
+		<div id='TopLeftCorner'></div><div id='TopFrame'></div><div id='TopRightCorner'></div>
+		<div style='clear:left;'></div>
+
+		<div id='LeftFrame'></div>
+		<div id="ContentDIV">
+<!-- TopFrame -->
+<!--/ih:includeHTML-->
+			<div id='PageHead'>
+				<h1>Annual Percentage Rate (APR)</h1>
+				<p>The Mystery is Revealed</p>
+			</div>
+
+	Annual Percentage Rate (APR) is one of the most
+	misunderstood numbers when people apply for loans.</p>
+	<p>The intention of figuring the APR is to allow an apples-to-apples comparison of
+	two loans. As consumer loans in general, and mortgages in particular, became more complicated,
+	it became necessary to easily describe the full cost of a loan and communicate it to potential
+	borrowers. The attempt is to help people compare similar loans from different lenders and to
+	explain the ultimate cost of credit. The APR is defined as the cost of credit to the borrower in
+	relation to the amount borrowed, expressed as a yearly rate. It is a number required by the
+	Federal Truth in Lending Act, Regulation Z.&nbsp;</p>
+
+	<p>After you apply for a mortgage, you will be sent the Federal Truth in
+	Lending Disclosure form. At the top of the page, you will see multiple numbers. Two of these
+	numbers are the Interest or Note Rate, <i>the actual rate used to calculate your monthly
+	payments</i>, and the Annual Percentage Rate (APR). The Annual Percentage Rate will most
+	always be slightly higher than the note rate because the APR includes other items associated
+	with obtaining a mortgage.&nbsp;</p>
+
+	<p>Do you need an interest rate to get a mortgage? Of course you do, but you also
+	need other things. Origination fees, points, mortgage insurance premiums, inspections, prepaid
+	interest, and other items may also be required to obtain a mortgage. If so, these things need to be
+	included when calculating the APR.</p>
+
+	<p>Why is the APR useful? Here's an example: XYZ Bank offers a 30 year fixed
+	mortgage for 8.00%. ABC Bank offers a 30 year fixed mortgage for 7.00%. An easy choice, right?
+	Maybe.&nbsp;</p>
+
+	<p>Before lenders and mortgage brokers were required to state the APR, it was
+	hard to tell. ABC Bank has the lowest interest rate (note rate), but neglected to mention a few
+	other items. There were also 7 points, an origination fee, and mortgage insurance required.
+	XYZ Bank has no points, no origination fee, and just prepaid interest (your first months house
+	payment). On a $100,000 loan, ABC Bank charges an additional $10,000, when compared to XYZ Bank's
+	fixed rate loan. You can save an additional sixty-eight dollars per month with ABC Bank's
+	mortgage, but you have to pay $10,000 for the privilege. The $10,000 is included in the
+	calculation of the APR because it is a cost associated with obtaining the loan.</p>
+
+	<p>Here's another example: Mr. and Mrs. Smart want to buy an $85,000 home. The
+	developer of the project they really like has a home and offers an interest rate similar to what
+	they could get at Seven Seas Mortgage. The developer offers 6.00% fixed with no points.
+	Lightning Mortgage also quotes 6.00% with no points, but has an origination fee equal to 1
+	percent of the loan amount</p>
+
+	<p>But wait! The Developer failed to disclose that there is a 2 percent origination
+	fee! What looked like a better deal at the developer's lender turned out to be higher. If
+	the APR's were given, it would be evident.</p>
+
+	<p>In this instance, the APR for the developer would be 6.189% and Lightning
+	Mortgage's APR calculates to 6.094% due to the higher fees charged by the developer. Even though
+	the note rate (the rate used to figure monthly payments) was the same, it cost more at the
+	developer. Therefore, Mr. and Mrs. Smart (the name is more than just a coincidence) chose the
+	mortgage from Lightning Mortgage.</p>
+
+	<p>Remember, the higher the loan amount, the less impact additional fees or points
+	will have on the APR Why? If you obtain a mortgage with $2,000 of closing costs and you
+	borrow $10,000, then the $2,000 will be nearly 20% of the loan amount. This increases the cost
+	of your money dramatically. Usually home equity or home improvement loans show a higher disparity
+	between note rate and APR because of this. Likewise, if you borrow $100,000 and have $2,000
+	of closing costs, the fees won't make as significant an impact on the cost of funds.</p>
+
+	<p>But what about the fees used to calculate the APR? Are there some fees that
+	are excluded from the calculation? As a general rule, any fees that are normally used in
+	connection with financing should be included in the APR calculation. Other fees, such as title
+	insurance and escrow, are not included in calculating the APR The idea here is that these
+	other fees are not coming from the lender, and they would be charged anyway, although in the
+	real world, this also may not be true. When you compare APRs, ask the lender which additional
+	fees are included when calculating their APR If they don't know the answer, you may want to find
+	a lender that does know. APRs are ways of helping the consumer determine the best loan.</p>
+	<hr>
+<div style='width:120px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+	<ul>
+		<li><a
+		href="../Answers.php">Explore the rest of the Loan Process</a></li>
+		<li><a
+		href="../CreditScores.htm">Explore Credit Score Topics</a></li>		<li><a
+		href="../LoanTypes.php">Learn about Loan Types</a></li>
+		<li><a
+		href="../Answers/PreAnswers.htm">Determine if you want to be pre-qualified or pre-approved</a></li>
+		<li><a
+		href="../InterestRates/EducationTaxes.htm">Learn about the Tax Advantages of Home Ownership</a></li>
+		<li><a
+    	href="https://lightning-mortgage.ipower.com/MortgageApplication/LoanAppShort.htm">Submit A Loan Application</a></li>
+	</ul>
+</div>
+<!--ih:includeHTML file="../include/bottom.php"-->
+		<!--
+		// http://www.lightning-mortgage.com/include/bottom-root.php is a copy of the contents ../include/bottom.htm. It is the
+		// web page bottom border that is inserted in all appropriate .htm pages located at
+		// the root level of the website.
+		-->
+		<div id='RightFrame'></div><div style='clear:left;'></div>
+		<div id='LeftFrame' style='height:102px;'></div>
+		<div class="Bottom2">
+			<div style="float:right;height:90px;width:70px;">
+				<img border='0' src='../images/equalhouse.gif' alt='Equal housing lender' style="">
+			</div>
+			<a href="http://www.lightning-mortgage.com/Administrative/SiteMap.htm">Site Map</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Calculators.htm">Calculators</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Answers/GlossaryAD.htm">Glossary</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Legal.htm">Legal</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/AffiliateLinks.htm">Affiliates</a><br />
+
+			<p class="CenterSmall" style='text-align:center;'>Click on <a href="http://www.lightning-mortgage.com/Administrative/Feedback.htm">feedback</a> 
+			or call (866) 822-8500 for assistance - Last Updated:
+			<script language="JavaScript1.2" type="text/javascript">
+			<!--
+				var lastMod = new Date(document.lastModified);
+				var MM = lastMod.getMonth() + 1;
+				var DD = lastMod.getDate();
+				document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+			//-->
+			</script>
+			</p>
+
+			<p class="CenterSmall" style="margin:0;">This Website is NOT intended as a solicitation to customers in any jurisdiction in which we
+			are not authorized to operate. 
+
+			<script type="text/javascript">
+				var Today 	= new Date();
+				var ThisYear 	= Today.getFullYear();
+				var DayName = Today.getDate();
+				document.write("&copy; Lightning Mortgage 2002-" + ThisYear + " All Rights Reserved. No part of this website may be ");
+			</script>
+
+			reused commercially without the expressed written consent of Lightning Mortgage.
+			This site is directed at, and made available to, persons in the continental U.S., Alaska and Hawaii only.</p>
+		</div><!-- Bottom2 silver -->
+		<div id='RightFrame' style='height:102px;'></div><div style='clear:left;'></div>
+		<div id='BottomLeftCorner'></div><div id='BottomFrame'></div><div id='BottomRightCorner'></div>	
+	</div> <!-- ContentBackground yellow -->	
+</div> <!-- Main -->
+
+<SCRIPT language="JavaScript" type="text/javascript"> 
+<!--
+BType();
+SetContentHeight();
+//-->
+</SCRIPT>
+<!--/ih:includeHTML-->
+
+</body>
+</html>

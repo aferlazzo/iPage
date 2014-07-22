@@ -1,0 +1,261 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+/*																				*/
+/*	DeleteBounced: This script deletes subscribers from the database if error 	*/
+/*  messages are bounced back.													*/
+/*																				*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+$loggedInUser = $_COOKIE["UName"];
+include("check1.php");
+include("conn.php");			// connect to the Perfect Response db
+$arid=$_GET["arid"];
+$WithinScript = "I know the arid";
+include("settings.php");
+include("removesettings.php");
+require("pop3.php");		//pop3 protocol recives email. smtp protocol sends email. 
+
+// -----------------------------
+
+// Examine the message header and messaage body to find the bad email address
+
+// -----------------------------
+
+function GetBadEmail($headers,$body)
+{
+	/*
+	echo "<PRE>Message 1:\n---Message headers starts below---</PRE>\n";
+	for($line=0;$line<count($headers);$line++)
+	{
+		echo "<PRE>",HtmlSpecialChars($headers[$line]),"</PRE>\n";
+	}
+
+	echo "<PRE>---Message headers ends above---\n---Message body starts below---</PRE>\n";
+	*/
+	//$Found=false;
+	for($line=0;$line<count($body);$line++)
+	{
+		//$LL = HtmlSpecialChars("$body[$line]");
+		$LL = $body[$line];
+		$EmailPattern ="^(.*)([\<| ])([0-9a-z]+)([0-9a-z\.-_]+)@([0-9a-z\.-_]+)\.([0-9a-z]+)(.*)";
+		if (eregi($EmailPattern, $LL))
+		{
+			//We're looking at a line that is something like this:
+			//<markmorrison@consultant.com>): host
+			//$Addr = ereg_replace($EmailPattern, "\\1|\\2|\\3|\\4|\\5\\6", $LL);
+			$Addr = ereg_replace($EmailPattern, "\\3\\4@\\5.\\6", $LL);
+			$Addr = trim($Addr);
+			print("<br />&nbsp;&nbsp;&nbsp;".phplSpecialChars($Addr)); // prints line
+			break;
+		}
+	}
+	return($Addr);	
+	//echo "<PRE>---Message body ends above---</PRE>\n";
+}
+
+// - - - - - - - - - - - - - - - -
+
+// Update the database:
+// set the currentmsg of the subscriber in the user table to 253
+
+// - - - - - - - - - - - - - - - -
+
+function UpdateDB ($BadRecipient, $arid)
+{
+	GLOBAL $debugIt;
+	
+	$QueryUpdateSql = "update users set currentmsg='253' where email='$BadRecipient' and arid=$arid";
+
+	if (mysql_query($QueryUpdateSql) == true)
+	{
+	if ($debugIt > 0)
+		logMessage("DeleteBounced (".__LINE__.") Bad recipient '$BadRecipient' found. Updating currentmsg to 253");
+	}
+	else
+		die(logMessage("DeleteBounced (".__LINE__.") Could not update user record: '$QueryUpdateSql'"));
+}
+
+// ----------------------------------------------------------------------
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>DeleteBounced</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="./css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="./css/niftyCorners.css">
+<script type="text/javascript" src="./js/PerfectResponse.js"></script>
+<script type="text/javascript" src="./js/nifty.js"></script>
+<script type="text/javascript">
+
+// Strip HTML Tags (form) script
+function stripHTML()
+{
+	//var re= /<\S[^><]*>/g
+	var re= />|</g
+	for (i=0; i<arguments.length; i++)
+		arguments[i].value=arguments[i].value.replace(re, " ");
+}
+</script>
+</head>
+<body>
+<?php
+//print ("DeleteBounced (".__LINE__.") start program<br />");	
+$arSQL = "select * from autoresponders where user='$loggedInUser' and arid=$arid";
+$CampaignResult = mysql_query($arSQL) or die("died (".__LINE__.") $arSQL");
+$NumberOfCampaigns = mysql_num_rows($CampaignResult);
+//print ("DeleteBounced (".__LINE__.") found $NumberOfCampaigns email campaigns<br />");
+$maildelete=1;
+if ($NumberOfCampaigns < 1)
+{
+	die("No campaigns for $loggedInUser were found");
+}
+
+//print ("DeleteBounced (".__LINE__.") prior to loop<br />");	
+$pop3=new pop3_class;
+
+// for this email campaign....
+
+$arrow = mysql_fetch_object($CampaignResult);
+
+//mysql_data_seek($CampaignResult, $count);
+//$arrow 			= mysql_fetch_object($CampaignResult);
+$arid				= $arrow->arid;
+$CampaignName		= $arrow->ardescription;
+$PopServerHostName	= $arrow->pophostname;
+$PopServerPort		= $arrow->popport;
+$PopMailbox			= strtolower($arrow->popuname);  /* Authentication user name        */
+$PopPassword		= $arrow->poppwd;                /* Authentication password         */
+$CampaignState		= $arrow->CampaignState;
+
+if($PopMailbox == "")  // this means undeliverable messages are returned to the originator
+{
+	print("<div id='Wrapper'><div id='content'>\n");
+	print("<h2>Remove Bounced Subscribers From<br />\n");
+	print("<i>$CampaignName</i></h2>\n"); 
+
+	print("<p><br />Paste one of more undeliverable (returned) messages in the box. email addresses will be scraped from the messages,</p>\n");
+	print("<form name='BounceForm' method='post' target='Monitor' style='margin:10px 0;' action='DeleteBouncedAction.php'>\n");
+	print("<input type='hidden' name='arid' value='$arid'>\n");
+	print("<textarea style='margin:20px 0;' name='msgtext' id='msgtext' cols='60' wrap='OFF' rows='18'></textarea><br/>\n");
+
+	print("<input class='submit' type='submit' value='Remove' name='submit' onClick=\"this.value='Removing';stripHTML(document.BounceForm.msgtext);\" \n");
+	print("onMouseover=\"this.className='MouseOver'\" onMouseout=\"this.className='submit'\" style='margin:10px;'>\n");
+	print("<input class='cancel' type='button' value='Cancel' onClick='window.location.href=\"CampaignManager.php?arid=$arid&amp;cmd=1\"' \n"); 
+	print("	onMouseover=\"this.className='MouseOver'\" onMouseout=\"this.className='cancel'\" style='margin:10px;'></form>\n");
+	
+	JumpToCampaign($link, $arid); 
+	ReferenceLinks($arid);
+	print("</div></div>\n");
+}
+else  // read the pop3 mailbox where undeliverables are returned
+{	
+	//set up the pop3 class variables
+	
+	$pop3->hostname=$PopServerHostName;      /* POP 3 server host name                      */
+	$pop3->port=$PopServerPort;              /* POP 3 server host port                      */
+	$pop3->realm="";                         /* Authentication realm or domain              */
+	$pop3->workstation="";                   /* Workstation for NTLM authentication         */
+	$apop=0;                                 /* Use APOP authentication                     */
+	$pop3->authentication_mechanism="USER";  /* SASL authentication mechanism               */
+	$pop3->debug=0;                          /* If = 1, output debug information            */
+	$pop3->html_debug=1;                     /* Debug information is in HTML                */
+	$pop3->join_continuation_header_lines=1; /* Concatenate headers split in multiple lines */
+	
+	print("<div id='ProgressBarOutline'><div id='ProgressBar'></div></div>\n");
+	print("<div id='Wrapper'><div id='content' style='text-align:left;'>\n");
+
+	print("<h2 style='text-align:center;'>Deleting Bounced Subscribers From</h2><h2 style='text-align:center;'><i>$CampaignDescription</i></h2>\n");
+	if(($error=$pop3->Open())=="") //attempt to connect to the pop3 server
+	{
+		if ($debugIt>0)
+			logMessage("DeleteBounced (".__LINE__.") Processing arid: $arid - $CampaignName - Connected to the POP3 server '$PopServerHostName'");
+
+		if(($error=$pop3->Login($PopMailbox,$PopPassword,$apop))=="") // attempt to log in
+		{
+			if ($debugIt>1)
+				logMessage("DeleteBounced (".__LINE__.") User '$PopMailbox' logged in.");
+			if(($error=$pop3->Statistics($NumberOfMessages,$size))=="") // see if there are any messages to be read
+			{
+				//echo "<PRE>There are $NumberOfMessages messages in the mail box with a total of $size bytes.</PRE>\n";
+				$result=$pop3->ListMessages("",0);
+				if(GetType($result)=="array") //If the type of variable returned was an array
+				{
+					if($NumberOfMessages>0)
+					{
+						// Check each returned message:
+						
+						for($MsgNo=1;$MsgNo<=$NumberOfMessages;$MsgNo++)
+						{
+							/* RetrieveMessage method - the $MsgNo argument indicates the number of
+     						a message to be listed.  Pass a reference variables that will hold the
+     						arrays of the $header and $body lines.  The $lines argument tells how
+     						many lines of the message are to be retrieved.  Pass a negative number
+     						if you want to retrieve the whole message. */
+
+							$error=$pop3->RetrieveMessage($MsgNo,$headers,$body,-1); // -1 = read entire message
+							
+							$BadAddr = GetBadEmail($headers,$body);
+							
+							// DeleteMessage method - the $MsgNo argument indicates the number of
+							// a message to be marked as deleted.  Messages will only be effectively
+							// deleted upon a successful call to the Close method.
+
+							if(($error=$pop3->DeleteMessage($MsgNo))=="")
+							{
+								if ($debugIt>0)
+									logMessage("DeleteBounced (".__LINE__.") pop3 message ".$MsgNo." marked for deletion.");
+							}
+
+							if($BadAddr != "")
+								UpdateDB($BadAddr, $arid);
+							//$pop3->must_update = 1;
+					
+							print("<script type='text/javascript'>ProgressBar($MsgNo, eval($NumberOfMessages+1), 500);</script>\n");		
+							ob_flush();
+							flush();  // needed ob_flush
+						}
+					} //end $NumberOfMessages > 0 
+					
+print("<script type='text/javascript'>\nif(confirm('Delete POP3 undelivered notification messages?') == true) {\n");
+$pop3->must_update = 1;
+print("\n}</script>\n");
+					
+					/* Close method - this method must be called at least if there are any messages to be deleted */
+					
+					if(($error=="") && (($error=$pop3->Close())==""))
+						if ($debugIt>1)
+							logMessage("DeleteBounced (".__LINE__.") Disconnected from the POP3 server ".$pop3->hostname);
+				}
+				else
+					$error=$result;
+			} // end if there were messages
+		} // end if Logged in
+	}  // end if connected to pop server
+
+	if($error!="")
+	{
+		echo "<h2>Error: ",HtmlSpecialChars($error),"</h2>";
+		break;
+	}
+	
+	print("</div></div>\n");
+	print("<script type='text/javascript'>\nif(confirm('Done.\\nContinue?') == true)\n");
+	print("window.location.href='CampaignManager.php?arid=$arid&amp;cmd=1;'\n</script>\n");
+}
+
+mysql_close($link);
+?>
+
+</body>
+</html>

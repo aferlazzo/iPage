@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Realtor Login - Initial Consultation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="copyright" content="Copyright 2005, Tony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="NoIndex, NoFollow">
+<link rel="stylesheet" href="REconsultantsStyles.css" type="text/css">
+<style type="text/css">
+p, ol {font-size:large;font-family:Verdana,Arial,Helvetica,sans-serif;}
+input.Button {width:65px;font-size:large;}
+</style>
+<script language="JavaScript" src="../js/Common.js"  type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+d.cookie='UName=""; expires=Thu, 01-Jan-1999 00:00:01 GMT; path=/; Domain=www.lightning-mortgage.com';
+d.cookie='CName=""; expires=Thu, 01-Jan-1999 00:00:01 GMT; path=/; Domain=www.lightning-mortgage.com';
+
+function FrameBuster()
+{
+if (window!= top) top.location.href=location.href;
+}
+
+function DeleteMyValue (CookieName, Value)
+{
+var MyDate = new Date();
+var Day = MyDate.getDate();
+Day = Day - 1;
+MyDate.setDate(Day);
+var DDate=MyDate.toString();
+
+d.cookie=CookieName+'=; expires='+DDate+'; Path=/; Domain=lightning-mortgage.com';
+d.cookie=CookieName+'=; expires='+DDate+'; Path=/; Domain=www.lightning-mortgage.com';
+d.cookie=CookieName+'=; expires='+DDate+'; Path=/REconsultants; Domain=lightning-mortgage';
+d.cookie=CookieName+'=; expires='+DDate+'; Path=/REconsultants; Domain=www.lightning-mortgage';
+alert("In Login.php DeleteMyValue() deleted cookie "+CookieName);
+}
+
+function GetMyValue (CookieName)
+{
+var Name, Value;
+var Beginning, Middle, End;
+Beginning = 0;
+while (Beginning < d.cookie.length)
+{
+	// find the next equals sign
+	Middle = d.cookie.indexOf('=', Beginning);
+
+	// find the next semicolon
+	End = d.cookie.indexOf(';', Beginning);
+
+	if (End == -1)	// if no semicolon exists, it's the last cookie...
+		End = d.cookie.length;
+
+	// if nothing is in the cookie, blank out its value
+	if ((Middle > End) || (Middle == -1))
+	{
+		Name = d.cookie.substring(Beginning, End);
+		Value = "";
+	}
+	else
+	{
+		//extract the Name and value
+		Name = d.cookie.substring(Beginning, Middle);
+		Value = d.cookie.substring(Middle + 1, End);
+	}
+	if(Name == CookieName)
+	{
+		alert("In Login.pbp GetMyValue() cookie name is "+Name+"\nvalue is "+Value);
+		return(Value);
+	}
+	// jump over the next space to the Beginning of next cookie
+	Beginning = End + 2;
+}
+	return("");
+}
+
+function SetMyValue (CookieName, Value)
+{
+var MyDate = new Date();
+var Day = MyDate.getDate();
+Day = Day + 1;
+MyDate.setDate(Day);
+var DDate=MyDate.toString();
+if (GetMyValue(CookieName) != "")
+ DeleteMyValue(CookieName, "");
+ 
+d.cookie=CookieName+'='+escape(Value)+'; expires='+DDate+'; Path=/; Domain=www.lightning-mortgage.com';
+alert("In Login.php SetMyValue() has set cookie "+CookieName+" to value "+Value);
+GetMyValue(CookieName);
+}
+
+function ResetCookies()
+{
+ DeleteMyValue('Demo','');
+ DeleteMyValue('UName','');
+ DeleteMyValue('CName','');
+ DeleteMyValue('ICregistered','');
+ window.location.href='RegisterIC.php';
+}
+
+function CheckIt()
+{
+var Chk = GetMyValue('ICregistered');
+var R = GetMyValue('Rtimes');
+var More = "";
+//alert("ICregistered: "+Chk);
+
+if(Chk == '')
+{
+ if(R > 1) More = " again";
+ alert('Please register for access'+More+'. When you do\n'
+ +'an email will be sent with further instructions.');
+ window.location.href='RegisterIC.php';
+}
+if((UName != undefined) && (UName != "null") && (UName != ""))
+{ 
+ DeleteMyValue('Demo','');
+ DeleteMyValue('UName','');
+ DeleteMyValue('CName','');
+ //alert("Reset login cookies");
+ //window.location.href='Logout.php';
+}
+}
+function Trim(strInput)
+{
+var strTemp;
+	if(strInput.length == 0)
+		return "";
+	else
+		strTemp = strInput.substring(strInput.length - 1)
+	while (strTemp == " ")
+	{
+		strInput = strInput.substring(0, strInput.length - 1)
+		if (strInput.length == 0)
+			strTemp = "";
+		else
+			strTemp = strInput.substring(strInput.length - 1)
+	}
+	if (strInput.length == 0)
+		strTemp = "";
+	else
+		strTemp = strInput.substring(0, 1)
+	while (strTemp == " ")
+	{
+		strInput = strInput.substring(1)
+		if (strInput.length == 0)
+			strTemp = "";
+		else
+			strTemp = strInput.substring(0, 1)
+	}
+	return strInput;
+}//close Trim Function
+
+function Validate()
+{
+	var objName = document.Main;
+	var tt;
+	
+	if(Trim(objName.UserName.value)=="")
+	{
+		alert("Please enter your Login Name");
+		objName.UserName.focus();
+		return false;
+	}
+	tt = objName.UserName.value;
+	objName.UserName.value = "R"+tt;
+	
+	if(Trim(objName.pwd.value) == "")
+	{
+		alert("Please enter your Password");
+		objName.pwd.focus();
+		return false;
+	}
+
+	SetMyValue("UName", objName.UserName.value);
+	return true;
+}
+
+//-->
+</SCRIPT>
+</head>
+
+<body onload="FrameBuster();CheckIt();window.document.Main.UserName.focus();">
+<div class="Main" id="MainDIV" style='top:84px;'>
+<div class="Content" id="ContentDIV">
+<div id="Heading" style="width:45%;">
+<div class="Title"><h1 id="Small">Initial<br />Consultation</h1></div>
+<div class="Title">
+<div id="Big">Login</div>
+<div id="BigShadow">Login</div></div>
+</div><br style="clear:left;">
+<p>This area of our web site is restricted. You must login to continue. A demonstration Login Name and password will be sent to you in an email message.</p>
+<form name="Main" method="post" onsubmit="if(Validate() == false) {document.Main.Submit.style.width='3em';document.Main.Submit.value='Login';return(false);} else return(false);"
+action="./LoginAction.php">
+
+<div style="float:left;width:45%;line-height:170%;padding-right:1em;">
+<p style="text-align:right;"><label for="UserName">Login Name:</label></p>
+<p style="text-align:right;"><label for="pwd">Password:</label></p></div>
+<div style="float:left;vertical-align:bottom;text-align:left;width:48%;line-height:120%;margin-bottom:1em;">
+<p><input type='text'  name='UserName' id='UserName' onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'"></p><p><input type='password' name='pwd' onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'"></p></div><br style="clear:left;">
+<input type="hidden" name="Redirect" value="http://lightning-mortgage.com/REconsultants/Login.php">
+<br style="clear:left;">
+<input class='Button'  type='button' value='Reset' onClick='ResetCookies();'>&nbsp;
+<input class='Button'  type='button' value='Instructions' style='width:120px;' onClick='window.location.href="index.php"'>&nbsp;
+<input class='Button' type="submit" name="Submit" value="Login" 
+onClick="this.style.width='7em';this.value='Logging In...'">&nbsp;<br />
+
+</form>
+
+</div>
+<!--ih:includeHTML file="../include/bottomREconsultants.php"--><!--
+// It is the web page bottom border that is inserted in all
+// appropriate .htm pages.
+-->
+
+<p class="CenterSmall">&copy; Copyright <a href='http://www.lightning-mortgage.com'>Lightning Mortgage</a> 2005</p>
+<p class="CenterSmall">Last Updated:
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+var lastMod = new Date(document.lastModified);
+var MM = lastMod.getMonth() + 1;
+var DD = lastMod.getDate();
+document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+//-->
+</script>
+</p>
+</div><!--/ih:includeHTML-->
+<!--ih:includeHTML file="../include/topREconsultants.php"--><div class="Top">
+<noscript>
+<h1>
+Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+This website requires JavaScript to be properly viewed. Please enable JavaScript.</h1>
+
+</noscript>
+<h1>Presented By: Initial Consultation Tool</h1>
+</div>
+<div class="TopFrame">
+<div class="TFL">
+<script language="JavaScript" type="text/javascript">
+<!--
+ShowLoginButton("REconsultants");
+-->
+</script>
+</div>
+<div class="TFR">
+<script language="JavaScript" type="text/javascript">
+<!--
+ShowHelpButton("REconsultants");
+-->
+</script>
+</div></div>
+<!--/ih:includeHTML-->
+</body>
+</html>

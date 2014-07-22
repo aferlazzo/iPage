@@ -1,0 +1,535 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<title>Thanks, Toolbar Team!</title>
+
+	<!-- Written by Anthony Ferlazzo just for the APN Toolbar Team! -->
+
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<link rel="stylesheet" type='text/css' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+	<link rel="stylesheet" type='text/css' href="css/reset.css">
+<style>
+	#logo {
+	opacity:.7;
+    background:transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASsAAAA2CAMAAACoRU93AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTc0OEI3QkYyMEU4MTFFMDg0ODQ4MTIyQ0Q3Q0NDMDIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTc0OEI3QzAyMEU4MTFFMDg0ODQ4MTIyQ0Q3Q0NDMDIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo1NzQ4QjdCRDIwRTgxMUUwODQ4NDgxMjJDRDdDQ0MwMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo1NzQ4QjdCRTIwRTgxMUUwODQ4NDgxMjJDRDdDQ0MwMiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PmU/e6gAAAMAUExURVUDA4wEBdnHx9IUE5FmZpoEBeojIqQFBpMEBlY1VPMUFoQEBSdppcqbm+IWFe4XFti7vJCswakFBmozTuPExBx2u0dZi4k6U/Pr67iVlTdWiPfIyXVEZfrr6+zk5M0BAbMAALcSEvasq0sBAqZ6e6cYHPV4eP35+ee5uq9MTfFKSu0yMenb23sEBOlmZviKijpims0TEhd7wntJSVKVw7sEBSFytPTV1e4sLOPV1XICA9h2duMcG/E5OaW0wGkqK+kJCNAGB+5sa64NDcdHSNwVFcQMDmoCA6eJiWACAuqjpNyJif309ZZFRW0aKcMDBPzf38wpKtQpKuPZ2e0bGt0SEjJqp9oREcy1tawnM6EMDUdEa4sjJ+zQ0MsNDsQSEvr29tMLC74KC18bHIlTVEdKdPfb25kuQFQUFNIPEDBbj5kLDPJERdcVFMqsrG8xMnQVHPmUle9AQNtJSdSqqoBBQncmOmImPMyjpPO4uMGlpr0qK5QICn0JC95jY/MICnQlJqoGCPDj5KMlKpEGCE87XbVjZJQTGZkkKtoMDPr4+Pby8m85OTwAAKoOEOKCg44ODc5oaNuXl95YWsOsrLAKCz1Pfa41NcI4OekXFsMdH4UqNmEhJ6FqaoYVGPNZWbIFB/78/MhWVi1gmIQICvrm5mgLC/vw8HMKC3oNE98+PvcPE1cLDLceI6QHCN8UE4oICokdK8oPEL+hoZ4FBtoUFHylwjaKxYcOEd7R0b8WFzmLxYMFB4I7O3wGCGBCZ+UXFv///3QFBrgGCNAHCGMHB5sQD2wHB8Te8Yq+40+e1Gyu2/D3+9Pn9ECV0SOFyjGNzeLv+KfO6pjG5l6m2LXW7Xu23//+/v37+yCCxi6HxZ8SFvrR0fLAv/77+70REc6IieAYGJxAQL2enytvrkCOxdUQEP7o6P7+/mGaw/7////+/+V5efNwcF9RfOSdnusREG+gwrSGhv/8/MoGB3MSErFxcscXGMoYGu5VVNEZF9MfIEhRf1hOecB9fRR9xtbt8g8AAAEAdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wBT9wclAAANg0lEQVR42uybe3wTVRbHJ7ZpgtPWEmyBypJAhMojYIotNTykSo1xkSq0RQsISBGXUumqWFdSoUgVhVZ8gKKgZekiyKOoqc8KnQI2SfNOE13R4qPbXXeXXXZF3V3dnT3n3plJ0qbt7kfhD8P5fJrM3Jm5c+93zvndc+80DN+/ZaZmF6WlpR09+n1aWlF2aiYfo8b0czw1+8p/D9o4alRtbe3WrbW1xScffeFoWmfqBVbdrfPKo8tP3SHYMbC6uroqtFePXhmG66M334xxVqlpwx6+PswEXoBLBbQO3f+9SOvd6dOnX5UZw6w6hy1f9Jpot6MRXlkajWbECHSuQ5b7vyeAfvvlwOkD33gzZlkVDT742mt6vf4XYYa48qdMnjz5zpnoWCqFxXx/ImH1xsC/vfFujLIqGvyOXn97XFxX1zzRurq6EJf6VxzYcyoV0FJY5Mq30uH03w38cmCMxmDnsG/1+riuV+Y1NhYWFjY0wEehwGvJ8TsB1cuj5BZFVZ1KIVcqD88HSB9dFQteFYXVX27Tx8WVNeZ9ktAgWGGDAOux3Dm/AVaXvsUqLSqQeHAsmaw6ZnOGzuX6uLKyvIbHrp0FjpWXJ+JCWkuOq+99GVgNbTWwcmAFUQismpbFKKu0g0CqsSG5ofmyD17pAveSfKtwyfHcXPWfPwBWOxmTTq6C7IE4FrtvdyyyyhymRzzJzc0zJnR03AsDYVlDcnIyspq3JBdMfSNK+2otsKrLygLHQlZsRWbsscoejOGX3Ly9ubl5JPfVlDtOLYrLS0ZrIKRy1bk4DA65RmtiLcfy80XHOrIt5lgVLY8ry/useTvYjH/O4nY9eah2hL4RURVSVLnqOZOB1UVLtUZWlXX2bBYZCmWsriI1xlgV3Qaopk4tQFYFI4HJp8r3axeVJTcnzzueK7Ai0v4gozXKqvLPngXHQnVndboVscWqk6BKSEBWZ8aiLCWxW5BV8mO5oqmfxvLLaxiDTJOvVudnYRAiq+qfqGK1Wa3WnqyyMQCn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") no-repeat 0px 0;
+    height:70px;
+    width:310px;
+    display: none;
+    position: absolute;
+	top: 386px;
+	left: 575px;
+	z-index:10;
+	outline: none;
+    overflow: hidden;
+    text-indent: -3000px;
+	}
+	body{
+	font-family:sans-serif;
+	font-size:16px;
+	width:100%;
+	height:auto;
+	}
+	div#pageBackground {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1;
+	}
+	div#bullseyeWrapper, div#gridWrapper {
+	opacity:.7;
+	border-radius: 320px;
+	background-color: #212173;
+	border:3px solid #fff;
+	position:absolute;
+	padding:0;
+	top:174px;
+	left:371px;
+	width:470px;
+	height:470px;
+	-moz-transform: skew(0deg) rotate(0deg);
+	-webkit-transform: skew(0deg) rotate(0deg);
+	-o-transform: skew(0deg) rotate(0deg);
+	}
+
+	div#gridWrapper {
+	display:none;
+	z-index:100;
+	border-radius:0;
+	background-color:transparent;
+	border-color:#0f0;
+	}
+
+
+	div#gridHhalf {
+	opacity:.45;
+	position:absolute;
+	z-index:101;
+	height:235px;
+	width:470px;
+	background-color: #0f0;
+	}
+
+	div#gridVhalf {
+	opacity:.45;
+	position:absolute;
+	z-index:101;
+	height:470px;
+	width:235px;
+	background-color: #0f0;
+	}
+
+	div#ring0, div#ring1, div#ring2, div#ring3, div#ring4 {
+	position:absolute;
+	top:40px;
+	left:40px;
+	border-radius:50%;
+	text-align:center;
+	display:none;
+	}
+
+	div#ring0{
+	background-color:#E5E619;
+	width:390px;
+	height:390px;
+	}
+	div#ring1{
+	z-index:2;
+	background-color:#212173;
+	width:310px;
+	height:310px;
+	}
+	div#ring2{
+	z-index:3;
+	background-color:#E5E619;
+	width:230px;
+	height:230px;
+	}
+	div#ring3{
+	z-index:4;
+	background-color:#212173;
+	width:150px;
+	height:150px;
+	}
+	div#ring4{
+	z-index:151;
+	background-color:#E5E619;
+	width:70px;
+	height:70px;
+	}
+
+
+	div#spokeWrapper{
+	position: absolute;
+	z-index:150;
+	height:470px;
+	width:470px;
+	}
+	div#spokeHhalf {
+	display:none;
+	opacity:.45;
+	position:absolute;
+	z-index:151;
+	height:235px;
+	width:470px;
+	background-color:pink;
+	}
+
+	div#spokeVhalf {
+	display:none;
+	opacity:.45;
+	position:absolute;
+	z-index:151;
+	height:470px;
+	width:235px;
+	background-color:pink;
+	}
+
+	div.spoke{
+	display:none;
+	height:20px;
+	line-height:20px;
+	top:235;
+	left:235px;
+	width:200px;
+	font-size:15px;
+	color:#fff;
+	text-align:center;
+	position: absolute;
+	background-color:#f00;
+	z-index:160;
+	}
+	div.spoke p {margin:15px 0 0 -15px;font-size:20px;}
+	div#spoke0{
+	top: 224px;
+	left: 270px;
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	}
+	div#spoke1{
+	top:128px;
+	left:230px;
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	}
+	div#spoke2{
+	top: 90px;
+	left: 134px;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	}
+	div#spoke3{
+	top: 130px;
+	left: 39px;
+	-moz-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	}
+	div#spoke4{
+	top: 226px;
+	left: 0px;
+	-moz-transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+	-o-transform: rotate(-180deg);
+	}
+	div#spoke5{
+	top: 321px;
+	left:40px;
+	-moz-transform: rotate(-225deg);
+	-webkit-transform: rotate(-225deg);
+	-o-transform: rotate(-225deg);
+	}
+	div#spoke6{
+	top: 360px;
+	left: 137px;
+	-moz-transform: rotate(-270deg);
+	-webkit-transform: rotate(-270deg);
+	-o-transform: rotate(-270deg);
+	}
+	div#spoke7{
+	top: 320px;
+	left: 231px;
+	-moz-transform: rotate(-315deg);
+	-webkit-transform: rotate(-315deg);
+	-o-transform: rotate(-315deg);
+	}
+	#rotateSpeed{
+		display:inline-block;
+		top: -5px;
+		width:150px;
+	}
+	#rotateSpeed a{
+		color:gray;
+		border-color:gray;
+		padding: 0 2px;
+		font-size:12px;
+		text-decoration: none;
+		text-align:center;
+	}
+	#rotateSpeedControl{
+		position:absolute;
+		top:110px;
+		left:-15px;
+		width:450px;
+		height:35px;
+	}
+	#rotateSpeedControl span{margin:0 20px;}
+	.ui-widget-header{background:#F6A828;}
+	.ui-slider-horizontal {height: 10px;}
+	.ui-slider-handle {height: 12px;}
+	div#startStopControl{
+		display:none;
+		position:absolute;
+		top:689px;
+		left:405px;
+		width:290px;
+		height:130px;
+		z-index:-1;
+	}
+	div#startStopControl span{
+		margin-bottom:14px;
+		display:inline-block;
+		vertical-align:middle;
+		/*background-color:rgba(0, 0, 255, 0.2);*/
+		color:#fff;
+
+	}
+	div.controlButtons{
+		height:20px;
+		width:20px;
+		background-color:#E5E619;
+		border:2px solid #fff;
+		display:inline-block;
+		border-radius:50%;
+		margin-right:10px;
+		cursor:pointer;
+		}
+	div#thankYou{
+		position:fixed;
+		top:247px;
+		left:145px;
+		width:222px;
+	}
+	div#thankYou p{
+		text-align:left;
+		margin-bottom:20px;
+		color:#fff;
+	}
+	p#a{
+		margin-left:10px;
+		-webkit-transform: skewX(-5deg) skewY(-18deg);
+		-moz-transform: skewX(-5deg) skewY(-18deg);
+		-o-transform: skewX(-5deg) skewY(-18deg);
+	}
+
+	p#b{
+		-webkit-transform: skewX(-5deg) skewY(-13deg);
+		-moz-transform: skewX(-5deg) skewY(-13deg);
+		-o-transform: skewX(-5deg) skewY(-13deg);
+	}
+	p#c{
+		margin-left:-10px;
+		-webkit-transform: skewX(-8deg) skewY(-10deg);
+		-moz-transform: skewX(-8deg) skewY(-10deg);
+		-o-transform: skewX(-8deg) skewY(-10deg);
+	}
+	p#d{
+		margin-left:-19px;
+		-webkit-transform: skewX(0deg) skewY(-7deg);
+		-moz-transform: skewX(0deg) skewY(-7deg);
+		-o-transform: skewX(0deg) skewY(-7deg);
+	}
+	p#e{
+		margin-left:-22px;
+		-webkit-transform: skewX(0deg) skewY(-4deg);
+		-moz-transform: skewX(0deg) skewY(-4deg);
+		-o-transform: skewX(0deg) skewY(-4deg);
+	}
+	p#f{
+		margin-left:-26px;
+		-webkit-transform: skewX(-7deg) skewY(-5deg);
+		-moz-transform: skewX(-7deg) skewY(-5deg);
+		-o-transform: skewX(-7deg) skewY(-5deg);
+	}
+
+</style>
+</head>
+<body>
+<div id='pageBackground'><img src="images/askBuilding.jpg" width="100%" height="100%" alt="Ask Building"></div>
+	<div id='logo'></div>
+	<div id='gridWrapper'>
+		<div id='gridHhalf'></div>
+		<div id='gridVhalf'></div>
+	</div>
+
+	<div id='bullseyeWrapper'>
+			<div id='ring0'>
+				<div id='ring1'>
+					<div id='ring2'>
+						<div id='ring3'>
+							<div id='ring4'>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id='spokeWrapper'>
+				<div id='spokeHhalf'></div>
+				<div id='spokeVhalf'></div>
+				<div id='spoke0' class='spoke'>0.Jayashree Biswas</div>
+				<div id='spoke1' class='spoke'>1.Abrahm Coffman</div>
+				<div id='spoke2' class='spoke'>2.Kristina De Nike</div>
+				<div id='spoke3' class='spoke'>3.Jarred Tebo</div>
+				<div id='spoke4' class='spoke'>4.Mamta Jain</div>
+				<div id='spoke5' class='spoke'>5.Anantha Krihnan</div>
+				<div id='spoke6' class='spoke'>6.Tanmay Shrivastava</div>
+				<div id='spoke7' class='spoke'>7.Jo Gerona</div>
+			</div>
+		</div>
+	</div>
+	<div id='startStopControl'>
+		<div><div class='controlButtons forwardButton'></div><span>Forward</span></div>
+		<div><div class='controlButtons reverseButton'></div><span>Reverse</span></div>
+		<div><div class='controlButtons stopButton'></div><span>Stop</span></div>
+		<div id='rotateSpeedControl'>
+			<span>Slow</span><div id='rotateSpeed'></div><span>Fast</span>
+		</div>
+	</div>
+	<div id='thankYou'>
+		<p id='a'>Dear Ms. Jayahree Biswas,<p>
+		<p id='b'>Thank you and part of your team for taking time out to meet and speak with me on Wednesday.
+		I really appreciated the thoughtful questions and insightful descriptions of the work on both the toolbar and the mobile
+		positions you have open.</p>
+		<p id='c'>My hope is that you and your team feel that I shot a bullseye and would be an asset to your group and to the Technology
+		department as a whole.</p>
+		<p id='d'>Sincerely,</p>
+		<p id='e'>Anthony Ferlazzo</p>
+		<p id='f'>P.S. This page works best with a recent version of Chrome or FireFox, both of whom support CSS3 best.
+	</div>
+	<script type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+
+
+
+
+	<script>
+	var Bullseye = {		// create object
+		d: 0,				// define property and initial value
+		debug: 'f',			// debug property should have a value of 't' or 'f'
+
+		checkDebug: function() {
+			if(Bullseye.debug == 't') {
+				$('#gridWrapper').css('display', 'block');
+			}
+		},
+
+		rotate45: function (){			// define method
+			var dTimeoutId;
+
+			//console.log('rotate45: degrees '+Bullseye.d);
+
+			function rotateMe(){
+			//console.log('rotateMe');
+				$('#bullseyeWrapper').css({	'-webkit-transform': 'skew(0deg) rotate('+ (++Bullseye.d) +'deg)',
+									'-moz-transform'   : 'skew(0deg) rotate('+ Bullseye.d +'deg)',
+									'-o-transform'     : 'skew(0deg) rotate('+ Bullseye.d +'deg)'});
+				if (Bullseye.d%45 != 0)
+					setTimeout(rotateMe, 10);
+			}
+			rotateMe();
+		},		// end of rotate45 method
+
+
+		makeSpokes: function () {
+			var sIndex, msArray = [1000, 6000, 11000, 16000, 21000, 26000, 31000, 36000]
+						degrees = [ 0, 45, 90, 135, 180, 225, 270, 315];
+
+			// js animation problem: you cannot put a timer inside a for loop because
+			// the index would be modified by for loop before the show and hide statements are executed
+
+			$('#spoke0').fadeIn(1000, function() {
+				Bullseye.rotate45();
+				$('#spoke1').delay(2000).fadeIn(1000, this.rotate45, function() {
+					Bullseye.rotate45();
+					$('#spoke2').delay(2000).fadeIn(1000, this.rotate45, function() {
+						Bullseye.rotate45();
+						$('#spoke3').delay(2000).fadeIn(1000, this.rotate45, function() {
+							Bullseye.rotate45();
+							$('#spoke4').delay(2000).fadeIn(1000, this.rotate45, function() {
+								Bullseye.rotate45();
+								$('#spoke5').delay(2000).fadeIn(1000, this.rotate45, function() {
+									Bullseye.rotate45();
+									$('#spoke6').delay(2000).fadeIn(1000, this.rotate45, function() {
+										Bullseye.rotate45();
+										$('#spoke7').delay(1000).fadeIn(1000, function(){
+											$('#ring0').delay(500).fadeIn(100, function(){
+												$('#ring1').delay(500).fadeIn(100, function(){
+													$('#ring2').delay(500).fadeIn(100, function(){
+														$('#ring3').delay(500).fadeIn(100, function(){
+															$('#ring4').delay(500).fadeIn(100, function(){
+																if(Bullseye.debug != 't') {
+																	$('#logo').css('display', 'block');
+																}
+																$('#startStopControl').css('display', 'block');
+																//$('.controlButtons.forwardButton').click();
+																$('.controlButtons.stopButton').css('backgroundColor', '#212173');
+															});
+														});
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		}		// end of makeSpokes
+	}			// end of Bullseye object
+
+
+
+
+
+		buttons = function () {
+			var sp=0, lsp=0, direction = 'F', angle = 0, rTimeoutId, rotationSpeed;
+
+			$('.controlButtons').click(function(){
+				//alert($(this).attr('class') + ' pressed');
+
+				$('.forwardButton, .reverseButton, .stopButton').css('backgroundColor', '#E5E619');
+
+				function rotateIt() {
+					var a = direction === "F" ? angle += 5 : angle -= 5;
+
+					$('#bullseyeWrapper').css({	'-webkit-transform': 'skew(0deg) rotate('+ (a % 360) +'deg)',
+										'-moz-transform'   : 'skew(0deg) rotate('+ (a % 360) +'deg)',
+										'-o-transform'     : 'skew(0deg) rotate('+ (a % 360) +'deg)'});
+					clearTimeout(rTimeoutId);
+					rotationSpeed = $( "#rotateSpeed" ).slider( "option", "value" );
+
+					lsp = sp;
+					sp = 1001 - rotationSpeed;
+
+					if (lsp !== sp)
+						console.log(sp + 'ms between every 5 degrees bullseye is rotated');
+					rTimeoutId = setTimeout(rotateIt, sp);
+				}
+
+
+				if ($(this).hasClass('forwardButton')) {
+					direction = "F";
+					rotateIt();
+				}
+
+				if ($(this).hasClass('reverseButton')) {
+					direction = "R";
+					rotateIt();
+				}
+
+				if ($(this).hasClass('stopButton')) {
+					clearTimeout(rTimeoutId);
+					if (Bullseye.debug === 't')
+						Bullseye.rotate45();
+				}
+
+				$(this).css('backgroundColor', '#212173');
+			});
+
+		}		// end of buttons
+
+		Bullseye.checkDebug();
+		Bullseye.makeSpokes();
+		buttons();
+
+		$("#rotateSpeed").slider({
+						min: 500,
+						max: 1000,
+					  value: 750,
+					  range: 'min',
+/*
+					 create: function() {
+						$('.ui-slider-handle').html(2);
+					},
+*/
+					 slide: function(event, ui) {
+						buttons.rotationSpeed=ui.value;
+						//console.log('slider: rotating at speed: ' + buttons.rotationSpeed);
+						//$('.ui-slider-handle').html(buttons.rotationSpeed);
+					}
+		});
+
+
+</script>
+</body>
+</html>

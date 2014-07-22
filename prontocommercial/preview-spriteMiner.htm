@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<title>spriteMiner</title>
+<meta name="copyright" content="Copyright 2010, Anthony Ferlazzo - aferlazzo at gmail dot com" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/spriteMiner.css" />
+</head>
+<body>
+<!--
+	This area has the user controls:
+	- The name of the file containing the sprites.
+	- the input boxes and slide controls for adjusting the width and height coordinates
+-->
+	<img src='./images/spriteMiner.png' alt='logo' id='logo' />
+	<div id='controlTablet'>
+		<div id="tabs" class="ui-tabs">
+			<ul>
+				<li><a href="#spriteTab">Sprite File</a></li>
+				<li><a href="#cssTab">Selection's CSS</a></li>
+				<li><a href="#coordinatesTab">Coordinates</a></li>
+				<li><a href="#aboutTab">About</a></li>
+				<li><a href="#helpTab">Help</a></li>
+			</ul>
+
+
+			<div id='spriteTab' class='controlsDiv ui-tabs-hide'>
+				<h3>Sprite Image File</h3>
+				<form id='spriteForm' action="spriteUpload.php" method="post" enctype="multipart/form-data" onsubmit="startUpload();" target="uploadTarget">
+					<div id="spriteUpload">
+						 <p><br/></p>
+						<input id='sFile' name='sFile' type="file" size="35" /><br/>
+						<input type="submit" name="uploadButton" id="uploadButton" value="Upload" />
+					</div>
+					<div class='sbs gray' style='height:60px;margin:15px 5px;' title='Pick a color'>
+						<label for='spriteBGcolor'>Sprite<br/>Background</label>
+						<div class='colorChart' id='spriteBGcolor'>
+							<span class='colors BG0'></span><span class='colors BG1'></span><span class='colors BG2'></span><span class='colors BG3'></span><span class='colors BG4'></span><span class='colors BG5'></span><span class='colors BG6'></span><span class='colors BG7'></span><span class='colors BG8'></span>
+						</div>
+					</div>
+					<div id="f1_upload_process" class='sbs'></div>
+					<div class='sbs gray' style='height:60px;margin:15px 5px;' title='Pick a color'>
+						<label for='itemBGcolor'>Selection<br/>Background</label>
+						<div class='colorChart' id='itemBGcolor'>
+							<span class='colors BG0'></span><span class='colors BG1'></span><span class='colors BG2'></span><span class='colors BG3'></span><span class='colors BG4'></span><span class='colors BG5'></span><span class='colors BG6'></span><span class='colors BG7'></span><span class='colors BG8'></span>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<iframe id="uploadTarget" name="uploadTarget" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
+
+
+			<form action="#">
+			<div id='coordinatesTab' class='controlsDiv ui-tabs-hide'>
+				<label for='itemTop'    class='sbs gray'>Item<br/>Top</label>
+				<label for='itemBottom' class='sbs gray'>Item<br/>Bottom</label>
+				<label for='itemLeft'   class='sbs gray'>Item<br/>Left</label>
+				<label for='itemRight'  class='sbs gray'>Item<br/>Right</label>
+				<div class='sbs gray'><input type='text' name='itemTop'		id='itemTop' 	value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='itemBottom'	id='itemBottom' value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='itemLeft'	id='itemLeft'   value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='itemRight'	id='itemRight'  value='0'/> px</div>
+
+				<label for='spriteTop'	  class='sbs gray'>Sprite<br/>Top</label>
+				<label for='spriteBottom' class='sbs gray'>Sprite<br/>Bottom</label>
+				<label for='spriteLeft'   class='sbs gray'>Sprite<br/>Left</label>
+				<label for='spriteRight'  class='sbs gray'>Sprite<br/>Right</label>
+				<div class='sbs gray'><input type='text' name='spriteTop'	 id='spriteTop'    value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='spriteBottom' id='spriteBottom' value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='spriteLeft'   id='spriteLeft'   value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='spriteRight'  id='spriteRight'  value='0'/> px</div>
+			</div>
+
+			<div id='cssTab' class='controlsDiv ui-tabs-hide'>
+				<h3>Generated CSS</h3>
+				<textarea id='spriteCSS' cols='50' rows='10'>Item not selected to generate</textarea>
+			</div>
+			</form>
+			<div id='aboutTab' class='controlsDiv ui-tabs-hide'>
+				<h3>About SpriteMiner</h3>
+				<p>The spriteMiner web page was written out of frustration with the lack of graphic
+				web development tools that provide a bulletproof way of obtaining the CSS code for an item within a sprite,
+				particularly if you later want to make a change to a sprite.</p>
+
+				<p>In a perfect world one would come up with an idea for a web page, write the HTML code, the CSS, the
+				javascript and server pieces, and then move on to the next assignment. But one then has to also assume that
+				there are no specification mistakes, changes of direction, or anything else that could possibly go wrong.
+				The real world of web development is not quite so tidy a place. For us, that means there are changes
+				introduced by internal and external factors, if not during development then over time.</p>
+
+				<p>This web page helps in developing, maintaining, and improving HTML pages that use sprites. Notice the
+				active-verb choices in the previous sentence. That's because there is rarely a 'development' or an 'improvement' event.
+				Rather we are often developing and improving via a process called 'continuous improvement'. We make these
+				changes because we begin with a vision of a HTML page, but one we achieve that vision
+				we realize that an refinement to our original vision is necessary.</p>
+
+				<p>Along with the HTML code, the graphic objects and other formating decisions like paragraph placement
+				and so forth are being fine-tuned. That's why the benefit of creating sprites during the initial web
+				page development for page load speed and memory savings have the unwanted side-effect of making page
+				'tweaking' a more complex endeavor.</p>
+
+				<p>Creating a sprite at any point in the HTML page life-cycle results in efficiencies, but it also
+				creates yet another thing that must be adjusted when a web page later changes. unfortunately there
+				are few tools that help the person who is charged with making such a change to rebuild or adjust
+				sprites, save for completely recreating the sprite from individual graphic files.</p>
+				<p>Like spriteMiner? Contact Anthony Ferlazzo - aferlazzo at gmail dot com.</p>
+			</div>
+
+			<div id='helpTab' class='controlsDiv ui-tabs-hide'>
+				<h3>Help</h3>
+				<p>Browse to the pathname of a sprite image file on the 'Sprite File' tab and click 'Upload'. It will appear
+				within a grid. Next to it will appear a copy of the sprite without a grid. You can drag this copy around
+				the page if needed for a better view of the selection.</p>
+
+				<p>To understand the sprite grid think of it as 2 pieces of transparent paper. The bottom piece, or layer,
+				contains a copy of the sprite and the sprite background color. The top piece layer is the item you select
+				and the selection tint.</p>
+
+				<p>Hover over a 'Selection Background' color to colorize the background the sprite is a light color in order
+				to better see the sprite. Click on a color to click on it if it helps you see the sprite. Next, hover over
+				a color on the 'Selection Background' tints the layer to make it easy to determine which part of the sprite
+				is selected.</p>
+
+				<p>Initially the entire sprite will be selected and tinted but you can use the grid frame's coordinate
+				numbers s as handles for adjusting the selection rectangle. Alternatively, you can directly adjust the
+				selection by dragging the rectangle horizontally or vertically or by resizing it.</p>
+
+				<p>The 'Coordinates' tab is yet another place to adjust the sprite grid and the selected item on it.</p>
+
+				<p>Some sprites may be too large to view along with the selected item to the right. The sprite frame can
+				be resized to make it easier to work on the portion of the sprite you are interested in. The top and left
+				edges of the frame control the width and height of the visible sprite while the bottom and right frame edges
+				allow the selected item to be adjusted.</p>
+
+				<p>After moving a handle click on one of the corners to reduce the
+				sprite's size to the selected item's coordinates. A red corner means the height or width of the sprite is
+				partially hidden. Clicking again will restore the sprite's height or width to full view.</p>
+
+				<p>The 'Item CSS' tab contains the css code to use once you have selected an item. This is an accurate
+				representation of the item and is the result to use on your web pages.</p>
+			</div>
+		</div>
+	</div>
+
+
+<div id='spriteBase'>
+	<div class='corners topLeft heightCorners' title="click to shrink sprite's height to selected item's height"></div>
+	<div id='spriteWidthSliderFrame'>
+		<div id='spriteWidthSlider'></div>
+	</div>
+	<div class='corners topRight widthCorners' title="click to shrink sprite's width to selected item's width"></div>
+
+	<div id="spriteHeightSliderFrame">
+		<div id="spriteHeightSlider"></div>
+	</div>
+	<div id='spriteBoxBackground'></div>
+	<div id='spriteBox'>
+		<div id='itemBox'></div>
+	</div>
+	<div id='itemHeightSliderFrame'>
+		<div id='itemHeightSlider'></div>
+	</div>
+	<div class='corners bottomLeft heightCorners' title="click to shrink sprite's height to selected item's height"></div>
+	<div id='itemWidthSliderFrame'>
+		<div id="itemWidthSlider"></div>
+	</div>
+	<div class='corners bottomRight widthCorners'  title="click to shrink sprite's width to selected item's width"></div>
+</div>
+<div id='spriteResultBox'>
+	<div id='itemResultBox'></div>
+</div>
+<script type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+<script type='text/javascript'>
+	google.load("jquery", "1.4.2");
+	google.load("jqueryui", "1.8.6");
+</script>
+<script type='text/javascript' src='./js/spriteMiner.js'></script>
+</body>
+</html>

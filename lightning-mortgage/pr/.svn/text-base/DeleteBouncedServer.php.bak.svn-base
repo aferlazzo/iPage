@@ -1,0 +1,99 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+/*																				*/
+/*	DeleteBounced: This script deletes subscribers from the database if error 	*/
+/*  messages are bounced back.													*/
+/*																				*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+//die("arid:|".$_POST["arid"]."|");
+if ($_POST["arid"] == "")
+{
+	$arid=176;
+	$Body="garbage line\n   anthony@prontocommercial.com\nmore garbage\n";
+}
+else
+{
+	$arid=$_POST["arid"];
+	$Body=$_POST["Body"];
+}
+
+include("conn.php");			// connect to the Perfect Response db
+$WithinScript = "I know the arid";
+include("settings.php");
+
+//echo("$Body");
+
+// -----------------------------
+
+// Examine the message messaage body to find the bad email address
+
+// -----------------------------
+
+function GetBadEmail($MsgBody)
+{
+	$EmailPattern ="([0-9a-z]+)([0-9a-z\.-_]+)@([0-9a-z\.-_]+)\.([0-9a-z]+)(.*)";
+
+	//$MsgBody=eregi_replace("[ \n]", "|", $MsgBody);
+	$SplitTarea = split("[ \n]", $MsgBody); //split the text area elements (delimited by \n) and put into a table
+	$xxx = count($SplitTarea);
+	$Addr = "";
+	for($x = 0; $x < $xxx; $x++)
+	{
+		$LL = $SplitTarea[$x];  
+		if (eregi($EmailPattern, $LL))
+		{
+			//We're looking at a line that is something like this:
+			//<markmorrison@consultant.com>: host
+			$Addr = ereg_replace($EmailPattern, "\\1\\2@\\3.\\4", $LL);
+			$Addr = trim($Addr);
+			//print("<script type='text/javascript'>alert('Found email: $Addr');</script>\n");		
+			break;
+		}
+	}
+	return($Addr);	
+}
+
+// - - - - - - - - - - - - - - - -
+
+// Update the database:
+// set the currentmsg of the subscriber in the user table to 253
+
+// - - - - - - - - - - - - - - - -
+
+function UpdateDB ($BadRecipient, $arid)
+{
+	GLOBAL $debugIt;
+	
+	$QueryUpdateSql = "update users set currentmsg='253' where email='$BadRecipient' and arid=$arid";
+
+	if (mysql_query($QueryUpdateSql) == true)
+	{
+		if ($debugIt > 0)
+			logMessage("DeleteBounced (".__LINE__.") Bad recipient $BadRecipient found. Updating currentmsg to 253");
+		return(true);
+	}
+	else
+	{
+		die(logMessage("DeleteBounced (".__LINE__.") Could not update user record: '$QueryUpdateSql'"));
+		return(false);
+	}
+}
+
+$email = GetBadEmail($Body);
+echo("T|$email|$arid");
+/*
+if(UpdateDB($email, $arid) == true)
+	echo("T|$email|$arid");
+else
+	echo("F|$email|arid");
+*/
+?>

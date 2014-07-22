@@ -1,0 +1,232 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+//
+//	Manage Messages
+//
+
+//	Every campaign will have the following common messages:
+//	seqno	subject
+//	-------	---------
+//    -4		Broadcast Message
+//	  -3		Subscription Confirmation Message, in a 2-step opt-in
+//	  -2		Welcome Message
+//	  -1		Unsubscribe Acknowledgement Message
+//	   0		Campaign Signature
+// some will have sequence number -4, immediate broadcast messages
+
+include("check1.php");
+Include("conn.php");
+$arid=$_GET["arid"];
+$WithinScript = "I know the arid";
+include("settings.php");
+
+	//Add the broadcast message if it doesn't exist in the campaign (this is a fix for old campaigns that did not have message seqno -4
+	$MessageSelectResult = mysql_query("SELECT * FROM messages where arid=$arid and seqno=-4", $link); 
+	$NumberOfMessages = mysql_num_rows($MessageSelectResult);
+	if($NumberOfMessages == 0)
+		$result = mysql_query("INSERT INTO messages (arid, subject, body, delay, seqno) VALUES ($arid, 'Immediate Broadcast Message', '', 0, -4)", $link) or die("AddMessageAction: error -4");
+
+	$MessageSelectResult = mysql_query("SELECT * FROM messages where arid=$arid order by seqno", $link); 
+	$NumberOfMessages = mysql_num_rows($MessageSelectResult); 	
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE> Manage Messages - Perfect Response</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="../css/niftyCorners.css">
+<script type="text/javascript" src="../js/PerfectResponse.js"></script>
+<script type="text/javascript" src="../js/nifty.js"></script>
+<style type="text/css">
+label:hover { 
+background-color:#fff; 
+font-weight:bold;
+cursor:pointer; 
+}
+</style>
+</HEAD>
+<body>
+<div id="Wrapper"><div id="content">
+<span class="BoxHeading">
+<input type="button" id="submit" name="submit" value="Click for helpful hints!" class="Button" onclick="Show();" onmouseover="document.getElementById('submit').style.fontWeight='bold';" onmouseout="document.getElementById('submit').style.fontWeight='normal';">
+</span>
+<div id="navBeta">
+	<h2>Notes about Messages</h2>
+	<p>Click on a message's subject line to edit it. You may also reorder messages using the
+	'move up' and 'move down' commands. You can also delete email campaign messages here. </p>
+	
+	<p>There are 5 default message entries:</p>
+	<p>The <i>Confirmation</i> message will be sent out immediately to confirm the subscription
+	in <b>2-step</b> opt-in campaigns.</p>
+
+	<p>The <i>Welcome</i> message is sent out immediately to all subscribers. For 2-step opt-in
+	campaigns, the message will be sent out only after the subscriber confirms the subscription request.</p>
+	
+	<p>The <i>Unsubscribe</i> message is sent out immediately after a subscriber requests subscription termination
+	or when manually deleted from the subscription list.</p>
+	
+	<p>The <i>Campaign Messages Signature</i> is text that is appended to every message.
+	This would normally consist of your name and contact information. You might want to include special offers 
+	in a 'P.S.' too.</p>
+	<p>The <i>Immediate Broadcast Message</i>that will get sent without delay, when you are ready to send it.</p>
+	<p>All other messages are sent out after a specified delay.</p>
+</div>
+<table width="100%" BORDER='0' CELLPADDING='2' CELLSPACING='0' align="center">
+	<tr>
+		<td align='center' colspan='4'>
+	<?php 
+		print("<h1 id='Grow'><i>$CampaignDescription</i></h1></td></tr><tr><td colspan='2' align='center'>\n");
+	?>
+		</td>
+	</TR>
+	<TR> 
+		<td colspan='4' align='center'>
+			<h2>Manage Messages</h2>
+		</td>
+			<?php
+
+	print ("<tr>\n");
+	print ("<td style='text-align:center;width:50px;'>&nbsp;<b>Command</b></td>\n");
+	print ("<td style='text-align:center;width:30px;'><b>Delay</b></td>\n");
+	print ("<td style='text-align:center;width:50px;'><b>Number</b></td>\n");
+	print ("<td style='text-align:left;'><b>Subject</b></td></tr>\n");
+	
+	if($NumberOfMessages > 0)
+	{
+				for($count=0;$count<$NumberOfMessages;$count++)
+				{
+					mysql_data_seek($MessageSelectResult, $count);
+					$row = mysql_fetch_object($MessageSelectResult);
+/*
+					if (0 == ($count % 2))
+					  print ("<tr style='background:#48e1cc;'>\n");
+					else
+*/
+					  print ("<tr>\n");
+						
+					print ("<td style='width:98px;text-align:right;margin:0;padding:0;vertical-align:middle;'>\n");
+
+					//Each row has unique form name: EditRecord followed by the mid, like EditRecord832
+					print ("<form name='EditRecord$row->mid' action='EditMessage.php' method='post'>\n"); 
+					print ("<input type='hidden' name='arid' value='$arid'>\n");
+					print ("<input type='hidden' name='mid' value='$row->mid'>\n");
+					print ("<input type='hidden' name='curseq' value='$row->seqno'>\n");
+					$Aname=addslashes($Display_Name);
+					//print("|$Aname|");
+					//echo get_magic_quotes_gpc();
+					print ("<input type='hidden' name='Aname' value='$Display_Name'>\n");
+			 
+					print ("&nbsp;<select size='1' name='cmd' onChange='document.EditRecord$row->mid.submit();' style='width:90px;'>\n");
+					print ("<option value='0'>Select One</option>\n");
+					print ("<option selected value='1'>Edit</option>\n");
+					
+					if ($row->seqno > 0)
+						print ("<option value='2'>Delete</option>\n");
+
+					if (($count > 0) && ($row->seqno > 1))
+						print ("<option value='3'>Move Up</option>\n");
+
+					if (($count < ($NumberOfMessages - 1)) && ($row->seqno > 0))
+						print ("<option value='4'>Move Down</option>\n");
+
+					print ("</select></form></td>\n");
+
+					// if the user clicks on the message name, edit the message
+					
+					if ($row->seqno > 0)
+					{
+						print ("<td style='text-align:center;font-weight:bold;'><label onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'>$row->delay</label></td>\n");
+						print ("<td style='text-align:center;font-size:8pt;font-weight:bold;'><label onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'>$row->seqno</label></td>\n");
+						print ("<td style='text-align:left;font-size:8pt;width:300px;'><label onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'><b>$row->subject</b></label></td>\n");
+					}
+					elseif ($row->seqno == -4)
+					{
+						print ("<td align='center'></td>\n");
+						print ("<td style='text-align:center;font-size:8pt;font-weight:bold;'></td>\n");
+						print ("<td style='text-align:left;font-size:8pt;'><label onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'><i>Manual Broadcast ");
+						print ("Message</i></label></td>\n");
+					}
+					elseif ($row->seqno == -3)
+					{
+						print ("<td align='center'></td>\n");
+						print ("<td style='text-align:center;font-size:8pt;font-weight:bold;'></td>\n");
+						print ("<td style='text-align:left;font-size:8pt;'><label onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'><i>Subscription Confirmation ");
+						print ("Message</i></label></td>\n");
+					}
+					elseif ($row->seqno == -2)
+					{
+						print ("<td align='center'></td>\n");
+						print ("<td style='text-align:center;font-size:8pt;font-weight:bold;' onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'><label>0</label></td>\n");
+						print ("<td style='text-align:left;font-size:8pt;'><label onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'><i>Welcome Message</i></label>\n");
+						print ("</td>\n");
+					}
+					elseif ($row->seqno == -1)
+					{
+						print ("<td align='center'></td>\n");
+						print ("<td style='text-align:center;font-size:8pt;font-weight:bold;' onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'></td>\n");
+						print ("<td style='text-align:left;font-size:8pt;'><label onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'><i>\n");
+						print ("Unsubscribe Acknowledgement Message</i></label></td>\n");
+					}
+					elseif ($row->seqno == 0)
+					{
+						print ("<td align='center'></td>\n");
+						print ("<td style='text-align:center;font-size:8pt;font-weight:bold;' onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'></td>\n");
+						print ("<td style='text-align:left;font-size:8pt;'><label onclick='document.EditRecord$row->mid.cmd.value=1;document.EditRecord$row->mid.submit();'><i>Campaign Messages Signature</i></label></td>\n");
+					}
+				}
+	}
+	else  // if no messages exist
+	{
+		print ("<tr height='30'>\n");
+		print ("<td align='right'>\n");
+		print ("&nbsp;<select size='1' disabled name='cmd' onChange='submit();'>\n");
+		print ("<option selected value='0'>Select One</option>\n");
+		print ("</td>\n");
+
+		print ("<td align='center'>&ltNo Messages&gt</td>\n");
+		print ("<td >&nbsp;</td>\n");
+	}
+	print("</tr></table>\n\n");
+	
+	print ("<div style='width:440px;margin:20px 0 10px 100px;'>\n");
+
+	print ("<div style='float:left;margin:0 10px;'><form action='AddMessage.php'>\n");
+	print ("<input type='hidden' name='arid' value='$arid'>\n");
+	print ("<input class='submit' type='submit' name='AddMsg' value='Add' onClick=\"this.value='Adding'\" ");
+	print ("onMouseover=\"this.className='MouseOver'\" onMouseout=\"this.className='submit'\">\n");
+	print ("</form></div>\n");
+
+	print("<div style='float:left;margin:0 10px;'><form action='InstantTest.php'>\n");
+	print ("<input type='hidden' name='arid' value='$arid'>\n");
+	print ("<input class='cancel' type='submit' name='OtherT' value='Instant Test' style='width:110px;' onClick=\"this.value='Testing'\" ");
+	print ("onMouseover=\"this.className='MouseOver'\" onMouseout=\"this.className='cancel'\" title='Send an instant test of one or all messages'>\n");
+	print ("</form></div>\n");
+/*
+	print ("<div style='float:left;margin:0 10px;'><form action='DisplaySchedule.php' target='Monitor'>\n");
+	print ("<input type='hidden' name='arid' value='$arid'>\n");
+	print ("<input class='submit' type='submit' name='OtherT' value='View Queued' style='width:110px;' onClick='this.value=\"Viewing\"' ");
+	print ("onMouseover=\"this.className='MouseOver'\" onMouseout=\"this.className='submit'\">\n");	
+	print ("</form></div>\n");
+*/
+	print ("<div style='float:left;margin:0 10px;'><form action='CampaignManager.php'>\n");
+	print ("<input type='hidden' name='arid' value='$arid'>\n");
+	print ("<input class='submit' type='submit' name='OtherT' value='Campaign' onClick=\"this.value='Campaign'\" ");
+	print ("onMouseover=\"this.className='MouseOver'\" onMouseout=\"this.className='submit'\" title='Other campaign tasks'>\n");
+	print ("</form></div>\n");
+
+	print ("</div><br style='clear:left;'>\n");
+	JumpToCampaign($link, $arid); 
+	ReferenceLinks($arid);
+?>
+</div></div> <!-- end of Wrapper -->
+</BODY>
+</HTML>

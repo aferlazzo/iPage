@@ -1,0 +1,185 @@
+<?php
+/*
+
+Copyright © Tony Ferlazzo 2004 
+Perfect Response Version 4.0+ Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+$user = $_COOKIE["UName"];
+include("check1.php");
+include("conn.php");
+$arid=$_GET["arid"];
+$WithinScript = "I know the arid";
+include("settings.php");
+if ($debugIt == 2)
+	logMessage ("Add.php (".__LINE__.") ready to import \$arid: $arid");
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Add Subscribers - Perfect Response</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="../css/niftyCorners.css">
+<script type="text/javascript" src="../js/nifty.js"></script>
+<script type="text/javascript">
+<!--
+function LLogout()
+{
+	if (confirm('Do you really want to logout?'))
+	{
+		top.location.href='logout.php';  //bust out of frames
+		return (false);
+	}
+	
+	return(true);
+}
+function Show()
+{
+//alert(document.getElementById('navBeta').style.display);
+if (document.getElementById('navBeta').style.display == '')
+{
+document.getElementById('navBeta').style.display='block';
+document.getElementById('submit').value='Click to hide hints!';
+document.getElementById('submit').style.borderWidth='2px';
+document.getElementById('submit').style.borderStyle='solid';
+document.getElementById('submit').style.borderColor='#ffffff';
+document.getElementById('submit').style.backgroundColor='#939';
+//document.getElementById('submit').focus();
+}
+else
+{
+document.getElementById('navBeta').style.display='';
+document.getElementById('submit').value='Click for helpful hints!';
+document.getElementById('submit').style.borderWidth='2px';
+document.getElementById('submit').style.borderStyle='solid';
+document.getElementById('submit').style.borderColor='#ffffff';
+document.getElementById('submit').style.backgroundColor='#004a8d';
+//document.getElementById('submit').focus();
+}
+}
+
+//-------------------------------
+//
+//To do rounded corners on the <div id=' contents':
+//
+//(link rel="stylesheet" type="text/css" href="../css/niftyCorners.css")
+//(script type="text/javascript" src="../js/nifty.js"></script)
+//
+//The function NiftyCheck performs a check for DOM support. If the test has passed,
+//the Rounded function is called, that is now the only one function that you should 
+//call to get nifty corners. It accepts five parameters, that are in order:
+//
+//   1. A CSS selector that indicates on wich elements apply the function
+//   2. A string that indicates which corners to round: all, top, bottom, etc.
+//   3. Outer color of the rounded corners
+//   4. Inner color of the rounded corners
+//   5. An optional fifth parameter, that will contain the options for Nifty Corners
+//
+//-------------------------------
+window.onload=function(){
+if(!NiftyCheck())
+    return;
+Rounded("div.Wrapper","all","#FFE4C4","#48D1CC","border #000080");
+window.document.Add.Emails_For_Action.focus();
+}
+//-->
+</script>
+</HEAD>
+<body>
+<div class="Wrapper"><div class="content" style='height:650px;'>
+<span class="BoxHeading">
+<input type="button" id="submit" name="submit" value="Click for helpful hints!" class="Button" onclick="Show();" onmouseover="document.getElementById('submit').style.fontWeight='bold';" onmouseout="document.getElementById('submit').style.fontWeight='normal';">
+</span>
+<div id="navBeta">
+</div>
+<TABLE width='100%' BORDER=0 CELLPADDING='4' CELLSPACING='0' align="center">
+	<TR>
+		<td colspan='3' align="center" valign="top"> 
+			<h2>Add Subscribers to
+	<?php 
+		print("<br /><i>$CampaignDescription</i></h2>");
+	?>
+		</td>
+	</tr>
+	<tr> 
+		<td colspan='3' align="center"> 
+			<form name="Add" method="post" action="AddAction.php">
+			<h3>Enter Subscribers Here</h3>
+		</td>
+	</tr>
+	<tr>
+		<td style='width:100%;text-align:center;' colspan='3'>
+			<textarea name="Emails_For_Action" cols="60" wrap="OFF" rows="10"></textarea>
+
+			<input type="hidden" name="hdnActionText" value="add">
+			<input type="hidden" name="arid" <?php echo "value='$arid'"; ?>>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td align='left' colspan='3'>
+			<h3><br>Select Welcome Message Options</h3>
+		</td>
+	</tr>
+	<tr> 
+		<td width="20%" align="right"> 
+			<p><input class='radiogroup' type="RADIO" name="Auto_Sender" id="Auto_Sender0" value="0"></p>
+		</td>
+		<td align="LEFT"> 
+			<p><label for="Auto_Sender0"><b>DO NOT</b> send the 'Welcome' message</label></p>
+		</td>
+		<td width="20%"</td>
+	</tr>
+	<tr> 
+		<td align="right">
+			<p><input class='radiogroup' type="RADIO" name="Auto_Sender" id="Auto_Sender1" value="1" checked></p>
+		</td>
+		<td align="LEFT">
+			<p><label for="Auto_Sender1"><b>Send</b> the 'Welcome' message</label></p>
+		</td>
+		<td width="20%"</td>
+	</tr>
+
+	<tr>
+		<td></td>
+		<td align='left' colspan='3'>
+			<h3>Select Email Campaign Option</h3>
+		</td>
+	</tr>
+	<tr>
+		<td align="right">
+			<p><input class='radiogroup' type="RADIO" name="CurrentMessage" id="CurrentMessage999" value="999" ></p>
+		</td>
+		<td align="LEFT"><p><label for="CurrentMessage999"><b>DO NOT</b> begin their Email Campaign</label></p>
+		</td>
+		<td width="20%"</td>
+	</tr>
+	<tr> 
+		<td align="right">
+			<p><input class='radiogroup' type="RADIO" name="CurrentMessage" id="CurrentMessage1" value="1" checked></p>
+		</td>
+		<td align="LEFT"><p><label for="CurrentMessage1"><b>Begin</b> their Email Campaign.</label></p>
+		</td>
+		<td width="20%"</td>
+	</tr>
+	<tr>
+		<td colspan='3' align='center'>
+				<input class='submit' type="submit" value="Add" name="submit2" onClick="this.value='Adding'"
+	 			onMouseover="this.className='MouseOver'" onMouseout="this.className='submit'">&nbsp;	
+				
+				<input class='cancel' type='button' value='Cancel' onClick='window.location.href="CampaignManager.php?arid=<?php echo $arid ?>&cmd=1"' 
+				onMouseover="this.className='MouseOver'" onMouseout="this.className='cancel'">
+		</td>
+	</tr>
+	</form>
+</TABLE>
+<?php
+	JumpToCampaign($link, $arid); 
+	ReferenceLinks($arid);
+	print("</div>\n"); 
+?>
+</div> <!-- end of Wrapper -->
+</BODY>
+</HTML>

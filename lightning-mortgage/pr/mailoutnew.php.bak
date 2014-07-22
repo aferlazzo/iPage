@@ -1,0 +1,532 @@
+<?php
+//Start the session
+session_start();
+//echo 'Starting Session...<br />';
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+// die("<h1>Mailout.php</h1>");
+
+	// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+	//																						//
+	// Email campaigns that are monthly reminders are different than other campaigns.		//
+	// Their campaign names (arname) begin with the literal "Monthly Schedule:"				//
+	//																						//
+	// All recipients (users) receive the same message on the same day of the month for 	//
+	// which it was sent.																	//
+	// For these campaigns, message 1 is sent in January, message 2 is sent in February,	//
+	// ...message 12 is sent in December for every user in the campaign.					//
+	// The day of month to send is stored in the $DelayDays field of the message for 		//
+	// each month.																			//
+	//																						//
+	// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+	
+
+include("conn.php");
+$WithinScript = "I am embedded in another script";
+include("settings.php");
+set_time_limit(0);			// don't time-out
+ignore_user_abort (TRUE);	//don't abort script even if the user disconnects. Just continue mail delivery.
+
+/*
+Incorporate the following columns in the table:
+LockKey (UNSIGNED INT up to 4,000,000,000 ish)
+LockExpiryTime (varchar(15) 5 minutes into the future).
+
+When a user wants to edit a row, first check that there isn't a current active LockExpiryTime, 
+if the current time is past the expiry time, or there isn't an expiry time set, then the user can set the lock.
+
+Preparing the lock
+~~~~~~~~~~~~~~~~~~
+Generate a random number or string to use as the LOCK_KEY. This must be retained by the script 
+(php variable $_SESSION['LockKey']) and will be entered into the database shortly.
+
+Get the time and add 5 minutes (or however long you want LockExpiryTime)
+*/
+
+$_SESSION['LockKey']=rand(1,1000000000);
+
+
+/*
+
+Here's my version of a "php lock". The query checks to see if a lock can be taken, and if it can it 
+takes it. Other users can use the same query and either obtain or be denied the lock. After 5 minutes 
+the lock expires and other users may take the lock.
+
+The user that gains the lock has it for AT LEAST 5 minutes as no-one can be granted a lock within this 
+time. The user has the lock on the row while they have the lock_key. The lock key will be changed when 
+another user took the lock (after the initial 5 minutes).
+
+One good thing is everything happens in one query statement therefore two users should not be able to 
+apply for and gain a lock simultaneously (I think). The WHERE clause is evaluated before the SET.
+
+*/
+
+//	Don't send empty messages: If the message NO text has alphabetic characters AND we have reached the time to send 
+//	skip the message, update user row to the next sequence number
+//		
+// Unlock the user row and update it to reflect the next message in the autoresponder sequence
+
+function SkipEmptyMsg ()
+{
+	GLOBAL $MessageNumberInSequence, $NextMsgTimeToSend, $Email_Address, $arid;
+			
+	$MessageNumberInSequence++;
+	$Update_Query  = "update users set currentmsg='$MessageNumberInSequence', senddate='$NextMsgTimeToSend', ";
+	$Update_Query .= "LockExpiryTime=0, LockKey=0 ";
+	$Update_Query .= "where email='$Email_Address' and arid=$arid";
+	mysql_query($Update_Query) or die(logMessage("mailout (".__LINE__.") Could not update user to next msg sequence number"));
+	logMessage ("mailout (".__LINE__.") Not Sent. $Email_Address had blank message, '$MessageNumberInSequence'. ");
+}
+
+function GetUserRow($rowusr)
+{
+	GLOBAL $TimeToSendMsg, $ExpiryTimeOnRow, $LockKeyOnRow, $IP_Address, $UserDefined1, $UserDefined2, $UserDefined3, $UserDefined4;
+	GLOBAL $MessageNumberInSequence, $Full_Name, $Email_Address, $Now;
+	
+	$TimeToSendMsg 	= $rowusr[senddate];	
+	$Email_Address 	= $rowusr[email];
+	$ExpiryTimeOnRow	= $rowusr[LockExpiryTime];	
+	$LockKeyOnRow	= $rowusr[LockKey];	
+	$IP_Address 	= $rowusr[ip];
+	$UserDefined1	= $rowusr[UserDefined1];
+	$UserDefined2	= $rowusr[UserDefined2];
+	$UserDefined3	= $rowusr[UserDefined3];
+	$UserDefined4	= $rowusr[UserDefined4];
+	$MessageNumberInSequence	= $rowusr[currentmsg];
+
+	$Full_Name = strtolower(trim($rowusr[fname]." ".$rowusr[lname]));
+	$Full_Name = ucwords($Full_Name);
+	//print("<p>mailout (".__LINE__.")  Session |". $_SESSION['LockKey']."| read |$Email_Address| LockKeyOnRow |$LockKeyOnRow| ExpiryTimeOnRow |$ExpiryTimeOnRow| It is now |$Now| name |$Full_Name|</p>");
+}
+
+
+function GetMessageToSendAndSignature()
+{
+	GLOBAL $Email_Address, $Signature, $MessageNumberInSequence, $DelayDays, $MessageSubject, $MessageBody, $arid, $mid, $NextMsgTimeToSend;
+	// 	Get the *signature* message db row 
+
+	$msgSQL = "select * from messages where (arid=$arid) and (seqno=0)";
+	$result_msg = mysql_query($msgSQL) or die(logMessage("mailout (".__LINE__.") Error: $msgSQL"));
+	mysql_data_seek($result_msg, 0);  // signature message
+	$row_msg = mysql_fetch_object($result_msg);
+
+	if ($row_msg->seqno != 0) 
+		die("sequence error");
+
+	$Signature = $row_msg->body;
+	
+	//	Read the *current* actual message we're planning to send
+
+	//logMessage("mailout (".__LINE__.") Reading msg number $MessageNumberInSequence for \$arid $arid");
+	if ($MessageNumberInSequence == 0) //to resend the Welcome message using edituser.php, set the msg number to 0
+		$msgSQL = "select * from messages where arid=$arid and seqno=-2 order by seqno limit 0,1";
+	else
+		$msgSQL = "select * from messages where arid=$arid and seqno>=$MessageNumberInSequence order by seqno limit 0,1";
+	 
+	 
+	$result_msg = mysql_query($msgSQL) or die(logMessage("mailout (".__LINE__.") Error: $msgSQL"));
+	$num_rows_msg = mysql_num_rows($result_msg);
+
+	if($num_rows_msg>0) // if messages are not empty
+	{
+		mysql_data_seek($result_msg, 0);
+		$row_msg = mysql_fetch_object($result_msg);
+
+		$DelayDays		= $row_msg->delay;
+		$MessageSubject = $row_msg->subject;
+		$MessageBody 	= $row_msg->body;
+		$mid 			= $row_msg->mid;			
+
+		$NextMsgTimeToSend = mktime(9,0,0, date("m"), date("d")+$DelayDays, date("Y")); // send out message at 9 am in DelayDays days
+	}
+	else
+		die(logMessage("mailout (".__LINE__.") Couldn't read messages for campaign $arid. Check to see if campaign should be suspended. Preparing to send next message to $Email_Address, SQL statement: $msgSQL"));
+
+	//print("<p>mailout (".__LINE__.") Session |". $_SESSION['LockKey']."| $Email_Address Subject |$MessageSubject|</p>");
+}
+
+
+function PrepareMessage()
+{
+	GLOBAL $debugIt, $TimeToSendMsg, $WallclockTime, $MessageBody, $MessageSubject, $Email_Address, $Full_Name;
+	GLOBAL $UserDefined1, $UserDefined2, $UserDefined3, $UserDefined4, $Wrap_On, $Mail_Format, $Length_Of_Wrap;
+	GLOBAL $Final_Body, $Removal_Link_HTML, $Remove_HTML, $Removal_Link_Text, $Remove_Text, $Body_To_Send;
+	GLOBAL $MessageAttachmentFound, $Format, $Mail_Format, $HTMLBody, $Body_To_Send, $TextBody;
+
+	include("removesettings.php");  //get the 'click to remove' text line at bottom of message
+	   	 
+	if ($debugIt==2)
+		logMessage ("mailout ".__LINE__." Mail_Send_Date $TimeToSendMsg <= WallclockTime $WallclockTime: Time to send");
+
+	// Replace message personalization (EmailAddress & FullName)
+	$MessageBody .= $Signature;
+	$MessageBody 	= eregi_replace("%EmailAddress%",$Email_Address,$MessageBody);
+	$MessageSubject = eregi_replace("%EmailAddress%",$Email_Address,$MessageSubject);
+			
+	$MessageBody 	= eregi_replace("%FullName%",$Full_Name,$MessageBody);
+	$MessageSubject = eregi_replace("%FullName%",$Full_Name,$MessageSubject);
+			
+	$MessageBody 	= eregi_replace("%UserDefined1%",$UserDefined1,$MessageBody);
+	$MessageSubject = eregi_replace("%UserDefined1%",$UserDefined1,$MessageSubject);
+			
+	$MessageBody 	= eregi_replace("%UserDefined2%",$UserDefined2,$MessageBody);
+	$MessageSubject = eregi_replace("%UserDefined2%",$UserDefined2,$MessageSubject);
+			
+	$MessageBody 	= eregi_replace("%UserDefined3%",$UserDefined3,$MessageBody);
+	$MessageSubject = eregi_replace("%UserDefined3%",$UserDefined3,$MessageSubject);
+			
+	$MessageBody 	= eregi_replace("%UserDefined4%",$UserDefined4,$MessageBody);
+	$MessageSubject = eregi_replace("%UserDefined4%",$UserDefined4,$MessageSubject);
+	
+	// Perform message word wrap on text messages
+			
+	if (($Wrap_On == 1) && ($Mail_Format == 0)) 
+		$MessageBody = wordwrap($MessageBody, $Length_Of_Wrap,"\n");
+			
+	// clean up any message 'artifacts' that may exist so message will display properly on the screen
+			
+	$MessageBody	= eregi_replace("\r\n","\n",$MessageBody);
+	$MessageBody 	= stripslashes($MessageBody);
+	$MessageSubject = stripslashes($MessageSubject);
+
+	//Append the removal instructions and the removal instructions lines to *every* message body
+
+	if($Mail_Format == 1)
+	{
+		$Final_Body = "$MessageBody<br>$Removal_Link_HTML$Email_Address'>$Remove_HTML</a><br>\n";
+	}
+	else
+	{
+		$Final_Body = $MessageBody."\n\n".$Remove_Text." ".$Removal_Link_Text.$Email_Address;
+	}
+
+	if (!isset($Removal_Link_Text))
+		die (logMessage ("mailout (".__LINE__.") no remove link found"));
+
+	$Body_To_Send=$Final_Body;
+
+	$MessageAttachmentFound=0;
+
+	if ($Mail_Format == 1)
+	{
+		$Format = "HTML";
+		$HTMLBody=$Body_To_Send;
+	}
+	else
+	{
+		$Format = "Text";
+		$TextBody=$Body_To_Send;
+	}	
+}
+
+
+
+function SendTheMessage()
+{   
+	GLOBAL $Email_Address, $Full_Name, $MessageSubject, $TextBody, $HTMLBody, $Attachment, $Mail_Format, $arid, $debugIt;
+	GLOBAL $Format, $Display_Name, $Format, $EmailAddressFrom, $SMTPmailServer, $SMTPmailbox, $SMTPpassword, $SMTPport;
+	GLOBAL $Wrap_On, $Length_Of_Wrap; 
+	
+	$Sent = phpmailer($Email_Address, $Full_Name, $MessageSubject, $TextBody, $HTMLBody, $Attachment, $Mail_Format, $arid);
+				
+	if ($debugIt > 0)
+	{
+		if ($Sent == TRUE)
+		{
+			//print("<p>mailout (".__LINE__.")  Session |". $_SESSION['LockKey']."| sending |$Email_Address| |$MessageSubject|</p>");
+			logMessage ("mailout (".__LINE__.") Session |".$_SESSION['LockKey']."| sending email format $Format To: $Full_Name '$Email_Address' Subject: $MessageSubject");
+		}
+		else
+		{
+			//print("<p>mailout (".__LINE__.")  Session |". $_SESSION['LockKey']."| NOT SENT |$Email_Address| |$MessageSubject|</p>");
+			logMessage ("mailout (".__LINE__.") Error: Not Sent by session |".$_SESSION['LockKey']."|: email format $Format To: $Full_Name '$Email_Address' Subject: $MessageSubject");
+		}
+	}
+				
+	if (($Sent == false) && ($debugIt > 0))
+	{
+		logMessage ("mailout (".__LINE__.") autoresponder GLOBAL settings: \$arid $arid \$Display_Name $Display_Name \$EmailAddressFrom $EmailAddressFrom");
+		logMessage ("mailout (".__LINE__.") \$SMTPmailServer $SMTPmailServer \$SMTPmailbox $SMTPmailbox \$SMTPpassword $SMTPpassword \$SMTPport $SMTPport");
+		logMessage ("mailout (".__LINE__.") \$Wrap_On $Wrap_On \$Length_Of_Wrap $Length_Of_Wrap ");
+		logMessage ("mailout (".__LINE__.") Error: Not Sent: email format $Format To: $Full_Name '$Email_Address' Subject: $MessageSubject");
+		//logMessage ("mailout (".__LINE__.") Ending mailout.php");
+	}
+	return ($Sent);
+} // end 
+
+	/*
+	Updating the row if sent
+	~~~~~~~~~~~~~
+	Check that the LockExpiryTime hasn't passed and that LockKey = $_SESSION['lock_key'] is still ours
+	
+	Re-take the lock (as above “Setting the lock”) because if it's 4 minutes and 59 seconds 
+	until expiry we may not have enough time to do our UPDATE.
+						
+	If the expiry time has passed, and the LOCK_KEY in the database is the same our $_SESSION['lock_key'] 
+	it means that no-one else has tried to lock this row, we can therefore re-acquire the lock with 
+	an UPDATE …. WHERE WHERE id = id_to_update AND LockKey = $_SESSION['LockKey']
+						
+	Re-check LockKey to $_SESSION['LockKey'] to ensure that no-one acquired the lock just before we 
+	attempted to re-take it. If they did display error message.
+						
+	Once the row has successfully updated, or even as part of the UPDATE, SET LockExpiryTime to 0 
+	so that other users can edit this row.
+	*/
+	
+	
+function UpdateRowAfterSend()
+{
+	GLOBAL $ComputedLockTime, $Email_Address, $ExpiryTimeOnRow, $LockKeyOnRow, $debugIt,$MessageNumberInSequence, $NextMsgTimeToSend, $arid;  
+
+	if ($debugIt > 9999999)
+		logMessage("mailout (".__LINE__.") Session |".$_SESSION['LockKey']."| will now update/unlock Row email: $Email_Address ExpiryTimeOnRow |$ComputedLockTime|  \$LockKeyOnRow |0|");
+
+	$MessageNumberInSequence++;
+	$sqlUpdateQuery  = "update users set currentmsg='$MessageNumberInSequence', senddate='$NextMsgTimeToSend', ";
+	$sqlUpdateQuery .= "LockKey=0 "; // LockExpiryTime was already set to $ComputedLockTime
+	$sqlUpdateQuery .= "where email='$Email_Address' and arid=$arid";
+
+	$Result = mysql_query($sqlUpdateQuery) or die(logMessage("mailout (".__LINE__.") DIED. Could not update message number to next msg for email='$Email_Address' and arid=$arid |$sqlUpdateQuery|"));				
+	/*
+	if($Result == true)
+		print("<p>mailout (".__LINE__.")  Session |". $_SESSION['LockKey']."| updated |$Email_Address| next msg |$MessageNumberInSequence| locked until |$ComputedLockTime|</p>");
+	else
+		print("<p>mailout (".__LINE__.")  Session |". $_SESSION['LockKey']."| ERROR: Update $Email_Address failed</p>");
+	*/
+	if ($debugIt==2)
+	{
+		$tf = date("H:i:s m-d-Y", $NextMsgTimeToSend);		
+		logMessage ("mailout ".__LINE__." Next message in sequence scheduled for $tf");
+	}	
+}
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	/
+//																					/
+//	SendMail: Check all users in this Autoresponder (number as an input parameter).	/
+//	If it is time to send the next message, do so after cleaning up the message.	/
+//																					/
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	/
+
+function SendMail($aid, $EmailAddressFrom, $Remove_HTML, $Remove_Text, $debugIt, $MonthlySchedule)
+{
+	GLOBAL $Display_Name, $Installation_Path, $Wrap_On, $Ad, $Length_Of_Wrap, $Mail_Format, $link, $arid;
+	GLOBAL $Administrator, 
+	$Administrator_Password,
+	$Installation_Path,
+	$Now, 
+	$Notification, 
+	$EmailAddressFrom, 
+	$CampaignDescription, 
+	$Display_Name, 
+	$EmailAddressReplyTo, 
+	$EmailAddressReturn, 
+	$Administrator_EmailAddress, 
+	$Subscription_EmailAddress, 
+	$SMTPmailServer, 
+	$SMTPport, 
+	$SMTPmailbox, 
+	$SMTPpassword, 
+	$aa, 
+	$POPMailServer, 
+	$POPport, 
+	$POPServerName, 
+	$POPEmailPassword, 
+	$Is_Custom, 
+	$RedirectPage, 
+	$Mail_Format, 
+	$Wrap_On, 
+	$Length_Of_Wrap, 
+	$Remove_Tex, 
+	$Remove_HTML, 
+	$armode;
+	GLOBAL $ComputedLockTime, $TimeToSendMsg, $ExpiryTimeOnRow, $LockKeyOnRow, $IP_Address, $UserDefined1, $UserDefined2, $UserDefined3, $UserDefined4;
+	GLOBAL $MessageNumberInSequence, $Full_Name, $Email_Address, $MessageBody, $WallclockTime;
+
+
+	$arid=$aid;
+	$user="arid ".$arid;
+	
+	if (!function_exists(logMessage))
+	{
+		include("conn.php");  	
+	}
+		
+	$WithinScript = "I know the arid";
+	include("GetARstuff.php");	
+
+	if($Mail_Format == 1)
+	{
+		$Mail_Header="Content-type: text/html; charset=iso-8859-1";
+		$Mail_Footer=$Remove_HTML;
+	}
+	else
+	{
+		$Mail_Header="Content-Type: text/plain; charset=us-ascii";
+		$Mail_Footer=$Remove_Text;
+	}
+
+	$Mail_Error_Flag = 1;
+
+	$WallclockTime = mktime(date("H")+2,date("i"),date("s"),date("m"),date("d"),date("Y"));
+	
+	$maxSQL = "select max(seqno) as maxseq from messages where arid=$arid";	// determine the last msg in campaign
+	$result_max = mysql_query($maxSQL) or die("mailout (".__LINE__.") Error: $maxSQL");
+	mysql_data_seek($result_max, 0);
+	$maxrow = mysql_fetch_object($result_max);
+	$maxmsg=$maxrow->maxseq;
+	
+	if ($maxmsg<1)
+		$maxmsg=0;
+	
+	/*
+	Setting the lock
+	~~~~~~~~~~~~~~~~
+	Read all user rows for a mail campaign.
+ 
+	Update the row with the LOCK_KEY and LOCK_EXPIRY_TIME, WHERE there is not a current 
+	LockExpiryTime column set by another user that acquired the row just before we tried our lock it.
+	*/
+	//	Get all the rows that have a current message number less than the maximum messages 
+	//	from the users database unless this is for a monthly campaign. 
+	//  For monthly campaigns just use the month number as the message number.
+
+	// select users in the mail campaign who have not yet received the last message and are are not locked
+
+	$Now = date ("dHis"); //returns current time in ddhhmmss format. 
+	$SQL_Statement = "SELECT * FROM users where currentmsg<=$maxmsg and arid=$arid and confirmed='Y' and LockExpiryTime<$Now and senddate < $WallclockTime";
+	$SelectedRows = mysql_query($SQL_Statement) or die(logMessage("mailout (".__LINE__.") Could not obtain all the user rows for arid=".$arid));
+	$UserCandidates = mysql_num_rows($SelectedRows);
+	//print("<p>mailout (".__LINE__.") Query: $SQL_Statement<br />Found $UserCandidates unlocked user rows in campaign $arid</p>");
+	$NoMoreRows = false;	
+	for($ucount=0;($ucount<$UserCandidates) && ($NoMoreRows == false);$ucount++)
+	{
+		$Now = date ("dHis"); // returns current time in ddhhmmss string format.
+		$ComputedLockTime = 500 + $Now; //add 5 minutes returned as unsigned integer
+		// Now select 1 user row
+		
+		$SQL_Statement = "SELECT * FROM users where currentmsg<=$maxmsg and arid=$arid and confirmed='Y' and LockExpiryTime<$Now and senddate < $WallclockTime limit 1";
+		$SelectedRow = mysql_query($SQL_Statement);
+		if ($SelectedRow == false)
+			$NoMoreRows = true;
+		else //found a row
+		{
+			$rowusr = mysql_fetch_assoc($SelectedRow);
+			if ($rowusr == false)
+			{							
+				print("<p>mailout (".__LINE__.")  Session |". $_SESSION['LockKey']."| No row to fetch'</p>");	
+				logMessage ("mailout (".__LINE__.")  Session |".$_SESSION['LockKey']."| No row to fetch");
+			}
+
+			$Email_Address = $rowusr[email];
+			$Update_Query  = "update users set LockExpiryTime = '$ComputedLockTime', LockKey=" . $_SESSION['LockKey'];
+			$Update_Query .= " WHERE email='$Email_Address' and arid=$arid limit 1";
+			$Update_Result = mysql_query($Update_Query) or die(logMessage("mailout (".__LINE__.") Could not lock |$Email_Address|"));
+
+			if ($debugIt > 9999999999)
+			{							
+				print("<p>mailout (".__LINE__.")  Session |". $_SESSION['LockKey']."| locking |$Email_Address| until |$ComputedLockTime| It is |$Now|</p>");	
+				logMessage ("mailout (".__LINE__.")  Session |".$_SESSION['LockKey']."| locking $Email_Address until |$ComputedLockTime| It is |$Now|");
+			}
+			
+			GetUserRow($rowusr);
+		
+			if ($ExpiryTimeOnRow >= $Now) // make sure the row is not already locked by another session 
+			{
+				print("<p>mailout (".__LINE__.")  Session |". $_SESSION['LockKey']."| cannot access |$Email_Address| until |$ExpiryTimeOnRow| < |$Now| </p>");
+				if ($debugIt > 0)							
+					logMessage ("mailout (".__LINE__.")  Session |".$_SESSION['LockKey']."| cannot access |$Email_Address| until |$ExpiryTimeOnRow|  < |$Now|");			
+			}		
+			else  // if row is not locked by this session, then lock it for 5 minutes and process it
+			{							
+
+				//test to see if this script should be stopped by looking for a file names mailout.stop
+
+				if((file_exists("mailout.stop")))
+				{
+					logMessage ("mailout (".__LINE__.") A file named mailout.stop exists. Script halted.");
+					die;
+				}
+
+				/*
+				We now have the lock for 5 minutes before it will be available to other users.
+				Now process the user row...
+				*/
+
+				GetMessageToSendAndSignature();
+				//print("<p>mailout (".__LINE__.")  Session |". $_SESSION['LockKey']."| to send |$Email_Address| |$TimeToSendMsg| must be <= |$WallclockTime|</p>");
+
+				if (!eregi("[a-z]", $MessageBody)) // if message is empty..
+					SkipEmptyMsg();
+				else	// if message was NOT empty...
+				{
+					PrepareMessage();
+
+					$Sent	= false;				
+					$Attachment="";
+					$Now = date("dHis"); //returns current time in ddhhmmss format. 
+
+					if ($ExpiryTimeOnRow < $Now)
+						$Sent = SendTheMessage();
+										 			
+					if ($Sent == TRUE)
+						UpdateRowAfterSend();
+				}	//  end of 'if message was NOT empty...'
+			} // end of if row is not locked then process it 
+		} //end found a row
+	}	// end of 'for each user row'
+}//end funcation
+
+
+// ------------------------------------------
+
+
+
+$arSQL = "select * from autoresponders";
+$result_ar = mysql_query($arSQL) or die(logMessage("mailout (".__LINE__.") Could not $arSQL"));
+$num_rows_ar = mysql_num_rows($result_ar) or die(logMessage("mailout (".__LINE__.") Could not calculate number of rows"));
+
+for($count=0;$count<$num_rows_ar;$count++)
+{
+	mysql_data_seek($result_ar, $count) or die(logMessage("mailout (".__LINE__.") Could not move pointer to next autoresponder row"));
+	$arrow = mysql_fetch_object($result_ar) or die(logMessage("mailout (".__LINE__.") Could not read next autoresponder row"));
+	
+	if ($debugIt == 2)
+		logMessage ("mailout (".__LINE__.") Check to send mail to arid " . $arrow->arid . " mail campaign '" . $arrow->arname . "' CampaignState '". $arrow->CampaignState . "'");
+
+	// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+	//																						//
+	// Email campaigns that are monthly reminders are different than other campaigns.		//
+	// Their campaign names (arname) begin with the literal "Monthly Schedule:"				//
+	//																						//
+	// All recipients (users) receive the same message on the same day of the month for 	//
+	// which it was sent.																	//
+	// For these campaigns, message 1 is sent in January, message 2 is sent in February,	//
+	// ...message 12 is sent in December for every user in the campaign.					//
+	// The day of month to send is stored in the $DelayDays field of the message for 		//
+	// each month.																			//
+	//																						//
+	// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+		
+	if ($arrow->CampaignState == "Active")
+	{
+		if (strtolower(substr($arrow->arname, 0, 17)) == "monthly schedule:")
+			$MonthlySchedule = "true";
+		else
+			$MonthlySchedule = "false";
+		
+		SendMail($arrow->arid, $arrow->arfromemail, $arrow->remhtml, $arrow->remtext, $debugIt, $MonthlySchedule);
+	}
+}
+
+if ($debugIt == 2)
+	logMessage ("mailout ".__LINE__." ending");
+
+exit;
+?>

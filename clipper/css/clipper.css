@@ -1,0 +1,226 @@
+	body{
+		font-family:arial, hevetica, sans-serif;
+		background-color:#ede;
+		background-image: url('../images/lightBlue.png');
+		background-repeat:repeat;
+	}
+
+	header{position:fixed;left:180px;top:0;}
+	h1{text-shadow: 1px 1px 2px #fff;font-size:36px;margin:5px 0 0 29px;}
+	img#scissors1{
+	position:absolute;
+	left:38px;
+	top:14px;
+	}
+	img#scissors2{
+	position:absolute;
+	left:49px;
+	top:33px;
+	-moz-transform: rotate(-203deg);
+	-webkit-transform: rotate(-203deg);
+	}
+	h2{
+	text-shadow: 1px 1px 2px #fff;
+	position:fixed;
+	top:300px;
+	left:-90px;
+	font-size:32px;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	}
+	.rounded{
+	-moz-border-radius: 4px/*{cornerRadius}*/;
+	-webkit-border-radius: 4px/*{cornerRadius}*/;
+	border-radius: 4px/*{cornerRadius}*/;
+	}
+	form#clipForm {position:absolute;top:90px;left:85px;height:725px;width:365px;background:#fff;border:1px solid #000;}
+	legend{text-align:center;font-size:16px;text-shadow: 1px 2px 2px #fff;}
+	fieldset{margin: 0 20px;width: 300px;}
+	#css1Displayed, #css2Displayed{font-size:14px;}
+	#fsFullImageFields{	position:absolute; top:115px;left:0;height:140px;background-color: #ede;}
+	#fsTheRectangleFields{position:absolute;top:283px;left:0;height:190px;background-color: #ede;}
+	/*#fsOutputFields{display:block;margin:10px 0;background:#ede;width:300px;clear:left;}*/
+	#fsOutputFields, #fsQuickStart, #fsToDo{position:absolute;top:70px;left:0;background:#ede;width:300px;}
+/*{position:absolute;top:70px;left:0;height:415px;}*/
+	#contrast {font-size:10px;float:left;padding:10px 0 0 0;background-color: #999;}
+	#contrast a{border:1px solid #777;text-decoration:none;width:10px;height:15px;} /*button*/
+	#contrastSlider{width:103px;margin:10px 0 0 15px;}
+	#tabs{height:50px;border:none;display:none;height:100%;}
+	#tabs a {text-shadow: 1px 1px 2px #ebe;font-size: 14px;}
+	div#instructionsTab p {font-size:15px;margin-top:0;}
+
+	#notSupported, #supportsHTML5 {margin-bottom:5px;}
+	.amt{}
+	.amtw{background-color: #cd9dcd;margin-right:2px;}	/* the two shades of pink separating height and width */
+	.amth{background-color: #8cabc5;margin-left:2px;}
+	#fgDiv, #bkDiv {
+		width:100%;
+		height:20px;
+		font-size:10px;
+		text-shadow: 1px 1px 2px #fff;
+		text-align:left;
+		padding-bottom:2px
+		}
+	#bkDiv{
+		border-top:1px dashed #000;
+		background:url('../images/transparent.png') 0 0 repeat;
+		}
+	input[type=radio] {width:10px; background-color:lime;}
+	/* diagram */
+	#referenceFields{display:none;position:absolute;top:50px;left:0;height:260px;}
+	/*#referenceFields legend, #toDo legend{padding:0;}*/
+	div.rel {width:100%;height:252px;position:relative;}
+	div#refOriginalElement{z-index:10;position:absolute;top:21px;left:6px;height:200px;width:270px;border:1px dashed #999;background-color:#bb5;}
+	div#refDescription{position:absolute;top:80px;left:175px;height:80px;width:100px;text-align:center;}
+	div#refClippedArea{position:absolute;top:30px;left:55px;height:80px;width:100px;border:1px solid #000;background-color:#dd0;padding:50px 10px 10px;text-align:center;}
+
+	div#refTopLine   {position:absolute;top:0;left:70px; height:9px; width:100px;border-left:2px dotted black;  padding:10px;}
+	div#refBottomLine{position:absolute;top:0;left:145px;height:143px;width:100px;border-left:2px dotted green;padding:10px 10px 10px 10px;}
+	div#refRightLine{position:absolute;top:141px; left:0;height:80px;width:155px;border-top:2px dotted blue;padding:10px;}
+	div#refLeftLine {position:absolute;top:90px;left:0;height:80px;width:35px; border-top:2px dotted #700;padding:10px;}
+	div#refClippedWidth {position:absolute;top:206px;left:0px;width:270px;text-align:center;border-top:1px dashed blue;}
+	div#refClippedHeight{
+	position:absolute;
+	text-align:center;
+	width:200px;
+	top:90px;
+	left:187px;
+	border-top:1px dashed blue;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	}
+
+
+
+
+	div#workspace{position:fixed;height: 500px; width:100%;}
+	div#line{
+		position:absolute;
+		z-index:10;
+		top:250px;
+		left:300px;
+		height:20px;
+		/*width:200px;*/
+		/*filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand');*/
+		}
+	div#middle{height:20px;float:left;background-color:#fff;margin:0 10px;}
+	div#red, div#green{height:20px;width:20px;background-color:red;float:left;}
+	div#green{background-color:green;}
+	div#frame{
+		position:absolute;
+		z-index:9;
+		top:270px;
+		left: 200px;
+		height:300px;
+		width:300px;
+		background-color:blue;
+		}
+	#supportsHTML5, #notSupported{display:none;}
+	input {width:40px;text-align:right;}
+	input#browsedFileName, input#eFile {width:210px;text-align:left;}
+	input#browsedFileName{font-size:12px;}
+	input#btn {width:70px;}
+	input#newSelection{margin-bottom:7px;width: 79px;font-size: 14px;}
+	label {display:block;}
+	#fgDiv label, #bkDiv label {display:inline-block;}
+	div#hideIt{text-align:left;white-space:nowrap;}
+	div.hh{
+	width:148px;
+	float:left;
+	padding: 5px 0;
+	text-align:center;
+	margin-bottom:3px;
+	height:44px;
+	font-size:16px;
+	text-shadow: 1px 1px 2px #fff;
+	}
+
+	.hd{height: 55px;}
+
+	/* the overall wrapper div controls the location of the image and contains the 3 layers of and over the image */
+	/* notice it has no dimensions specified.*/
+
+	div#theImageWrapper{
+	z-index:-999922;
+	position:absolute;
+	top:90px;
+	left:480px;
+	background:url('../images/transparent.png') 0 0 repeat;
+	}
+
+	div#theImageMouseText{position:absolute;left:0; top:-20px;white-space:nowrap;}
+
+	/* the stacked divs contain the opaque view of the image  (theImageContainer),
+	* a crystal clear view of the portion of the image being measured/altered/evaluated (theClippedContainer),
+	* and the layer holding the transparent draggable and resizable rectangle (theRectangle)
+		Layer Name			Stacked		z-index	Opacity		notes
+							Order
+	//	onTop					1		20		1.0			has the blue rectangle border
+
+	//	theRectangle			2		15		1.0			draggable/resizable transparent rectangle
+	//	canvasId				3		12		1.0			HTML5 canvas can be read & written directly
+	//	theClippedContainer		4		11		1.0			fully visible image in clipped area, hidden everywhere else
+	//	theImageContainer		5		10		0.5			Opaque version of full image
+	*/
+	div#theImageContainer, div#theClippedContainer, div#theRectangle, div#onTop{
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+
+	img#temporaryImage{position:absolute; top:0;left:-9999px;}
+	.theSpriteImage{display:none;}  /*hides image at load-time only*/
+
+	div#theImageContainer{
+	z-index:-999910;
+	opacity:.5;
+	}
+	img#theImage{}
+
+	div#theClippedContainer{
+	z-index:-999911;
+	}
+
+
+	canvas#canvasId {
+	position: absolute;
+	z-index:12;
+	}
+	div#theRectangle{
+	z-index:15;
+	top:0;left:0;					/* initial default*/
+	}
+	div#onTop {
+	display:none;
+	position:absolute;
+	border:1px solid #009;
+	z-index:20;
+	}
+
+
+	#previewDiv{
+	overflow:hidden;
+	position:relative;
+	width:0;
+	height:0;
+	border:2px solid #777;
+	background:url('../images/transparent.png') 0 0 repeat;
+	}
+	#previewImage{
+	position:fixed;
+	width:0;
+	height:0;
+	background-color:transparent;
+	}
+
+
+.ui-slider-handle.ui-state-default {
+width:22px !important;
+height:22px !important;
+margin-top:-5px;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sGFwEGJJ049aoAAATVSURBVDjLXZXNbx3VGcZ/52M+7lzf648kFBQRQ5yoaiPaykEVdpX8AVHSduMusgiIRYWKBKxC6a4gtXFVNhVhycfOrEp0ySJSswDVUh2UkJZNUFUpKTS2ieM4vjN3Zs6ZM6eLGVsmIx2dczSvnnPO877P8wq++wlAAhoIgWngENAHem3MENgG/gvcAQxQATXg9wLtXSsgAr4fRdFPz59//ccnTpyY7ffHv9fr956sqoo0Tb/O0mx9efnvNy5c+OM/y7K8BnwFlIDbARd7RgB0geNnzpx57s9vv/3ivqmpp8rSUJQlpjTYyhLHMd2kS9JN2NzcvP3aq6+8NxgM/gFcBzLAAn7n6QFwAPjR0tLSC6dPn/4liMAYQ1EUZKMReZ5jjKXbTRgfH2es20VpTWWtvXTp44/PnTv3AfAv4B5gVQuaAM9euXLl1VOnTv1cKaUAvK+x1lIUJaMsJ88LwigkSbpEcdQy6NXRo0ePzc3NHVhaWroNrAFOtaDHFxcXFxYWFn71SDJxrsZaQ2kM1liSTkKv30Nrja9rqsrinGN6enpmcnJydPXq1W+BexJIer3eD86ePbtgrcVWFXVdI4RAa00YBgRBiJIKAB00e/BYa7DWAk3sueef/0W/3z8GJBKYOf/6b2eDIJgoS4M1BmMMVVUBEIYhnU5MEGgA4jhEKUFlLcYYhBDt4RH7pvY/9vs335oFZjTw+PHZ2WeKskQIiVIKrRRBGBCFIVprkqRD3HKaJF3quqYsC7TWxHEHHQQIIfAefjY//wzwuAbGpqampou8REoQUiKlQhuNDS1xHBHHMf1+n7t314jjiCwdEscd4k4HgaCua5x31HXNwYMHDwN9DYRaB/3SGIQAgWhmKcmlJAhDuknCxMQ4AFk6ZGJyCl97rG0S5+ua2nt8XaOUmgAa4pyrkJVACPGIGCHPC7YfbrO6usaRI0/jvefB5v3vxHjvd+eqqhzgJVBlWbZd1zW1b/QohGgoUYog0HQ6Mfv37+PexibWOnQQIJtS3wWs6xrvPcPhcAuoJFCsra/faQ9FSonWikBrojAg7sR0u12iqEne6toa+aho4oIArQOU1kgpm/+rq3eAQgJbN7/44kshGm6lEKi2KsIwIgojgiDctS1jLFsPH5KPCvzuCyVCKpRSrFy79iWwJYG7Fy++cyMbjb7dS4HWmiDQ7W0Erq1rvCfPc7Iso8gLXOV2adgepht/Wly8AdyVQJpl2drlTwaXtNYoKcE3NxdSNooTULm68VYpqKqK0WjEME3JsqxRn4ePPlr663A4XAfSHROqlpeXy7nn5npPHjp0WGuFlAopJVIKfEtBURSUpcGUBmNtI30pkUKwsrLyt5df/s0nwC3gvmptUwDy8uXL94798Jg7PDNzRCstRQtaVRX5aESapoxGGWVp8N4jG7VVn3326eCll349cM79B1gFhjs1UwPGOWcGg8H6V7du3Zyfn396bKw3gQDnHMZYyrLE2grnHAAPNjdvX7jwh7+8++7FFefcv4GvgS2g2Gv0CTDZGv5TYRhOvvHG735y8uTJ471+/0DSSaaHaco33/zvzsbGxv3r1z///MMP3r9prX0A3G4N/gEwAuyjrSlum+YkMAU8AYy1vdDv6Y0OSFtTv98CDoFipzX9HzYJPB89JFX3AAAAAElFTkSuQmCC);
+/*
+background-image: url('../images/sliderButton.png');
+*/
+border-radius: 11px;
+}

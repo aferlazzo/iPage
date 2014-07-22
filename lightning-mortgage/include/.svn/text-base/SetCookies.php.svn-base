@@ -1,0 +1,1470 @@
+<?php
+
+
+function FilterStatus()
+{
+	global $SavedFilter;
+	global $SearchTerm;
+	global $RequestType;
+	global $LoanStatus;
+
+// if function used in a xxxList.php page, it is in header and a change will refresh the page
+// (cause the form to be submitted).
+
+	if (strstr($_SERVER['PHP_SELF'], "List.php"))
+	{
+		print ("<select size='1' name='SavedFilter' value='$SavedFilter' onChange='submit();'>");
+		$xxx = $SavedFilter;
+	}
+	else
+	{
+		if ($RequestType == "Update")
+			$xxx = $LoanStatus;
+		else
+			$xxx = SavedFilter;
+
+		//IMPORTANT! LoanStatus is the field sent in ApplicantMaintenance.php from its form to ApplicantUpdate.php
+		print ("<select size='1' name='LoanStatus' value='$xxx'>");
+	}
+
+	switch ($xxx)
+	{
+
+		case "Active":
+			print ("<option selected value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))	//The choice of 'All' is for listing records
+				print ("<option value='All'>All</option>");		//we do not allow a status to be modified to the "All"
+
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		case "New":
+			print ("<option value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))
+				print ("<option value='All'>All</option>");
+
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option selected value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		case "All":
+			print ("<option value='Active'>Active</option>");
+			print ("<option selected value='All'>All</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		case "Completed":
+			print ("<option value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))
+				print ("<option value='All'>All</option>");
+
+			print ("<option selected value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		case "Denied Credit":
+			print ("<option value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))
+				print ("<option value='All'>All</option>");
+
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option selected value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		case "Denied By Lender":
+			print ("<option value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))
+				print ("<option value='All'>All</option>");
+
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option selected value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		case "Gift Lead":
+			print ("<option value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))
+				print ("<option value='All'>All</option>");
+
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option selected value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		case "No Credit Report":
+			print ("<option value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))
+				print ("<option value='All'>All</option>");
+
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option selected value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		case "Submitted to Lender":
+			print ("<option value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))
+				print ("<option value='All'>All</option>");
+
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option selected value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		case "Withdrawn":
+			print ("<option value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))
+				print ("<option value='All'>All</option>");
+
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option selected value='Withdrawn'>Withdrawn</option>");
+			break;
+
+		default:
+			print ("<option value='Active'>Active</option>");
+
+			if (strstr($_SERVER['PHP_SELF'], "List.php"))
+			{
+				print ("<option selected value='All'>All</option>");
+				//set SavedFilter cookie
+				print ("<script language='Javascript'>document.cookie='SavedFilter=All';</script>");
+			}
+			else
+				print ("<option selected value=''>Select One</option>");
+
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='Gift Lead'>Gift Lead</option>");
+			print ("<option value='New'>New</option>");
+			print ("<option value='No Credit Report'>No Credit Report</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			print ("<option value='Withdrawn'>Withdrawn</option>");
+			break;
+	}
+
+	print ("/select>");
+
+	//if (strstr($_SERVER['PHP_SELF'], "ApplicantMaintenance.php"))
+	//	die ("SetCookies Line ".__LINE__." Loan Status:$xxx");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	//
+//																									//
+//	Format Names	puts every part of the name in the correct case		//
+//																									//
+// -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-	//
+
+function FormatNames()
+{
+	GLOBAL $ApplicantName, $ApplicantFirstName, $ApplicantMiddleName, $ApplicantLastName, $ApplicantSuffix;
+	GLOBAL $Co_ApplicantName, $Co_ApplicantFirstName, $Co_ApplicantMiddleName, $Co_ApplicantLastName, $Co_ApplicantSuffix;
+
+	$ApplicantMiddleName = "";
+	$Co_ApplicantMiddleName = "";
+	$ApplicantSuffix = "";
+	$Co_ApplicantSuffix = "";
+
+	$ApplicantName = ereg_replace(" +", " ", $ApplicantName);	//replace multiple spaces with a single space
+
+	// -*-*-*-*- Separate the first/middle name from the last name for applicant -*-*-*-*-*-*-
+
+	$ApplicantName = strtolower($ApplicantName); // james r. cleaver iii | james cleaver iii
+	$ApplicantName = ucwords($ApplicantName);	// James R. Cleaver Iii | James Cleaver Iii
+
+	$NamePart = explode (" ", $ApplicantName);  //$NameParts is an array of strings
+
+	for ($x = 0; $NamePart[$x] != ""; $x++)
+	{
+		$NamePart[$x] = $NamePart[$x];
+		//print ("<br>\nFormatName line (".__LINE__.") NamePart[$x] = '$NamePart[$x]'<br>\n");
+	}
+
+	if ($x == 4)	//"Robbie J McRefinance III"
+	{
+		$ApplicantFirstName 	= $NamePart[0];
+		$ApplicantMiddleName	= $NamePart[1];
+
+		if (($NamePart[3]) == ("Ii") || ($NamePart[3]) == ("Iii"))
+		{
+			$ApplicantSuffix = $NamePart[3] = strtoupper($NamePart[3]);
+		}
+
+		if (substr ($NamePart[2], 0, 2) == "Mc")
+		{
+			$aaa = substr ($NamePart[2], 2, 1);
+			$McLetter = strtoupper($aaa);
+			$bbb = substr ($NamePart[2], 3, 30);
+			$xxx = "Mc".$McLetter.$bbb;
+			$NamePart[2] = $xxx;
+		}
+
+		$ApplicantLastName 	= $NamePart[2];
+		$ApplicantSuffix	= $NamePart[3];
+
+		//print ("FormatNames (".__LINE__.") ApplicantFirstName |$ApplicantFirstName| ApplicantMiddleName |$ApplicantMiddleName| ApplicantLastName |$ApplicantLastName| ApplicantSuffix |$ApplicantSuffix|<br>\n");
+	}
+
+	if ($x == 3)	//"Robbie McRefinance III" or "Robbie J McRefinance"
+	{
+		if (($NamePart[2]) == ("I") || ($NamePart[2]) == ("Iii") || ($NamePart[2]) == ("Iii") || ($NamePart[2]) == ("Sr") || ($NamePart[2]) == ("Jr"))
+		{
+			$ApplicantFirstName = $NamePart[0];
+
+			if (($NamePart[2]) == ("Iii") || ($NamePart[2]) == ("Iii"))
+			{
+				$ApplicantSuffix = $NamePart[2] = strtoupper($NamePart[2]);
+			}
+
+			if (substr ($NamePart[1], 0, 2) == "Mc")
+			{
+				$aaa = substr ($NamePart[1], 2, 1);
+				$McLetter = strtoupper($aaa);
+				$bbb = substr ($NamePart[1], 3, 30);
+				$xxx = "Mc".$McLetter.$bbb;
+				$NamePart[1] = $xxx;
+				$ApplicantLastName 	= $NamePart[1];
+				$ApplicantSuffix	= $NamePart[2];
+			}
+			else
+			{
+				$ApplicantLastName 	= $NamePart[1];				
+				$ApplicantSuffix	= $NamePart[2];
+			}
+		}
+		else
+		{
+			$ApplicantFirstName = $NamePart[0];
+			$ApplicantMiddleName = $NamePart[1];
+
+			if (substr ($NamePart[2], 0, 2) == "Mc")
+			{
+				$aaa = substr ($NamePart[2], 2, 1);
+				$McLetter = strtoupper($aaa);
+				$bbb = substr ($NamePart[2], 3, 30);
+				$xxx = "Mc".$McLetter.$bbb;
+				$NamePart[2] = $xxx;
+			}
+
+			$ApplicantLastName = $NamePart[2];
+		}
+	}
+
+
+	if ($x == 2)	//"Robbie McRefinance"
+	{
+
+		$ApplicantFirstName = $NamePart[0];
+
+		if (substr ($NamePart[1], 0, 2) == "Mc")
+		{
+			$aaa = substr ($NamePart[1], 2, 1);
+			$McLetter = strtoupper($aaa);
+			$bbb = substr ($NamePart[1], 3, 30);
+			$xxx = "Mc".$McLetter.$bbb;
+			$NamePart[1] = $xxx;
+		}
+
+		$ApplicantLastName = $NamePart[1];
+	}
+
+	$ApplicantFirstName = trim($ApplicantFirstName);
+	$ApplicantLastName  = trim($ApplicantLastName);
+	$ApplicantName  = $ApplicantFirstName." ".$ApplicantLastName;
+
+	// -*-*-*-*-*-*-*-*-*-*-*Co_Applicant *-*-*-*-*-*-*-*-*-*-*
+
+	$Co_ApplicantName = ereg_replace(" +", " ", $Co_ApplicantName);	//replace multiple spaces with a single space
+
+	// -*-*-*-*- Separate the first/middle name from the last name for applicant -*-*-*-*-*-*-
+
+	$Co_ApplicantName = strtolower($Co_ApplicantName); // james r. cleaver iii | james cleaver iii
+	$Co_ApplicantName = ucwords($Co_ApplicantName);	// James R. Cleaver Iii | James Cleaver Iii
+
+
+	$NamePart = explode (" ", $Co_ApplicantName);  //$NameParts is an array of strings
+
+	for ($x = 0; $NamePart[$x] != ""; $x++)
+	{
+		$NamePart[$x] = $NamePart[$x];
+		//print ("<br>\nNamePart[$x] = '$NamePart[$x]'<br>\n");
+	}
+
+	if ($x == 4)	//"Robbie J McRefinance III"
+	{
+		$Co_ApplicantFirstName = $NamePart[0];
+		$Co_ApplicantMiddleName	= $NamePart[1];
+
+		if (($NamePart[3]) == ("Ii") || ($NamePart[3]) == ("Iii"))
+		{
+			$C0_ApplicantSuffix = $NamePart[3] = strtoupper($NamePart[3]);
+		}
+
+		if (substr ($NamePart[2], 0, 2) == "Mc")
+		{
+			$aaa = substr ($NamePart[2], 2, 1);
+			$McLetter = strtoupper($aaa);
+			$bbb = substr ($NamePart[2], 3, 30);
+			$xxx = "Mc".$McLetter.$bbb;
+			$NamePart[2] = $xxx;
+		}
+
+		$Co_ApplicantLastName 	= $NamePart[2];
+		$Co_ApplicantSuffix		= $NamePart[3];
+
+
+		//die ("Co_ApplicantFirstName |$Co_ApplicantFirstName| Co_ApplicantLastName |$Co_ApplicantLastName| NamePart[3] |$NamePart[3]|");
+	}
+
+	if ($x == 3)	//"Robbie McRefinance III" or "Robbie J McRefinance"
+	{
+		if (($NamePart[2]) == ("I") || ($NamePart[2]) == ("Iii") || ($NamePart[2]) == ("Iii") || ($NamePart[2]) == ("Sr") || ($NamePart[2]) == ("Jr"))
+		{
+			$Co_ApplicantFirstName	= $NamePart[0];
+
+			if (($NamePart[2]) == ("Iii") || ($NamePart[2]) == ("Iii"))
+			{
+				$NamePart[2] = strtoupper($NamePart[2]);
+			}
+
+			if (substr ($NamePart[1], 0, 2) == "Mc")
+			{
+				$aaa = substr ($NamePart[1], 2, 1);
+				$McLetter = strtoupper($aaa);
+				$bbb = substr ($NamePart[1], 3, 30);
+				$xxx = "Mc".$McLetter.$bbb;
+				$NamePart[1] = $xxx;
+				$Co_ApplicantLastName = $NamePart[1]." ".$NamePart[2];	
+			}
+			else
+			{
+				$Co_ApplicantLastName = $NamePart[1];
+			}
+		}
+		else
+		{
+			$Co_ApplicantFirstName = $NamePart[0];
+			$Co_ApplicantMiddleName = $NamePart[1];
+
+			if (substr ($NamePart[2], 0, 2) == "Mc")
+			{
+				$aaa = substr ($NamePart[2], 2, 1);
+				$McLetter = strtoupper($aaa);
+				$bbb = substr ($NamePart[2], 3, 30);
+				$xxx = "Mc".$McLetter.$bbb;
+				$NamePart[2] = $xxx;
+			}
+
+			$Co_ApplicantLastName = $NamePart[2];
+		}
+	}
+
+
+	if ($x == 2)	//"Robbie McRefinance"
+	{
+
+		$Co_ApplicantFirstName = $NamePart[0];
+
+		if (substr ($NamePart[1], 0, 2) == "Mc")
+		{
+			$aaa = substr ($NamePart[1], 2, 1);
+			$McLetter = strtoupper($aaa);
+			$bbb = substr ($NamePart[1], 3, 30);
+			$xxx = "Mc".$McLetter.$bbb;
+			$NamePart[1] = $xxx;
+		}
+
+		$Co_ApplicantLastName = $NamePart[1];
+	}
+
+	$Co_ApplicantFirstName = trim($Co_ApplicantFirstName);
+	$Co_ApplicantLastName  = trim($Co_ApplicantLastName);
+	$Co_ApplicantName  = $Co_ApplicantFirstName." ".$Co_ApplicantLastName;
+	
+	//print ("FormatNames (".__LINE__.") ApplicantFirstName |$ApplicantFirstName| ApplicantMiddleName |$ApplicantMiddleName| ApplicantLastName |$ApplicantLastName| ApplicantSuffix |$ApplicantSuffix|<br>\n");
+	//print ("FormatNames (".__LINE__.") Co_ApplicantFirstName |$Co_ApplicantFirstName| Co_ApplicantMiddleName |$Co_ApplicantMiddleName| Co_ApplicantLastName |$Co_ApplicantLastName| Co_ApplicantSuffix |$Co_ApplicantSuffix|<br>\n");
+}
+
+
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -	*/
+/*																									*/
+/*	SetCookies: Cookies must be set prior to any displaying table			*/
+/*																									*/
+/*	 $UserName is used in log-in authentication									*/
+/*	 $Password is used in log-in authentication									*/
+/*																									*/
+/*	 $SortColumn is used in headings of DB table lists							*/
+/*	 $SearchTerm is used in headings of DB table lists							*/
+/*	 $SavedFilter;//used in headings of DB table lists							*/
+/*																									*/
+/*	 $FromDate is used in DBStatistics												*/
+/*	 $ToDate is used in DBStatistics													*/
+/*																									*/
+/*	 $UpdatedBy is used in DailyProgressReports									*/
+/*	 $CommentLimit is used in DailyProgressReports								*/
+/*																									*/
+/*	This function first checks to see if the cookie doesn't exist. If it		*/
+/*	does not,if creates the cookie using the value of the PHP variable 	*/
+/*	of the same name. The it checks to see if a new value for the			*/
+/*	variable was passed by way of a POST command. If it was, then 		*/
+/* the cookie is updated.																	*/
+/*																									*/
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -	*/
+
+function SetCookies ()
+{
+	global $SortColumn;	//used in headings of DB table lists
+	global $SearchTerm;	//used in headings of DB table lists
+	global $SavedFilter;//used in headings of DB table lists
+
+	global $FromDate;	//used in DBStatistics and all DB list pages
+	global $FromMonth;
+	global $FromDay;
+	global $FromYear;
+
+	global $ToDate;		//used in DBStatistics and all DB list pages
+	global $ToMonth;
+	global $ToDay;
+	global $ToYear;
+
+	global $DateRange;	//used in DBStatistics and all DB list pages
+
+	global $UpdatedBy;	//used in DailyProgressReports
+	global $CommentLimit;	//used in DailyProgressReports
+	
+	global $Page;	//used for pagination
+	global $LastApplicantPrinted;	//used for pagination
+	global $CommentsOfApplicantPrinted;	//used for pagination
+	
+	global $Debug;
+
+	//die("ending now: SavedFilter=$SavedFilter");
+
+	$Expires = time() + (365 * 24 * 60 * 60); // year = now + (60 seconds * 60 minutes * 24 hours * 365 days)
+
+	// /*/*/*/*/*/*/*/*/*/*/ SortColumn Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($SortColumn))	//if 'SortColumn' variable not set, make it so...
+	{
+		//print ("\$SortColumn=ApplicantName;expires=$Expires;<br>\n");
+		setcookie("SortColumn", "ApplicantName", "$Expires","", "", "");
+
+		//print ("<script language='Javascript'>document.cookie='SortColumn=ApplicantName;expires=$Expires;';</script>");
+
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$SortColumn cookie to 'ApplicantName'<br>\n");
+		$SortColumn='ApplicantName';
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$SortColumn cookie previously set to |$SortColumn|<br>\n");
+	}
+
+	if ((isset($_POST[SortColumn])) && ($_POST[SortColumn] != ""))
+	{
+		$SortColumn = eregi_replace("\+", " ", $_POST[SortColumn]);
+		//print ("\$SortColumn=$SortColumn;expires=$Expires;<br>\n");
+		setcookie("SortColumn", "$SortColumn", "$Expires");
+		//print ("<script language='Javascript'>document.cookie='SortColumn=$SortColumn;expires=$Expires;';</script>");
+
+		//print ("Inside SetCookies (), line ".__LINE__." \$SortColumn set with POST parameter to |$SortColumn|<br>\n");
+	}
+
+	// /*/*/*/*/*/*/*/*/*/*/ SavedFilter Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($SavedFilter))  //if 'SavedFilter' variable not set, make it so...
+	{
+		setcookie("SavedFilter", "All", "$Expires","", "", "");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$SavedFilter cookie to 'All'<br>\n");
+		$SavedFilter='All';
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$SavedFilter cookie previously set to |$SavedFilter|<br>\n");
+	}
+
+	if ((isset($_POST[SavedFilter])) && ($_POST[SavedFilter] != ""))//if SavedFilter was passed on the command line
+	{
+		$SavedFilter = eregi_replace("\+", " ", $_POST[SavedFilter]);
+
+		if (strstr($_SERVER['PHP_SELF'], "List.php"))	//set the cookie ONLY if a XxxxList.php page
+		{
+			setcookie("SavedFilter", "$SavedFilter", "$Expires","", "", "");
+			//print ("Inside SetCookies (), line ".__LINE__." \$SavedFilter set with POST parameter to |$SavedFilter|<br>\n");
+		}
+	}
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ SeachTerm Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+
+	if (!isset($SearchTerm))	//if 'SearchTerm' variable not set, make it so...
+	{
+		setcookie("SearchTerm", "", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='SearchTerm=$SearchTerm;expires=$Expires';</script>");
+
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$SearchTerm cookie to ''<br>\n");
+		$SearchTerm='';
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$SearchTerm cookie previously set to |$SearchTerm|<br>\n");
+	}
+
+	if (isset($_POST[SearchTerm])) //if on cmd line, get the new search term
+	{
+		$SearchTerm=$_POST[SearchTerm];
+		setcookie("SearchTerm", "$SearchTerm", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='SearchTerm=$SearchTerm;expires=$Expires';</script>");
+
+		//print ("Inside SetCookies (), line ".__LINE__." \$SearchTerm set with POST parameter to |$SearchTerm|<br>\n");
+	}
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ FromDate Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($FromDate))	//if 'FromDate' variable not set, make it so...
+	{
+		setcookie("FromDate", "010101", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='FromDate=All;expires=$Expires';</script>");
+
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$FromDate cookie to '010101'<br>\n");
+		$FromDate='010101';
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$FromDate cookie previously set to |$FromDate|<br>\n");
+	}
+
+	if ((isset($_POST[FromDate])) && ($_POST[FromDate] != ""))
+	{
+		$FromDate = eregi_replace("\+", " ", $_POST[FromDate]);
+		setcookie("FromDate", "$FromDate", "$Expires","", "", "");
+
+		//print ("<script language='Javascript'>document.cookie='FromDate=$FromDate;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$FromDate set with POST parameter to |$FromDate|<br>\n");
+	}
+
+	// /*/*/*/*/*/*/*/*/*/*/ FromMonth Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($FromMonth))  //if 'FromMonth' variable not set, make it so...
+	{
+		setcookie("FromMonth", "01", "$Expires","", "", "");
+
+		//print ("<script language='Javascript'>document.cookie='FromMonth=01;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$FromMonth cookie From '01'<br>\n");
+		$FromMonth='01';
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$FromMonth cookie previously set From |$FromMonth|<br>\n");
+	}
+
+	if ((isset($_POST[FromMonth])) && ($_POST[FromMonth] != ""))
+	{
+		$FromMonth = eregi_replace("\+", " ", $_POST[FromMonth]);
+		setcookie("FromMonth", "$FromMonth", "$Expires","", "", "");
+
+		//print ("<script language='Javascript'>document.cookie='FromMonth=$FromMonth;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$FromMonth set with POST parameter to |$FromMonth|<br>\n");
+	}
+
+	// /*/*/*/*/*/*/*/*/*/*/ FromDay Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($FromDay))  //if 'FromDay' variable not set, make it so...
+	{
+		setcookie("FromDay", "01", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='FromDay=01;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$FromDay cookie From '01'<br>\n");
+		$FromDay='01';
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$FromDay cookie previously set From |$FromDay|<br>\n");
+	}
+
+	if ((isset($_POST[FromDay])) && ($_POST[FromDay] != ""))
+	{
+		$FromDay = eregi_replace("\+", " ", $_POST[FromDay]);
+		setcookie("FromDay", "$FromDay", "$Expires","", "", "");
+
+		//print ("<script language='Javascript'>document.cookie='FromDay=$FromDay;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$FromDay set with POST parameter to |$FromDay|<br>\n");
+	}
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ FromYear Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($FromYear))  //if 'FromYear' variable not set, make it so...
+	{
+		setcookie("FromYear", "01", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='FromYear=01;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$FromYear cookie From '01'<br>\n");
+		$FromYear='01';
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$FromYear cookie previously set From |$ToYear|<br>\n");
+	}
+
+	if ((isset($_POST[FromYear])) && ($_POST[FromYear] != ""))
+	{
+		$FromYear = eregi_replace("\+", " ", $_POST[FromYear]);
+		setcookie("FromYear", "$FromYear", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='FromYear=$FromYear;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$FromYear set with POST parameter to |$FromYear|<br>\n");
+	}
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ ToDate Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($ToDate))  //if 'ToDate' variable not set, make it so...
+	{
+		$x=date("ymd");
+		setcookie("ToDate", "$x", "$Expires","", "", "");
+
+		//print ("<script language='Javascript'>document.cookie='ToDate=$x;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$ToDate cookie to '$x'<br>\n");
+		$ToDate=$x;
+
+		if ($Debug)
+			print("Line ".__LINE__." \$ToDate = |$Todate|<br>\n");
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$ToDate cookie previously set to |$ToDate|<br>\n");
+	}
+
+	if ((isset($_POST[ToDate])) && ($_POST[ToDate] != ""))
+	{
+		$ToDate = eregi_replace("\+", " ", $_POST[ToDate]);
+		setcookie("ToDate", "$ToDate", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='ToDate=$ToDate;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$ToDate set with POST parameter to |$ToDate|<br>\n");
+	}
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ ToMonth Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($ToMonth))  //if 'ToMonth' variable not set, make it so...
+	{
+		$x=date('m');
+		setcookie("ToMonth", "$x", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='ToMonth=$x;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$ToMonth cookie to '$x'<br>\n");
+		$ToMonth=$x;
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$ToMonth cookie previously set to |$ToMonth|<br>\n");
+	}
+
+	if ((isset($_POST[ToMonth])) && ($_POST[ToMonth] != ""))
+	{
+		$ToMonth = eregi_replace("\+", " ", $_POST[ToMonth]);
+		setcookie("ToMonth", "$ToMonth", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='ToMonth=$ToMonth;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$ToMonth set with POST parameter to |$ToMonth|<br>\n");
+	}
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ ToDay Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($ToDay))  //if 'ToDay' variable not set, make it so...
+	{
+		$x=date('d');
+		setcookie("ToDay", "$x", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='ToDay=$x;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$ToDay cookie to '$x'<br>\n");
+		$ToDay=$x;
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$ToDay cookie previously set to |$ToDay|<br>\n");
+	}
+
+	if ((isset($_POST[ToDay])) && ($_POST[ToDay] != ""))
+	{
+		$ToDay = eregi_replace("\+", " ", $_POST[ToDay]);
+		setcookie("ToDay", "$ToDay", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='ToDay=$ToDay;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$ToDay set with POST parameter to |$ToDay|<br>\n");
+	}
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ ToYear Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($ToYear))  //if 'ToYear' variable not set, make it so...
+	{
+		$x=date('y');
+		setcookie("ToYear", "$x", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='ToYear=$x;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$ToYear cookie to '$x'<br>\n");
+		$ToYear=$x;
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$ToYear cookie previously set to |$ToYear|<br>\n");
+	}
+
+	if ((isset($_POST[ToYear])) && ($_POST[ToYear] != ""))
+	{
+		$ToYear = eregi_replace("\+", " ", $_POST[ToYear]);
+		setcookie("ToYear", "$ToYear", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='ToYear=$ToYear;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$ToYear set with POST parameter to |$ToYear|<br>\n");
+	}
+
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ DateRange Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if ((isset($_POST['DateRange'])) && ($_POST['DateRange'] != ""))//if DateRange was passed
+	{
+		setcookie("DateRange", "All Dates", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='DateRange=All Dates;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \DateRange cookie to 'All Dates' because cookie is not set<br>\n");
+		$DateRange='All Dates';
+		//die("Inside SetCookies (), line ".__LINE__." Ending...");
+	}
+	else
+	{
+		$DateRange = $_COOKIE['DateRange'];
+		//die ("Inside SetCookies (), line ".__LINE__." \$DateRange |$DateRange| was not passed to the page.<br>\n");
+	}
+
+	if ((isset($_POST[DateRange])) && ($_POST[DateRange] != ""))
+	{
+		$DateRange = eregi_replace("\+", " ", $_POST[DateRange]);
+		setcookie("DateRange", "$DateRange", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='DateRange=$DateRange;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$DateRange set with POST parameter to |$DateRange|<br>\n");
+	}
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ UpdatedBy Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($UpdatedBy))	//if 'UpdatedBy' variable not set, make it so...
+	{
+		setcookie("UpdatedBy", "Unknown", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='UpdatedBy=Unknown;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$UpdatedBy cookie to 'Unknown'<br>\n");
+		$UpdatedBy='';
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$UpdatedBy cookie previously set to |$UpdatedBy|<br>\n");
+	}
+
+	if ((isset($_POST[UpdatedBy])))
+	{
+		$UpdatedBy=$_POST[UpdatedBy];
+		setcookie("UpdatedBy", "$UpdatedBy", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='UpdatedBy=$UpdatedBy;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$UpdatedBy set with POST parameter to |$UpdatedBy|<br>\n");
+	}
+
+
+	// /*/*/*/*/*/*/*/*/*/*/ CommentLimit Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+
+	if (!isset($CommentLimit))	//if 'CommentLimit' variable not set, make it so...
+	{
+		setcookie("CommentLimit", "All", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='CommentLimit=All;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." Setting \$CommentLimit cookie to 'All'<br>\n");
+		$CommentLimit='All';
+	}
+	else
+	{
+		//print ("Inside SetCookies (), line ".__LINE__." \$CommentLimit cookie previously set to |$CommentLimit|<br>\n");
+	}
+
+	if ((isset($_POST[CommentLimit])))
+	{
+		$CommentLimit=$_POST[CommentLimit];
+		setcookie("CommentLimit", "$CommentLimit", "$Expires","", "", "");
+		//print ("<script language='Javascript'>document.cookie='CommentLimit=$CommentLimit;expires=$Expires';</script>");
+		//print ("Inside SetCookies (), line ".__LINE__." \$CommentLimit set with POST parameter to |$CommentLimit|<br>\n");
+	}
+	
+		// /*/*/*/*/*/*/*/*/*/*/ Page Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+	
+		if (!isset($Page))	//if 'Page' variable not set, make it so...
+		{
+			//print ("\$Page=1;expires=$Expires;<br>\n");
+			setcookie("Page", "1", "$Expires","", "", "");
+	
+			//print ("<script language='Javascript'>document.cookie='Page=1;expires=$Expires;';</script>");
+	
+			//print ("Inside SetCookies (), line ".__LINE__." Setting \$Page cookie to '1'<br>\n");
+			$Page='1';
+		}
+		else
+		{
+			//print ("Inside SetCookies (), line ".__LINE__." \$Page cookie previously set to |$Page|<br>\n");
+		}
+	
+		if ((isset($_GET[Page])) && ($_GET[Page] != ""))
+		{
+			$Page = eregi_replace("\+", " ", $_GET[Page]);
+			//print ("\$Page=$Page;expires=$Expires;<br>\n");
+			setcookie("Page", "$Page", "$Expires");
+			//print ("<script language='Javascript'>document.cookie='Page=$Page;expires=$Expires;';</script>");
+	
+			//print ("Inside SetCookies (), line ".__LINE__." \$Page set with GET parameter to |$Page|<br>\n");
+		}
+	
+		// /*/*/*/*/*/*/*/*/*/*/ LastApplicantPrinted Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+	
+		if (!isset($LastApplicantPrinted))	//if 'LastApplicantPrinted' variable not set, make it so...
+		{
+			//print ("\$LastApplicantPrinted=' ';expires=$Expires;<br>\n");
+			setcookie("LastApplicantPrinted", " ", "$Expires","", "", "");
+	
+			//print ("<script language='Javascript'>document.cookie='LastApplicantPrinted=\" \";expires=$Expires;';</script>");
+	
+			//print ("Inside SetCookies (), line ".__LINE__." Setting \$LastApplicantPrinted cookie to '\" \"'<br>\n");
+			$LastApplicantPrinted=' ';
+		}
+		else
+		{
+			//print ("Inside SetCookies (), line ".__LINE__." \$LastApplicantPrinted cookie previously set to |$LastApplicantPrinted|<br>\n");
+		}
+	
+		if ((isset($_GET[LastApplicantPrinted])) && ($_GET[LastApplicantPrinted] != ""))
+		{
+			$LastApplicantPrinted = eregi_replace("\+", " ", $_GET[LastApplicantPrinted]);
+			//print ("\$LastApplicantPrinted=$LastApplicantPrinted;expires=$Expires;<br>\n");
+			setcookie("LastApplicantPrinted", "$LastApplicantPrinted", "$Expires");
+			//print ("<script language='Javascript'>document.cookie='LastApplicantPrinted=$LastApplicantPrinted;expires=$Expires;';</script>");
+	
+			//print ("Inside SetCookies (), line ".__LINE__." \$LastApplicantPrinted set with GET parameter to |$LastApplicantPrinted|<br>\n");
+		}
+	
+		// /*/*/*/*/*/*/*/*/*/*/ CommentsOfApplicantPrinted Cookie /*/*/*/*/*/*/*/*/*/*/*/*/
+	
+		if (!isset($CommentsOfApplicantPrinted))	//if 'CommentsOfApplicantPrinted' variable not set, make it so...
+		{
+			//print ("\$CommentsOfApplicantPrinted=\" \";expires=$Expires;<br>\n");
+			setcookie("CommentsOfApplicantPrinted", "\" \"", "$Expires","", "", "");
+	
+			//print ("<script language='Javascript'>document.cookie='CommentsOfApplicantPrinted=\" \";expires=$Expires;';</script>");
+	
+			//print ("Inside SetCookies (), line ".__LINE__." Setting \$CommentsOfApplicantPrinted cookie to '\" \"'<br>\n");
+			$CommentsOfApplicantPrinted=' ';
+		}
+		else
+		{
+			//print ("Inside SetCookies (), line ".__LINE__." \$CommentsOfApplicantPrinted cookie previously set to |$CommentsOfApplicantPrinted|<br>\n");
+		}
+	
+		if ((isset($_GET[CommentsOfApplicantPrinted])) && ($_GET[CommentsOfApplicantPrinted] != ""))
+		{
+			$CommentsOfApplicantPrinted = eregi_replace("\+", " ", $_GET[CommentsOfApplicantPrinted]);
+			//print ("\$CommentsOfApplicantPrinted=$CommentsOfApplicantPrinted;expires=$Expires;<br>\n");
+			setcookie("CommentsOfApplicantPrinted", "$CommentsOfApplicantPrinted", "$Expires");
+			//print ("<script language='Javascript'>document.cookie='CommentsOfApplicantPrinted=$CommentsOfApplicantPrinted;expires=$Expires;';</script>");
+	
+			//print ("Inside SetCookies (), line ".__LINE__." \$CommentsOfApplicantPrinted set with GET parameter to |$CommentsOfApplicantPrinted|<br>\n");
+		}
+
+
+	if ($Debug)
+	{
+		print ("End of SetCookies () line ".__LINE__." ");
+		print ("\$FromDate '$FromDate', \$FromMonthName '$FromMonthName', \$FromMonth '$FromMonth', \$FromDay '$FromDay', \$FromYear '$FromYear'<br>\n");
+		print ("\$ToDate '$ToDate', \$ToMonthName '$ToMonthName', \$ToMonth '$ToMonth', \$ToDay '$ToDay', \$ToYear '$ToYear'<br>\n");
+		print ("\$DateRange '$DateRange'<br>\n");
+	}
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - -	*/
+/*																																				*/
+/*	ComputeReportingPeriod: More often than not, the records of the database for a specific date range  */
+/*	are being queried. This routine determines those ranges and computes the dates accordingly.			*/
+/*																																				*/
+/*	If the DateRange variable is passed, we recompute the from and to dates										*/
+/*																																				*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - -	*/
+
+
+function ComputeReportingPeriod()
+{
+	global $FromDate;
+	global $FromMonthName;
+	global $FromMonth;
+	global $FromDay;
+	global $FromYear;
+
+	global $DateRange;
+
+	global $ToDate;
+	global $ToMonthName;
+	global $ToMonth;
+	global $ToDay;
+	global $ToYear;
+	global $Debug;
+
+	$MonthName = array ('January', 'February', 'March', 'April', 'May', 'June',
+	'July', 'August', 'September', 'October', 'November', 'December');
+
+	$RangeName = array ('Today', 'Yesterday', 'Week To Date', 'Last Week', 'Month To Date',
+	'Last Month', 'Custom Time Period', 'All Dates');
+
+	if ($Debug)
+	{
+		print ("At Start of On ComputeReportingPeriod, line ".__LINE__." \$FromMonth '$FromMonth' \$FromDay '$FromDay' \$FromYear '$FromYear'<br>\n");
+		print ("At Start of On ComputeReportingPeriod, line ".__LINE__." \$ToMonth '$ToMonth' \$ToDay '$ToDay' \$ToYear '$ToYear'<br>\n");
+	}
+
+	// *-*-*-*-*-*-*-*-*-*-*-*-*-* Compute the date range here *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+	if ($DateRange == "")				//if cookie has no data
+		$DateRange = "Week To Date";	//set the default range name to "Week To Date"
+
+	if (isset($_POST[DateRange]))		//if a new range is POSTed, supercede the cookie
+	{
+		$DateRange = $_POST['DateRange'];
+		//print ("In ComputeReportingPeriod() line ".__LINE__." \$DateRange is '$DateRange'<br>\n");
+	}
+
+	switch ($DateRange)
+	{
+		case 'Today':
+			$FromMonth=date('m');
+			$FromDay=date('d');
+			$FromYear=date('y');
+
+			$ToMonth=date('m');
+			$ToDay=date('d');
+			$ToYear=date('y');
+			break;
+
+		case 'Yesterday':
+			$FromMonth=date('m');
+			$FromDay=date('d') - 1;
+			$FromYear=date('y');
+
+			$ToMonth=date('m');
+			$ToDay=date('d') - 1;
+			$ToYear=date('y');
+			break;
+
+
+		case 'Week To Date':
+			$month=date('m');
+			$day=date('d');
+			$year=date('Y'); //4-digit year
+
+			$dow = ((date("w", mktime(0,0,0,$month,$day,$year)) + 7) % 7);
+			$sunDate = date("m/d/Y", mktime(0,0,0,$month,($day-$dow),$year));
+
+			//print ("Sunday for this week is $sunDate<br>\n");
+
+			$FromMonth = date("m", mktime(0,0,0,$month,($day-$dow),$year));
+			$FromDay = date("d", mktime(0,0,0,$month,($day-$dow),$year));
+			$FromYear = date("y", mktime(0,0,0,$month,($day-$dow),$year));
+
+			$ToMonth=date('m');
+			$ToDay=date('d');
+			$ToYear=date('y');
+			break;
+
+		case 'Last Week':
+			$month=date('m');
+			$day=date('d');
+			$year=date('Y'); //4-digit year
+
+			$dow = ((date("w", mktime(0,0,0,$month,$day,$year)) + 7) % 7);  //do a mod 7
+			$sunDate = date("m/d/Y", mktime(0,0,0,$month,(($day - $dow) - 7),$year));
+
+			//print ("Sunday for this week is $sunDate<br>\n");
+
+			$FromMonth = date("m", mktime(0,0,0,$month,($day - $dow - 7),$year));
+			$FromDay = date("d", mktime(0,0,0,$month,($day - $dow - 7),$year));
+			$FromYear = date("y", mktime(0,0,0,$month,($day - $dow - 7),$year));
+
+			$dow = ((date("w", mktime(0,0,0,$month,$day,$year)) + 8) % 7);
+
+			$satDate = date("m/d/Y", mktime(0,0,0,$month,($day-$dow),$year)); // this past Saturday
+
+			//print ("Saturday for last week is $satDate<br>\n");
+
+			$ToMonth = date("m", mktime(0,0,0,$month,($day-$dow),$year));
+			$ToDay = date("d", mktime(0,0,0,$month,($day-$dow),$year));
+			$ToYear = date("y", mktime(0,0,0,$month,($day-$dow),$year));
+			break;
+
+		case 'Month To Date':
+			$FromMonth=date('m');
+			$FromDay='1';
+			$FromYear=date('y');
+
+			$ToMonth=date('m');
+			$ToDay=date('d');
+			$ToYear=date('y');
+			break;
+
+		case 'Last Month':
+			$month=date('m');
+			$year=date('y');
+
+			if ($month == 1)
+			{
+				$FromMonth = 12;
+				$ToMonth = 12;
+				$FromYear = $year - 1;
+				$ToYear = $year - 1;
+			}
+			else
+			{
+				$FromMonth = $month - 1;
+				$ToMonth = $month - 1;
+				$FromYear = $year;
+				$ToYear = $year;
+			}
+
+			$FromDay = 1;
+
+			if (($month == 9) || ($month == 4) || ($month == 6) || ($month == 11))
+			{
+				$ToDay = 30;
+			}
+			else
+			{
+				$ToDay = 31;
+			}
+
+			if ($month == 2)
+				$ToDay = 28;
+
+			break;
+
+
+//	Custom Time Period note: Since we let the user choose the month by month name, we must convert it back
+//	to the number.
+
+		case 'Custom Time Period':
+			//print ("In CustomTime Period case, line ".__LINE__." \$FromDate '$FromDate' \$ToDate '$ToDate' was read from cookie<br>\n");
+
+			for ($x=0; $x < count($MonthName); $x++)
+			{
+				$Mname = each ($MonthName);
+
+				if ($_POST[FromMonth] == $Mname[value])
+				{
+					//printf ("FromMonth Value='%02d' for Month %s<br>\n", ($Mname[key] + 1), $Mname[value]);
+					$FromMonth	= $Mname[key] + 1;
+				}
+			}
+
+			reset($MonthName);	//reset the pointer to the array
+
+			for ($x=0; $x < count($MonthName); $x++)
+			{
+				$Mname = each ($MonthName);
+
+				if ($_POST[ToMonth] == $Mname[value])
+				{
+					//printf ("ToMonth Value='%02d' for Month %s<br>\n", ($Mname[key] + 1), $Mname[value]);
+					$ToMonth	= $Mname[key] + 1;
+				}
+			}
+
+			if (isset($_POST[FromDay]))
+				$FromDay	= $_POST[FromDay];
+
+			if (isset($_POST[FromYear]))
+				$FromYear	= $_POST[FromYear];
+
+			if (isset($_POST[ToDay]))
+				$ToDay	= $_POST[ToDay];
+
+			if (isset($_POST[ToYear]))
+				$ToYear	= $_POST[ToYear];
+
+			if ($Debug)
+			{
+				print ("In CustomTime Period case, line ".__LINE__." \$FromMonth '$FromMonth' \$FromDay '$FromDay' \$FromYear '$FromYear'<br>\n");
+				print ("In CustomTime Period case, line ".__LINE__." \$ToMonth '$ToMonth' \$ToDay '$ToDay' \$ToYear '$ToYear'<br>\n");
+			}
+
+			break;
+
+		case 'All Dates':
+			$FromMonth = '01';
+			$FromDay = '01';
+			$FromYear = '01';
+
+			$ToMonth=date('m');
+			$ToDay=date('d');
+			$ToYear=date('y');
+			break;
+
+		default:	// default date range name is "Week To Date"
+			$month=date('m');
+			$day=date('d');
+			$year=date('Y'); //4-digit year
+
+			$dow = ((date("w", mktime(0,0,0,$month,$day,$year)) + 7) % 7);
+			$sunDate = date("m/d/Y", mktime(0,0,0,$month,($day-$dow),$year));
+
+			//print ("Sunday for this week is $sunDate<br>\n");
+
+			$FromMonth = date("m", mktime(0,0,0,$month,($day-$dow),$year));
+			$FromDay = date("d", mktime(0,0,0,$month,($day-$dow),$year));
+			$FromYear = date("y", mktime(0,0,0,$month,($day-$dow),$year));
+
+			$ToMonth=date('m');
+			$ToDay=date('d');
+			$ToYear=date('y');
+			break;
+	}
+
+	$FromMonthName = $MonthName[$FromMonth - 1];	//for displaying
+	$ToMonthName = $MonthName[$ToMonth - 1];
+
+	$FromDate = sprintf("%02d%02d%02d", $FromYear, $FromMonth, $FromDay);	//YYMMDD for comparisons
+	$ToDate = sprintf("%02d%02d%02d", $ToYear, $ToMonth, $ToDay);			//YYMMDD for comparisons
+
+	if ($Debug)
+		print ("In ComputeReportingPeriod() line ".__LINE__." \$FromDate $FromDate \$ToDate $ToDate<br>\n");
+}
+
+
+
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - -//
+//																																			//
+//	DisplayReportingPeriodRangeOptions: This is the form for choosing the reportingRange Options.	//
+//																																			//
+// If you change the DateRange field (and it is not a Custom date), POST this form's data and 			//
+// redisplay the page. The To and From date variables are not changed in this routine.						//
+//																																			//
+// When the page is redisplayed, and the ComputeReportingPeriod () function is run, the variables 	//
+// are changed.																														//
+//																																			//
+// Sequence of events:																												//
+// 1. The reporting period range is changed (the OnChange='submit();' occurs) in this function			//
+// 		Variables passed are DateRange (this field is updated), 														//
+// 		FromMonth, FromDay, FromYear and ToMonth, ToDay, ToYear (these fields are read-only			//
+// 		except when DateRange = a custom period)																		//
+//																																			//
+// 2. The page is rerun with this new "DateRange" and these other variables posted information		//
+// 3. Cookies are set for FromDate, ToDate, DateRange and other date cookies								//
+// 4. Reporting Period date variables are computed. This is where the FromDate and ToDate 			//
+//		variables are computed.																									//
+// 5. The new Reporting Period Date Options are displayed (that is, this function is run again)			//
+//																																			//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - -//
+
+function DisplayReportingPeriodRangeOptions()
+{
+	global $FromDate;
+	global $FromMonthName;
+	global $FromMonth;
+	global $FromDay;
+	global $FromYear;
+
+	global $DateRange;
+
+	global $ToDate;
+	global $ToMonthName;
+	global $ToMonth;
+	global $ToDay;
+	global $ToYear;
+	global $Debug;
+
+	//print ("<span style='background-color: #ffffff; color: #000000'>In DisplayReportingPeriodRangeOptions () line ".__LINE__."<br />");
+	//print ("\$FromDate '$FromDate'<br />\$FromMonthName '$FromMonthName'<br />\$FromMonth '$FromMonth'<br />\$FromDay '$FromDay'<br />\$FromYear '$FromYear'<br>\n");
+	//print ("\$ToDate '$ToDate'<br />\$ToMonthName '$ToMonthName'<br />\$ToMonth '$ToMonth'<br />\$ToDay '$ToDay'<br />\$ToYear '$ToYear'<br>\n");
+	//die ("\$DateRange '$DateRange'<br></span>\n");
+	
+	if ($Debug)
+	{
+		print ("In DisplayReportingPeriodRangeOptions () line ".__LINE__."<br />");
+		print ("\$FromDate '$FromDate'<br />\$FromMonthName '$FromMonthName'<br />\$FromMonth '$FromMonth'<br />\$FromDay '$FromDay'<br />\$FromYear '$FromYear'<br>\n");
+		print ("\$ToDate '$ToDate'<br />\$ToMonthName '$ToMonthName'<br />\$ToMonth '$ToMonth'<br />\$ToDay '$ToDay'<br />\$ToYear '$ToYear'<br>\n");
+		print ("\$DateRange '$DateRange'<br>\n");
+	}
+
+	$MonthName = array ('January', 'February', 'March', 'April', 'May', 'June',
+	'July', 'August', 'September', 'October', 'November', 'December');
+
+	$RangeName = array ('Today', 'Yesterday', 'Week To Date', 'Last Week', 'Month To Date',
+	'Last Month', 'Custom Time Period', 'All Dates');
+
+
+	if (($DateRange == 'Custom Time Period') || ($_POST[DateRange] == 'Custom Time Period'))
+		$Custom = 1;
+	else
+		$Custom = 0;
+
+	// -*-*-*-*-* Display the Reporting Period range options *-*-*-*-*-
+
+
+	// To debug table cell sizes, change bordercolor to #FFFF00
+	print ("<table border='1' width='600' bordercolor='#003399'  cellpadding='2' cellspacing='2' bgcolor='#003399'>\n");
+	print ("<form name='Period' action='$PHP_SELF' method='post'>\n");
+
+	if ($Custom == 1)
+	{
+		print ("<tr><td align='right' width='24%'><font face='Verdana' color='#FFFFFF' Size= '2'>\n");
+		print ("<input type='reset' name='reset' value='Cancel'>");
+	}
+	else
+	{
+		print ("<tr><td align='right' width='24%'><font face='Verdana' color='#FFFFFF' Size= '2'>\n");
+		print ("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+	}
+
+	print ("</td><td colspan='2' align='right'>\n");
+	//print ("<font face='Verdana' color='#FFFFFF' Size= '2'>\n");
+	print ("<span style='color:#ffffff;font:110% bold san-serif;'>Reporting Period:</span><br><span style='font:x-small bold;color:#ffffff;'>(Date Loan App Rec'd)</span></td>");
+	
+	//for ($x=0; $x < count($RangeName); $x++)	//put range name choices in the pull-down box
+	//{
+	//	print("<span style='background-color: #ffffff; color: #000000;'>\$RangeName[$x] |$RangeName[$x]|</span><br />\n");
+	//}
+	//
+	//die("<br /><span style='background-color: #ffffff; color: #000000;'>\$RangeName array has count($RangeName) entries</span><br />\n");
+	
+	
+	print ("<td align='left' width='25%'>\n");
+
+	if ($Custom == 1)	// if the date is custom, then force users to use the submit button
+		print ("<select size='1' name='DateRange'>\n"); //the form element's name is DateRange. the value is selected
+	else
+		print ("<select size='1' name='DateRange' onChange='submit()'>\n"); //otherwise, on change do a submit
+		//print ("<select size='1' name='DateRange' onChange='alert(\"new range picked |\"+document.Period.DateRange.value+\"|\"); submit()'>\n"); //otherwise, on change do a submit
+		
+/******************************/
+	for ($x=0; $x < count($RangeName); $x++)	//put range name choices in the pull-down box
+	{
+
+		//if range name == value selected (or the default range name), then display that choice
+
+		if (($_POST[DateRange] == $RangeName[$x]) || ($DateRange == $RangeName[$x]))
+			printf ("<option selected value='%s'>%s</option>\n", $RangeName[$x], $RangeName[$x]);
+		else
+			printf ("<option value='%s'>%s</option>\n", $RangeName[$x], $RangeName[$x]);
+	}
+/******************************/
+
+	print ("</select></td><td colspan='2' align='left'>");
+	print ("<font face='Verdana' color='#FFFFFF' Size= '2'>\n");
+
+	if ($Custom == 1)
+		print ("<input type='submit' name='submit' value='Okay'>\n");
+	else
+		print ("&nbsp;&nbsp;&nbsp;&nbsp;");
+
+	print ("</td></tr>\n");
+
+	// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-	//
+	//																															//
+	//	If the DateRange is Custom, then allow the user to enter the date							//
+	//	Otherwise, use the preconfigured date ranges from the table									//
+	//																															//
+	// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-	//
+
+
+
+	if ($Custom == 1)
+	{
+		print ("<tr><td width='30%' align='right' valign='middle'>\n");
+		print ("<span style='color:#ffffff;font:110% bold san-serif;'>From </span><select size='1' name='FromMonth'>\n");
+
+		for ($x=0; $x < count($MonthName); $x++)	// list the MonthName array to display MonthName choices
+		{
+			$Mname = each ($MonthName);
+
+			if ($FromMonthName == $Mname[value])
+				printf ("<option selected value='%02d'>%s</option>\n", ($Mname[key] + 1), $Mname[value]);
+			else
+				printf ("<option value='%02d'>%s</option>\n", ($Mname[key] + 1), $Mname[value]);
+		}
+
+		print ("</select></font></td><td width='10%' align='right'>&nbsp;<select size='1' name='FromDay'>"); //put the numbers 1-31 in the pull-down box
+		print ("<font face='Verdana' color='#FFFFFF' Size= '2'>\n");
+
+		for ($x=1; $x < 32; $x++)
+		{
+			if ($FromDay == $x)
+				printf ("<option selected value='%02d'>%02d</option>\n", $x, $x); //put the numbers 1-31 in the pull-down box
+			else
+				printf ("<option value='%02d'>%02d</option>\n", $x, $x);
+		}
+
+		print ("</font></select></td>");
+		print ("<td width='12%' align='left'><select size='1' name='FromYear'>");
+		print ("<font face='Verdana' color='#FFFFFF' Size= '2'>\n");
+
+		for ($x=1; $x < 6; $x++)
+		{
+			if ($FromYear == $x)
+				printf ("<option selected value='%02d'>%02d</option>", $x, $x); //put the numbers 1-5 in the pull-down box
+			else
+				printf ("<option value='%02d'>%02d</option>", $x, $x);
+		}
+
+		print ("<option value='03'>03</option>");
+		print ("<option value='04'>04</option>");
+		print ("<option value='05'>05</option>");
+
+		print ("</font></select></td><td align='right'>");
+		print ("<span style='color:#ffffff;font:110% bold san-serif;'>To </span><select size='1' name='ToMonth'>\n");
+
+		reset($MonthName);	//reset the pointer to the array
+
+		for ($x=0; $x < count($MonthName); $x++)
+		{
+			$Mname = each ($MonthName);
+
+			if ($ToMonthName == $Mname[value])
+				printf ("<option selected value='%02d'>%s</option>\n", ($Mname[key] + 1), $Mname[value]);
+			else
+				printf ("<option value='%02d'>%s</option>\n", ($Mname[key] + 1), $Mname[value]);
+		}
+
+		print ("</select></font></td><td width='7%'>&nbsp;<select size='1' name='ToDay'>");
+		print ("<font face='Verdana' color='#FFFFFF' Size= '2'>\n");
+
+		for ($x=1; $x < 32; $x++)
+		{
+			if ($ToDay == $x)
+				printf ("<option selected value='%02d'>%02d</option>\n", $x, $x); //put the numbers 1-31 in the pull-down box
+			else
+				printf ("<option value='%02d'>%02d</option>\n", $x, $x);
+		}
+
+		print ("</font></select></td><td width='7%' align='left' valign='middle'><select size='1' name='ToYear'>");
+		print ("<font face='Verdana' color='#FFFFFF' Size= '2'>");
+
+		for ($x=1; $x < 6; $x++)
+		{
+			if ($ToYear == $x)
+				printf ("<option selected value='%02d'>%02d</option>", $x, $x); //put the numbers 1-5 in the pull-down box
+			else
+				printf ("<option value='%02d'>%02d</option>", $x, $x);
+		}
+
+		print ("</select></td>\n");
+	}
+	else	// standard reporting period chosen. Gray out boxes
+	{
+		print ("<tr><td align='right' valign='middle'>\n");
+		print ("<span style='color:#ffffff;font:110% bold san-serif;'>From </span><input type='text' name='FromMonth' readonly style='background: #CCCCCC' value='$FromMonthName' size='8'\n");
+		print ("title='Can not change this field unless you choose \"Custom Time Period\"'></font></td>\n");
+
+		print ("<td align=left width='10%' valign=middle><font face='Verdana' size='2' color='#FFFFFF'>\n");
+		print ("<input type='text' name='FromDay' readonly style='background: #CCCCCC' value='$FromDay' size='1'\n");
+		print ("title='Can not change this field unless you choose \"Custom Time Period\"'></font></td>\n");
+
+		print ("<td align=left width='20%' valign=middle><font face='Verdana' size='2' color='#FFFFFF'>\n");
+		print ("<input type='text' name='FromYear' readonly style='background: #CCCCCC' value='$FromYear' size='1'\n");
+		print ("title='Can not change this field unless you choose \"Custom Time Period\"'></font></td>\n");
+
+		print ("<td align=right valign=middle>\n");
+		print ("<span style='color:#ffffff;font:110% bold san-serif;'>To </span><input type='text' name='ToMonth' readonly style='background: #CCCCCC' value='$ToMonthName' size='8'\n");
+		print ("title='Can not change this field unless you choose \"Custom Time Period\"'></font></td>\n");
+
+		print ("<td align=left valign=middle><font face='Verdana' size='2' color='#FFFFFF'>\n");
+		print ("<input type='text' name='ToDay' readonly style='background: #CCCCCC' value='$ToDay' size='1'\n");
+		print ("title='Can not change this field unless you choose \"Custom Time Period\"'>&nbsp;&nbsp;&nbsp;</font></td>\n");
+
+		print ("<td align=left valign=middle><font face='Verdana' size='2' color='#FFFFFF'>\n");
+		print ("<input type='text' name='ToYear' readonly style='background: #CCCCCC' value='$ToYear' size='1'\n");
+		print ("title='Can not change this field unless you choose \"Custom Time Period\"'>&nbsp;&nbsp;&nbsp;</td>\n");
+	}
+
+	print ("</form></tr></table>");
+}
+
+
+?>

@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Bait And Switch Mortgage Schemes</title>
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="keywords"
+content="home loan, mortgage finance, bad credit, mortgage calculator, Lightning Mortgage, MORTGAGE FINANCE, BAD CREDIT, MORTGAGE CALCULATOR, LIGHTNING MORTGAGE">
+<meta name="description"
+content="Bad credit is not just a negative term. Sometimes its a starting place. We offer real loans to real people who want a chance to improve their financial situation. Refinancing your home loan, even with bad credit, is easy with Lightning Mortgage. Applying online for a loan is convenient. Simply answer a few questions about yourself and your property and let us do the rest.">
+<base target="_self">
+<script src="../js/Letter.js" type="text/javascript"></SCRIPT>
+<link rel="stylesheet" href="../css/IndexStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<script src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en" type="text/javascript"></script>
+</head>
+
+<body>
+
+<?php include('../include/top.php'); ?>
+<div id="Heading" style="width:85%;">
+<div class="Title"><h1 id="Small">Bait And<br />Switch</h1></div>
+<div class="Title">
+<div id="Big"><h1>Mortgage Schemes</h1></div>
+<div id="BigShadow"><h1>Mortgage Schemes</h1></div></div>
+</div><br style="clear:left;">
+<div id="text"><div class="LC" id="left">
+<p>In the course of doing business we frequently talk with customers who are
+very&nbsp; reluctant to believe the straight-forward way we do business. Later we
+find out that they've fallen victim to a bait-and-switch scheme. There are many variations
+of mortgage financing bait-and-switch schemes. Hopefully you will avoid falling in one of these
+traps by learning about one common form.</p>
+<p style="text-align: center; font:bold medium Verdana; color: #005800;">We're going fishing!</p>
+<p>Have you seen a newspaper ad that read, &quot;3.99% Interest Rate&quot;?
+That's the idea. The ad says more, but that's all they want you to remember. That, and their phone
+number. This is the &quot;bait.&quot; So you call the loan originator (broker, bank, or another
+lending institution) and make an appointment to get your &quot;3.99&quot; rate.</p>
+<p>The bait has done its job. You, their new customer, are in the door and have
+filled out an application. Isn't that a lovely office? A nice woman offers you coffee or a soft
+drink. You feel great. This is how they set the hook. While you're filling out an application you keep
+remembering that sign that said 3.99%. No one has told you don't qualify for that rate. In fact,
+only a select few can qualify for that loan program. But they don't tell you much of anything
+other than they need to order your appraisal that you'll need to pay for it.</p>
+<p>After some additional pleasantries, you are told they will be in touch.
+So you go home feeling great about life. A few days later, you call back to check on your
+refinance. That's when they tell you the bad news. You don't qualify for that rate. In fact,
+you barely qualify for a loan at all. Right now, they have a special promotion, and if you act now
+they can fit you into the loan program. This is the &quot;switch.&quot; You agree in a hurry, and
+rush right down with your required financial documents in hand, all because you've been told
+that this is the only program that will work for you. Unfortunately, they failed to mention the
+steep prepayment penalty or the high interest rate. Those surprises will be sprung on you at
+the closing table, after your bags are packed, and the movers are backing into your driveway.
+When it's too late to change anything.</p>
+<blockquote class="PullQuote" style="width:50%;">
+     Don't do business with unethical mortgage brokers, We have a better way.
+</blockquote>
+<p>There is a better way, and you've found it. You've reached this website.
+It's filled with information about mortgages. We don't make promises we can't deliver. The
+experience is completely different. First, we provide you with ample information here on our
+site before you decide to apply. After you look around and digest some of the information, you
+decide that you'd like to find out more. Now take the first step. Fill out an
+<a class="Index" href="../MortgageApplication/LoanAppShort.php">application</a>.
+That's a good thing, but you also need to follow through and order your credit report.</p>
+</div><div class="RC" id="right">
+<p>You may already know your credit score. That's helpful, but scores change every
+day. With three separate credit reporting agencies we need to know all your scores, not
+just one. Besides, there are more than just credit scores on a credit report. It is this
+other information that sometimes will make a difference to whether or not you qualify for a
+loan. For example, many times there will be another person with the same name on your report.
+This person's credit history may be pulling down your score. See
+<a href="../CreditScores.php">Credit Scores</a> for lots of helpful information.</p>
+<p>With the application and credit report we have a nearly complete picture. You
+also have an opportunity to provide us with more specific information on the <a
+href="../MortgageApplication/LoanAppShort.php">application</a>
+in the &quot;Situation&quot; text box.</p>
+<blockquote class="PullQuote">
+     Click to read about the services provided by <a href="../Answers/MortgageBrokerAnswers.php">Mortgage Brokers</a>.
+</blockquote>
+<p>Once we do an initial review of your application we'll contact you at the time
+you specify is most convenient on your application. When we call, we'll get to know you
+and listen to your specific needs because we consider you to be more than just numbers and
+words in a file. You are a living, breathing person with challenges and responsibilities. You
+took that leap of faith and provided us with your financial information. Our job is to become your
+financial advisor. Our goal is to offer you the best of everything--from service to rates.</p>
+<p>Here at Lightning Mortgage, we have hundreds of <a href="../LoanTypes.php">loan
+programs</a>. We are licensed mortgage brokers who run interference with these
+many lenders for you. It is our job to find the
+best loans that meets your specific needs. If
+there are several, we'll provide you with choices
+and options. You are the decision maker. Our role
+is to make you aware of your options and to
+advise you. With that said, if there is a 3.99%
+interest rate loan that you qualified for based
+on your credit history and other financial
+information, we'd be happy to offer it to you.</p>
+<p>Your <a
+href="../InterestRates.php">interest
+rate</a> is based on several factors. Mortgage
+(or rental) payment history is very important.
+You must continue to keep your mortgage paid
+until your new loan closes and funds. Otherwise,
+your credit rating will suffer. In fact, we ask
+you to sign a document called <i>The Ten
+Commandments Of Mortgage Lending </i>at the
+beginning of the financing process. It lists ten
+items that can and will cause your loan to be in
+jeopardy if not followed.&nbsp;</p>
+<p>If you like our philosophy and
+appreciate doing business with a company that
+will treat you with respect, give you honest
+answers, and be upfront with you, then please <a
+class="Index" href="../MortgageApplication/LoanAppShort.php">apply today</a>.
+If you have been a victim of a bait-and-switch
+mortgage scheme and would like to tell us your
+story, please&nbsp; <a
+href="../Administrative/Feedback.php">tell us
+about it</a>.</p></div></div>
+<div style='width:120px;margin-top:20px;float:left;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+<br style="clear:left;">
+<ul>
+<li><a
+href="../LoanTypes/LoanTypeDescriptions.php">Review Loan Types</a></li>
+<li><a
+href="../Answers.php">Review our Loan Process</a></li>
+<li><a
+href="../CreditScores.php">Learn about Credit Scores</a></li>
+<li><a
+href="../Answers/PreAnswers.php">Determine if you want to be pre-qualified or pre-approved</a></li>
+<li><a
+href="../InterestRates/EducationTaxes.php">Learn about the Tax Advantages of Home Ownership</a></li>
+<li><a
+    href="../MortgageApplication/LoanAppShort.php">Submit a Loan Application</a></li>
+</ul>
+</div>
+<?php include("../include/bottom.php"); ?>
+<script language="JavaScript" type="text/javascript">AdjustHeight('text', 'left', 'right');</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<INPUT>
+	<USER_INFO login="login" password="pw"/>
+	<REQUEST request_type="NEW" async="T">
+		<ORDER_DETAIL experian_credit_flag="T"/>
+		<APPLICANT firstname="BILL" surname="STEINER" ssn="216965192"/>
+		<CURRENT_ADDRESS streetnumber="563" streetname="68TH" aptnumber="B" city="ARVERNE" state="NY" zip="11692"/>
+		<OUTPUT_FORMAT format_type="XML"/>
+	</REQUEST>
+</INPUT>

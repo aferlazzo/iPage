@@ -1,0 +1,337 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+$arid = $_GET["arid"];
+
+print("<h2>BroadcastSend Starting...Do not close this window</h2>\n");
+include("conn.php");
+$WithinScript = "I am embedded in another script";
+include("settings.php");
+set_time_limit(0);			// don't time-out
+ignore_user_abort (TRUE);	//don't abort script even if the user disconnects. Just continue mail delivery.
+ 
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	/
+//																					/
+//	SendMail: Check all users in this Autoresponder (number as an input parameter).	/
+//	If it is time to send the next message, do so after cleaning up the message.	/
+//																					/
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	/
+
+function SendMail($aid, $EmailAddressFrom, $Remove_HTML, $Remove_Text, $debugIt)
+{
+	GLOBAL $Display_Name, $Installation_Path, $Wrap_On, $Ad, $Length_Of_Wrap, $Mail_Format, $link, $arid;
+	$arid=$aid;
+	$user="arid ".$arid;
+	
+	if (!function_exists(logMessage))
+	{
+		include("conn.php");  	
+	}
+	
+	$WithinScript = "I know the arid";
+	include("settings.php");
+	
+	if ($debugIt == 2)
+		logMessage ("BroadcastSend (".__LINE__.") \$arid '$arid' \$Display_Name '$Display_Name' \$Mail_Format '$Mail_Format'");
+
+//print ("BroadcastSend (".__LINE__.") \$arid '$arid' \$Display_Name '$Display_Name' \$Mail_Format '$Mail_Format'<br />");
+		
+	include("removesettings.php");  //get the 'click to remove' text line at bottom of message
+
+	if($Mail_Format == 1)
+	{
+		$Mail_Header="Content-type: text/html; charset=iso-8859-1";
+		$Mail_Footer=$Remove_HTML;
+	}
+	else
+	{
+		$Mail_Header="Content-Type: text/plain; charset=us-ascii";
+		$Mail_Footer=$Remove_Text;
+	}
+
+	
+	$Mail_Error_Flag = 1;
+
+	if ($debugIt==2)
+		logMessage ("BroadcastSend ".__LINE__." Checking autoresponder $arid");
+	
+	$maxSQL = "select max(seqno) as maxseq from messages where arid=$arid";	// determine the last msg in campaign
+	$result_max = mysql_query($maxSQL) or die("BroadcastSend (".__LINE__.") Error: $maxSQL");
+	mysql_data_seek($result_max, 0);
+	$maxrow = mysql_fetch_object($result_max);
+	$maxmsg=$maxrow->maxseq;
+	
+	if ($maxmsg<1)
+		$maxmsg=0;
+	
+	//	Get all the records that have a current message number less than the maximum messages 
+	//	from the users database 
+	
+	// select users in the mail campaign who have not yet received the last message
+		
+	$SQL_Statement = "SELECT * FROM users where currentmsg < 250 and arid=$arid and confirmed='Y'";
+	$Query_Result = mysql_query($SQL_Statement) or die(logMessage("BroadcastSend (".__LINE__.") Could not obtain all the user records for arid=".$arid));
+	$num_rows_usr = mysql_num_rows($Query_Result);
+	
+//print ("BroadcastSend (".__LINE__.") query: '$SQL_Statement'<br />$num_rows_usr subscribers will receive this broadcast<br />");
+
+	// for each user record in the mail campaign...
+	// get the user record, get the signature message, 
+	// for the user: get the message based on $MessageNumberInSequence
+	
+	for($ucount=0;$ucount<$num_rows_usr;$ucount++)
+	{
+		mysql_data_seek($Query_Result, $ucount) or die(logMessage("BroadcastSend (".__LINE__.") Could not move pointer to next user"));
+		$rowusr = mysql_fetch_object($Query_Result) or die(logMessage("BroadcastSend (".__LINE__.") Could not read pointer to next user"));
+		$IP_Address 	= $rowusr->ip;
+		$Email_Address 	= $rowusr->email;
+		$UserDefined1	= $rowusr->UserDefined1;
+		$UserDefined2	= $rowusr->UserDefined2;
+		$UserDefined3	= $rowusr->UserDefined3;
+		$UserDefined4	= $rowusr->UserDefined4;
+	
+		$Full_Name = strtolower(trim($rowusr->fname." ".$rowusr->lname));
+		$Full_Name = ucwords($Full_Name);
+
+		print ("<p>BroadcastSend (".__LINE__.") Sending broadcast to $Full_Name</p>");
+		flush();
+		ob_flush();
+
+		// 	Get the *signature* message db record 
+
+		$msgSQL = "select * from messages where (arid=$arid) and (seqno=0)";
+		$result_msg = mysql_query($msgSQL) or die(logMessage("BroadcastSend (".__LINE__.") Error: $msgSQL"));
+		mysql_data_seek($result_msg, 0);  // signature message
+		$row_msg = mysql_fetch_object($result_msg);
+	
+		if ($row_msg->seqno != 0) 
+			die("sequence error");
+		
+		$Signature = $row_msg->body;
+	
+		//	Read the *first* broadcast message we're planning to send
+		
+		$msgSQL = "select * from messages where arid=$arid and seqno='-4' order by seqno limit 0,1";
+		$result_msg = mysql_query($msgSQL) or die("BroadcastSend (".__LINE__.") Error: $msgSQL");
+		$num_rows_msg = mysql_num_rows($result_msg);
+
+		if($num_rows_msg>0) // if there is a message
+		{
+			mysql_data_seek($result_msg, 0);
+			$row_msg = mysql_fetch_object($result_msg);
+
+			$DelayDays		= $row_msg->delay;
+			$MessageSubject = $row_msg->subject;
+			$MessageBody 	= $row_msg->body;
+			$mid 			= $row_msg->mid;			
+		}
+		else
+			die(logMessage("BroadcastSend (".__LINE__.") Couldn't read broadcast message for campaign $arid. Check to see if campaign should be suspended. Preparing to send next message to $Email_Address, SQL statement: $msgSQL"));
+		
+		if ($debugIt==2)
+		{
+			if (eregi('[a-z]', $MessageBody)==false) //if message text is empty
+				$Rempty = "is empty";
+			else
+				$Rempty = "has contents";			
+				
+			//logMessage ("BroadcastSend ".__LINE__." the message $Rempty");
+		}
+		
+		// Replace message personalization (EmailAddress & FullName)
+		$MessageBody .= $Signature;				
+		$MessageBody 	= eregi_replace("%EmailAddress%",$Email_Address,$MessageBody);
+		$MessageSubject = eregi_replace("%EmailAddress%",$Email_Address,$MessageSubject);
+	
+		$MessageBody 	= eregi_replace("%FullName%",$Full_Name,$MessageBody);
+		$MessageSubject = eregi_replace("%FullName%",$Full_Name,$MessageSubject);
+			
+		$MessageBody 	= eregi_replace("%UserDefined1%",$UserDefined1,$MessageBody);
+		$MessageSubject = eregi_replace("%UserDefined1%",$UserDefined1,$MessageSubject);
+			
+		$MessageBody 	= eregi_replace("%UserDefined2%",$UserDefined2,$MessageBody);
+		$MessageSubject = eregi_replace("%UserDefined2%",$UserDefined2,$MessageSubject);
+			
+		$MessageBody 	= eregi_replace("%UserDefined3%",$UserDefined3,$MessageBody);
+		$MessageSubject = eregi_replace("%UserDefined3%",$UserDefined3,$MessageSubject);
+			
+		$MessageBody 	= eregi_replace("%UserDefined4%",$UserDefined4,$MessageBody);
+		$MessageSubject = eregi_replace("%UserDefined4%",$UserDefined4,$MessageSubject);
+	
+
+				
+		// Perform message word wrap on text messages
+			
+		if (($Wrap_On == 1) && ($Mail_Format == 0)) 
+			$MessageBody = wordwrap($MessageBody, $Length_Of_Wrap,"\n");
+			
+		// clean up any message 'artifacts' that may exist so message will display properly on the screen
+			
+		$MessageBody	= eregi_replace("\r\n","\n",$MessageBody);
+		$MessageBody 	= stripslashes($MessageBody);
+		$MessageSubject = stripslashes($MessageSubject);
+
+				
+		//Append the removal instructions and the removal instructions lines to *every* message body
+
+		if($Mail_Format == 1)
+		{
+			$Final_Body = "$MessageBody<br>$Removal_Link_HTML$Email_Address'>$Remove_HTML</a><br>\n";
+			if ($Ad != 45)
+				$Final_Body.=$PoweredbyHTML;
+		}
+		else
+		{
+			$Final_Body = $MessageBody."\n\n".$Remove_Text." ".$Removal_Link_Text.$Email_Address;
+
+			if ($Ad != 45)
+				$Final_Body.=$PoweredbyText;
+		}
+
+		if (!isset($Removal_Link_Text))
+			die (logMessage ("BroadcastSend (".__LINE__.") no remove link found"));
+		
+		//die (logMessage("BroadcastSend: \$Remove_Text |$Remove_Text|\n\$Removal_Link_Text |$Removal_Link_Text.$Email_Address|\n\$PoweredbyText |$PoweredbyText|"));
+
+		$Body_To_Send=$Final_Body;
+
+//print ("BroadcastSend (".__LINE__.") Body |$Body_To_Send|<br />");
+
+		if ($debugIt==2)
+		{
+			logMessage ("BroadcastSend ".__LINE__." Simulation of Email:$Email_Address Subject:$MessageSubject");
+		}
+		else // not debugging
+		{							
+			$directory=dirname(__FILE__);
+					
+           	if (stristr($directory, "demo"))
+           	{
+				if ($debugIt > 0)
+				{
+					logMessage ("BroadcastSend ".__LINE__." ***Beta Test*** Not sending email To: ".$Full_Name."<".$Email_Address."> Subject: ".$MessageSubject." From: ".$EmailAddressFrom);
+				}
+			}
+			else  //---------------not a beta send --------------
+			{
+					
+			//print("not a beta send<br>");
+						
+			//
+			//	Is there a file attachment for this message?
+			//
+			
+				$MessageAttachmentFound=0;
+				if(is_dir("attachments/$arid/$mid"))
+				{
+					$d = dir("attachments/$arid/$mid");
+					$icount = 1;	
+					while (false !== ($entry = $d->read())) 
+					{
+						if (!(($entry == ".") || ($entry == "..")))
+						{
+							$attfile=$entry;
+							$icount++;
+							$MessageAttachmentFound=1;
+							break;
+						}
+					}
+					
+					$d->close();
+				}
+
+			//	
+			//	If an attachment is found, then add it the the email message we are constructing
+
+				if($MessageAttachmentFound==1)
+				{
+					$Attachment="attachments/$arid/$mid/$attfile";
+						
+					if ($Mail_Format == 1)
+						$HTMLBody=$Body_To_Send;
+					else
+						$TextBody=$Body_To_Send;
+						
+					$Sent = phpmailer($Email_Address, $Full_Name, $MessageSubject, $TextBody, $HTMLBody, $Attachment, $Mail_Format, $arid);
+				}
+				else
+				{
+					$Attachment="";
+			
+					if ($Mail_Format == 1)
+						$HTMLBody=$Body_To_Send;
+					else
+						$TextBody=$Body_To_Send;
+				
+					$Sent = phpmailer($Email_Address, $Full_Name, $MessageSubject, $TextBody, $HTMLBody, $Attachment, $Mail_Format, $arid);
+				}
+
+				if ($Sent == false)
+				{
+					print("<p>Retrying.");
+					$ns=0;
+					while(($Sent == false) && ($ns < 10))
+					{
+						$Sent = phpmailer($Email_Address, $Full_Name, $MessageSubject, $TextBody, $HTMLBody, $Attachment, $Mail_Format, $arid);
+						m_uwait(500000); //wait a half second
+						print(".");
+						$ns++;
+					}
+					print("</p>");
+				}
+				
+				if ($debugIt > 0)
+				{
+					if($Mail_Format == 1)
+						$Format = "HTML";
+					else
+						$Format = "Text";
+			
+					if ($Sent == TRUE)
+						logMessage ("BroadcastSend (".__LINE__.") Sending email format $Format To: ".$Full_Name." '".$Email_Address."' Subject: ".$MessageSubject);
+					else
+						logMessage ("BroadcastSend (".__LINE__.") Error: Not Sent: email format $Format To: ".$Full_Name." '".$Email_Address."' Subject: ".$MessageSubject);
+				}
+			} // end of not a beta send
+		} // end of not debugging
+	}	//  end of 'if message was NOT empty...'
+	// end of 'for each user row'
+}
+
+
+
+if ($debugIt == 2)
+	logMessage ("BroadcastSend ".__LINE__." starting");
+
+$arSQL = "select * from autoresponders where arid='$arid'";
+$result_ar = mysql_query($arSQL) or die(logMessage("BroadcastSend (".__LINE__.") Could not $arSQL"));
+
+mysql_data_seek($result_ar, 0);
+$arrow = mysql_fetch_object($result_ar);
+
+
+if ($debugIt == 2)
+	logMessage ("BroadcastSend (".__LINE__.") Check to send mail to arid " . $arrow->arid . " mail campaign '" . $arrow->arname . "' CampaignState '". $arrow->CampaignState . "'");
+		
+if ($arrow->CampaignState == "Active")
+{
+	SendMail($arrow->arid, $arrow->arfromemail, $arrow->remhtml, $arrow->remtext, $debugIt);
+	$result = mysql_query("select max(seqno) maxseqno from messages where arid=$arid", $link);
+	mysql_data_seek($result, 0);
+	$row = mysql_fetch_object($result);
+	$maxseq=$row->maxseqno;
+	$result = mysql_query("delete FROM messages where arid='$arid' AND seqno='-4'", $link);
+}
+if ($debugIt == 2)
+	logMessage ("BroadcastSend ".__LINE__." ending");
+
+print("<h2>BroadcastSend is complete. You may now close this window.</h2>");
+exit;
+?>

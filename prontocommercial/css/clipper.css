@@ -1,0 +1,148 @@
+cssSelectorWrapper {position: relative;}
+
+cssSelector {
+background-image: url('');
+background-repeat: norepeat;
+position: absolute;
+width: 208px;
+height: 1239px;
+clip:rect(50px 68px 108px 0px);
+}
+
+/*-----------------------------------------------------------------*/
+	body{
+		font-family:arial, hevetica, sans-serif;
+		background-color:#ede;
+	}
+	form#clipForm {position:absolute:top:80px;left:15px;height:1110px;width:390px;background:#fff;border:1px solid #000;}
+	fieldset{display:block;position:alsolute; margin: 30px;background:#ede;width:300px;clear:left;}
+	legend{text-align:center;}
+	#backgroundColor{margin-top:60px;width:295px;border:1px solid #777;}
+	#backgroundColor a{border:1px solid #777;}
+	#b, #w {margin:0;font-size:10px;float:left;}
+	#w {margin:-21px 0 0 270px;}
+	#colorLegend {margin:10px 0;float:left;width:295px;text-align:center;}
+
+	#fullImageFields{position:absolute;top:0;left:0;height:160px;}
+	#clippedImageFields{position:absolute;top:200px;left:0;height:170px;}
+
+	#referenceFields{position:absolute;top:410px;left:0;height:260px;}
+	div#cssDisplayed{position:absolute;top:750px;left:30px;border:1px dashed #777; padding:0 20px;height:340px;width:285px;white-space:nowrap;}
+
+	/* diagram */
+	div#originalElement{z-index:10;position:absolute;top:40px;left:20px;height:200px;width:270px;border:1px dashed #999;background-color:#bb5;}
+	div#desc{position:absolute;top:80px;left:175px;height:80px;width:100px;text-align:center;}
+	div#clippedArea{position:absolute;top:30px;left:55px;height:80px;width:100px;border:1px solid #000;background-color:#dd0;padding:50px 10px 10px;text-align:center;}
+
+	div#topLine   {position:absolute;top:0;left:70px; height:9px; width:100px;border-left:2px dotted black;  padding:10px;}
+	div#bottomLine{position:absolute;top:0;left:145px;height:143px;width:100px;border-left:2px dotted green;padding:10px 10px 10px 10px;}
+	div#rightLine{position:absolute;top:141px; left:0;height:80px;width:155px;border-top:2px dotted blue;padding:10px;}
+	div#leftLine {position:absolute;top:90px;left:0;height:80px;width:35px; border-top:2px dotted #700;padding:10px;}
+	div#clippedWidth {position:absolute;top:206px;left:0px;width:270px;text-align:center;border-top:1px dashed blue;}
+	div#clippedHeight{
+	position:absolute;
+	text-align:center;
+	width:200px;
+	top:90px;
+	left:187px;
+	border-top:1px dashed blue;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	}
+
+
+
+ 		/* use red triangle facing down */
+		/*			top         right           bottom      left */
+	#topArrow {
+	border-color:   black       transparent    transparent  transparent;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:23px;
+	left:64px;
+	width:0;
+	height:0;
+	}
+	#rightArrow {
+	border-color:transparent transparent     transparent  blue;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:135px;
+	left:169px;
+	width:0;
+	height:0;
+	}
+	#bottomArrow {
+	border-color:   green       transparent    transparent  transparent;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:164px;
+	left: 139px;
+	width:0;
+	height:0;
+	}
+	#leftArrow {
+	border-color:transparent transparent     transparent  brown;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:84px;
+	left:49px;
+	width:0;
+	height:0;
+	}
+
+	div.hh{width:150px;float:left;padding: 5px 0;text-align:center;}
+	div#workspace{position:fixed;height: 500px; width:100%;}
+	div#line{
+		position:absolute;
+		z-index:10;
+		top:250px;
+		left:300px;
+		height:20px;
+		/*width:200px;*/
+		filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand');
+		}
+	div#middle{height:20px;float:left;background-color:#fff;margin:0 10px;}
+	div#red, div#green{height:20px;width:20px;background-color:red;float:left;}
+	div#green{background-color:green;}
+	div#frame{
+		position:absolute;
+		z-index:9;
+		top:270px;
+		left: 200px;
+		height:300px;
+		width:300px;
+		background-color:blue;
+		}
+
+	input {width:40px;text-align:right;}
+	input#eFile {width:200px;text-align:left;}
+	input[type=submit]{width:80px;}
+	label {display:block;}
+	div#theFullImage, div#theFocusArea, div#theRectangle{
+		display:block;
+		z-index:10;
+		position:absolute;
+		top:80px;
+		left:450px;
+		height:100px;
+		width:200px;
+		/*border:1px solid #000;*/
+	}
+	div#theFullImage{
+		background-color:#888;
+		opacity:.3;
+	}
+	div#theFocusArea{
+	background-color:#888;
+	z-index:11;
+	}
+	div#theRectangle{
+	opacity:.1;
+	background-color:#888;
+	z-index:12;
+	}

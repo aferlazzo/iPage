@@ -1,0 +1,719 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+/*																				*/
+/*	capture: This script queries the autoresponder db.							*/
+/*	For each autoresponder it finds, it reads messages waiting on the server.	*/
+/*																				*/
+/*	If someone sends an e-mail to subscribe to a mailing list, this script		*/
+/*  will add them to the database.												*/
+/*																				*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+/*--------------------------
+SMTP Reply Codes:
+
+Code Description 
+211 System status, or system help reply. 
+214 Help message. 
+220 Domain service ready. Ready to start TLS. 
+221 Domain service closing transmission channel. 
+250 OK, queuing for node node started. Requested mail action okay, completed. 
+251 OK, no messages waiting for node node. User not local, will forward to forwardpath. 
+252 OK, pending messages for node node started. Cannot VRFY user (e.g., info is not local), but will take message for this user and attempt delivery. 
+253 OK, messages pending messages for node node started. 
+354 Start mail input; end with .. 
+355 Octet-offset is the transaction offset. 
+421 Domain service not available, closing transmission channel. 
+432 A password transition is needed. 
+450 Requested mail action not taken: mailbox unavailable. ATRN request refused. 
+451 Requested action aborted: local error in processing. Unable to process ATRN request now 
+452 Requested action not taken: insufficient system storage. 
+453 You have no mail. 
+454 TLS not available due to temporary reason. Encryption required for requested authentication mechanism. 
+458 Unable to queue messages for node node. 
+459 Node node not allowed: reason. 
+500 Command not recognized: command. Syntax error. 
+501 Syntax error, no parameters allowed. 
+502 Command not implemented. 
+503 Bad sequence of commands. 
+504 Command parameter not implemented. 
+521 Machine does not accept mail. 
+530 Must issue a STARTTLS command first. Encryption required for requested authentication mechanism. 
+534 Authentication mechanism is too weak. 
+538 Encryption required for requested authentication mechanism. 
+550 Requested action not taken: mailbox unavailable. 
+551 User not local; please try forwardpath. 
+552 Requested mail action aborted: exceeded storage allocation. 
+553 Requested action not taken: mailbox name not allowed. 
+554 Transaction failed. 
+
+---------------------------*/
+include("conn.php");
+//print ("capture (".__LINE__.") start program<br />");	
+$arSQL = "select * from autoresponders";
+$result_ar = mysql_query($arSQL) or die("$arSQL");
+$num_rows_ar = mysql_num_rows($result_ar);
+//print ("capture (".__LINE__.") found $num_rows_ar email campaigns<br />");
+$maildelete=1;
+if ($num_rows_ar < 1)
+{
+	exit;
+}
+
+$WithinScript = "I am embedded in another script";
+include("settings.php");
+include("removesettings.php");
+//print ("capture (".__LINE__.") prior to loop<br />");	
+
+for($count=0;$count<$num_rows_ar;$count++)	// for each mail campaign....
+{
+	mysql_data_seek($result_ar, $count);
+	$arrow 			= mysql_fetch_object($result_ar);
+	$arid			= $arrow->arid;
+	$user 			= $arrow->user;
+	$ArDescription	= $arrow->ardescription;
+	$server		 	= $arrow->pophostname;
+	$port 			= $arrow->popport;
+	$username 		= strtolower($arrow->popuname);
+	$password 		= $arrow->poppwd;
+	$EmailAddressFrom = strtolower($arrow->popuname);
+	$CampaignState  = $arrow->CampaignState;
+print("capture (".__LINE__.") for ArDescription, mailbox is $username, pwd $password, port $port<br />");
+if (($CampaignDescription != 'Your Name Here...') && ($CampaignState == 'Active')) //do not waste time on unconfigured campaigns
+{
+	//print ("capture (".__LINE__.") start with \$arid $arid $CampaignDescription loop<br />");	
+	$maxmail = 100;  // this is the maximum number of messages to be processed.	
+	
+	if ($debugIt == 2)
+		logMessage ("capture (".__LINE__.") Now checking autoresponder $arid - '$ArDescription'");
+
+	// try opening the mail server for the mail campaign
+	$mailserver=@fsockopen($server,$port,$errno,$errstr,30);
+	//logMessage("capture(".__LINE__.") arid:|$arid|$server|$port|<br />");
+
+	if ($arid == "")
+		$user="admin";
+	if(!$mailserver)
+	{
+		if ($debugIt > 0)
+	  		logMessage ("capture (".__LINE__.") Mail server |$server| error |($errno) $errstr| for autoresponder $arid - '$ArDescription' cannot be contacted....Please check mail server settings...Continuing...");
+	  	exit;
+	}
+	else 
+	{
+		// mail server is reachable (opened), try logging in as the user specified in the autoresponder db
+
+		$buffer = "-ERR";
+		$Retry=0;
+		
+		//try logging on to the mail server 10 times
+		
+		while (((substr($buffer,0,4)=="-ERR") || (substr($buffer,0,4)=="-OK")) && ($Retry < 10))
+		{
+			//print ("capture (".__LINE__.") $loggin in try $Retry<br>");
+			$buffer=fgets($mailserver,512);	//read 512 bytes from mail server
+
+			$buffer="USER $username\n";
+			fputs($mailserver,$buffer);		//send user name to mail server
+			$buffer=fgets($mailserver,512);	//read 512 bytes from mail server
+
+			$buffer="PASS $password\n";		//send password name to mail server
+			fputs($mailserver,$buffer);		
+			$buffer=fgets($mailserver,512);	//read 512 bytes from mail server
+			$Retry++;
+		}
+		
+		if ((substr($buffer,0,4)=="-ERR") || (substr($buffer,0,4)=="-OK"))
+		{
+				fclose($mailserver);
+				
+				if ($debugIt > 0)
+				{
+					//print ("capture (".__LINE__.") $username inbox failed to open for \$arid $arid - $ArDescription. Possible cause: Incorrect username/password");
+					logMessage ("capture (".__LINE__.") $username inbox failed to open for \$arid $arid - $ArDescription. Possible cause: Incorrect username/password");
+				}
+				
+				$msgid=$mailtop=$mailbot = 0;			
+		}
+		else 
+		{	// successfully logged into mail server
+
+				if ($debugIt == 2)
+					logMessage ("capture (".__LINE__.") Inbox for Autoresponder $arid - '$ArDescription' (user: $username) successfully queried for subscription emails");
+
+				// how many messages are waiting for the mail campaign inbox?
+
+				$buffer="STAT\n";
+				fputs($mailserver,$buffer);
+				$buffer 	= fgets($mailserver,512);
+				
+				$answ		= explode(" ", $buffer);
+				$mailsum	= $answ[1];	// number of messages
+				
+				print ("capture (".__LINE__.") logged in. $mailsum messages to process<br />");
+				
+				if (ereg("[[:alpha:]]", $mailsum)==true)
+					die("capture (".__LINE__.") expecting number. Got |mailsum|");
+
+				if ($debugIt == 2)
+					logMessage ("capture (".__LINE__.") Inbox for Autoresponder $arid - '$ArDescription' (user: $username) successfully queried for subscription emails");
+
+				if (!isset($lastdone)) 
+					$lastdone = $mailsum;
+
+				if ($mailsum > $maxmail) //if over 100 messages waiting for this mail campaign inbox
+				{
+					$mailtop = $lastdone;  // make top = mailtop
+					$mailbot = $mailtop - ($maxmail - 1);
+					
+					if ($mailbot < 1) 
+						$mailbot = 1;
+				}
+				else
+				{
+					$mailtop = $mailsum;
+					$mailbot = 1;
+				}
+
+				$lastdone = $mailtop;
+
+				if($mailsum > 0)
+				for($msgid=$mailtop; $msgid >= $mailbot; $msgid--) //read order: last-in, first-read
+				{
+					print ("capture (".__LINE__.") ------------>\$msgid = $msgid<br />");
+					$BadRecipient=""; //clear variables for looping
+					$maildate = "";
+					$fromperson = "";
+					$toperson = "";
+					$subject = "";
+					$DiagnosticCode = "";
+					$BadRecipient = "";
+
+					if ($debugIt == 2)
+						logMessage ("capture (".__LINE__.") message $msgid for debugging purpose");
+
+					// protocal command TOP n 0: Return the headers of message n and 0 lines of the body of message n
+					$buffer	= "TOP $msgid 0\r\n";
+					
+					fputs($mailserver,$buffer);			// now request the headers from the mailserver buffer
+					
+					$buffer=fgets($mailserver,512);	// now read 512 bytes from mailserver
+					//print("<br />starting to read header...<br/>");
+					for($i = 0;$i < 70; $i++) 	// Read the message header, max 70 lines, ignoring all lines except those beginning with 
+					{										// Date, From, To, Subject, Received
+						$buffer=fgets($mailserver,512);
+						if((strcasecmp(substr($buffer,0,12),"-ERR Timeout")==0)
+						|| (strcasecmp(substr($buffer,0,8),"+OK Bye!")==0))
+						{
+							if ($debugIt > 1)
+	  							logMessage ("capture (".__LINE__.") Mail server said '$buffer'.\nContinuing...");
+	 					 	exit;					
+						}
+						if(strcasecmp(substr($buffer,0,20),"X-Failed-Recipients:")==0) 
+						{
+					  		$FailedRecipient=trim(substr($buffer,21,strlen($buffer)-21));
+					  		//print("Failed---Failed---Recipient address: $FailedRecipient<br />\n");
+						}	
+					
+						if(strcasecmp(substr($buffer,0,5),"Date:")==0) 
+						{
+					  		$maildate=trim(substr($buffer,6,strlen($buffer)-6));
+						}
+
+						if(strcasecmp(substr($buffer,0,5),"From:")==0) 
+						{
+					  		$fromperson=trim(substr($buffer,6,strlen($buffer)-6));
+					  		$fromperson=htmlspecialchars($fromperson);
+						}
+
+						if(strcasecmp(substr($buffer,0,3),"To:")==0) 
+						{
+					  		$toperson=trim(substr($buffer,4,strlen($buffer)-4));
+					  		$toperson=htmlspecialchars($toperson);
+						}
+
+						if(strcasecmp(substr($buffer,0,8),"Subject:")==0)
+						{
+					  		$subject=trim(substr($buffer,9,strlen($buffer)-9));
+					  		$subject=htmlspecialchars($subject);
+						}
+
+						if(strcasecmp(substr($buffer,0,9),"Received:")==0) 
+						{
+					   		$ipstart=strrpos($buffer,"@");
+					   		if($ipstart > -1)
+					   		{
+					   			$ipend=strpos($buffer," ", $ipstart);
+					   		
+					   			$ipadd=substr($buffer, $ipstart+1, $ipend-$ipstart-1);
+					   			//print ("capture (".__LINE__.") Found IP address: |$ipadd|<br>\n");
+							}
+							
+							if ($debugIt == 2)
+								logMessage ("capture (".__LINE__.") ip address|$ipadd|");
+						}
+
+						// if (line == CR LF, LF CR, or LF LF) and I have (a mail date and a subject and a from address), 
+						// then that's all there is to the header. Stop and process what you have...
+					
+						if((strcmp($buffer,"\r\n") == 0) || (strcmp($buffer,"\n\r") == 0) || (strcmp($buffer,"\n\n") == 0) || ($buffer==""))
+						{
+							print("capture (".__LINE__.") maildate |$maildate| subject |$subject| from |$fromperson|<br />");
+	
+							// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	//
+							//																						//
+							//	if this message is a "return to sender, unknown user" message, a MIME message, 		//
+							//	the error will not be in the header. The exact error will be in the message body.	//
+							//																						//
+							// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	//
+
+							if ($fromperson == "MAILER-DAEMON@yahoo.com")//look for the bad address
+							{
+								fclose($mailserver);		// logout of the mail campaign								
+								die("capture (".__LINE__.")|$buffer|");
+							/*	
+						if((strcasecmp(substr($buffer,0,12),"-ERR Timeout")==0)
+						|| (strcasecmp(substr($buffer,0,8),"+OK Bye!")==0))
+						{
+							if ($debugIt > 1)
+							*/
+							
+							}
+							
+							if ((strlen($maildate) > 0) && (strlen($subject) > 0) && (strlen($fromperson) > 0)) 
+							{
+					  			if ((stristr($subject,"Returned mail: see transcript for details") == true) 
+					  			|| (stristr($subject,"Returned mail: User unknown") == true) 
+					  			|| (stristr($subject,"Undelivered Mail Returned to Sender") == true) 
+					  			|| (stristr($subject,"Mail delivery failed: returning message to sender") == true)
+					  			|| (stristr($subject,"Delivery Status Notification (Failure)") == true)) // if  equal 
+								{
+					  				//print ("capture ".__LINE__." Found a failure of some kind: |$subject|<br>");
+									// protocal command RETR n: Retrieve message n
+									$MsgBodyBuffer	= "RETR $msgid\r\n";
+					
+									fputs($mailserver,$MsgBodyBuffer);			// now request the message from the mailserver
+										
+									for($i = 0;$i < 70; $i++) 
+									{
+										$MsgBodyBuffer=fgets($mailserver,1024);	// now read 1024 bytes from mailserver
+										//print("capture ".__LINE__." Body: |$MsgBodyBuffer|<br />\n");
+										
+										if(strcasecmp(substr($MsgBodyBuffer,0,4),"<<< ")==0) 
+										{
+									  		$DiagnosticCode=substr($MsgBodyBuffer,5,strlen($MsgBodyBuffer)-5);
+									  		print("\$DiagnosticCode: $DiagnosticCode<br />\n");
+											logMessage("capture (".__LINE__.") \$DiagnosticCode: $DiagnosticCode<br />\n");
+											$buffer="DELE $msgid\n";
+											fputs($mailserver,$buffer);  // comment out to debug
+											$buffer="QUIT\n";
+											fputs($mailserver,$buffer);  // comment out to debug
+											$buffer=fgets($mailserver,512);
+										}	
+
+										if(strcasecmp(substr($MsgBodyBuffer,0,23),"Final-Recipient: RFC822")==0) 
+										{
+									  		$BadRecipient=trim(substr($MsgBodyBuffer,24,strlen($MsgBodyBuffer)-24));
+											print("capture (".__LINE__.") \$BadRecipient $msgid: $BadRecipient<br /><br />\n");
+											logMessage("capture (".__LINE__.") \$BadRecipient $msgid: $BadRecipient<br />\n");
+											$buffer="DELE $msgid\n";
+											fputs($mailserver,$buffer);  // comment out to debug
+											$buffer="QUIT\n";
+											fputs($mailserver,$buffer);  // comment out to debug
+											$buffer=fgets($mailserver,512);
+										}	
+
+										if(strcasecmp(substr($MsgBodyBuffer,0,20),"X-Failed-Recipients:")==0) 
+										{
+									  		$BadRecipient=trim(substr($MsgBodyBuffer,21,strlen($MsgBodyBuffer)-21));
+									  		print("capture (".__LINE__.") \$BadRecipient 2: $BadRecipient<br />\n");
+											logMessage("capture ( ".__LINE__.") \$BadRecipient 2: $BadRecipient<br />\n");
+											$buffer="DELE $msgid\n";
+											fputs($mailserver,$buffer);  // comment out to debug
+											$buffer="QUIT\n";
+											fputs($mailserver,$buffer);  // comment out to debug
+											$buffer=fgets($mailserver,512);
+										}
+										/*
+										if(strpos(strtolower($MsgBodyBuffer), strtolower("The following address(es) failed:")))
+										{
+										$Start = strpos(strtolower($MsgBodyBuffer), strtolower("The following address(es) failed:"));
+										$Start= $Start + 6+ strlen("The following address(es) failed:");
+										print ("Start = $Start<br />");
+										
+										
+										$Bad = substr($MsgBodyBuffer, $Start, 200);
+										die("Bad address is |".$Bad."|");
+										}
+										*/
+										if ($BadRecipient != "")
+											break;
+									}
+									if ($BadRecipient != "")
+										break;
+						  		}
+					  			break; // do not go back and loop for other lines of this message
+							}
+						}
+						//die("msgid $msgid - end of loop");
+							
+					} // end for loop, reading up to 70 header lines
+
+					
+					//die ("End of Header Read Loop<br />");
+
+					if ($debugIt == 2)
+						logMessage ("capture (".__LINE__.") message $msgid header. Sent: |$maildate| From: |$fromperson| To: |$toperson| Subject: |$subject| from ip: |$ipadd|");
+
+					/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+					/*																			*/
+					/* The message header has been read. We process three message types:		*/
+					/* Delivery failure notice: The server may have been down, so resend.		*/
+					/* Bad Recipient notice:	The message address could not be delivered		*/
+					/*									to the recipient e-mail, so delete 		*/
+					/*									address from the database.				*/
+					/*	Subscription request: 	Sign the user up by adding a record to the 		*/
+					/*							database.										*/
+					/*																			*/
+					/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+					if($BadRecipient != "") // bad recipient was returned
+					{			
+						print("capture (".__LINE__.") Bad Recipient Notice for $BadRecipient<br />\n");
+						$SQL_Statement = "select * from users where email='$BadRecipient'";
+						$Query_Result = mysql_query($SQL_Statement);
+						$num_rows_u = mysql_num_rows($Query_Result);
+
+						$UserRow = mysql_fetch_object($Query_Result);
+						$arid=$UserRow->arid;
+						//print("capture (".__LINE__.") arid for bad email address: |$arid|<br />");
+						if($num_rows_u>0)
+						{
+							mysql_data_seek($Query_Result, 0);
+							$FailedUser = mysql_fetch_object($Query_Result); //now we have the user record for delivery failures
+							
+							$Query_Update_Message = "update users set currentmsg='253' where email='$BadRecipient'";
+					
+							if ($debugIt==2)
+							{
+								logMessage("capture ".__LINE__." Bad recipient found. Update to occur: $Query_Update_Message");
+							}
+							else
+								mysql_query($Query_Update_Message) or die(logMessage("capture (".__LINE__.") Could not update user record: '$Query_Update_Message'"));
+							
+							if ($debugIt > 0)
+								logMessage("capture (".__LINE__.") Bad recipient found. $msgid/mailbox $username/password $password Update to occur: $Query_Update_Message<br>");
+							$maildelete=1;								
+						}
+						if($maildelete==1)
+						{
+							//print("msgid '$msgid' top message '$mailtop' bottom message '$mailbot' mail server '$server' port '$port'<br>");
+				
+							$buffer="DELE $msgid\n";
+							fputs($mailserver,$buffer);  // comment out to debug
+							$buffer=fgets($mailserver,512);
+							if ($debugIt > 0)
+								logMessage("capture (".__LINE__.") Deletion of message $msgid requested<br>");
+							//print ("capture (".__LINE__.") deleted message<br /><br />\n");
+							$maildelete=0;
+						}
+					}				
+					else
+					if(strcasecmp(substr($subject,0,21),"Mail delivery failed:")==0)
+					{
+						//print("Delivery failure notice for $FailedRecipient<br />\n");
+						$SQL_Statement = "select * from users where email='$FailedRecipient'";
+						$Query_Result = mysql_query($SQL_Statement);
+						$num_rows_u = mysql_num_rows($Query_Result);
+
+						if($num_rows_u>0)
+						{
+							mysql_data_seek($Query_Result, 0);
+							$FailedUser = mysql_fetch_object($Query_Result); //now we have the user record for delivery failures
+							
+							$SendDate = mktime(date("H")-1,date("i"),date("s"),date("m"),date("d")+1,date("Y"));
+							
+							$SendDate--; //make it past due to send
+							
+							$CurrentMsg = $FailedUser->currentmsg;	// we want to resend the previous message
+							if ($CurrentMsg > 1)
+								$CurrentMsg--;
+
+							$Query_Update_Message = "update users set currentmsg='$CurrentMsg', senddate='$SendDate' where email='$FailedRecipient'";
+					
+							if ($debugIt==2)
+							{
+								logMessage ("capture (".__LINE__.") Resending message. Update to occur: $Query_Update_Message");
+							}
+							else
+								mysql_query($Query_Update_Message) or die(logMessage("capture (".__LINE__.") Could not update user record: '$Query_Update_Message'"));
+							
+							if ($debugIt > 0)
+								logMessage ("capture (".__LINE__.") Resending message. $msgid Update to occur: $Query_Update_Message");
+			
+							if($maildelete==1)
+							{
+								//print("msgid '$msgid' top message '$mailtop' bottom message '$mailbot' mail server '$server' port '$port'<br>");
+				
+								$buffer="DELE $msgid\n";
+								fputs($mailserver,$buffer);  // comment out to debug
+								$buffer=fgets($mailserver,512);
+								$maildelete=0;
+							}								
+						}					
+					}
+					else	/* - - - - - - - - This message IS NOT a Delivery Failure Notice - - - - - - - - - */
+					{
+						$datearray = explode(" ", $maildate);
+
+						if (sizeof($datearray) == 6)
+						{
+							$maildate = $datearray[0]." ".$datearray[1]." ".$datearray[2]." ".$datearray[3]."<br>".$datearray[4]." ".$datearray[5];
+						}
+
+						if (sizeof($datearray) == 5)
+						{
+							$maildate = $datearray[0]." ".$datearray[1]." ".$datearray[2]."<br>".$datearray[3]." ".$datearray[4];
+						}
+
+						$mystr=stristr($subject,"subscribe");  
+
+						if ($mystr != false)	// is 'subscribe' in the subject line?
+						{
+							logMessage ("capture (".__LINE__.") \$fromperson |$fromperson|<br>");
+							//print("capture (".__LINE__.") \$fromperson |$fromperson|<br>");
+							$myarr=split("&lt;", $fromperson);
+							if(substr($myarr[0], 0, 6)=="&quot;") // if first character is a double quote (" - &quot;) character
+							{
+								//print ("found quote<br>");
+								$fromname=substr($myarr[0],6);
+								$l=strlen($fromname) - 7; //reduce length by 7 to eliminate trailing quote (" - &quot;) character
+								$fromname=substr($myarr[0],6,$l);
+								//print ("now |$fromname|<br>");
+							}
+							
+							$fromemailarray=split("&gt;",$myarr[1]);
+							$fromemail=$fromemailarray[0];
+							//print("capture (".__LINE__.") \$fromname |$fromname| \$fromemail |$fromemail|<br>");
+							
+							if ($debugIt > 0)
+								logMessage ("capture (".__LINE__.") \$ss |$ss| \$msgid |$msgid| \$fromname |$fromname| \$fromemail |$fromemail| \$myarr[0] |$myarr[0]| \$myarr[1] |$myarr[1]|");
+							//print ("capture (".__LINE__.") \$msgid |$msgid| \$ss |$ss| \$fromname |$fromname| \$fromemail |$fromemail| \$myarr[0] |$myarr[0]| \$myarr[1] |$myarr[1]|<br>");
+
+							if ($debugIt == 2)
+								logMessage ("capture (".__LINE__.") '$fromname' $fromemail '$subject'");
+								
+							$SQL_Statement = "select * from users where email='$fromemail' AND arid=$arrow->arid";
+							$Query_Result = mysql_query($SQL_Statement);
+							$num_rows_u = mysql_num_rows($Query_Result);
+							//print("capture (".__LINE__.") \$fromname |$fromname| \$fromemail |$fromemail|<br>");
+
+							if($num_rows_u>0)	//meaning: in db already, so get the record
+							{
+								mysql_data_seek($Query_Result, 0);
+								$Query_Result_Data = mysql_fetch_object($Query_Result);
+							}
+
+							$Check_Email = $Query_Result_Data->email;
+							//print("capture ".__LINE__." \$fromname |$fromname| \$fromemail |$fromemail|<br>");
+							
+							// Add the requester to the subscription list (the email campaign)
+
+							if ($Check_Email == $fromemail) // if user's email matches existing record the database, delete it
+							{
+								$SQL_Statement = "DELETE from users where email='$fromemail' limit 1";
+								$Query_Result = mysql_query($SQL_Statement)or die(logMessage("capture (".__LINE__.") ABORTED ON:$SQL_Statement"));
+							}
+
+							$ReceivedDate = mktime(date("H")-1,date("i"),date("s"),date("m"),date("d")+1,date("Y"));
+
+							if($ipadd=="") 
+								$What_Address="Unknown";
+							else 
+								$What_Address=$ipadd;
+
+							$SQL_Statement = "INSERT INTO users (fname,lname,email,ip,method,senddate,confirmed,currentmsg,arid,UserDefined1,UserDefined2,UserDefined3,UserDefined4) 
+								VALUES ('$fromname','','$fromemail','$What_Address',2,'$ReceivedDate','Y',1,$arid,'$UserDefined1','$UserDefined2','$UserDefined3','$UserDefined4')";
+							$Query_Result = mysql_query($SQL_Statement) or die(logMessage("capture (".__LINE__.") $SQL_Statement"));
+							//die("capture ".__LINE__." \$fromname |$fromname| \$fromemail |$fromemail|<br>|$SQL_Statement|<br>");
+/* ----------------------								
+								if($maildelete==1)
+								{
+									logMessage ("capture ".__LINE__." deleting msgid '$msgid' top message '$mailtop' bottom message '$mailbot' mail server '$server' port '$port'<br>");
+									print("deleting msgid '$msgid' top message '$mailtop' bottom message '$mailbot' mail server '$server' port '$port'<br>");
+				
+									$buffer="DELE $msgid\n";
+									fputs($mailserver,$buffer);  // comment out to debug
+									$buffer=fgets($mailserver,512);
+									$maildelete=0;
+								}
+------------------------- */
+							$SQL_Statement = "Select * from autoresponders where arid=$arid";
+							$Query_Result =  mysql_query($SQL_Statement);
+
+							mysql_data_seek($Query_Result, 0);
+							$row = mysql_fetch_object($Query_Result);
+							$armode		 	= $row->armode;
+							$Mail_Format 		= $row->aremailformat;	// text or html message format?
+							$Wrap_On 			= $row->arwordwrap;		// wrap of text messages?
+							$Length_Of_Wrap = $row->arwraplen;		// column of text line to wrap
+
+							$Remove_Text	= $row->remtext;		// text to send like "click to be removed"
+							$Remove_HTML	= $row->remhtml;		// HTML to send like "click to be removed"
+
+							// now get the welcome email for the autoresponder
+	
+							$msgSQL = "select * from messages where (arid=$arid) and (seqno=-2)";
+							$result_msg = mysql_query($msgSQL) or die(logMessage("capture (".__LINE__.") Error: $msgSQL"));
+							mysql_data_seek($result_msg, 0);  // confirmation email
+							$row_msg = mysql_fetch_object($result_msg);
+
+							if ($row_msg->seqno != -2) 
+							{
+								logMessage("capture (".__LINE__.") Error: sequence error");
+								die("capture (".__LINE__.") Error: sequence error");
+							}
+							$Automatic_Subject_Text = $row_msg->subject;		
+							$Automatic_Message_Text = $row_msg->body;		
+								
+							/*
+							if($armode=1)
+							{
+
+							}
+							else
+							{
+								$Automatic_Subject_Text = $row->welconfsubject;
+								$Automatic_Message_Text = $row->welconfbody; 
+							}
+							*/
+							$Automatic_Message_Text = eregi_replace("%EmailAddress%",$fromemail,$Automatic_Message_Text);
+							$Automatic_Subject_Text = eregi_replace("%EmailAddress%",$fromemail,$Automatic_Subject_Text);
+							$Automatic_Message_Text = eregi_replace("%FullName%",$fromname,$Automatic_Message_Text);
+							$Automatic_Subject_Text = eregi_replace("%FullName%",$fromname,$Automatic_Subject_Text);
+							$Automatic_Message_Text = eregi_replace("%UserDefined1%",$UserDefined1,$Automatic_Message_Text);
+							$Automatic_Subject_Text = eregi_replace("%UserDefined1%",$UserDefined1,$Automatic_Subject_Text);
+							$Automatic_Message_Text = eregi_replace("%UserDefined2%",$UserDefined2,$Automatic_Message_Text);
+							$Automatic_Subject_Text = eregi_replace("%UserDefined2%",$UserDefined2,$Automatic_Subject_Text);
+							$Automatic_Message_Text = eregi_replace("%UserDefined3%",$UserDefined3,$Automatic_Message_Text);
+							$Automatic_Subject_Text = eregi_replace("%UserDefined3%",$UserDefined3,$Automatic_Subject_Text);
+							$Automatic_Message_Text = eregi_replace("%UserDefined4%",$UserDefined4,$Automatic_Message_Text);
+							$Automatic_Subject_Text = eregi_replace("%UserDefined4%",$UserDefined4,$Automatic_Subject_Text);
+
+							$Remove_Email_Link = $Installation_Path."/us.php?arid=".$arid."&ra=".$arid."&RE=".$fromemail;
+							if($Mail_Format == 1) //html format
+							{
+								$Mail_Header	= "Content-type: text/html; charset=iso-8859-1";
+								$Remove_HTML	= "<a href='".$Remove_Email_Link."'>Unsubscribe</a>";
+								$Mail_Footer	= eregi_replace("%RemoveLink%",$Remove_Email_Link,$Mail_Footer);
+							}
+							elseif($Mail_Format == 0) 
+							{
+								$Mail_Header	= "Content-Type: text/plain; charset=us-ascii";
+								$Remove_Text	= "\n".$Remove_Email_Link."\n";
+								$Mail_Footer	= eregi_replace("%RemoveLink%",$Remove_Email_Link,$Mail_Footer);
+							}
+
+							if (($Wrap_On == 1) && ($Mail_Format == 0))
+							{
+								$Automatic_Message_Text = wordwrap($Automatic_Message_Text, $Length_Of_Wrap,"\n");
+							}
+
+							$Automatic_Message_Text = eregi_replace("\r\n","\n",$Automatic_Message_Text);
+							$txtMessage_Send 		= $Automatic_Message_Text;
+							$txtMessage_Text 		= $txtMessage_Send;
+							$txtMessage_Body 		= stripslashes($txtMessage_Text);
+							$txtMessage_Subject	= stripslashes($Automatic_Subject_Text);
+
+							if($Mail_Format == 1)
+							{
+								$Final_Body.="$txtMessage_Body<br><br>$row->remhtml<br>$Remove_HTML";
+
+								if ($Ad != 45)
+									$Final_Body.=$PoweredbyHTML;
+							}
+							else
+							{
+								$Final_Body=$txtMessage_Body."\n\n".$row->remtext."\n".$Remove_Text;
+								// die	("capture (".__LINE__.") \$Ad='$Ad'");
+								if ($Ad != 45)
+									$Final_Body.=$PoweredbyText;
+							}
+	
+							if (!isset($Removal_Link_Text))
+								die (logMessage ("capture (".__LINE__.") no remove link found"));
+								//die (logMessage(capture (".__LINE__.") \$Remove_Text |$Remove_Text|\n\$Removal_Link_Text |$Removal_Link_Text.$Email_Address|\n\$PoweredbyText |$PoweredbyText|"));
+
+							$directory=dirname(__FILE__);
+	
+							if (stristr($directory, "demo"))
+							{
+								if ($debugIt > 0)
+								{
+									logMessage ("capture (".__LINE__.") ***Beta Test*** Not sending email To: ".$fromname." |".$fromemail."| Subject: ".$txtMessage_Subject." From: ".$EmailAddressFrom);
+								}
+							}
+							else
+							{
+								//print ("capture (".__LINE__.") From: |$EmailAddressFrom|<br>");
+								//print ("capture (".__LINE__.") To: $fromemail<br>");
+								//print ("capture (".__LINE__.") To: $fromname<br>");
+								//print ("capture (".__LINE__.") Subject: $txtMessage_Subject<br>");
+								//print ("capture (".__LINE__.") Body: |$Final_Body|<br>");
+								$Sent = phpmailer($fromemail, $fromname, $txtMessage_Subject,  "$Final_Body",  "$Final_Body", "", $Mail_Format, $arid);
+
+								if ($debugIt > 0)
+								{
+									if ($Sent == true)
+										logMessage ("capture (".__LINE__.") Sending email back To: ".$fromname." |".$fromemail."| Subject: ".$txtMessage_Subject." From: ".$EmailAddressFrom);
+									else
+										logMessage ("capture (".__LINE__.") Error: Not sent To: ".$fromname." |".$fromemail."| Subject: ".$txtMessage_Subject." From: ".$EmailAddressFrom);
+								}
+
+								NotifyOfAdd("$fromname", "$fromemail", $arid, "$CampaignDescription");	
+							}
+						}	// end of 'if user's email does not match the database, so add a new record'
+							// now delete the subscribe message
+						$buffer="DELE $msgid\n";
+						fputs($mailserver,$buffer);  // comment out to debug
+						$buffer=fgets($mailserver,512);
+						//print ("capture (".__LINE__.") Done with it. Now deleting this subscription message<br />\n");
+					} //end subscribe request
+				}// end of not a Delivery Failure notice
+				// must be spam, so delete message...
+		
+				$buffer="DELE $msgid\n";
+				fputs($mailserver,$buffer);  // comment out to debug
+				$buffer=fgets($mailserver,512);
+				//print ("capture (".__LINE__.") deleted message Date|$maildate|<br />");
+				//print ("From|$fromperson|<br />fromemail|$fromemail|<br />To|$toperson|<br />");
+				//print ("subject|$subject|<br />\n");		
+			} // end for loop, reading last-in first
+//----
+				//fclose($mailserver);
+				//die("<br>End of loop");
+//----				
+
+			if ($debugIt == 2)
+				logMessage ("capture (".__LINE__.") buffer $buffer");
+
+			$buffer="QUIT\n";
+			fputs($mailserver, $buffer);
+			$buffer=fgets($mailserver,512);
+
+			fclose($mailserver);		// logout of the mail campaign
+		}// end logged into mail server
+	//print ("Capture (".__LINE__.") done with \$arid $arid $ArDescription loop<br />");	
+}   //end of configured campaign
+}  //end 'for' loop
+
+exit;
+?>

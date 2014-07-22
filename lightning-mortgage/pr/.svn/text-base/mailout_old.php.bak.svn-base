@@ -1,0 +1,523 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+// die("<h1>Mailout.php</h1>");
+
+	// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+	//																						//
+	// Email campaigns that are monthly reminders are different than other campaigns.		//
+	// Their campaign names (arname) begin with the literal "Monthly Schedule:"				//
+	//																						//
+	// All recipients (users) receive the same message on the same day of the month for 	//
+	// which it was sent.																	//
+	// For these campaigns, message 1 is sent in January, message 2 is sent in February,	//
+	// ...message 12 is sent in December for every user in the campaign.					//
+	// The day of month to send is stored in the $DelayDays field of the message for 		//
+	// each month.																			//
+	//																						//
+	// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+	
+
+include("conn.php");
+$WithinScript = "I am embedded in another script";
+include("settings.php");
+set_time_limit(0);			// don't time-out
+ignore_user_abort (TRUE);	//don't abort script even if the user disconnects. Just continue mail delivery.
+ 
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	/
+//																					/
+//	SendMail: Check all users in this Autoresponder (number as an input parameter).	/
+//	If it is time to send the next message, do so after cleaning up the message.	/
+//																					/
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	/
+
+function SendMail($aid, $EmailAddressFrom, $Remove_HTML, $Remove_Text, $debugIt, $MonthlySchedule)
+{
+	GLOBAL $Display_Name, $Installation_Path, $Wrap_On, $Ad, $Length_Of_Wrap, $Mail_Format, $link, $arid;
+	GLOBAL $Administrator, 
+	$Administrator_Password,
+	$Installation_Path,
+	$Ad, 
+	$Notification, 
+	$EmailAddressFrom, 
+	$CampaignDescription, 
+	$Display_Name, 
+	$EmailAddressReplyTo, 
+	$EmailAddressReturn, 
+	$Administrator_EmailAddress, 
+	$Subscription_EmailAddress, 
+	$SMTPmailServer, 
+	$SMTPport, 
+	$SMTPmailbox, 
+	$SMTPpassword, 
+	$aa, 
+	$POPMailServer, 
+	$POPport, 
+	$POPServerName, 
+	$POPEmailPassword, 
+	$Is_Custom, 
+	$RedirectPage, 
+	$Mail_Format, 
+	$Wrap_On, 
+	$Length_Of_Wrap, 
+	$Remove_Tex, 
+	$Remove_HTML, 
+	$armode;
+	
+	
+	
+	
+	
+	$arid=$aid;
+	$user="arid ".$arid;
+	
+	if (!function_exists(logMessage))
+	{
+		include("conn.php");  	
+	}
+		
+	$WithinScript = "I know the arid";
+	include("GetARstuff.php");	
+	if ($debugIt == 2)
+	{
+		logMessage ("mailout (".__LINE__.") \$arid '$arid' \$Display_Name '$Display_Name' \$Mail_Format '$Mail_Format'");
+		logMessage("mailout (".__LINE__.") At function start \$Display_Name $Display_Name \$MonthlySchedule: $MonthlySchedule");
+	}
+		
+	include("removesettings.php");  //get the 'click to remove' text line at bottom of message
+
+	if($Mail_Format == 1)
+	{
+		$Mail_Header="Content-type: text/html; charset=iso-8859-1";
+		$Mail_Footer=$Remove_HTML;
+	}
+	else
+	{
+		$Mail_Header="Content-Type: text/plain; charset=us-ascii";
+		$Mail_Footer=$Remove_Text;
+	}
+
+	
+	$Mail_Error_Flag = 1;
+
+	$WallclockTime = mktime(date("H")+2,date("i"),date("s"),date("m"),date("d"),date("Y"));
+	
+	if ($debugIt==2)
+		logMessage ("mailout ".__LINE__." Checking autoresponder $arid");
+	
+	$maxSQL = "select max(seqno) as maxseq from messages where arid=$arid";	// determine the last msg in campaign
+	$result_max = mysql_query($maxSQL) or die("mailout (".__LINE__.") Error: $maxSQL");
+	mysql_data_seek($result_max, 0);
+	$maxrow = mysql_fetch_object($result_max);
+	$maxmsg=$maxrow->maxseq;
+	
+	if ($maxmsg<1)
+		$maxmsg=0;
+	
+	//	Get all the records that have a current message number less than the maximum messages 
+	//	from the users database unless this is for a monthly campaign. 
+	//  For monthly campaigns just use the month number as the message number.
+	
+	if ($MonthlySchedule == "true")
+		$maxmsg = date(n) + 1;
+		
+	// select users in the mail campaign who have not yet received the last message
+		
+	$SQL_Statement = "SELECT * FROM users where currentmsg<=$maxmsg and arid=$arid and confirmed='Y'";
+	$Query_Result = mysql_query($SQL_Statement) or die(logMessage("mailout (".__LINE__.") Could not obtain all the user records for arid=".$arid));
+	$num_rows_usr = mysql_num_rows($Query_Result);
+	
+	// for each user record in the mail campaign...
+	// get the user record, get the signature message, 
+	// for the user: get the message based on $MessageNumberInSequence
+	
+	for($ucount=0;$ucount<$num_rows_usr;$ucount++)
+	{
+	//test to see if this script should be stopped by looking for a file names mailout.stop
+	
+	  if((file_exists("mailout.stop")))
+		{
+		  logMessage ("mailout (".__LINE__.") A file named mailout.stop exists. Script halted.");
+			logMessage ("mailout (".__LINE__.") A file named mailout.stop exists. Script halted.");
+	    die;
+		}
+	
+		mysql_data_seek($Query_Result, $ucount) or die(logMessage("mailout (".__LINE__.") Could not move pointer to next user"));
+		$rowusr = mysql_fetch_object($Query_Result) or die(logMessage("mailout (".__LINE__.") Could not read pointer to next user"));
+		$IP_Address 				= $rowusr->ip;
+		$Email_Address 			= $rowusr->email;
+		$UserDefined1			= $rowusr->UserDefined1;
+		$UserDefined2			= $rowusr->UserDefined2;
+		$UserDefined3			= $rowusr->UserDefined3;
+		$UserDefined4			= $rowusr->UserDefined4;
+		$TimeToSendMsg 		= $rowusr->senddate;	
+		
+		// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+		//																						//
+		//	Email campaigns that are monthly reminders are different than other campaigns.		//
+		// Their campaign names (arname) begin with the literal "Monthly Schedule:"				//
+		//																						//
+		// All recipients (users) receive the same message on the same day of the month for 	//
+		// which it was sent.																	//
+		// For these campaigns, message 1 is sent in January, message 2 is sent in February,	//
+		// ...message 12 is sent in December for every user in the campaign.					//
+		// The day of month to send is stored in the $DelayDays field of the message for 		//
+		// each month.																			//
+		//																						//
+		// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+		
+		if ($MonthlySchedule == "true")
+		{
+			$MessageNumberInSequence = date(n);
+			//logMessage("mailout (".__LINE__.") Monthly Reminder Message to send: |$MessageNumberInSequence| (should equal the month number)");
+		}
+		else
+			$MessageNumberInSequence= $rowusr->currentmsg;
+		
+		$Full_Name = strtolower(trim($rowusr->fname." ".$rowusr->lname));
+		$Full_Name = ucwords($Full_Name);
+
+		// 	Get the *signature* message db record 
+
+		$msgSQL = "select * from messages where (arid=$arid) and (seqno=0)";
+		$result_msg = mysql_query($msgSQL) or die(logMessage("mailout (".__LINE__.") Error: $msgSQL"));
+		mysql_data_seek($result_msg, 0);  // signature message
+		$row_msg = mysql_fetch_object($result_msg);
+	
+		if ($row_msg->seqno != 0) 
+			die("sequence error");
+		
+		$Signature = $row_msg->body;
+	
+		//	Read the *current* actual message we're planning to send
+	
+    //logMessage("mailout (".__LINE__.") Reading msg number $MessageNumberInSequence for \$arid $arid");
+		if ($MessageNumberInSequence == 0) //to resend the Welcome message using edituser.php, set the msg number to 0
+		   $msgSQL = "select * from messages where arid=$arid and seqno=-2 order by seqno limit 0,1";
+		else
+		   $msgSQL = "select * from messages where arid=$arid and seqno>=$MessageNumberInSequence order by seqno limit 0,1";
+			 
+			 
+ 		$result_msg = mysql_query($msgSQL) or die(logMessage("mailout (".__LINE__.") Error: $msgSQL"));
+		$num_rows_msg = mysql_num_rows($result_msg);
+
+		if($num_rows_msg>0) // if messages are not empty
+		{
+			mysql_data_seek($result_msg, 0);
+			$row_msg = mysql_fetch_object($result_msg);
+
+			$DelayDays		= $row_msg->delay;
+			$MessageSubject = $row_msg->subject;
+			$MessageBody 	= $row_msg->body;
+			$mid 			= $row_msg->mid;			
+		
+		
+		
+		  //if($MessageSubject != "")
+		    //logMessage("mailout (".__LINE__.") Preparing to send subject |$MessageSubject| msg number $MessageNumberInSequence for \$arid $arid");
+
+			
+			// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+			//																						//
+			// Email campaigns that are monthly reminders are different than other campaigns.		//
+			// Their campaign names (arname) begin with the literal "Monthly Schedule:"				//
+			//																						//
+			// All recipients (users) receive the same message on the same day of the month for 	//
+			// which it was sent.																	//
+			// For these campaigns, message 1 is sent in January, message 2 is sent in February,	//
+			// ...message 12 is sent in December for every user in the campaign.					//
+			// The day of month to send is stored in the $DelayDays field of the message for 		//
+			// each month.																			//
+			//																						//
+			// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+		
+			// compute the time for sending the next message
+			
+			if ($MonthlySchedule == "true")
+			{
+				$month = date("m") + 1; 
+				
+				if ($month > 12)
+					$month = 1;
+
+				$NextMsgTimeToSend = mktime(date("H"), date("i"), date("s"), $month, $DelayDays, date("Y")); 
+			}
+			else			
+				$NextMsgTimeToSend = mktime(9,0,0, date("m"), date("d")+$DelayDays, date("Y")); // send out message at 9 am in DelayDays days
+		}
+		else
+			die(logMessage("mailout (".__LINE__.") Couldn't read messages for campaign $arid. Check to see if campaign should be suspended. Preparing to send next message to $Email_Address, SQL statement: $msgSQL"));
+		
+		if ($debugIt==2)
+		{
+			if (eregi('[a-z]', $MessageBody)==false) //if message text is empty
+				$Rempty = "is empty";
+			else
+				$Rempty = "has contents";			
+				
+			//logMessage ("mailout ".__LINE__." the message $Rempty");
+	
+			if ($TimeToSendMsg<=$WallclockTime)
+				$tf = "time to send";
+			else
+				$tf = "not yet time to send";
+			
+			//logMessage ("mailout ".__LINE__." it is $tf");
+		}
+		
+//
+//	Don't send empty messages: If the message NO text has alphabetic characters AND we have reached the time to send 
+//	skip the message, update user record to the next sequence number
+//		
+
+		if ($TimeToSendMsg<=$WallclockTime)
+		{
+			if (!eregi("[a-z]", $MessageBody)) // if message is empty..
+			{
+				// Update the user record to reflect the next message in the autoresponder sequence
+			
+				$MessageNumberInSequence++;
+				$Update_Query = "update users set currentmsg='$MessageNumberInSequence', senddate='$NextMsgTimeToSend' where email='$Email_Address' and arid=$arid";
+				$Update_Result = mysql_query($Update_Query) or die(logMessage("mailout (".__LINE__.") Could not update user to next msg sequence number"));
+				logMessage ("mailout ".__LINE__." Not Sent. $Email_Address had blank message, '$MessageNumberInSequence'. ");
+			}
+			else	// if message was NOT empty...
+			{	 
+				if ($debugIt==2)
+					logMessage ("mailout ".__LINE__." Mail_Send_Date $TimeToSendMsg <= WallclockTime $WallclockTime: Time to send");
+
+				// Replace message personalization (EmailAddress & FullName)
+				$MessageBody .= $Signature;				
+				$MessageBody 	= eregi_replace("%EmailAddress%",$Email_Address,$MessageBody);
+				$MessageSubject = eregi_replace("%EmailAddress%",$Email_Address,$MessageSubject);
+			
+				$MessageBody 	= eregi_replace("%FullName%",$Full_Name,$MessageBody);
+				$MessageSubject = eregi_replace("%FullName%",$Full_Name,$MessageSubject);
+			
+				$MessageBody 	= eregi_replace("%UserDefined1%",$UserDefined1,$MessageBody);
+				$MessageSubject = eregi_replace("%UserDefined1%",$UserDefined1,$MessageSubject);
+			
+				$MessageBody 	= eregi_replace("%UserDefined2%",$UserDefined2,$MessageBody);
+				$MessageSubject = eregi_replace("%UserDefined2%",$UserDefined2,$MessageSubject);
+			
+				$MessageBody 	= eregi_replace("%UserDefined3%",$UserDefined3,$MessageBody);
+				$MessageSubject = eregi_replace("%UserDefined3%",$UserDefined3,$MessageSubject);
+			
+				$MessageBody 	= eregi_replace("%UserDefined4%",$UserDefined4,$MessageBody);
+				$MessageSubject = eregi_replace("%UserDefined4%",$UserDefined4,$MessageSubject);
+	
+
+				
+				// Perform message word wrap on text messages
+			
+				if (($Wrap_On == 1) && ($Mail_Format == 0)) 
+					$MessageBody = wordwrap($MessageBody, $Length_Of_Wrap,"\n");
+			
+				// clean up any message 'artifacts' that may exist so message will display properly on the screen
+			
+				$MessageBody	= eregi_replace("\r\n","\n",$MessageBody);
+				$MessageBody 	= stripslashes($MessageBody);
+				$MessageSubject = stripslashes($MessageSubject);
+
+				
+				//Append the removal instructions and the removal instructions lines to *every* message body
+
+				if($Mail_Format == 1)
+				{
+					$Final_Body = "$MessageBody<br>$Removal_Link_HTML$Email_Address'>$Remove_HTML</a><br>\n";
+					if ($Ad != 45)
+						$Final_Body.=$PoweredbyHTML;
+				}
+				else
+				{
+					$Final_Body = $MessageBody."\n\n".$Remove_Text." ".$Removal_Link_Text.$Email_Address;
+
+					if ($Ad != 45)
+						$Final_Body.=$PoweredbyText;
+				}
+
+				if (!isset($Removal_Link_Text))
+					die (logMessage ("mailout (".__LINE__.") no remove link found"));
+				
+				//die (logMessage("mailout: \$Remove_Text |$Remove_Text|\n\$Removal_Link_Text |$Removal_Link_Text.$Email_Address|\n\$PoweredbyText |$PoweredbyText|"));
+
+				$Body_To_Send=$Final_Body;
+
+				if ($debugIt==2)
+				{
+					logMessage ("mailout ".__LINE__." Simulation of Email:$Email_Address Subject:$MessageSubject");
+				}
+				else // not debugging
+				{							
+					$directory=dirname(__FILE__);
+					
+                  	if (stristr($directory, "demo"))
+                  	{
+						if ($debugIt > 0)
+						{
+							logMessage ("mailout ".__LINE__." ***Beta Test*** Not sending email To: ".$Full_Name."<".$Email_Address."> Subject: ".$MessageSubject." From: ".$EmailAddressFrom);
+						}
+					}
+					else  //---------------not a beta send --------------
+					{
+						
+						//print("not a beta send<br>");
+						
+						//
+						//	Is there a file attachment for this message?
+						//
+			
+						$MessageAttachmentFound=0;
+		
+						if(is_dir("attachments/$arid/$mid"))
+						{
+							$d = dir("attachments/$arid/$mid");
+							$icount = 1;	
+							while (false !== ($entry = $d->read())) 
+							{
+								if (!(($entry == ".") || ($entry == "..")))
+								{
+									$attfile=$entry;
+									$icount++;
+									$MessageAttachmentFound=1;
+									break;
+								}
+							}
+						
+							$d->close();
+						}
+
+						if($Mail_Format == 1)
+							$Format = "HTML";
+						else
+							$Format = "Text";
+						
+						if ($Mail_Format == 1)
+							$HTMLBody=$Body_To_Send;
+						else
+							$TextBody=$Body_To_Send;
+					
+ 
+						$Sent	= false;
+							
+					  /*	If an attachment is found, then add it the the email message we are constructing
+
+						if($MessageAttachmentFound==1)
+						{
+							$Attachment="attachments/$arid/$mid/$attfile";
+							$Sent = phpmailer($Email_Address, $Full_Name, $MessageSubject, $TextBody, $HTMLBody, $Attachment, $Mail_Format, $arid);
+						}
+						else
+						*/
+
+						$Attachment="";
+						$Sent = phpmailer($Email_Address, $Full_Name, $MessageSubject, $TextBody, $HTMLBody, $Attachment, $Mail_Format, $arid);
+				
+						if ($debugIt > 0)
+						{
+							if ($Sent == TRUE)
+								logMessage ("mailout (".__LINE__.") Sending email format $Format To: ".$Full_Name." '".$Email_Address."' Subject: ".$MessageSubject);
+							else
+								logMessage ("mailout (".__LINE__.") Error: Not Sent: email format $Format To: ".$Full_Name." '".$Email_Address."' Subject: ".$MessageSubject);
+						}
+										
+						if (($Sent == false) && ($debugIt > 0))
+						{
+							logMessage ("mailout (".__LINE__.") autoresponder GLOBAL settings: \$arid $arid \$Display_Name $Display_Name \$EmailAddressFrom $EmailAddressFrom");
+							logMessage ("mailout (".__LINE__.") \$SMTPmailServer $SMTPmailServer \$SMTPmailbox $SMTPmailbox \$SMTPpassword $SMTPpassword \$SMTPport $SMTPport");
+							logMessage ("mailout (".__LINE__.") \$Wrap_On $Wrap_On \$Length_Of_Wrap $Length_Of_Wrap ");
+							logMessage ("mailout (".__LINE__.") Error: Not Sent: email format $Format To: ".$Full_Name." '".$Email_Address."' Subject: ".$MessageSubject);
+							//logMessage ("mailout (".__LINE__.") Ending mailout.php");
+						}
+			
+						if ($Sent == TRUE)
+						{
+							// update the user record to reflect the next message sequence number to send, and the date/time to send it
+
+							$MessageNumberInSequence = $MessageNumberInSequence + 1;
+							$sqlUpdateQuery = "update users set currentmsg='$MessageNumberInSequence', senddate='$NextMsgTimeToSend' where email='$Email_Address' and arid=$arid";
+							
+							$Result_Query_Message = false;
+							$count = 0;
+							do
+							{
+								sleep(1); //sleep 1 second before attempting to update the database
+								$Result_Query_Message = mysql_query($sqlUpdateQuery) or die(logMessage("mailout (".__LINE__.") DIED. Could not update message number to next msg for email='$Email_Address' and arid=$arid"));
+								$count++;
+							}
+							while (($Result_Query_Message == false) && ($count < 300));
+							
+							if($count > 299)
+							{
+								logMessage ("mailout (".__LINE__.") ERROR: Can't Update database! tried for 5 minues.");
+								die();
+							}
+							
+													
+							if ($debugIt==2)
+							{
+								$tf = date("H:i:s m-d-Y", $NextMsgTimeToSend);		
+								logMessage ("mailout ".__LINE__." Next message in sequence scheduled for $tf");
+							}			
+						} // end if sent==TRUE
+					} // end of not a beta send
+				} // end of not debugging
+			}	//  end of 'if message was NOT empty...'
+		}	// end of 'if ($TimeToSendMsg<=$WallclockTime)'
+	}	// end of 'for each user row'
+}
+
+
+
+if ($debugIt == 2)
+	logMessage ("mailout ".__LINE__." starting");
+
+$arSQL = "select * from autoresponders";
+$result_ar = mysql_query($arSQL) or die(logMessage("mailout (".__LINE__.") Could not $arSQL"));
+$num_rows_ar = mysql_num_rows($result_ar) or die(logMessage("mailout (".__LINE__.") Could not calculate number of rows"));
+
+for($count=0;$count<$num_rows_ar;$count++)
+{
+	mysql_data_seek($result_ar, $count) or die(logMessage("mailout (".__LINE__.") Could not move pointer to next autoresponder row"));
+	$arrow = mysql_fetch_object($result_ar) or die(logMessage("mailout (".__LINE__.") Could not read next autoresponder row"));
+	
+	if ($debugIt == 2)
+		logMessage ("mailout (".__LINE__.") Check to send mail to arid " . $arrow->arid . " mail campaign '" . $arrow->arname . "' CampaignState '". $arrow->CampaignState . "'");
+
+	// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+	//																						//
+	// Email campaigns that are monthly reminders are different than other campaigns.		//
+	// Their campaign names (arname) begin with the literal "Monthly Schedule:"				//
+	//																						//
+	// All recipients (users) receive the same message on the same day of the month for 	//
+	// which it was sent.																	//
+	// For these campaigns, message 1 is sent in January, message 2 is sent in February,	//
+	// ...message 12 is sent in December for every user in the campaign.					//
+	// The day of month to send is stored in the $DelayDays field of the message for 		//
+	// each month.																			//
+	//																						//
+	// . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  //
+		
+	if ($arrow->CampaignState == "Active")
+	{
+		if (strtolower(substr($arrow->arname, 0, 17)) == "monthly schedule:")
+			$MonthlySchedule = "true";
+		else
+			$MonthlySchedule = "false";
+		
+		SendMail($arrow->arid, $arrow->arfromemail, $arrow->remhtml, $arrow->remtext, $debugIt, $MonthlySchedule);
+	}
+}
+
+if ($debugIt == 2)
+	logMessage ("mailout ".__LINE__." ending");
+
+exit;
+?>

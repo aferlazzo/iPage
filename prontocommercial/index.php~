@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	POF Proof Of Funds, PPP Private Placement Program, SBLC, Letter of Credit
+	Financing, Commercial lending
+	</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+	<meta name="copyright" content=
+	"Copyright 2006, Anthony Ferlazzo, Pronto Commercial Funding"/>
+	<meta name="rating" content="General"/>
+	<meta name="robots" content="Index, ALL, follow"/>
+	<meta name="keywords" content=
+	"POF Proof Of Funds, PPP, private placement program, commercial mortgage, SBLC, BG, MTN, commercial real estate loans, commercial mortgages"/>
+	<meta name="description" content=
+	"POF Proof Of Funds, SBLC Financing, Letters of Credit Financing, Commercial Lending, private placement program. Today's business owners are faced with greater challenges than ever before. An evolving economy, spiraling costs, and greater demands on cash flow. Business owners can no longer depend on efficient operations alone to secure operating in the black."/>
+	<meta name="OWNER" content=" Pronto Commercial Funding"/>
+	<meta name="verify-v1" content="3/60ozU9ROr2wHWZDBcm0qhFk+p8SuprJ0T6GB3NKNk="/>
+	<link rel="SHORTCUT ICON" href="http://www.prontocommercial.com/favicon.ico"/>
+<?php include("include/Head.php"); ?>
+<style type='text/css'>
+	/*<![CDATA[*/
+			 .panelContent ul {margin:10px 0 0 0;}
+			 .panelContent p{font:18px sans-serif normal;}
+			 span.normal{font-size:14px;}
+	 /*]]>*/
+	</style>
+</head>
+<body>
+<?php include("include/top.php"); ?>
+<h1>Welcome To A New Financial World</h1>
+<div class='featurette nonFeedback'>
+	<div class='panel nonFeedback'>
+		<h3 title='A New Financial World'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>
+				Ten years ago obtaining a creative commercial financing was almost
+				as easy as obtaining a no-money-down home mortgage. Everyone
+				was offering easy-to-qualify-for loans.
+			</p>
+			<p>
+				The financial landscape has certainly changed. These days
+				obtaining any kind of financing is difficult. You are in luck
+				because we still offer solutions that are unavailable through
+				traditional commercial financing channels.
+			</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Proof of Funds'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>
+				Our <a href='./ProofOfFunds.php'>Proof Of Funds</a> service enables	clients who	need to
+				complete their business acquisition or other transaction and would
+				like to indicate greater financial strength. We offer the strongest,
+				most flexible, most comprehensive and complete Proof of Funds products available.
+			</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Private Placement Programs'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>
+				Our <a href='./PrivatePlacementProgram.php'>Private Placement Programs</a> enable high net worth
+				clients along with others to have their money grow at a tremendous
+				rate. Other programs will enable you to increase your net worth quickly.
+			</p>
+			<p>
+				Applicants are expected to be experienced investors who are familiar
+				with how these investments. We DO NOT educate or provide any
+				advice as to how one can incorporate this PPP strategy into your
+				financial plan.
+			</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Bank Instrument Financing'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>
+				You have also located a great site to your <a href="./BankInstrumentFinancing.php">finance</a> your Stand-by
+				Letter of Credit or other bank instrument.
+			</p>
+			<p>
+				We finance Stand-by Letters of Credit (SBLCs), Bank Guarantees
+				(BGs), Certificates of Deposit (CDs), Treasuries, MTNs, Bonds and
+				other bank instruments that are unconditional, irrevocable,
+				assignable, and without liens against them.</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Bank Instrument Leasing'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>
+				In today's financial environment it is difficult to obtain financing
+				no matter what your credit history. Yet we provide commercial
+				financing when traditional lenders fail.
+			</p>
+			<p>
+				The ONLY way that makes sense during these tough financial times is
+				to use cash-backed bank instruments like a Stand-by
+				Letter of Credit (SBLC), Bank Guarantee (BG), or Certificates of
+				Deposit (CDs) as collateral. We offer exceptional <a href="./BankInstrumentLeasing.php">Bank Instrument
+				Leasing</a> solutions.
+			</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Commercial Lending'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>
+				We excel at offering  premium loan products that banks and
+				traditional financing options just can't offer. Financing solutions
+				for all property types (except raw land) and business financing.
+				Click on <a href='./CommercialLoans.php'>Commercial Loans</a> for more information.
+			</p>
+		</div>
+	</div>
+</div>
+<?php include("./include/bottom.php"); ?>
+</body>
+</html>

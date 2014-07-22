@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Send a Credit Request</title>
+
+<script type="text/javascript">
+
+var oDocXMLhttp = false;
+var oTheGetXMLhttp = false;
+
+function createXMLHttpRequest()
+{
+    if (window.ActiveXObject) {
+        oDocXMLhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    } 
+    else if (window.XMLHttpRequest) {
+        oDocXMLhttp = new XMLHttpRequest();
+    }
+}
+function createXMLHttpResponse()
+{
+    if (window.ActiveXObject) {
+        oTheGetXMLhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    } 
+    else if (window.XMLHttpRequest) {
+        oTheGetXMLhttp = new XMLHttpRequest();
+    }
+}
+    
+function loadRequest()
+{
+	var sRequest  = "<INPUT>"
+	sRequest = sRequest + "<USER_INFO login='westernthrift' password='tonyf345'/>"
+	sRequest = sRequest + "<REQUEST request_type='NEW' async='T'>"
+	sRequest = sRequest + "<ORDER_DETAIL reference_number='Case #12' experian_credit_flag='T' transunion_credit_flag='T' equifax_credit_flag='T' experian_score_flag='T' transunion_score_flag='T' equifax_score_flag='T' />"
+	sRequest = sRequest + "<APPLICANT firstname='BILL' surname='STEINER' ssn='216965192'/>"
+	sRequest = sRequest + "<CURRENT_ADDRESS streetnumber='563' streetname='68TH' aptnumber='B' city='ARVERNE' state='NY' zip='11692'/>"
+	sRequest = sRequest + "<OUTPUT_FORMAT format_type='XML'/>"
+	sRequest = sRequest + "</REQUEST>"
+	sRequest = sRequest + "</INPUT>";
+	return(sRequest);
+}
+
+function loadResponseQuery()
+{
+
+	var sRequest  = "<INPUT>"
+	sPolling = sPolling + "<USER_INFO login='westernthrift' password='tonyf345'/>"
+	sPolling = sPolling + "<REQUEST request_type='GET' async='T'>"
+	sPolling = sPolling + "<ORDER_DETAIL report_id='" & nReportID & "'/>"
+	sPolling = sPolling + "<OUTPUT_FORMAT format_type='XML'/>"
+	sPolling = sPolling + "</REQUEST>"
+	sPolling = sPolling + "</INPUT>"
+	return(sPolling);
+}
+
+function postRequest()
+{
+    createXMLHttpResponse();
+    
+    var xml = loadRequest();
+    var url = "https://credit.meridianlink.com/inetapi/get_credit.aspx";
+    
+    oDocXMLhttp.open("POST", url, true);
+    oDocXMLhttp.onreadystatechange = handleStateChange;
+    oDocXMLhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");    
+    oDocXMLhttp.send(xml);
+}
+    
+function postResponse()
+{
+    createXMLHttpRequest();
+    
+    var xml = loadResponseQuery();
+    var url = "https://credit.meridianlink.com/inetapi/get_credit.aspx";
+    
+    oDocXMLhttp.open("POST", url, true);
+    oDocXMLhttp.onreadystatechange = handleStateChange;
+    oDocXMLhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");    
+    oDocXMLhttp.send(xml);
+}
+    
+function handleStateChange() 
+{
+    if(oDocXMLhttp.readyState == 4) 
+	{
+        if(oDocXMLhttp.status == 200) 
+		{
+            parseResults();
+        }
+    }
+}
+
+
+function parseResults() 
+{
+// First empty DIV contents
+
+    var responseDiv = document.getElementById("serverResponse");
+    if(responseDiv.hasChildNodes()) {
+        responseDiv.removeChild(responseDiv.childNodes[0]);
+    }
+
+// Get response
+    
+    var responseText = document.createTextNode(oDocXMLhttp.responseText);
+    responseDiv.appendChild(responseText);
+
+    createXMLHttpRequest();
+    
+    var xml = loadResponseQuery();
+    var url = "https://web.com/inetapi/get_credit.aspx";
+    
+	
+	
+}
+
+
+</script>
+</head>
+
+<body>
+  <h1>Run Credit Report:</h1>
+  
+  <form action="#">
+	<input type="text" name="CardNumber" value="">
+    <br/><br/>
+    <input type="button" value="Request" onclick="postRequest();"/>
+  </form>
+
+  <h2>Server Response:</h2>
+
+  <div id="serverResponse"></div>
+
+</body>
+</html>

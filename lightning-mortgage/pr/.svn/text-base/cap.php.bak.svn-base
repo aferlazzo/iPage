@@ -1,0 +1,18 @@
+<?php
+$new="&quot;Tony Ferlazzo&quot; br&lt;tony@lightning-mortgage.com&gt;"; 
+print("1 $new<br>");
+$new = eregi_replace("br&lt;","|",$new);
+print("2 $new<br>");
+$new = eregi_replace("&quot;","",$new);
+print("3 $new<br>");
+$new = eregi_replace("&lt;","",$new);
+print("4 $new<br>");
+$fromperson = eregi_replace("&gt;","",$new);
+print("5 $fromperson<br>");						
+$myarr=split("\|",$fromperson);
+
+$fromname=trim($myarr[0]);
+						    
+$fromemail=trim($myarr[1]);
+print("\$fromname |$fromname| \$fromemail |$fromemail| \$myarr[0] |$myarr[0]| \$myarr[1] |$myarr[1]|");
+?>

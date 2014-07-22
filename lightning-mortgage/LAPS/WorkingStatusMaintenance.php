@@ -1,0 +1,637 @@
+<?php
+require ("../include/authenticate.php");
+require ("../include/SetCookies.php");
+SetCookies();
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Daily Progress Report Maintenance</title>
+
+<script language="JavaScript" src="https://host373.ipowerweb.com/~lightnin/js/Common.js"></script>
+<link rel="stylesheet" href="../css/AdministrativeStyles.css" type="text/css">
+
+<!--[if IE 6]>
+<style type="text/css">
+html
+{
+	scrollbar-base-color: #F4F4F4;
+	scrollbar-arrow-color: #FFFFFF;
+	scrollbar-track-color: #002179;
+	scrollbar-face-color: #009;
+	scrollbar-3dlight-color: #009;
+}
+</style>
+<![endif]-->
+
+<script type="text/javascript" language='Javascript'>
+var cookies=new Object();
+function GetMyValue(CookieName)
+{
+var Name,Value;
+var Beginning,Middle,End;
+Beginning=0;
+while(Beginning<document.cookie.length)
+{
+Middle=document.cookie.indexOf('=',Beginning);
+End=document.cookie.indexOf(';',Beginning);
+if(End==-1)
+End=document.cookie.length;
+if((Middle>End)||(Middle==-1))
+{
+Name=document.cookie.substring(Beginning,End);
+Value="";
+}
+else
+{
+Name=document.cookie.substring(Beginning,Middle);
+Value=document.cookie.substring(Middle+1,End);
+}
+cookies[Name]=unescape(Value);
+Beginning=End+2;
+}
+return(cookies[CookieName]);
+}
+
+function AtStartCookies()
+{
+User=GetMyValue('User');
+SavedFilter=GetMyValue('SavedFilter');
+Password=GetMyValue('Password');
+SortColumn=GetMyValue('SortColumn');
+SearchTerm=GetMyValue('SearchTerm');
+MyValue=GetMyValue('SavedFilter');
+FromDate=GetMyValue('FromDate');
+FromMonth=GetMyValue('FromMonth');
+FromDay=GetMyValue('FromDay');
+FromYear=GetMyValue('FromYear');
+ToDate=GetMyValue('ToDate');
+ToMonth=GetMyValue('ToMonth');
+ToDay=GetMyValue('ToDay');
+ToYear=GetMyValue('ToYear');
+DateRange=GetMyValue('DateRange');
+UpdatedBy=GetMyValue('UpdatedBy');
+CommentLimit=GetMyValue('CommentLimit');
+Page=GetMyValue('Page');
+LastApplicantPrinted=GetMyValue('LastApplicantPrinted');
+CommentsOtApplicantPrinted=GetMyValue('CommentsOtApplicantPrinted');
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+/*																												*/
+/*	Validate()	This JavaScript function is called by the html onSubmit object prior to the page passing the 	*/
+/*	the user to the WorkingStatusUpdate page (which performs the actual my_SQL database queries). The function		*/
+/*	simply verifies the user input prior to the database updating page.											*/
+/*																												*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
+
+function Validate()
+{
+	/*
+	alert("In Validate() passed WorkingStatusInfo.elements[0] is |" + document.WorkingStatusInfo.elements[0].value + "|");
+	alert("In Validate() passed WorkingStatusInfo.elements[1] is |" + document.WorkingStatusInfo.elements[1].value + "|");
+	alert("In Validate() passed WorkingStatusInfo.elements[2] is |" + document.WorkingStatusInfo.elements[2].value + "|");
+	alert("In Validate() passed WorkingStatusInfo.elements[3] is |" + document.WorkingStatusInfo.elements[3].value + "|");
+	alert("In Validate() passed WorkingStatusInfo.elements[4] is |" + document.WorkingStatusInfo.elements[4].value + "|");
+	alert("In Validate() passed WorkingStatusInfo.elements[5] is |" + document.WorkingStatusInfo.elements[5].value + "|");
+	alert("In Validate() passed WorkingStatusInfo.elements[6] is |" + document.WorkingStatusInfo.elements[6].value + "|");
+	alert("In Validate() passed WorkingStatusInfo.elements[7] is |" + document.WorkingStatusInfo.elements[7].value + "|");
+
+	alert("In Validate() passed SavedLoanStatus is |" + document.WorkingStatusInfo.SavedLoanStatus.value + "|");
+	alert("In Validate() SavedLoanStatus length is |" + document.WorkingStatusInfo.SavedLoanStatus.length + "|");
+	*/
+
+	if (!document.WorkingStatusInfo.SSN.length == 11)   /* check the length of the SS Numbers */
+	{
+	  alert("SSN length error: Must be 11 characters");
+	  document.WorkingStatusInfo.SSN.focus();
+	  document.WorkingStatusInfo.SSN.select();
+	  return(false);
+	}
+
+	if (document.WorkingStatusInfo.Comments.length == 0)
+	{
+	  alert("Comments: Must be entered");
+	  document.WorkingStatusInfo.Comments.focus();
+	  document.WorkingStatusInfo.Comments.select();
+	  return(false);
+	}
+
+    if (document.WorkingStatusInfo.ReportDate.length == 0)   /* if there's no space in the name */
+	{
+	  alert("ReportDate: Must be entered");
+	  document.WorkingStatusInfo.ReportDate.focus();
+	  document.WorkingStatusInfo.ReportDate.select();
+	  return(false);
+	}
+	else
+	{
+		document.WorkingStatusInfo.ReportDate.value   = document.WorkingStatusInfo.EnteredReportDate.value.charAt(6);
+		document.WorkingStatusInfo.ReportDate.value += document.WorkingStatusInfo.EnteredReportDate.value.charAt(7);
+		document.WorkingStatusInfo.ReportDate.value += "/";
+		document.WorkingStatusInfo.ReportDate.value += document.WorkingStatusInfo.EnteredReportDate.value.charAt(0);
+		document.WorkingStatusInfo.ReportDate.value += document.WorkingStatusInfo.EnteredReportDate.value.charAt(1);
+		document.WorkingStatusInfo.ReportDate.value += "/";
+		document.WorkingStatusInfo.ReportDate.value += document.WorkingStatusInfo.EnteredReportDate.value.charAt(3);
+		document.WorkingStatusInfo.ReportDate.value += document.WorkingStatusInfo.EnteredReportDate.value.charAt(4);
+		//alert("ReportDate: " + document.WorkingStatusInfo.ReportDate.value+"\nEntered ReportDate: " + document.WorkingStatusInfo.EnteredReportDate.value);
+		//return(false);	
+		return(true);
+	}
+}
+</script>
+</head>
+
+<body>
+<!--
+* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+*																												*/
+*	WorkingStatusMaintenance - This page is user interface page for adding and chaging WorkingStatus table 		*/
+*	entries. It displays a record from the table. 																*/
+*																												*/
+* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+-->
+
+<script type='text/javascript' language='Javascript'>
+AtStartCookies();
+</script>
+
+<?php
+
+	FromDate;
+	ToDate;
+	UpdatedBy;
+
+	//print ("In WorkingStatusMaintenance on line ".__LINE__." FromDate $FromDate, ToDate $ToDate, UpdatedBy $UpdatedBy<br>\n");
+
+
+
+	if ($RequestType == 'Delete')
+	{
+		$aaa = $_POST[SSN];
+		$bbb = $_POST[id];
+		$ccc = $_POST[ReportDate];
+		$ddd = $_POST[Comments];
+		$eee = $_POST[ApplicantName];
+		$fff = $_POST[PointStatus];
+
+
+		//die ("RequestType $RequestType ReportDate $ccc Applicant $eee");
+
+		if ($UserLevel == "Admin")
+			print ("<form name='EditRecord' action='WorkingStatusUpdate.php' method='post'>");
+		else
+		{
+			print ("<form name='EditRecord' action='FunctionDisabled.php' method='post'>");
+			print ("<script language='Javascript'>history.back();</script>");
+		}
+
+		print ("<input type='hidden' name=SSN value='$aaa'>");
+		print ("<input type='hidden' name=id value='$bbb'>");
+		print ("<input type='hidden' name=ReportDate value='$ccc'>");
+		print ("<input type='hidden' name=Comments value='$ddd'>");
+		print ("<input type='hidden' name=ApplicantName value='$eee'>");
+		print ("<input type='hidden' name=RequestType value='Delete'>");
+		print ("<input type='hidden' name=PointStatus value='$fff'>");
+		print ("<script language='Javascript'>document.EditRecord.submit();</script>");
+		print ("</form>");
+	}
+
+	if (($RequestType != 'Insert') && ($RequestType != 'Update'))
+		print("<script language='Javascript'>history.back();</script>");
+
+	// die ("RequestType='$RequestType'<br>\n");
+
+	//print ("<b>SSN:$SSN:, id:$id ReportDate:$ReportDate: Comments:$Comments: PointStatus:$PointStatus:</b><br>\n");
+
+	$Savedid = $id; //saved passed id for update function
+
+	if ($RequestType == "Insert")
+		$ReportDate = date("y/m/d");
+
+	/* Format the SSN */
+
+	//print ("length is ".strlen($SSN).", value is $SSN<br>\n");
+	$x = strlen($SSN);
+
+	while ($x < 9)  // pad with leading zeros
+	{
+		$xxx = "0".$SSN;
+		$SSN = $xxx;
+		$x = strlen($SSN);
+		//print ("length is ".strlen($SSN).", value is $SSN<br>\n");
+	}
+
+	if (strlen($SSN) > 0)
+	{
+		if($UserLevel != "Admin")
+			$TempField = 'xxx-xx-'.substr($SSN,5,4);
+		else
+			$TempField = substr($SSN,0,3).'-'.substr($SSN,3,2).'-'.substr($SSN,5,4);
+
+		$SSN=$TempField;
+		$abc=$SSN;
+	}
+
+	$TempApplicantName = $ApplicantName;
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+/*																					*/
+/* Start of a new form, necessary to inputs and/or display the fields for the table	*/
+/*																					*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+
+	//	We use mehod="post" because of the size limit of parameters passed with method="get".
+	//	Some comments are just too long.
+
+	if ($UserLevel != "Admin")
+		print ("<form name='WorkingStatusInfo' action='FunctionDisabled.php' method='post' onSubmit='return(Validate());'>");
+	else
+		print ("<form name='WorkingStatusInfo' action='WorkingStatusUpdate.php' method='post' onSubmit='return(Validate());'>");
+
+
+	/************ minor php annoyance *******************/
+
+
+	/*********** print must start and end with double quotes to do variable name substitution with values *******/
+
+
+	print ("<input type='hidden' name='RequestType' value='$RequestType'>");
+
+	print ("<input type='hidden' name='id' value='0'>");
+
+	//print ("Line ".__LINE__." PointStatus=$_POST[PointStatus]<br>\n");
+
+	// create a table
+
+	print ("<table border=1 cellspacing=0 cellpadding=4 align=center>");
+
+	/* ------- Header Row ---------- */
+
+	print ("<tr align='center' valign='middle'><td align='center' valign='middle'>");
+	print ("<font face='Verdana' size='2' color='#000099'><a href='ApplicantMaster.php'>Home</a></font></td>");
+
+	if ($RequestType == "Update")
+	{
+		print ("<td align=center valign=middle><font face='Verdana' size='3' color='#000099'>");
+		print ("<strong>Update An Existing Daily Progress Report</strong></font></td></tr>");
+	}
+
+	if ($RequestType == "Insert")
+	{
+		print ("<td align=center valign=middle><font face='Verdana' size='3' color='#000099'>");
+		print ("<strong>Add A New Daily Progress Report</strong></font></td></tr>");
+	}
+
+	/* --------- WorkingStatus Info ------------ */
+
+	print ("<tr align=right valign=middle><td align=right bgcolor='#003399' valign=middle>");
+
+	/* --------- Print Name if passed, prohibit changing Applicant Name -------------- */
+
+	if (!empty($ApplicantName))
+	{
+		print ("<p class='White' style='text-align: right;'>Applicant Name</p></td>");
+		print ("<td align=left bgcolor='#6699FF' valign=middle><font face='Verdana' size='2' color='#000099' ");
+		print ("bgcolor=><input type='text' name='ApplicantName' readonly style='background: #CCCCCC'");
+		print ("value='$TempApplicantName' size='25'");
+		print ("title='Can not change this name.'><br></td></tr>");
+		print ("<tr align=right valign=middle><td align=right bgcolor='#003399' valign=middle>");
+	}
+
+	/*print ("<td align=left bgcolor='#6699FF' valign=middle>"); */
+
+	print ("<p class='White' style='text-align: right;'>Social Security #</p></td>");
+
+	/* --------- Prohibit Update function to change social security number -------------- */
+
+	if (($RequestType == "Update") || (!empty($ApplicantName)))
+	{
+		print ("<td align=left bgcolor='#6699FF' valign=middle><font face='Verdana' size='2' color='#000099' ");
+		print ("bgcolor=><input type='text' name='SSN' readonly style='background: #CCCCCC' value='$abc' size='11'");
+		print ("title='Can not change this field. Delete and re-add record to change'>");
+	}
+
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+	/*																												*/
+	/*	Allow New Records to have social security number changed EXCEPT when we are adding a new status to EXISTING	*/
+	/*																												*/
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -*/
+
+	if (($RequestType == "Insert") && (empty($ApplicantName)))
+	{
+		print ("<td align=left bgcolor='#6699FF' valign=middle><font face='Verdana' size='2' color='#000099'>");
+		print ("<input type='text' name='SSN' value='$abc' size='11'><br></td>");
+	}
+
+	print ("</tr>"); // end of row
+
+	print ("<input type='hidden' name='id' value='$id'><br></td>");
+
+	/* -*-*-*-*-*-*-*-*-*-*-*-*-*- Report Date -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+
+	print ("<tr align=right valign=middle><td align=right bgcolor='#003399' valign=middle>");
+
+	print ("<p class='White' style='text-align: right;'>Report Date</p></td>");
+
+	print ("<td align=left bgcolor='#6699FF' valign=middle><font face='Verdana' size='2' color='#000099'>");
+
+	list($year, $month, $day) = sscanf($ReportDate, "%02d/%02d/%02d");// reformat YY/MM/DD date
+	$DisplayReportDate = sprintf("%02d/%02d/%02d", $month, $day, $year);			// to MM/DD/YY
+
+	print ("<input type='text' name='EnteredReportDate' value='$DisplayReportDate' size='10'><br></td>");
+	list($month, $day, $year) = sscanf($DisplayReportDate, "%02d/%02d/%02d");// reformat MM/DD/YY date
+	$NewReportDate = sprintf("%02d/%02d/%02d", $year, $month, $day);			// to YY/MM/DD
+	print ("<input type='hidden' name='ReportDate' value='$NewReportDate'>\n");
+
+	print ("</tr>"); // end of row
+
+	/* -*-*-*-*-*-*-*-*-*-*-*-*-*- Point Status -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+
+	print ("<tr align=right valign=middle><td align=right bgcolor='#003399' valign=middle>");
+
+	print ("<p class='White' style='text-align: right;'>Point Status</p></td>");
+
+	print ("<td align=left bgcolor='#6699FF' valign=middle><font face='Verdana' size='2' color='#000099'>");
+
+	$PointStatus=$_POST[PointStatus];
+
+//	print ("Line ".__LINE__." PointStatus=:$PointStatus:<br>\n");
+
+	print ("<select size='1' name='PointStatus'><br>\n");
+
+	switch ($PointStatus)
+	{
+		case "Select One":
+			print ("<option selected value='Select One'>Select One</option>");
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		case "Cancelled":
+			print ("<option value='Select One'>Select One</option>");
+			print ("<option selected value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		case "Completed":
+			print ("<option value='Select One'>Select One</option>");
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option selected value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		case "Denied Credit":
+			print ("<option value='Select One'>Select One</option>");
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option selected value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		case "Denied By Lender":
+			print ("<option value='Select One'>Select One</option>");
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option selected value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		case "New Loan":
+			print ("<option value='Select One'>Select One</option>");
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option selected value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		case "Not Entered Into Point":
+			print ("<option value='Select One'>Select One</option>");
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option selected value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		case "Processing":
+			print ("<option value='Select One'>Select One</option>");
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option selected value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		case "Ready To Process":
+			print ("<option value='Select One'>Select One</option>");
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option selected value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		case "Submitted to Lender":
+			print ("<option value='Select One'>Select One</option>");
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option selected value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+		default:
+			print ("<option selected value='Select One'>Select One</option>");
+			$PointStatus='Select One';
+			print ("<option value='Cancelled'>Cancelled</option>");
+			print ("<option value='Completed'>Completed</option>");
+			print ("<option value='Denied Credit'>Denied Credit</option>");
+			print ("<option value='Denied By Lender'>Denied By Lender</option>");
+			print ("<option value='New Loan'>New Loan</option>");
+			print ("<option value='Not Entered Into Point'>Not Entered Into Point</option>");
+			print ("<option value='Processing'>Processing</option>");
+			print ("<option value='Ready To Process'>Ready To Process</option>");
+			print ("<option value='Submitted to Lender'>Submitted to Lender</option>");
+			break;
+
+	}
+
+	print ("</td></tr>"); // end of row
+
+
+	//print ("</tr>"); // end of row
+
+	/* -*-*-*-*-*-*-*-*-*-*-*-*-*- Updated By -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*- */
+
+	print ("<tr align=right valign=middle><td align=right bgcolor='#003399' valign=middle>");
+
+	if ($RequestType == "Insert")
+		print ("<p class='White' style='text-align: right;'>Entered By</p></td>");
+	else
+		print ("<p class='White' style='text-align: right;'>Updated By</p></td>");
+
+	print ("<td align=left bgcolor='#6699FF' valign=middle><font face='Verdana' size='2' color='#000099'>");
+
+	//$UpdatedBy=$_POST[UpdatedBy];
+
+//	print ("Line ".__LINE__." PointStatus=:$PointStatus:<br>\n");
+
+	print ("<select size='1' name='UpdatedBy'><br>\n");
+
+	switch ($UpdatedBy)
+	{
+		case "Select One":
+			print ("<option selected value='Unknown'>Select One</option>");
+			print ("<option value='Fran'>Fran</option>");
+			print ("<option value='Tony'>Tony</option>");
+			break;
+
+		case "Fran":
+			print ("<option value='Unknown'>Select One</option>");
+			print ("<option selected value='Fran'>Fran</option>");
+			print ("<option value='Tony'>Tony</option>");
+			break;
+
+		case "Tony":
+			print ("<option value='Unknown'>Select One</option>");
+			print ("<option value='Fran'>Fran</option>");
+			print ("<option selected value='Tony'>Tony</option>");
+			break;
+
+		default:
+			print ("<option selected value='Unknown'>Select One</option>");
+			$UpdatedBy='Select One';
+			print ("<option value='Fran'>Fran</option>");
+			print ("<option value='Tony'>Tony</option>");
+			break;
+	}
+
+	print ("</td></tr>"); // end of row
+
+
+	/* ------------ Comments -------------------- */
+
+	if ($RequestType == "Update")
+	{
+		print ("<td align=left bgcolor='#6699FF' valign=middle><font face='Verdana' size='2' color='#000099'>");
+
+		$xxx=strlen($_POST[Comments]);
+
+
+		$yyy = urldecode($_POST[Comments]);
+
+		$yyy = stripslashes($yyy);
+	}
+
+	print ("<tr align=right valign=middle><td align=right bgcolor='#003399' valign=middle>");
+
+	print ("<p class='White' style='text-align: right;'>Comments</p></td>");
+
+	print ("<td align=left bgcolor='#6699FF' valign=middle><font face='Verdana' size='2' color='#000099'>");
+
+	print ("<textarea name='Comments' rows='15' cols='80'>");
+	print ("$yyy");
+
+	//$Comments = $yyy;
+
+	print ("</textarea>");
+
+	//Put the cusor in this field
+
+	print("<script language='Javascript'>document.WorkingStatusInfo.Comments.focus();</script>");
+
+	//If inserting select the field. If updating, we do not want to highligt and select the field's exiting
+	//contents because it is too easy to start typing and delete the existing contents.
+
+	if ($RequestType == "Insert")
+		print("<script language='Javascript'>document.WorkingStatusInfo.Comments.select();</script>");
+
+	print ("</td></tr>"); // end of row
+
+
+	/* ----------------- Buttons ---------------------- */
+
+	print ("<tr align=right valign=middle><td align=center valign=middle>&nbsp;</td>");
+	print ("<td align=center valign=middle><font face='Verdana' size='2' color='#000099'>");
+	
+	if ($RequestType=="Update")
+	{
+		print ("<input class='Submit' type='submit' name='Update' value='Update Record'>");
+		print ("&nbsp;&nbsp;");
+		print ("<input type='hidden' name='id' value=$Savedid>");
+	}
+	else
+	{
+		//print ("Line ".__LINE__." Inserting new record for SSN=|$SSN|<br>\n");
+		print ("<input class='Submit' type='submit' name='Insert' value='Insert Record'>");
+		print ("&nbsp;&nbsp;");
+	}
+
+
+	print ("</form>");	// end of WorkingStatusInfo form
+
+	print ("<form name='ReList' action='WorkingStatusList.php' method='post'>");
+
+	print ("<input class='Submit' type='submit' name='ListAll' value='Browse Daily Status'");
+	print ("</form>");
+
+	print ("</td></tr>");	// end of row
+	print ("</table>"); // end of table
+?>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<title>Clipper - Photo & CSS Sprite Clipper</title>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<link rel="stylesheet" type='text/css' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+	<link rel="stylesheet" type='text/css' href="css/clipper3.css">
+</head>
+
+<!-- Clipper was written by Anthony Ferlazzo, aferlazzo[at]gmail[dot]com, April/May 2011 -->
+<body>
+	<header>
+		<h1><img id='scissors1' src='../images/scissors.png' alt=''>Cli&nbsp;&nbsp;per</h1>
+	</header>
+	<h2>Photo &amp; CSS Sprite Clipper</h2>
+	<form id='clipForm' class='rounded'>
+		<div id="tabs" class="ui-tabs">
+			<ul>
+				<li><a href="#inputTab">Input</a></li>
+				<li><a href="#outputTab">Output</a></li>
+				<li><a href="#instructionsTab">Quick Start</a></li>
+			</ul>
+			<div id="inputTab">
+				<fieldset id='fullImageFields' class='rounded'>
+					<legend>Image Container</legend>
+				<!--	<label for='eFile'>Image File Pathname</label>	-->
+					<!-- for each input, the name argument is for form processing, the id is for jquery processing -->
+					<div id='notSupported'>
+						<input type='text' name='eFile' id='eFile'>&nbsp;&nbsp;<input type='button' id='btn' value='Show It'>
+					</div>
+					<div id='supportsHTML5'>
+						<input type="file" id="browsedFileName" tabindex='-1'name="browsedFileName"></span>
+					</div>
+					<div class='hh amtw rounded'>
+						<label for='eWidth'>Width</label><input disabled type='text' name='eWidth' id='eWidth' class='amt'> px
+					</div>
+					<div class='hh amth rounded'>
+						<label for='eHeight'>Height</label><input disabled type='text' name='eHeight' id='eHeight' class='amt'> px
+					</div>
+					<div class='hh amtw rounded'>
+						<div id='backgroundColor'></div>
+						<div id='colorLegend'>Background <span>Color #999</span>
+						</div>
+					</div>
+					<div class='hh amth rounded'>
+						<div id='zoomFactor'></div><div id='zoomLegend'><span id='zoomFactorText'>1</span>X Magnification</div>
+					</div>
+				</fieldset>
+				<fieldset id='theRectangleFields' class='rounded'>
+					<legend>Selected Area</legend>
+					<div><input type='checkbox' tabindex='7' name='showOnlySelection' id='showOnlySelection'><span class='chk'>Show Only Selected Area</span></div>
+					<div class='hh amtw rounded'><label for='theRectangleFieldsWidth'			 >Width</label><input type='text' value=0 tabindex='10' id='theRectangleFieldsWidth' class='amt'> px</div>
+					<div class='hh amth rounded'><label for='theRectangleFieldsHeight'			>Height</label><input type='text' value=0 tabindex='20' id='theRectangleFieldsHeight' class='amt'> px</div>
+					<div class='hh amtw rounded'><label for='theRectangleFieldsLeft'			  >Left</label><input type='text' value=0 tabindex='30' id='theRectangleFieldsLeft' class='amt'> px</div>
+					<div class='hh amth rounded'><label for='theRectangleFieldsTop'				   >Top</label><input type='text' value=0 tabindex='40' id='theRectangleFieldsTop' class='amt'> px</div>
+					<div class='hh amtw rounded'><label for='theRectangleFieldsRight'>			  Right</label><input type='text' value=0 tabindex='50' id='theRectangleFieldsRight' class='amt'> px</div>
+					<div class='hh amth rounded'><label for='theRectangleFieldsBottom'>			 Bottom</label><input type='text' value=0 tabindex='60' id='theRectangleFieldsBottom' class='amt'> px</div>
+				</fieldset>
+			</div>
+			<div id="outputTab" class="ui-tabs-hide">
+				<fieldset id='cssFields' class='rounded'>
+					<legend>CSS For Selected Area</legend>
+					<div id='cssDisplayed'></div>
+				</fieldset>
+			</div>
+			<div id="instructionsTab" class="ui-tabs-hide">
+				<fieldset id='quickStart' class='rounded'>
+					<legend>Overview</legend>
+						<p>The photo/image file must first be selected from the local drive. Go to the Input tab and
+						click the button to browse and choose the file. An opaque view of the file will be displayed
+						to the right.</p>
+						<p>Now click the mouse and drag it diagonally on the image to show a clear rectangle of the
+						desired selected area.</p>
+						<p>Release the mouse button when selecting is complete. To reposition the rectangle simply click
+						inside the clear rectangle and drag. If adjustments to the rectangle size, use the mouse along the
+						inner edges of the rectangle to grow or shrink the selection.</p>
+						<p>Go to the Output tab to copy the generated CSS of the clipped image to your HTML or CSS file.</p>
+					</legend>
+				</fieldset>
+				<fieldset id='referenceFields' class='rounded'>
+					<legend>For Reference</legend>
+					<div class='rel'>
+						<div id='refOriginalElement'>
+							<div id='refDescription'>Entire<br>Image<br>File</div>
+							<div id='refClippedArea'>Clipped<br>Area</div>
+							<div id='refTopLine'>top</div><div id='topArrow'></div>
+							<div id='refRightLine'>right</div><div id='rightArrow'></div>
+							<div id='refBottomLine'>bottom</div><div id='bottomArrow'></div>
+							<div id='refLeftLine'>left</div><div id='leftArrow'></div>
+							<div id='refClippedWidth'>width</div><div id='refClippedHeight'>height</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>  <!-- tabs -->
+					<div id='debugDiv'>
+						<input type='checkbox' tabindex='0' name='debugOnOff' id='debugOnOff'>
+						<span class='chk'>Show Debug Log</span>
+					</div>
+	</form>
+	<div id='theImageWrapper'>
+		<div id='theImageContainer'><img id='theImage' class='theSpriteImage' src='' alt=''></div>
+		<div id='theClippedContainer'><img id='theClippedImage' class='theSpriteImage' src='' alt=''></div>
+		<div id='theRectangle'></div>
+	</div>
+	<div id='logDiv' class='rounded'><div id='log'></div></div>
+	<img id='temporaryImage' class='theSpriteImage' src='' alt=''>
+
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+	<script type='text/javascript' src='js/clipper3.js'></script>
+</body>
+</html>

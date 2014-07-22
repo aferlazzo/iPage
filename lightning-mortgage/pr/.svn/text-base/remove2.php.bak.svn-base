@@ -1,0 +1,166 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+Include("conn.php");
+$arid=$_GET["arid"];
+$WithinScript = "I know the arid";
+include("settings.php");
+include("removesettings.php");
+$RE=$_GET["RE"];
+$ra=$_GET["ra"];
+
+if($Mail_Format == 1)  // send a html or text msg to user?
+
+{
+	$Mail_Header="Content-type: text/html; charset=iso-8859-1";
+	$Mail_Footer=$Installation_Path."/remove2.php?arid=$arid&ra=$ra&RE=";
+}
+else
+{
+	$Mail_Header="Content-Type: text/plain; charset=us-ascii";
+	$Mail_Footer=$Installation_Path."/remove2.php?arid=$arid&ra=$ra&RE=";
+}
+
+if ( ($arid==NULL) || ($RE==NULL ) || ($ra==NULL) )
+{
+	echo "remove2 (".__LINE__.") - Error processing your request.<BR>";
+	echo "Please go <a href ='javascript:void(history.back())'>back</a> and try again.";
+	exit;
+}
+
+$SQL_Statement = "select * from users where email='$RE' AND arid=$arid";
+
+$Query_Result = mysql_query($SQL_Statement);
+$num_rows = mysql_num_rows($Query_Result);
+
+if ($num_rows==0)
+{
+	echo "remove2 (".__LINE__.") - Your subscription could not be found in our autoresponder database.<BR>";
+	echo "Please go <a href ='javascript:void(history.back())'>back</a> and try again.";
+	exit;
+}
+
+	mysql_data_seek($Query_Result, 0);
+	$row = mysql_fetch_object($Query_Result);
+
+	$Full_Name = $row->fname." ".$row->lname;
+
+	$SQL_Statement = "select * from autoresponders where arid=$arid";
+	$arResult 			= mysql_query($SQL_Statement);
+	$ar_row 			= mysql_fetch_object($arResult);
+	mysql_data_seek($arResult, 0);
+	
+	$Email_Address 		= $RE;
+	$EmailAddressFrom 	= $ar_row->arfromemail;
+	$EmailAddressReplyTo = $ar_row->arreplytoemail;
+	$Display_Name 		= $ar_row->ardisplayname;
+	$EmailAddressReturn = $ar_row->arbademail;
+
+
+	if($row->confdel=='Y')	// if the deletion request has been confirmed
+	{
+		$Remove_Email_Subject = $ar_row->remconsubject;
+		$Remove_Email_Body = $ar_row->remconbody;
+	}
+	else //send the list removal notification message
+	{
+		$Remove_Email_Subject = $ar_row->remsubject;
+		$Remove_Email_Body = $ar_row->rembody;	
+		$Remove_Email_Link = "$Installation_Path/remove2.php?arid=$arid&RE=$Email_Address&ra=$ra";
+		$Remove_Email_Subject = eregi_replace("%RemoveLink%",$Remove_Email_Link,$Remove_Email_Subject);	
+	}
+
+	$Remove_Email_Body 		= eregi_replace("%EmailAddress%",$Email_Address,$Remove_Email_Body);
+	$Remove_Email_Subject 	= eregi_replace("%EmailAddress%",$Email_Address,$Remove_Email_Subject);
+	$Remove_Email_Body 		= eregi_replace("%FullName%",$Full_Name,$Remove_Email_Body);
+	$Remove_Email_Subject 	= eregi_replace("%FullName%",$Full_Name,$Remove_Email_Subject);
+	$Remove_Email_Body 		= eregi_replace("%UserDefined1%",$UserDefined1,$Remove_Email_Body);
+	$Remove_Email_Subject 	= eregi_replace("%UserDefined1%",$UserDefined1,$Remove_Email_Subject);
+	$Remove_Email_Body 		= eregi_replace("%UserDefined2%",$UserDefined2,$Remove_Email_Body);
+	$Remove_Email_Subject 	= eregi_replace("%UserDefined2%",$UserDefined2,$Remove_Email_Subject);
+	$Remove_Email_Body 		= eregi_replace("%UserDefined3%",$UserDefined3,$Remove_Email_Body);
+	$Remove_Email_Subject 	= eregi_replace("%UserDefined3%",$UserDefined3,$Remove_Email_Subject);
+	$Remove_Email_Body 		= eregi_replace("%UserDefined4%",$UserDefined4,$Remove_Email_Body);
+	$Remove_Email_Subject 	= eregi_replace("%UserDefined4%",$UserDefined4,$Remove_Email_Subject);
+
+
+	if (($ar_row->arwordwrap == 1) && ($Mail_Format == 0))
+	{ 
+		$Remove_Email_Body = wordwrap($Remove_Email_Body, $ar_row->arwraplen);
+	}
+
+	$Remove_Email_Body = eregi_replace("\r\n","\n",$Remove_Email_Body);	
+	$txtMessage_Send = $Remove_Email_Body;
+	$txtMessage_Text = $txtMessage_Send;
+	$txtMessage_Body = stripslashes($txtMessage_Text);
+	$txtMessage_Subject = stripslashes($Remove_Email_Subject);
+	
+
+	if($row->confdel=='N')
+	{
+		$SQL_Statement = "update users set confdel='Y' where email='$RE' AND arid=$arid";
+		$Query_Result = mysql_query($SQL_Statement);
+		print "<html>\n<Head>\n<Title> Confirmation mail sent for unsubscription! </Title>\n<link rel='stylesheet' href='eggs.css' type='text/css'>\n</Head>\n<Body BGcolor=\"#003399\">\n";
+		print "<Font size=\"2\" face=\"Verdana\" color=\"#000000\">The email address, </font>";
+		print "<Font SIZE=\"2\" face=\"Verdana\" color=\"#ff0000\"><b>$Email_Address</b></font>";
+		print "<Font size=\"2\" face=\"Verdana\" color=\"#000000\"> has been sent a confirmation mail to remove you from our list.</font>\n";
+	
+		print "</Body>\n</Html>";
+
+	}
+	else 
+	{
+		$SQL_Statement = "delete from users where email='$RE' AND arid=$arid AND confdel='Y'";
+		$Query_Result = mysql_query($SQL_Statement);
+		print "<html>\n<Head>\n<Title> You have been removed! </Title>\n</Head>\n<Body BGcolor=\"#003399\">\n";
+		print "<Font size=\"2\" face=\"Verdana\" color=\"#ffffff\">The email address, </font>";
+		print "<Font SIZE=\"2\" face=\"Verdana\" color=\"#ff0000\"><b>$Email_Address</b></font>";
+		print "<Font size=\"2\" face=\"Verdana\" color=\"#ffffff\"> has been removed from our database.</font>\n";
+		print "</Body>\n</Html>";
+		//Append the removal instructions and the removal instructions lines to *every* message body
+
+		if($Mail_Format == 1)
+		{
+			$Final_Body.="$txtMessage_Body<br><br>$Remove_HTML<br>$Removal_Link_HTML.$Email_Address'>$Remove_HTML$Remove_Text</a>";
+			if ($Ad != 45)
+				$Final_Body.=$PoweredbyHTML;
+		}
+		else
+		{
+			$Final_Body=$txtMessage_Body."\n\n".$Remove_Text." ".$Removal_Link_Text.$Email_Address;
+			if ($Ad != 45)
+				$Final_Body.=$PoweredbyText;
+		}
+
+		if (!isset($Removal_Link_Text))
+			die (logMessage ("remove2 (".__LINE__.") no remove link found"));
+	}
+
+	$directory=dirname(__FILE__);
+					
+    if (stristr($directory, "Beggs"))
+    {
+		if ($debugIt > 0)
+		{
+			logMessage ("remove2 ".__LINE__." ***Beta Test*** Not sending email To: ".$Full_Name."<".$Email_Address."> Subject: ".$txtNew_Subject." From: ".$EmailAddressFrom);
+		}
+				
+	}
+	else
+	{					
+		mail("$Email_Address", "$txtMessage_Subject", "$Final_Body","From: $Display_Name <$EmailAddressFrom>\nReply-To: <$EmailAddressReplyTo>\nReturn-Path: <$EmailAddressReturn>\nErrors-To: <$EmailAddressReturn>\nContent-type: text/html;");
+
+		if ($debugIt > 0)
+		{
+			logMessage ("remove2 ".__LINE__." Sending email To: ".$Full_Name."<".$Email_Address."> Subject: ".$txtMsg_Subject." From: ".$EmailAddressFrom);
+		}
+	}
+		
+	mysql_close();
+?>

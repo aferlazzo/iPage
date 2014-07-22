@@ -1,0 +1,80 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+if (!function_exists(translateErrorReportingConstant2String))
+{
+	function translateErrorReportingConstant2String()
+	{
+		$current = error_reporting();
+		$out = "";
+
+		if (($current & E_ERROR          ) == E_ERROR          ){ $out .=" E_ERROR          | "; }
+		if (($current & E_WARNING        ) == E_WARNING        ){ $out .=" E_WARNING        | "; }
+		if (($current & E_PARSE          ) == E_PARSE          ){ $out .=" E_PARSE          | "; }
+		if (($current & E_NOTICE        ) == E_NOTICE        ){ $out .=" E_NOTICE          | "; }
+		if (($current & E_CORE_ERROR    ) == E_CORE_ERROR    ){ $out .=" E_CORE_ERROR      | "; }
+		if (($current & E_CORE_WARNING  ) == E_CORE_WARNING  ){ $out .=" E_CORE_WARNING    | "; }
+		if (($current & E_COMPILE_ERROR  ) == E_COMPILE_ERROR  ){ $out .=" E_COMPILE_ERROR  | "; }
+		if (($current & E_COMPILE_WARNING) == E_COMPILE_WARNING){ $out .=" E_COMPILE_WARNING | "; }
+		if (($current & E_USER_ERROR    ) == E_USER_ERROR    ){ $out .=" E_USER_ERROR      | "; }
+		if (($current & E_USER_WARNING  ) == E_USER_WARNING  ){ $out .=" E_USER_WARNING    | "; }
+		if (($current & E_USER_NOTICE    ) == E_USER_NOTICE    ){ $out .=" E_USER_NOTICE    | "; }
+		if (($current & E_ALL            ) == E_ALL            ){ $out .=" E_ALL            | "; }
+		return $out;
+	}
+}
+
+if (!function_exists(logMessage))
+{
+	function logMessage($msg) 
+	{
+		GLOBAL $user, $arid;
+		
+		//echo("Line (".__LINE__.")");
+		$logfile = "PerfectResponseLog.txt";
+		$file = fopen($logfile,"a");
+		//echo("conn (".__LINE__.") writing<br />$msg<br />to $logfile ");
+		
+		if ($msg[strlen($msg)-1]!="\n") //make every log entry end with a new line character
+		{
+			$msg.="\n";
+		}
+		if($user=="")
+		{
+			if($arid == "")
+				fputs($file,"admin ".date("r",time())." ".$msg);
+			else	
+		  		fputs($file,"arid|".$arid."|".date("r",time())." ".$msg);
+		}
+		else
+		  fputs($file,$user." ".date("r",time())." ".$msg);
+	fclose($file);
+	}
+}	
+	
+if(!(file_exists("version.php")))
+{
+	echo "version.php file is missing or corrupt.<br> Please contact the vendor or re-install";
+}
+include("db.inc.php");
+$link = mysql_connect("$dbhostname", "$dbuname", "$dbpwd") or die (logMessage ("conn Cannot connect to <i>Perfect Response</i> database")); 
+
+//logMessage ("conn Connected to <i>Perfect Response</i> database");
+	
+$Result = mysql_select_db("$dbname", $link);
+
+if (!Result)
+{
+	echo "<b>Unable connect to <i>Perfect Response</i> database. Possible server error<BR>Please go <a href ='void(history.back())'>back</a> and try again";
+}
+else
+{
+	//logMessage("  conn (".__LINE__.") Link established to database '$dbname' for user '$dbuname'");
+}
+
+?>

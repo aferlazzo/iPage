@@ -1,0 +1,12 @@
+cd \Documents and Settings\Tony\My Documents\My Webs\LightningMortgage
+"C:\Program Files\includeHTML\includeHTML.exe" -i Survey.php  -oo -s -b t
+"C:\Program Files\includeHTML\includeHTML.exe" -i 403.php -oo -s -b t
+"C:\Program Files\includeHTML\includeHTML.exe" -i 404.php -oo -s -b t
+"C:\Program Files\includeHTML\includeHTML.exe" -i Answers.php -oo -s -b t
+"C:\Program Files\includeHTML\includeHTML.exe" -i FranSend.php -s -oo -b t
+"C:\Program Files\includeHTML\includeHTML.exe" -i LoanTypes.php -b t -oo
+"C:\Program Files\includeHTML\includeHTML.exe" -i SignUp.html -s -b t -oo
+"C:\Program Files\includeHTML\includeHTML.exe" -i CreditScores.htm -oo -s -b t
+"C:\Program Files\includeHTML\includeHTML.exe" -i HopeForHomeowners.htm -oo -s -b t
+"C:\Program Files\includeHTML\includeHTML.exe" -i index.htm -oo -s -b t
+"C:\Program Files\includeHTML\includeHTML.exe" -i InterestRates.htm -oo -s -b -t

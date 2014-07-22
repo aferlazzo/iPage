@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>Clipper - CSS Clip Utility</title>
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+<link rel="stylesheet" type='text/css' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+<style>
+	body{
+		font-family:arial, hevetica, sans-serif;
+		background-color:#efe;
+	}
+	form{margin:225px 20px 0;height:290px;width:366px;}
+	div.hh{width:110px;float:left;padding: 5px 0;}
+	div#workspace{position:fixed;height: 500px; width:100%;}
+	div#line{
+		position:absolute;
+		z-index:10;
+		top:250px;
+		left:300px;
+		height:20px;
+		/*width:200px;*/
+		filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand');
+		}
+	div#middle{height:20px;float:left;background-color:#fff;margin:0 10px;}
+	div#red, div#green{height:20px;width:20px;background-color:red;float:left;}
+	div#green{background-color:green;}
+	div#frame{
+		position:absolute;
+		z-index:9;
+		top:270px;
+		left: 200px;
+		height:300px;
+		width:300px;
+		background-color:blue;
+		}
+
+	input {width:40px;text-align:right;}
+	input#f {width:240px;text-align:left;}
+	label {display:block;}
+	img#theImage{
+		z-index:10;
+		position:absolute;
+		top:110px;
+		left:400px;
+		border:1px dashed #000;
+		background-color:#ddd;
+		clip:rect(0px, 0px, 0px, 0px);
+		height:100px;
+		width:200;
+		box-shadow: 1px 1px 1px #ccc;
+		-moz-box-shadow: 1px 1px 1px #ccc;
+		-webkit-box-shadow: 1px 1px 1px #ccc;
+	}
+	div#originalElement{z-index:10;position:absolute;top:110px;left:30px;height:200px;width:270px;border:1px dashed #999;background-color:#ff0;}
+	div#clippedArea{position:absolute;top:30px;left:55px;height:80px;width:100px;border:1px solid #000;background-color:#ddd;padding:50px 10px 10px;text-align:center;}
+	div#slidersDiv{position:absolute;top:335px;left:350px;height:240px;width:280px;}
+
+	div#topLine   {position:absolute;top:0;left:70px; height:10px; width:100px;border-left:2px dotted red;  padding:10px;}
+	div#bottomLine{position:absolute;top:0;left:145px;height:143px;width:100px;border-left:2px dotted green;padding:10px 10px 10px 10px;}
+	div#rightLine{position:absolute;top:141px; left:0;height:80px;width:155px;border-top:2px dotted blue;padding:10px;}
+	div#leftLine {position:absolute;top:90px;left:0;height:80px;width:35px; border-top:2px dotted #700;padding:10px;}
+	div#clippedWidth {position:absolute;top:180px;left:55px;width:121px;text-align:center;border-top:1px solid #777;}
+	div#clippedHeight{
+	position:absolute;
+	text-align:center;
+	width:140px;
+	top:90px;
+	left:122px;
+	border-top:1px solid #777;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	}
+	div#displayed{margin:20px 0;height:30px;width:280px;}
+
+ 		/* use red triangle facing down */
+		/*			top         right           bottom      left */
+	#topArrow {
+	border-color:   red       transparent    transparent  transparent;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:23px;
+	left:64px;
+	width:0;
+	height:0;
+	}
+	#rightArrow {
+	border-color:transparent transparent     transparent  blue;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:135px;
+	left:169px;
+	width:0;
+	height:0;
+	}
+	#bottomArrow {
+	border-color:   green       transparent    transparent  transparent;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:164px;
+	left: 139px;
+	width:0;
+	height:0;
+	}
+	#leftArrow {
+	border-color:transparent transparent     transparent  brown;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:84px;
+	left:49px;
+	width:0;
+	height:0;
+	}
+</style>
+</head>
+<body>
+	<h1>Clipper: Aid to Clip Property Adjustment</h1>
+	<p>Note: Measurement is from top for top and bottom, and from left for left and right</p>
+	<div id='originalElement'>
+		<div id='clippedArea'>Clipped<br>Area</div>
+		<div id='topLine'>top</div><div id='topArrow'></div>
+		<div id='rightLine'>right</div><div id='rightArrow'></div>
+		<div id='bottomLine'>bottom</div><div id='bottomArrow'></div>
+		<div id='leftLine'>left</div><div id='leftArrow'></div>
+		<div id='clippedWidth'>width</div><div id='clippedHeight'>height</div>
+	</div>
+	<img id='theImage' src='' alt=''>
+	<form>
+		<fieldset>
+			<legend>Clip Parameters</legend>
+			<label for='f'>Image File </label><input type='text' value='images/clipper.png' id='f'>
+
+			<div class='hh'><label for='t'>Top Offset</label><input type='text' value=0	id='t' class='amt'> px</div>
+			<div class='hh'><label for='h'>Height</label><input type='text' value=0	id='h' class='amt'> px</div>
+			<div class='hh'><label for='b'>Bottom Limit</label><input type='text' value=0	id='b' class='amt'> px</div>
+
+			<div class='hh'><label for='l'>Left Offset</label><input type='text' value=0	id='l' class='amt'> px</div>
+			<div class='hh'><label for='w'>Width</label><input type='text' value=0	id='w' class='amt'> px</div>
+			<div class='hh'><label for='r'>Right Limit</label><input type='text' value=0	id='r' class='amt'> px</div>
+		</fieldset>
+		<div id='displayed'></div>
+	</form>
+<script>
+$(document).ready(function(){
+
+	//	when upArrow or downArrow keys are pressed they will adjust the input value
+	//$('#t #h #l #w #r #b').keyup(function(evt) {  // use keyUp because keypress works only with firefox, not chrome
+	$('.amt').keyup(function(evt) {  // use keyUp because keypress works only with firefox, not chrome
+		var keyCode = (evt.which) ? evt.which : evt.keyCode;
+		//alert('keyCode: ' + keyCode);
+		if (keyCode === 38)		//	was key pressed an arrowUp key?
+		{
+			//alert('current value is ' + $(this).val());
+			$(this).val(parseInt($(this).val()) + 1);
+		}
+		if (keyCode === 40)		//	was key pressed an arrowDown key?
+		{
+			$(this).val(parseInt($(this).val()) - 1);
+		}
+		clipIt();
+	});
+
+	function clipIt(){
+		var theWidth 	= parseInt($('#w').val());
+		var theHeight	= parseInt($('#h').val());
+		var theTop		= parseInt($('#t').val());
+		var theRight	= parseInt($('#r').val());
+		var theBottom	= parseInt($('#b').val());
+		var theLeft		= parseInt($('#l').val());
+
+		if (parseInt(theWidth) === NaN){
+			$('#w').val(0);
+			theWidth = 0;
+		}
+		if (parseInt(theHeight) === NaN){
+			$('#h').val(0);
+			theHeight = 0;
+		}
+		if (parseInt(theTop) === NaN){
+			$('#t').val(0);
+			theTop = 0;
+		}
+		if (parseInt(theRight) === NaN){
+			$('#r').val(0);
+			theRight = 0;
+		}
+		if (parseInt(theBottom) === NaN){
+			$('#b').val(0);
+			theBottom = 0;
+		}
+		if (parseInt(theLeft) === NaN){
+			$('#l').val(0);
+			theLeft = 0;
+		}
+
+		if (parseInt(theHeight) === 0){
+			theHeight = theBottom - theTop;
+			$('#h').val(theHeight);
+		}else{
+			theBottom =  theTop + theHeight;
+			$('#b').val(theBottom);
+		}
+
+		if (parseInt(theWidth) === 0){
+			theWidth = theRight - theLeft;
+			$('#w').val(theWidth);
+		}else{
+			theRight =  theLeft + theWidth;
+			$('#r').val(theRight);
+		}
+
+		var currentArea = 'rect('+ theTop + 'px ' + theRight + 'px ' + theBottom + 'px ' + theLeft + 'px)';
+		$('#displayed').html('<p>clip:'+currentArea+'</p>');
+
+		theFileName = document.getElementById('f').value;
+		$('#theImage').attr('src', theFileName)
+					  .css({'clip': currentArea, 'width': theWidth, 'height': theHeight});
+	}
+	$('.amt').change(function(){
+		clipIt();
+	});
+
+	clipIt();
+});
+</script>
+</body>
+</html>

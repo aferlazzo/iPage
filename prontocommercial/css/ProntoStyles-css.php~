@@ -1,0 +1,831 @@
+<?php
+		 ob_start ("ob_gzhandler");
+		 header ("content-type: text/css; charset: UTF-8");
+		 header ("cache-control: must-revalidate");
+		 $offset = 60 * 60;
+		 $expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
+		 header ($expire);
+?>
+
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,font,img,dl,dt,dd,lo,ul,li,table,tbody,tfoot,thead,tr,th,td {
+border:0;
+outline:0;
+margin:0;
+padding:0;
+}
+
+body {
+background:#028e9b url('../images/ProntoBackground.gif') repeat;
+position:absolute;
+font-family:Arial,Helvetica,Verdana,sans-serif;
+font-size: 62.5%; /* sets 1.0em to 10px unique trick */
+color:#009;
+text-align:center;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+/* trick to preload images: */
+body:after{
+content: url('../images/ProntoBackground.gif') url('../images/cssSprite1.png') url('../images/cssSprite2.png')
+url('../images/background/Announcing.jpg') url('../images/footer.png') ;
+display: none;
+}
+
+p {
+color:#000;
+font-size:12px;
+line-height:18px;
+text-align:left;
+font-weight:400;
+margin:10px 10px 10px 25px;
+}
+
+h1 {
+font-family: 'LiberationSerif-Italic', serif;
+text-align:center;
+/*letter-spacing: -2px;*/
+font-variant:normal;
+font-size:40px;
+font-weight:700;
+display:inline-block;
+color:#015158; /*#2ec4cd;*/
+white-space:nowrap;
+margin:5px 0;
+}
+
+h2,h3 {
+text-align:center;
+font-weight:700;
+color:#000;
+font-size:16px;
+margin:12px 0;
+}
+
+h3 {
+width:0;
+display:none;
+border:1px solid #025167;
+border-right:1px solid #000;
+border-bottom:1px solid #000;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+behavior: url(/css/PIE.htc);
+font-size:20px;
+}
+
+h4 {
+color:#000;
+font-size:14px;
+text-align:center;
+margin:6px 0;
+}
+
+hr {
+color:#000;
+height:1px;
+width:340px;
+}
+
+ol, ul {
+/*list-style-type:disc;*/
+text-align:left;
+margin:0 20px 12px;
+padding:0 20px;
+}
+
+li {
+font-size:12px;
+line-height:17px;
+color:#000;
+text-align:left;
+margin:0 40px;
+}
+
+.Highlight {
+background:#f44e00; /*#ff4100; */
+color:#fff;
+}
+
+.Button {
+background:#134584;
+font:small sans-serif;
+color:#fff;
+cursor:pointer;
+width:190px;
+}
+
+div#Head  {
+width:370px;
+margin:17px 0 9px 20px;
+float:left;
+}
+div#Head  a {
+color:#fff;
+font-weight:900;
+font-size:30px;
+font-weight:900;
+letter-spacing: -2px;
+border:none !important;
+}
+div#Head  a:hover{
+border:none !important;
+text-decoration:none !important;
+background-color:transparent !important;
+}
+div#Head span{
+color:#025167;
+}
+div#Headline {
+float:left;
+margin:32px 0 0 40px;
+}
+div#Headline span {
+color:#025167;
+font-size: 15px;
+font-weight:900;
+clear:left;}
+
+/* for feedback */
+
+#feedback p {color:#fff;font-size:14px;}
+div#container200 {
+z-index: 98;
+position:fixed;
+top:150px;
+left:0;
+height:370px;
+width:35px;
+text-align:left;
+}
+
+.rounded-corners {
+border-radius: 10px;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-o-border-radius: 10px;
+behavior: url(PIE.htc); /* the IE fix from css3pie.com */
+}
+
+#FeedbackButton {
+border-radius: 0 10px 10px 0;
+-moz-border-radius: 0 10px 10px 0;
+-webkit-border-radius: 0 10px 10px 0;
+-o-border-radius: 0 10px 10px 0;
+behavior: url(PIE.htc); /* the IE fix from css3pie.com */
+}
+
+/* FEEDBACK PANEL STYLES */
+
+#slide-panel201 {
+float:left;
+height:370px;
+width:400px;
+border:1px solid #025167;
+border-right:1px solid #000;
+border-bottom:1px solid #000;
+background-color:#5EC4CD;
+margin:0 auto;
+display:none;
+}
+
+textarea#feedbacktext{
+width:330px;
+height:170px;
+background:#fff;
+margin:0;
+}
+
+.block202 {
+position:relative;
+	width:400px;
+	margin:0 auto;
+	text-align:left;
+}
+.clear202 {
+	clear:left;
+}
+.block202 p {white-space:nowrap;}
+
+#submit202, #cancel202 {
+position:relative;
+float:left;
+width:70px;
+margin:0 10px; padding:0;
+}
+
+#submit202 {margin-left:110px;}
+
+div#submit202 p,div#cancel202 p {
+margin:0; padding:0;
+}
+
+div#submit202 p input,div#cancel202 p input {
+width:70px;
+height:25px;
+outline:0;
+}
+
+#done202 {
+	position:relative;
+	margin:200px auto 0;
+	width:400px;
+	height:60px;
+	clear:left;
+	display:none;
+}
+#doneImg202 {
+	position:relative;
+	width:11px;
+	margin-right:8px;
+	height:400px;
+	float:left;
+}
+#doneMsg202 {
+	position:relative;
+	font-family:arial;
+	font-size:12px;
+	color:#000;
+	float:left;
+}
+/* end for feedback */
+
+a {
+text-align:left;
+color:#009;
+text-decoration:none;
+border-bottom:1px solid #00dceb;
+font-weight:700;
+}
+/*
+a:hover {
+color:#fff;
+background:#2E64A8;
+border-bottom:2px solid red;
+}
+*/
+a:visited {
+border-bottom:1px #00dceb;
+}
+
+a:active, a:focus{ outline:0; }
+a#slide {border:none;}
+
+a#slide:hover,a#slide:visited {
+border:none;
+}
+
+#c1, #c2, #c3, #c4 {
+display:block;
+width:89px;
+height:60px;
+overflow:hidden;
+background: url('../images/cssSprite2.png') 0 0 no-repeat;
+}
+#c2 {background-position:0 -60px;}
+#c3 {background-position:0 -120px;}
+#c4 {background-position:0 -180px;}
+
+div#FontSize {
+text-align:left;
+height:24px;
+border:0;
+margin:10px auto 0;
+}
+
+#DecreaseSize,#IncreaseSize{
+float:left;
+height:30px;
+width:16px;
+cursor:pointer;
+margin:0;
+font-size:16px;
+font-weight:900;
+padding-top:10px;
+margin-top:-10px;
+color:#025167;
+}
+#IncreaseSize{
+width:20px;
+cursor:pointer;
+padding:0;
+height:30px;
+font-size:24px;
+}
+img#CaptchaImage {
+background:#39c;
+border:1px solid silver;
+width:120px;
+height:40px;
+}
+div#Bottom  {
+position:absolute;
+top:550px;
+left:4px;
+width:856px;
+z-index:4;
+margin:0 auto;
+text-align:center;
+margin:9px auto 0;
+}
+div#Bottom a {
+font-size:10px;
+color:#007;
+}
+div#Bottom a:hover {
+color:#025167;
+background:#fff;
+}
+div#Bottom p {
+margin-top:0;
+text-align:center;
+font-size:9px;
+line-height:9px;
+}
+
+div#PageWrapper {
+position:relative;
+height:98%;
+margin:0 auto;
+width:856px;
+text-align:center;
+overflow:visible;
+}
+
+/* for tab menu */
+div#featureTabsContainer {
+height:40px;
+margin:0 auto;padding:0 4px;
+position:absolute;
+z-index:5;
+top:72px;
+left:6px;
+width:844px;
+}
+
+a.tab{
+float:left;
+background-color:#025167;
+font-size:12px;
+color:#fff;
+padding:10px 6px 4px; /* to center the labels inside the tabs */
+border:1px solid #025167;
+border-right:1px solid #000;
+border-bottom:1px solid #000;
+margin:0 3px 0 0; /* to separate the tabs */
+height:21px;
+display:block;
+white-space:nowrap; /* so word wrap doesn't occur */
+cursor:pointer;
+}
+
+a.tab:hover {
+color:#025167;
+background-color:#b9e5e9;
+}
+
+a.tab_selected,a.cnTab_selected { /* this class is added by the ShowTabs function in ProntoCommon.js*/
+	background-color:#b9e5e9;
+	font-size:12px;
+	color:#025167;
+	border:1px solid #025167;
+	border-right:1px solid #000;
+	border-bottom:1px solid #000;
+	padding:10px 5px 4px;
+	margin:0 3px 0 0;
+	height:21px;
+	display:block;
+	float:left;
+	white-space:nowrap;
+}
+
+div#pulloutContainer {
+position:absolute;
+z-index:2;
+top:85px;
+left:50%;
+margin-left:325px;
+width:265px;
+height:460px;
+}
+#pulloutContainer div {position:absolute;z-index:2;left:0;}
+#p0{top:50px;}
+#p1{top:115px;}
+#p2{top:180px;}
+#p3{top:245px;}
+#p4{top:310px;}
+#p5{top:375px;}
+div.pullout{
+background-color:#025167; /* dark blue*/
+border:1px solid #025167;
+border-right:1px solid #000;
+border-bottom:1px solid #000;
+display:block;
+cursor:pointer;
+height:53px;
+width:125px;
+text-align:right;
+}
+div.pullout_selected{
+background-color:#b9e5e9;/* light blue */
+border:1px solid #025167;
+border-right:1px solid #000;
+border-bottom:1px solid #000;
+display:block;
+cursor:pointer;
+height:53px;
+width:125px;
+text-align:right;
+}
+
+div.pullout a, div.pullout_selected a{
+font-size:12px;
+color:#fff;
+display:inline-block;
+white-space:nowrap; /* so word wrap doesn't occur */
+cursor:pointer;
+margin:15px 18px 0 0;
+height:31px;
+width:100px;
+text-align:center;
+border-bottom:none;
+}
+div.pullout_selected a{color:#025167;}
+div.Tag{
+width:14px;
+height:54px;
+top:0;
+margin-left:107px;
+}
+a.cnTab, a.cnTab_selected {margin:0;} /* notice last tab has no right margin */
+.tab, .startTab{width:33px;}
+.pofTab{width:84px;}
+.pppTab{width:104px;}
+.ifTab{width:118px;}
+.ilTab{width:110px;}
+.clTab{width:107px;}
+.frTab{width:94px;}
+.cnTab{width:60px;}
+
+#featureElementsContainer {
+background: #2ec4cd;
+margin:0;
+padding:0;
+position:absolute;
+z-index:4;
+top:65px;
+left:4px;
+width:856px;
+height:482px;
+min-height:420px;
+border:1px solid #025167;
+border-right:1px solid #000;
+border-bottom:1px solid #000;
+}
+.feature {
+position:absolute;
+background:#fff;
+padding:0;
+margin:0 10px;
+height:100%;
+min-height:420px;
+max-height:420px;
+top:116px;
+left:0px;
+z-index:6;
+width:840px;
+overflow:hidden;
+border:1px solid #025167;
+border-right:1px solid #000;
+border-bottom:1px solid #000;
+}
+
+.featurette {display:none;width:2500px;height:300px;margin:0 0 0 40px;overflow:hidden;position:relative;background:#fff;}
+.panel{position:absolute;top:0;left:0;width:750px;height:300px;z-index:5;overflow:hidden;display:block;background:#fff;}
+
+.panel .panelContent
+{float:left;display:block;height:300px;width:750px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+background: #2ec4cd;
+background: -webkit-gradient(linear, 0 top, 100% top, from(#2ec4cd), to(#b9e5e9));
+background: -moz-linear-gradient(left, #2ec4cd, #b9e5e9);
+background: linear-gradient(left, #2ec4cd, #b9e5e9);
+-pie-background: linear-gradient(left, #2ec4cd, #b9e5e9);
+}
+.panelContent p{font-size:14px;}
+.panelContent ol {margin:10px 0 0 20px;}
+.panelContent ol li { font-size:18px;}
+span.normal{font-size:14px;}
+.featuretteMask{
+position:absolute;
+height:310px;
+width:50px;
+top:59px;
+right:0;
+z-index:15;
+background:#fff;
+}
+
+#extraTabsContainer{
+position:absolute;
+top:420px;
+left:0;
+z-index:21;
+height:35px;
+width:840px;
+}
+
+#contactPanel {display:none;width:828px;height:370px;}
+#contactPanel h1, #contactPanel p{color:#fff;}
+#contactPanel a, #contactPanel a:visited{border-color:transparent;}
+
+#carouselControls{
+position:absolute;
+top:375px;
+left:350px;
+width:328px;
+z-index:23;
+height:40px;
+margin:0;
+white-space:nowrap;
+}
+
+
+#backwardOne, #pause, #resume, #forwardOne, .pauseResume {
+float:left;
+width:32px;
+margin-top:5px;
+margin-right:10px;
+display:block;
+height:33px;
+cursor:pointer;
+}
+#backwardOne{
+display:none;
+background:url('../images/cssSprite2.png') -49px -244px no-repeat;
+}
+#pause{
+background:url('../images/cssSprite2.png') -49px -276px no-repeat;
+}
+#resume{
+background:url('../images/cssSprite2.png') -49px -308px no-repeat;
+}
+#forwardOne{
+display:none;
+background:url('../images/cssSprite2.png') -49px -342px no-repeat;
+}
+div.panelPtr{float:left;width:10px;height:10px;margin:12px 5px 0;
+border:1px solid #025167;background-color:#2ec4cd;cursor:pointer;}
+div.panelPtr:hover{background-color:#f00;}
+	.h3Wrapper {
+	display:block;
+	float:left;
+	width:28px;
+	height:300px;
+	margin:0;
+	}
+
+
+#peopleWeb{
+float:right;
+margin:50px 5px 0 0;
+background:url('../images/peopleWeb152pxhx250pxw.png') no-repeat;
+height:152px;
+width:250px;
+}
+
+div#FeedbackButton{ /* feedback button */
+float:left;
+height: 100px;
+margin-top:130px;
+width: 20px;
+border:1px solid #025167;
+border-right:1px solid #000;
+border-bottom:1px solid #000;
+cursor:pointer;
+background:#025167 url('../images/cssSprite2.png') 0 -281px no-repeat;
+}
+#FeedbackButton:hover{
+color:#025167;
+background-position:-20px -281px;
+background-color:#b9e5e9;
+}
+#plane1
+{
+position:absolute;
+background:url('../images/cssSprite2.png') 0 -381px no-repeat;
+top:1px;
+left:-10px;
+width:60px;
+height:53px;
+visibility:hidden;
+z-index:-1;
+}
+
+#plane2
+{
+position:absolute;
+background:url('../images/cssSprite2.png') 0 -434px no-repeat;
+top:1px;
+left:1400px;
+width:60px;
+height:53px;
+bottom:105px;
+visibility:hidden;
+z-index:-1;
+}
+img.peopleWeb{
+float:right;
+margin-top:55px;
+height:152px;
+width:250px;
+display:block;
+}
+ form#eventsDebugForm{
+ position:absolute;
+ top:0;
+ left:0;
+ width:200px;
+ height:600px;
+ background:orange;
+ display:none;
+ }
+  form#planeDebugForm input{width:100px;}
+ .debugHover { background: #ff0;}
+ /*------------------------------*/
+.pageCatcher{
+display:none;
+position: absolute;
+z-index:10;
+top:-100px;
+left:20px;
+background:#2ec4cd;
+overflow:hidden;
+width:350px;
+height:30px;
+}
+
+
+p.eyeText, .eyeI{
+font-size: 14px;
+line-height:20px;
+width:95%;
+margin-left:14px;
+background:#fff;
+color:#3540ee;
+cursor:default;
+}
+.eyeI{font-size:10px;}
+
+#windowTop{
+height: 30px;
+position: relative;
+overflow: hidden;
+cursor: move;
+}
+#windowTopContent{
+margin:5px 13px 0 0;
+overflow: hidden;
+height: 20px;
+line-height: 20px;
+text-indent: 10px;
+font-family:Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: 14px;
+color:#fff;
+text-align:left;
+width:270px;
+cursor:move;
+}
+#windowMin{
+background: url('../images/cssSprite2.png') 0 -389px no-repeat;
+position: absolute;
+right: 27px;
+top: 6px;
+width:12px;
+height:9px;
+cursor: default;
+}
+#windowMax{
+background:url('../images/cssSprite2.png') -11px -389px no-repeat;
+position: absolute;
+right: 16px;
+top: 6px;
+width:12px;
+height:12px;
+cursor: default;
+}
+#windowClose
+{
+background:url('../images/cssSprite2.png') -23px -389px no-repeat;
+position: absolute;
+right:4px;
+top:6px;
+width:12px;
+height:12px;
+cursor: default;
+}
+#windowContent{
+position: relative;
+height:600px;
+margin:0 10px 10px 10px;
+width:330px;
+background:#fff;
+color:#35c0cd;
+overflow:hidden;
+}
+
+/* ExpanedComments are used in the FundingRequest form */
+div#ExpandedComments{
+position:absolute;
+display:none;
+z-index:-90; /* is changed to 90 in FundingRequest.css */
+top:115px;
+margin:10px 20px;
+height: 360px;
+width:710px;
+background:#777;
+}
+p#ExpandedCommentsP{
+font-size:14px;
+color:#fff;
+}
+textarea#ExpandedCommentsText  {
+border : 1px solid silver;
+width : 660px;
+height : 300px;
+margin :5px 0;
+overflow : auto;
+background:#fff;
+}
+
+.Special{
+float:right;
+background:url('../images/background/Announcing.png') 0 0 no-repeat;
+width:201px;
+height:214px;
+margin:40px 10px 0 0;
+}
+
+	/* specifies dealing with the speed slider itself */
+
+	div#sl  {width:250px;height:40px;}
+	div#sl p{margin:5px 0 0 40px;font-size:9px;}
+
+	div#speedSlider{margin:18px 0 0 40px;width:200px;padding:0;height:10px;}
+	div#speedSlider {background:#66e;}		/* this is the base, the right side, of the slider */
+    div#speedSlider .ui-slider-range {		/* this is the (left side) background fill color of the slider */
+	background:#239;}
+
+	div#speedSlider a.ui-slider-handle {
+	background:#50a;
+	z-index:24;  							/* extraTabsContainer is z-index:21 */
+	width:10px;
+	height:16px;
+	}
+    div#speedSlider a.ui-slider-handle .ui-state-active{        /* active part is the handle when click and held */
+	background:#23e;
+	}
+
+	.ui-slider-horizontal {					/* height of the slider graphic */
+    height:12px;
+	}
+    span.ui-slider-tic {						/* for tic marks */
+    position: absolute;
+    z-index:21;								/* assuming the slider graphic is a z-index 0, we must be on a plane above the background color to show tics */
+    left: 0;
+    width:0;								/* width of tic mark */
+    height:11px;							/* height of tic mark inside slider graphic */
+    top:-29px;								/* distance above the ordered list (ol) spans we add below*/
+    }
+/* Slider
+----------------------------------*/
+.ui-slider { position: relative; text-align: left; }
+.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+.ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
+
+.ui-slider-horizontal { height: .8em; }
+.ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
+.ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+.ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.ui-slider-vertical { width: .8em; height: 100px; }
+.ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
+.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.ui-slider-vertical .ui-slider-range-max { top: 0; }/* Tabs
+----------------------------------*/
+#footer { position:fixed; left:0; bottom:0;
+width:100%;
+background: url('../images/footer.png') bottom center no-repeat;
+z-index:-2;
+height:72px;
+}
+
+.ui-dialog-titlebar{color:yellow;background:red;}/* #f44e00 same as higlight background in ProntoCommercial.css */
+

@@ -1,0 +1,324 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+?>
+<?php
+if($_GET["start"]!="")
+	$start=$_GET["start"];
+else
+	$start=1;
+$show=100;
+	
+$arid = $_GET["arid"];
+//include("check1.php");
+include("conn.php");
+$WithinScript = "I know the arid";
+include("settings.php");
+
+$SQL_Statement = "select manarid from admin";
+$man_result = mysql_query($SQL_Statement) or die("$SQL_Statement");
+mysql_data_seek($man_result, 0);
+$man_row =  mysql_fetch_object($man_result);
+$arid = $man_row->manarid;
+include("settings.php");
+$ra = $arid;
+include("removesettings.php");
+
+set_time_limit(0);
+
+$SQL_Statement = "select mansubject, manbody ,aremailformat,remhtml,remtext from autoresponders where arid=$arid";
+$result = mysql_query($SQL_Statement) or die("$SQL_Statement");
+mysql_data_seek($result, 0);
+$row =  mysql_fetch_object($result);
+
+$SQL_Statement = "select arurl from admin";
+$ar_result = mysql_query($SQL_Statement) or die("$SQL_Statement");
+mysql_data_seek($ar_result, 0);
+$ar_row =  mysql_fetch_object($ar_result);
+$Mail_Format = $row->aremailformat;
+
+
+$txtMessage_Subject = stripslashes($row->mansubject);
+$txtMessage_Text = stripslashes($row->manbody);
+
+if ($debugIt > 0)
+	logMessage ("sendall (".__LINE__.") Preparing to send \$arid $arid \$txtMessage_Subject $txtMessage_Subject<br>\$txtMessage_Text $txtMessage_Text<br>");
+
+//die("SQUAT!");
+
+$SQL_Statement = "select armode from autoresponders where arid=$arid";
+
+$Query_Result = mysql_query($SQL_Statement);
+
+mysql_data_seek($Query_Result, 0);
+$row = mysql_fetch_object($Query_Result);
+
+if ($row->armode==2)
+{	
+	$Query_Create_Message = "select * from users where confirmed='Y' AND arid=$arid order by uid";
+}
+else
+{
+	$Query_Create_Message = "select * from users where arid=$arid order by uid";
+}
+
+$resultC = mysql_query("$Query_Create_Message", $link); 
+$num_rowsC = mysql_num_rows($resultC); 
+
+
+//Begin Mail
+if( (($start+$show)<$num_rowsC) || (($start==1)&&($num_rowsC<100)) )
+{
+
+	echo "<html>"; // ****************** the 'DO NOT CLOSE THIS WINDOW' needs work *****************
+	echo "<head>";
+	echo "<title>sendall - Perfect Response Mailout In Process...</title>";
+	echo "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>";
+	echo "</head>";
+	echo "";
+	echo "<body>";
+	echo "<table width='100%' border='1' cellpadding='0' cellspacing='0' bordercolor='#666666'>";
+	echo "  <tr align='center'> ";
+	echo "    <td colspan='2' bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong><i>Perfect Response</i> ";
+	echo "      Manual Maiout Statistics</strong></font></td>";
+	echo "  </tr>";
+	echo "  <tr> ";
+	echo "    <td width='20%' nowrap bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>Total ";
+	echo "      Users</strong></font></td>";
+	echo "    <td width='80%'><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>&nbsp;$num_rowsC</strong></font></td>";
+	echo "  </tr>";
+	echo "  <tr> ";
+	echo "    <td width='20%' nowrap bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>Mail ";
+	echo "      Sent To</strong></font></td>";
+	if($num_rowsC>100)	
+		echo "    <td width='80%'><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>&nbsp;".($start+$show-1)."</strong></font></td>";
+	else
+		echo "    <td width='80%'><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>&nbsp;".$num_rowsC."</strong></font></td>";
+	echo "  </tr>";
+	echo "  <tr> ";
+	echo "    <td width='20%' nowrap bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>Users ";
+	echo "      Left</strong></font></td>";
+	if($num_rowsC>100)
+		echo "    <td width='80%'><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>&nbsp;".($num_rowsC-($start+$show))."</strong></font></td>";
+	else
+		echo "    <td width='80%'><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>&nbsp;0</strong></font></td>";
+	echo "  </tr>";
+	echo "  <tr align='center'> ";
+	echo "    <td colspan='2' bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'> ";
+	if(($start+$show)<$num_rowsC)
+		echo "     Do Not Close This Window</font></td>";
+	else
+		echo "     Its now safe to close this window</font></td>";
+	echo "  </tr>";
+	echo "</table>";
+	echo "</body>";
+	echo "</html>";
+
+	$Query_Create_Message.=" limit ".($start-1).",$show";
+	
+	$result = mysql_query($Query_Create_Message) or die("$Query_Create_Message");
+	
+	$num_rows = mysql_num_rows($result);
+		
+	if ( $num_rows < 0 ) {
+		
+		echo "<b>Unable to find users for selected Autoresponder in database.<BR>Please go <a href ='javascript:void(history.back())'>back</a> and try again";
+		
+	}
+
+	if($Mail_Format == 1)
+	{
+		$Mail_Header="Content-type: text/html; charset=iso-8859-1";
+		$Mail_Footer=$Remove_HTML;
+	}
+	else
+	{
+		$Mail_Header="Content-Type: text/plain; charset=us-ascii";
+		$Mail_Footer=$Remove_Text;
+	}
+	
+	if(is_dir("attachments/manual"))
+			{
+				$d = dir("attachments/manual");
+				$icount = 1;
+				while (false !== ($entry = $d->read())) {
+					if (!(($entry == ".") || ($entry == "..")))
+					{
+						$attfile=$entry;
+						$icount++;
+						$found=1;
+						break;
+					}
+				}
+				$d->close();  
+			}	
+	
+	if($found==1)
+	{
+			$sep= chr(13) . chr(10);
+			$k=0;
+			$boundary= "--" . md5( uniqid("myboundary") );
+			//$ctype="application/x-unknown-content-type";
+			$ctype="text/text";
+			$disposition="attachment";
+			$ctencoding = "7bit";
+			$subhdr= "--$boundary\nContent-type: $ctype;\n name=\"$attfile\"\nContent-Transfer-Encoding: base64\nContent-Disposition: $disposition;\n  filename=\"$attfile\"\n";
+			$ata[$k++] = $subhdr;
+			// non encoded line length
+			$linesz= filesize("attachments/manual/$attfile")+1;
+			$fp= fopen( "attachments/manual/$attfile", 'r' );
+			$ata[$k++] = chunk_split(base64_encode(fread( $fp, $linesz)));
+			fclose($fp);
+			$atttext= implode($sep, $ata);
+			$subheader = "This is a multi-part message in MIME format.\n--$boundary\n";
+			$subheader .= "$Mail_Header\nContent-Transfer-Encoding: $ctencoding\n\n";
+			$Mail_Header=  "Content-type: multipart/mixed;\n boundary=\"$boundary\"";
+	}
+	
+	
+	for ($k=0; $k < $num_rows; $k++) {	
+		mysql_data_seek($result, $k);
+		$row =  mysql_fetch_object($result);
+		//$Mail_Id = $row->uid;
+		$Full_Name = trim($row->fname . " " . $row->lname);		
+
+
+
+		$Email_Address = $row->email;
+		$Message1 = eregi_replace("%EmailAddress%",$Email_Address,$txtMessage_Text);
+		$Subject1 = eregi_replace("%EmailAddress%",$Email_Address,$txtMessage_Subject);
+		$Message2 = eregi_replace("%FullName%",$Full_Name,$Message1);
+		$Subject2 = eregi_replace("%FullName%",$Full_Name,$Subject1);
+		$Message1 = eregi_replace("%UserDefined1%",$UserDefined1,$Message2);
+		$Subject1 = eregi_replace("%UserDefined1%",$UserDefined1,$Subject2);
+		$Message2 = eregi_replace("%UserDefined2%",$UserDefined2,$Message1);
+		$Subject2 = eregi_replace("%UserDefined2%",$UserDefined2,$Subject1);
+		$Message1 = eregi_replace("%UserDefined3%",$UserDefined3,$Message2);
+		$Subject1 = eregi_replace("%UserDefined3%",$UserDefined3,$Subject2);
+		$Message2 = eregi_replace("%UserDefined4%",$UserDefined4,$Message1);
+		$Subject2 = eregi_replace("%UserDefined4%",$UserDefined4,$Subject1);
+		
+		$SQL_Statement = "select arwordwrap,arwraplen from autoresponders where arid=$arid";
+		$result2 = mysql_query($SQL_Statement) or die("$SQL_Statement");
+		
+		mysql_data_seek($result2, 0);
+		$row2 =  mysql_fetch_object($result2);
+		
+		if (($row->arwordwrap == 1) && ($Mail_Format == 0))
+		{		
+			$Message2 = wordwrap($Message2, $row2->arwraplen);
+		}
+	
+		$Message3= eregi_replace("\r\n","\n",$Message2);
+		$Subject_To_Send = $Subject2;
+		$Body_To_Send = $Message3;
+	
+		// Inclusion of Removal link:
+		//$Remove_Email_Link = $ar_row->arurl."/us.php?arid=$arid&ra=$ra&RE=$Email_Address";
+	
+
+		
+		
+		if($Mail_Format == 1)
+		{
+			$Body_To_Send.="$Removal_Link_HTML$Email_Address'>$Remove_HTML";
+			
+			if ($Ad != 45)
+				$Body_To_Send.="$PoweredByHTML";
+		}
+		else
+		{
+			$Body_To_Send="$Body_To_Send\n$Remove_Text\n$Removal_Link_Text$Email_Address";
+				
+			if ($Ad != 45)
+				$Body_To_Send .=$PoweredbyText;
+		}
+	
+		//$Body_To_Send = eregi_replace("%RemoveLink%","$Removal_Link_HTML$Email_Address'>$Remove_Text</a>",$Body_To_Send);
+	
+	
+		$Body_To_Send = $Body_To_Send.$Remove_Email_Link;
+		
+		if($found==1)
+		{
+			$Body_To_Send=$subheader."\n".$Body_To_Send."\n".$atttext;
+		}
+		
+		phpmailer($Email_Address, $Full_Name, $txtNewSubject,  "$Body_To_Send",  "$Body_To_Send", "", $Mail_Format, $arid);
+	}	
+	if($found==1)
+		{
+			unlink("attachments/manual/$attfile");
+			clearstatcache();
+		}
+
+
+	$start+=$show;
+	if(($start+$show)<$num_rowsC)
+	{
+		?>
+		<script>
+		location.href="sendall.php?start=<?php echo $start ?>";
+		</script>
+		<?php
+	}
+}
+//End Mail
+else
+{
+	echo "<html>"; // ****************** the 'DO NOT CLOSE THIS WINDOW' needs work *****************
+	echo "<head>";
+	echo "<title>sendall - Perfect Response Mailout In Process...</title>";
+	echo "<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>";
+	echo "</head>";
+	echo "";
+	echo "<body>";
+	echo "<table width='100%' border='1' cellpadding='0' cellspacing='0' bordercolor='#666666'>";
+	echo "  <tr align='center'> ";
+	echo "    <td colspan='2' bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong><i>Perfect Response</i> ";
+	echo "      Manual Maiout Statistics</strong></font></td>";
+	echo "  </tr>";
+	echo "  <tr> ";
+	echo "    <td width='20%' nowrap bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>Total ";
+	echo "      Users</strong></font></td>";
+	echo "    <td width='80%'><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>&nbsp;$num_rowsC</strong></font></td>";
+	echo "  </tr>";
+	echo "  <tr> ";
+	echo "    <td width='20%' nowrap bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>Mail ";
+	echo "      Sent To</strong></font></td>";
+	echo "    <td width='80%'><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>&nbsp;".($start+$show-1)."</strong></font></td>";
+	echo "  </tr>";
+	echo "  <tr> ";
+	echo "    <td width='20%' nowrap bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>Users ";
+	echo "      Left</strong></font></td>";
+	echo "    <td width='80%'><font size='2' face='Verdana, Arial, Helvetica, sans-serif'><strong>&nbsp;".($num_rowsC-($start+$show))."</strong></font></td>";
+	echo "  </tr>";
+	echo "  <tr align='center'> ";
+	echo "    <td colspan='2' bgcolor='#666666'><font color='#FFFFFF' size='2' face='Verdana, Arial, Helvetica, sans-serif'>It Is Now ";
+	echo "      Safe To Close This Window</font></td>";
+	echo "  </tr>";
+	echo "</table>";
+	echo "</body>";
+	echo "</html>";
+
+$Subject_Complete = "<i>Perfect Response</i> Manual Mailing Complete";
+$Message_Complete = "The following letter was sent by <i>Perfect Response</i> to $Query_Counter_Num subscribers successfully.\n\n ------------------------------------------------------- \n\n $txtMessage_Text";
+
+if ($Wrap_On == 1)
+{ 
+	$Message_Complete = wordwrap($Message_Complete, $Length_Of_Wrap);
+}
+$Message_Complete = eregi_replace("\r\n","\n",$Message_Complete);
+phpmailer($Administrator_EmailAddress, "Admin", $txtSubjectComplete,  "$Message_Complete",  "$Message_Complete", "", "1", $arid);
+mysql_close();
+exit;
+}
+
+
+?>

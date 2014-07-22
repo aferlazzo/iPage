@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>GFE Explained - Good Faith Estimate Explained</title>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="description"
+content="Good Faith Estimate explained, described, and defined. US only.">
+<meta name="keywords"
+content="Good Faith Estimate defined, GFE defined, HUD-1, HUD1, closing costs, GFE, Good Faith Estimate, LIGHTNING MORTGAGE">
+<link rel="stylesheet" href="../css/AnswersStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+
+<style type="text/css">
+.DL,.DD,.DT {text-align:right;color:#009;vertical-align:top;}
+.DT {width:37px;}
+.DL {width:129px;font-style:italic;}
+.DD {width:513px;text-align:left;}
+#Table { background:transparent; display:block;}
+.Button{
+margin-left:.5em;
+width:3em;
+background:#93c;
+font:small sans-serif;
+color:#fff;
+}
+</style>
+</head>
+<body>
+<?php include('../include/top.php'); ?>
+			<div id='PageHead'>
+				<h1>Good Faith Estimate</h1>
+				<p>What Does It All Mean?</p>
+			</div>
+<div class="QuickHits">
+<br />
+<ul style="font-size:x-small;margin-bottom:0;">
+	<li><a href="#" title="opens a new window"
+	onclick="if (window.secondwindow) window.secondwindow.close();secondwindow=open('http://www.lightning-mortgage.com/PDF/SettlementCosts.pdf',
+	'calculator','height=660,width=540,scrollbars=yes,menuabar=no,titlebar=yes,toolbar=no,scroll=yes,resizable=yes');">
+	<img src="../images/pdfIcon.gif" border="0" alt="HUD Settlement Costs pdf file"><br />HUD Settlement Costs
+	Booklet</a><img src="../images/NewWindow.gif" ALT=""><br />for further details<br />&nbsp;</li>
+	<li><a href="#" title="opens a new window"
+	onclick="if (window.thirdwindow) window.thirdwindow.close();thirdwindow=open('http://www.lightning-mortgage.com/PDF/ARMBooklet.pdf',
+	'calculator','height=660,width=540,scrollbars=yes,menuabar=no,titlebar=yes,toolbar=no,scroll=yes,resizable=yes');">
+	<img src="../images/pdfIcon.gif" border="0" alt="pdf file"><br />HUD ARM
+	Booklet</a><img src="../images/NewWindow.gif" ALT=""><br />if applicable</li></ul></div>
+<div id="Registered" style="display:block;">
+	<p>Before we discuss the topic at
+	hand please
+	allow me put the subject in context. You've
+	filled out application. You're tired of answering
+	questions. In fact you want to ask some of your
+	own. Do you qualify for a loan and if so, at what
+	interest rate?&nbsp;</p>
+
+	<p>We answer all those questions,
+	in writing. To the best of our ability given the
+	information you provide, we'll send you a written
+	estimate. This standard form has the 'creative'
+	name of <i>Good Faith Estimate</i>, or
+	GFE.&nbsp;But be careful when comparison shopping
+	for a loan. Some less ethical mortgage brokers, loan officers,
+	and the non-standard treatment of terminology by
+	lenders, makes the road from what is on the GFE
+	to the items that ultimately go on the HUD-1 form
+	appear to be a shell-game. Some lenders charge a
+	bunch of separate little fees. Others charge
+	fewer, but larger, fees. How do you make sense of
+	it all?</p>
+
+	<p>What I like best are 'No Cost'
+	loans. Despite what you may have been led to
+	believe, there is no such thing as 'No Cost'
+	loan. In fact, for every loan transaction there
+	many professions--governmental and licensed
+	private agencies--involved. Each activity has an
+	associated cost. These costs are estimated on the
+	GFE. The actual charges will be documented on the
+	<a
+	href="http://www.lightning-mortgage.com/Answers/HUD1Explained.php">HUD-1
+	Form</a> you'll sign at closing.</p>
+	<p>If we don't have all the
+	information, our estimate is not going to be as
+	accurate as it would be if we had all the facts
+	at the beginning of the loan process. You've
+	heard the expression, &quot;garbage in, garbage
+	out,&quot; haven't you? It certainly applies
+	here.</p>
+
+	<p>Let's assume for the moment
+	that all the information you provide is correct.
+	Here are most common items found in the
+	GFE.&nbsp;Prepaid items in Section 1000 are not
+	considered to be part of closing costs. They are
+	often included on GFE reports to show you a
+	complete picture of your costs.</p>
+
+	<p>Also, be aware of the tax
+	implications of these charges. Many are tax
+	deductible. See the <a
+
+	href="http://www.lightning-mortgage.com/InterestRates/EducationTaxes.php">Tax
+	Advantages of Home Ownership</a> for more
+	information.</p>
+
+	<p>In summary, the variables from
+	lender-to-lender, missing information from you,
+	the&nbsp; borrower, and the fact that the same
+	items may not appear on everyone's GFE often make
+	it impossible to obtain the true cost of a loan.
+	We here at Lightning Mortgage make every attempt
+	to provide Good Faith Estimates that are as
+	accurate as possible. We try to avoid surprises
+	at the closing table at all costs!</p>
+</div>
+<h3 style='color:#009;'>Good Faith Estitmate (Not a Loan Commitment)</h3>
+<div id="Table">
+		<p id="TableStart">The actual loan amount,
+		interest rate, and term of the loan are clearly
+		spelled out on the top of the document. If you
+		have further questions about your GFE, we'll be
+		glad to review it with you.</p>
+
+		<p>The key to remember is that
+		this report is only an estimate. If new
+		information is uncovered or you want to change
+		the terms of the loan then the amounts are
+		subject to change. Compare this document to the <a
+		class="Answers"
+		href="http://www.lightning-mortgage.com/Answers/HUD1Explained.php">HUD-1
+		Closing Document</a>, which will list the actual amounts charged. Here is our entire
+		<a href="http://www.lightning-mortgage.com/Answers.php">Loan Process</a>.</p>
+	<table border="0" cellpadding="4" cellspacing="4" width="720">
+		<tr>
+			<td colspan="3">
+				<h2 style="width:98%;margin:0;text-align: center;">These items are payable in
+				connection with the loan:</h2>
+			</td>
+		</tr>
+		<tr>
+			<td class="DT" align="center"><u>Line</u></td>
+			<td class="DL"><u>Heading</u></td>
+			<td class="DD"><u>Description</u></td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">802</td>
+			<td class="DL">Loan Discount</td>
+			<td class="DD">
+				<p>Also known as 'Points.' A
+				charge lenders use to adjust the yield of a loan.
+				Par pricing has no loan discount fee. Most people
+				will choose to borrow at the par rate because
+				they want to keep the upfront costs of a loan
+				low, but paying 'points' will often lower the
+				total cost of the loan.&nbsp;</p>
+				<p>*We at Lightning Mortgage have
+				a great formula for determining when to pay
+				points. Click on <a
+				href="http://www.lightning-mortgage.com/InterestRates/InterestRateSweetSpot.php"
+				>Sweet Spot</a>.</p>
+				<p>This is tax deductible (entire
+				amount in first year on purchase, spread over
+				life of the loan on a refinance).</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">803</td>
+			<td class="DL">Appraisal Fee</td>
+			<td class="DD">
+				<p>A fee charged by an
+				independent licensed appraiser that can range
+				from $250 to $650, depending on where you are in
+				the U.S. and the property involved.
+				Investment properties  and properties with values over $1,000,000 
+				on non-commercial property usually cost more. Local
+				independent appraisers who are familiar with your
+				geographic area are used. They'll contact you
+				directly, to arrange for the visit. It is our company policy
+				for you to pay the appraisal fee at the time
+				of the appointment.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">804</td>
+			<td class="DL">Credit Report</td>
+			<td class="DD">
+				<p>This is the fee charged by the
+				credit reporting agency we use to pull a copy of
+				your tri-merged credit report. </p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">808</td>
+			<td class="DL">Mortgage Broker Fee</td>
+			<td class="DD">
+				<p>This is the fee charged for
+				brokering the loan. This is also tax deductible
+				(entire amount in first year on purchase, spread
+				over life of loan on refinance). The sum of lines
+				808 and 802 equal the total the amount of points
+				due on your loan.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">810</td>
+			<td class="DL">Processing Fee</td>
+			<td class="DD">
+				<p>This is the charge for
+				processing each loan package. A piggyback first
+				&amp; second loan combination will still have
+				just one processing charge.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">811</td>
+			<td class="DL">Underwriting Fee</td>
+			<td class="DD">
+				<p>The lender must review and
+				verify each loan to insure that it fully meets
+				all the loan guidelines for the loan program.</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<h2 style="width:98%;margin:0;text-align: center;">These items are required by the
+				lender to be paid in advance:</h2>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">901</td>
+			<td class="DL">Prepaid Interest</td>
+			<td class="DD">
+				<p>This is the interest charges
+				for the number of days prior to the first day of
+				the following month. This charge puts borrowers
+				on a normal cycle of mortgage payments due on the
+				first of the month. This amount on the GFE should be 30 days to 
+				start and will be adjusted accordingly at closing.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">902</td>
+			<td class="DL">Mortgage Insurance Premium</td>
+			<td class="DD">
+				<p>For borrowers who must pay Private Mortage Insurance or as it is called 
+				PMI, this is the cost of opening up the policy.
+				Our take on PMI is that it can be avoided. We
+				usually suggest <a
+				class="DD" href="../LoanTypes/LoanTypeDescriptions.php">home
+				mortgage alternatives</a> that do not require
+				PMI.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">903</td>
+			<td class="DL">Hazard Insurance Premium</td>
+			<td class="DD">
+				<p>If a hazard insurance policy
+				is not opened separately, this is the cost of
+				opening a policy with an insurance company
+				associated with the lender.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">905</td>
+			<td class="DL">VA Funding Fee</td>
+			<td class="DD">
+				<p>For borrowers who obtaining a
+				mortgage using VA benefits, this is the premium
+				for obtaining the loan.</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<h2 style="width:98%;margin:0;text-align: center;">These items are associated with
+				Impound/Escrow accounts:</h2>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1001</td>
+			<td class="DL">Hazard Insurance Premiums</td>
+			<td class="DD">
+				<p>If you choose to include
+				hazard insurance with your monthly principal and
+				interest payments (we highly recommend) then you may have
+				to deposit the equivalent of 2-12 months of
+				payments upfront depending on the date the payment is due.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1002</td>
+			<td class="DL">Mortgage Insurance Premium
+				Reserves</td>
+			<td class="DD">
+				<p>If you are required to pay <a
+				class="Answers" href="PMIAnswers.php">mortgage
+				insurance</a> and choose to include them with
+				your monthly principal and interest payments
+				(recommended) then you may have to deposit the
+				equivalent of 2-6 months of payments upfront.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1004</td>
+			<td class="DL">Tax Reserves</td>
+			<td class="DD">
+				<p>If you choose to include
+				property taxes with your monthly principal and
+				interest payments (recommended) then you may have
+				to deposit the equivalent of 2-6 months of
+				payments upfront.</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<h2 style="width:98%;margin:0;text-align: center;">These items are associated with
+				property title:</h2>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1101</td>
+			<td class="DL">Closing or Escrow Fee</td>
+			<td class="DD">
+				<p>This fee is for performing the
+				escrow process.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1105</td>
+			<td class="DL">Document Prep Fee</td>
+			<td class="DD">
+				<p>The charge for preparing all
+				the documents for signing, notarizing, and
+				recording.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1106</td>
+			<td class="DL">Notary Fees</td>
+			<td class="DD">
+				<p>The total for notarizing all
+				signed documents requiring notarization.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1107</td>
+			<td class="DL">Attorney Fees</td>
+			<td class="DD">
+				<p>Some states require an
+				attorney handle the closing.&nbsp; If you live in
+				one of those states this is our estimated fee for
+				their services.&nbsp; The mortgage company does
+				not set this fee, and you are free to negotiate
+				this with the attorney you select to handle your
+				closing.
+				</p></td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1108</td>
+			<td class="DL">Title Insurance</td>
+			<td class="DD">
+				<p>The cost of the title
+				insurance policy. Its cost is based on the loan
+				amount.</p>
+			</td>
+		</tr>
+		<!--
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">&nbsp;</td>
+			<td class="DL">Recording Fee</td>
+			<td class="DD">
+				<p>The costs for recording the
+				property title and mortgage in the county clerk's
+				office.</p>
+			</td>
+		</tr>
+		-->
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">&nbsp;</td>
+			<td class="DL">Courier/Wire Fee</td>
+			<td class="DD">
+				<p>The fees for transferring
+				documents and funds from one location to
+				another.&nbsp;</p>
+			</td>
+		</tr>
+		<!--
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">&nbsp;</td>
+			<td class="DL">Flood Certification Fee</td>
+			<td class="DD">
+				<p>Cost of the flood zone
+				determination to confirm if the property is /is
+				not in a flood zone.</p>
+			</td>
+		</tr>
+		-->
+		<tr>
+			<td colspan="3">
+				<h2 style="width:98%;margin:0;text-align: center;">These items are associated with
+				property taxes:</h2>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1201</td>
+			<td class="DL">Recording Fees</td>
+			<td class="DD">
+				<p>To create a public record of
+				your legal ownership of the property, the lenders
+				notify the county government to record the
+				transaction.&nbsp; The recording fee, which
+				varies by state, is paid to the county.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1202</td>
+			<td class="DL">City/County Tax Stamps</td>
+			<td class="DD">
+				<p>Stamps, affixed to the deed,
+				showing the amount of transfer tax paid.&nbsp;
+				Most states stamp the deed rather then actually
+				affixing a stamp. Many localities collect a
+				transfer tax whenever a property changes hands.</p>
+			</td>
+		</tr>
+		<tr align="center" valign="middle">
+			<td class="DT" align="center">1203</td>
+			<td class="DL">State Tax Stamps</td>
+			<td class="DD">
+				<p>Stamps, affixed to the deed,
+				showing the amount of transfer tax paid.&nbsp;
+				Some states collect a mortgage tax anytime a new
+				mortgage is recorded.</p>
+			</td>
+		</tr>
+	</table>
+</div> <!-- id="Table" -->
+<br />
+<div style='width:120px;'>
+<b class="top"></b><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"></b><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></div>
+	<ul>
+		<li><a
+		href="../Answers.php">Explore the rest of the Loan Process</a></li>
+		<li><a
+		href="../CreditScores.php">Explore Credit Score Topics</a></li>		<li><a
+		href="../LoanTypes.php">Learn about Loan Types</a></li>
+		<li><a
+		href="../Answers/PreAnswers.php">Determine if you want to be pre-qualified or pre-approved</a></li>
+		<li><a
+		href="../InterestRates/EducationTaxes.php">Learn about the Tax Advantages of Home Ownership</a></li>
+		<li><a
+    	href="../MortgageApplication/LoanAppShort.php">Submit A Loan Application</a></li>
+	</ul>
+</div>
+
+<?php include('../include/bottom.php'); ?>
+</body>
+</html>

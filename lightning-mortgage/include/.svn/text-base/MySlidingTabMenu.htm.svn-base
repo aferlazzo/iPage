@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Sliding Tab Menu</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css" media="screen">
+</style>
+</head>
+
+<body>
+
+
+
+<p style="margin:0; padding:1em; clear:both;">We change the images so that they now have transparent corners. Instead of allowing the two images to slide over each other, we add left padding to the list item, equivalent to the width of the left-side image. The visible edges of the two background images now butt up against each other.</p>
+
+</body>
+</html>

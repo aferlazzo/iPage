@@ -1,0 +1,421 @@
+<?php
+$user = $_COOKIE["UName"];
+
+include("db.inc.php");
+$link = mysql_connect("$dbhostname", "$dbuname", "$dbpwd") or die ("Cannot connect to <i>Perfect Response</i> database");
+$Result = mysql_select_db("$dbname", $link);
+$Query = "SELECT * from admin where adminname='client'";
+$Result = mysql_query($Query) or die("Could not read client's page marker");
+
+if (!Result)
+{
+	echo "<b>Unable to select <i>Perfect Response</i> database.";
+}
+
+$Row = mysql_fetch_array($Result) or die(mysql_error());
+$ClientName = $Row['ClientName'];
+
+$Last = $_SERVER['PHP_SELF'];
+if (empty($Slide) == false)
+$Last = $Last.'?Slide='.$Slide;
+$Next="/".$Row['arurl'];
+$New=$Row['arurl'];
+
+if ($Last != $Next)
+{
+ print("<script language='javascript' type='text/javascript'>");
+ //print("alert('Slide |$Slide| |$Last| != |$Next|');");
+ print("window.location='http://www.lightning-mortgage.com/$New'");
+ print("</script>");
+ die ("Going to $Next");
+}
+
+$BQuery = "SELECT * from budget where adminname='client'";
+$BResult = mysql_query($BQuery) or die("Could not read client's budget");
+$USrow = mysql_fetch_array($BResult) or die(mysql_error());
+
+
+//if (($user=='admin') && ($_SERVER['REQUEST_METHOD']=="GET"))  // if receiving the answers to the questions
+if (($user=='admin') && ($_GET))  // if receiving the answers to the questions
+{
+	$Level1=$_GET['Level1'];
+	$Level2=$_GET['Level2'];
+	$Level3=$_GET['Level3'];
+	$Level4=$_GET['Level4'];
+	$Level5=$_GET['Level5'];
+	$Level6=$_GET['Level6'];
+	$Level7=$_GET['Level7'];
+	$BQuery = "update budget set level1='$Level1', level2='$Level2', level3='$Level3', level4='$Level4', level5='$Level5', level6='$Level6', level7='$Level7', gross2='$Gross2', grossT='$GrossT'";
+//print("$Query<br />");	
+	mysql_query($BQuery) or die("Could not change budget of client");
+}
+else
+{
+	$Level1=$USrow['Level1'];
+	$Level2=$USrow['Level2'];
+	$Level3=$USrow['Level3'];
+	$Level4=$USrow['Level4'];
+	$Level5=$USrow['Level5'];
+	$Level6=$USrow['Level6'];
+	$Level7=$USrow['Level7'];
+}
+
+function StayOrMove()
+{
+$Query = "SELECT * from admin where adminname='client'";
+$BQuery = "SELECT * from budget where adminname='client'";
+while(1)
+{
+global $Slide, $Level1, $Level2, $Level3, $Level4, $Level5, $Level6, $Level7;
+
+$Result = mysql_query($Query) or die("Could not read client's page marker");
+$Row = mysql_fetch_array($Result) or die(mysql_error());
+
+$BResult = mysql_query($BQuery) or die("Could not read client's budget");
+$BRow = mysql_fetch_array($BResult) or die(mysql_error());
+
+$SleepTime = $Row['SleepTime'];
+sleep($SleepTime);
+
+$Last = $_SERVER['PHP_SELF'];
+if (empty($Slide) == false)
+$Last = $Last.'?Slide='.$Slide;
+$Next="/".$Row['arurl'];
+$New=$Row['arurl'];
+
+if ($Last != $Next)
+{
+ print("<script language='javascript' type='text/javascript'>");
+ //print("alert('Slide |$Slide| |$Last| != |$Next|');");
+ print("window.location='http://www.lightning-mortgage.com/$New'");
+ print("</script>");
+ die ("Going to $Next");
+}
+
+$NLevel1=$USrow['level1'];
+$NLevel2=$USrow['level2'];
+$NLevel3=$USrow['level3'];
+$NLevel4=$USrow['level4'];
+$NLevel5=$USrow['level5'];
+$NLevel6=$USrow['level6'];
+$NLevel7=$USrow['level7'];
+
+if (($NLevel1 != $Level1) || ($NLevel2 != $Level2) || ($NLevel3 != $Level3) ||
+($NLevel4 != $Level4) || ($NLevel5 != $Level5) || ($NLevel6 != $Level6) ||
+($NLevel7 != $Level7))
+{
+ print("<script language='javascript' type='text/javascript'>");
+ //print("alert('Slide |$Slide| |$Last| != |$Next|');");
+ print("window.location='http://www.lightning-mortgage.com/$New'");
+ print("</script>");
+ die ("Going to $Next");
+}
+
+}
+}
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Ultimate Scenario</title>
+<meta name="copyright" content="Copyright 2005, Anthony Ferlazzo, Lightning Mortgage">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="robots" content="NoIndex, NoFollow">
+<base target="_self">
+<link rel="stylesheet" href="administrative-styles.css" type="text/css">
+<!--[if IE 6]>
+<style type="text/css">
+html
+{
+	scrollbar-base-color: #F4F4F4;
+	scrollbar-arrow-color: #FFF;
+	scrollbar-track-color: #002179;
+	scrollbar-face-color: #039;
+	scrollbar-3dlight-color: #039;
+}
+</style>
+<![endif]-->
+<style type="text/css">
+ul {list-style-image: url(../images/sqblue.gif);}
+ul ul {padding-left:1em;list-style-image: url(../images/sbblue.gif);}
+p, ol {font-size:24px;font-family:Verdana,Arial,Helvetica,sans-serif;}
+p:first-letter {font-size:24px;font-family:Verdana,Arial,Helvetica,sans-serif;}
+#US {float:left;width:100%;height:900px;padding-top:15px;border:1px solid #009;
+font-size:20px;text-align:left;margin-right:4px;}
+div.Question {float:left;width:320px;font-size:20px;padding:4px 0;}
+div.Value input {float:left;font-size:20px;width:450px;border:none;border-bottom:1px solid #009;}
+div.ToYou {float:left;width:90px;font-size:20px;padding:4px 0;}
+div#WebMeetingName {
+position:absolute;
+text-align:center;
+width:100%;
+margin:146px auto 0 auto;
+z-index:15;
+color:#fff;
+}
+#WebMeetingName h1 {color:#fff;margin-top:0;}
+.Button{
+font-size:20px;
+background:#009;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+color:#fff;
+}
+</style>
+<script language="Javascript" type="text/javascript">
+<!--
+function Next()
+{
+window.location.href="FourStepFinances2.php";
+}
+function clearForm(form)
+{
+    form.Level1.value = "";
+    form.Level2.value = "";
+    form.Level3.value = "";
+    form.Level4.value = "";
+    form.Level5.value = "";
+    form.Level6.value = '';
+    form.Level7.value = '';
+	form.submit();
+}
+
+function PositionPage()
+{
+window.scrollTo(1,140);
+}
+//-->
+</script>
+<script src="../js/Common.js" type="text/javascript"> </script>
+</head>
+<body onload="document.Budget.Level1.focus();">
+<div class="Main" id="MainDIV">
+<?php
+if (($user == "") || ($user == "null"))
+{
+print("<div class='Content' id='ContentDIV' style='height:30em;'>");
+print("<p style='padding:1em;text-align:left;width:25em;height:10em; border:2px solid #009;'>");
+print("Are we talking on the phone right now?<br /><br /><img src='../images/Bolt/CreditScores.gif' style='float:right;height:5em;'>If not, a bit of explanation. I use these pages during a ");
+print("phone call and web meeting I'm having with a borrower.<br /><br />Note: If you are having trouble logging in, make sure your browser's cookies are turned on.</p>\n");
+print("<form action='../Administrative/Login.php'><input type='submit' style='background:#009;width:3em;font-size:large;' value='Login' class='Button' onfocus='if(this.blur) this.blur();' ");
+print("onMouseover='this.style.color=\"#009\";this.style.background=\"#fff\";' onMouseout='this.style.color=\"#fff\";this.style.background=\"#009\";'></form>");
+}
+else
+{
+?>
+<div class="Content" id="ContentDIV" style='height:130em;'>
+<div id="Heading" style="width:80%;">
+<div class="Title"><h1 id="Small">Monthly<br />Cash Flow</h1></div>
+<div class="Title">
+<div id="Big"><h1>Budget Strategy</h1></div>
+<div id="BigShadow"><h1>Budget Strategy</h1></div></div>
+<br style="clear:left;"></div>
+<?php 
+if ($user == "admin")
+{
+print("<br /><div class='Box' style='margin-bottom:2em;'>");
+print("<span class='BoxHeading'>Only user '$user' sees this explanation...</span><br />\n");
+print("<p>I made a decision in my mortgage business that I want to \n");
+print("<p>So let's go through this little exercise together.</p></div>\n");
+}
+
+print("<form name='Budget' action='UltimateScenario.php' method='get'>\n");
+print("<div id='US'><div style='margin:0 auto 1em;width:5em;'>Tell me...</div>");
+print("<div class='Question'>What's important to you about </div>\n");
+print("<div class='Value'><input type='text' name='Level1' id='Level1' value='$Level1' \n");
+if ($user == 'client') print("readonly \n");
+else print("onchange='alert(\"changed\");this.form.submit();' ");
+print("tabindex='1' style='width:3.5em;'></div>\n");
+print("<div class='ToYou'>to you?</div><br style='clear:left;'>\n");
+
+print("<div class='Question'>What's important to you about </div>\n");
+print("<div class='Value'><input type='text' name='Level1' value='$Level1' \n");
+if ($user == 'client') print("readonly \n");
+print("tabindex='1' style='width:3.5em;'></div>\n");
+print("<div class='ToYou'>to you?</div><br style='clear:left;'>\n");
+
+print("</div>");
+print("</form>");
+
+print("<br style='clear:left;'>");
+
+if ($user == 'guest')
+{
+print("<div style='width:24em;margin:0 auto;text-align:center;'><input type='button' id='SubmitB' name='SubmitC' value='Next'");
+print("class='Button' onclick='Next();' onfocus='if(this.blur) this.blur();' onMouseover='this.style.color=\"#009\";this.style.background=\"#fff\";' onMouseout='this.style.color=\"#fff\";this.style.background=\"#009\";'></div>");
+}
+}
+?>
+</div>
+<!--ih:includeHTML file="../include/bottom.php"--><!--
+// ../include/bottom-root.php is a copy of the contents ../include/bottom.htm. It is the
+// web page bottom border that is inserted in all appropriate .htm pages located at
+// the root level of the website.
+-->
+<div class="Bottom1">
+</div>  <!-- end of Bottom1 DIV -->
+<div class="Bottom2">
+<div style="z-index: 6; text-align: center;">
+
+<div style="float:left;vertical-align:middle;text-align:center;width:92px;height:7em;">
+<a href="../Administrative/Guarantee.htm"><img border="0"
+onMouseover='this.style.backgroundColor="#fc0";' onMouseOut='this.style.backgroundColor="transparent";'
+src="../images/guarantee88w91h.gif" width="88" height="91" alt="Financing Guarantee"></a>
+</div>
+<div style="float:left;text-align:center;width:553px;height:7em;">
+<a href="../index.htm">Home</a>&nbsp;|
+<a href="https://host373.ipowerweb.com/~lightnin/MortgageApplication/LoanAppShort.htm">Apply Now</a>&nbsp;|
+<a href="../MortgageApplication/OrderCreditDirect.htm">Order Credit</a>&nbsp;|
+<a href="../LoanTypes.php">Loan Types</a>&nbsp;|
+<a href="../Answers/Documentation.php">Documents</a>&nbsp;|
+<a href="../Blog/">Blog</a><br /><br />
+
+<a href="../Administrative/SiteMap.htm">Site Map</a>&nbsp;|
+<a href="../Administrative/Calculators.htm">Calculators</a>&nbsp;|
+<a href="../Answers/GlossaryAD.htm">Glossary</a>&nbsp;|
+<a href="../CreditScores.htm">Credit Scores</a>&nbsp;|
+<a href="../Administrative/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+<a href="../Administrative/Legal.htm">Legal</a>&nbsp;|
+<a href="../Administrative/AffiliateLinks.htm">Affiliates</a><br /><br />
+
+<p class="CenterSmall">Click on <a
+href="../Administrative/Feedback.htm">feedback</a> or call (866) 822-8500 for assistance - Last
+Updated:
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+var lastMod = new Date(document.lastModified);
+var MM = lastMod.getMonth() + 1;
+var DD = lastMod.getDate();
+document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+//-->
+</script>
+</p>
+</div>
+<div style="float:left;vertical-align:middle;text-align:center;width:72px;height:7em;">
+<a href="../Administrative/UpfrontMortgageBroker.htm">
+<img onMouseover='this.style.backgroundColor="#fc0";' onMouseOut='this.style.backgroundColor="transparent";'
+border="0" src="../images/UMB1.gif" alt="I am an Upfront Mortgage Broker &reg;" width="68" height="85"></a>
+</div>
+<br style="clear:both;"><hr style="width: 100%;">
+<p class="CenterSmall" style="margin:0;">This Website is NOT intended as a solicitation to customers in any jurisdiction in which we
+are not authorized to operate.<br /><br />
+
+&copy; Lightning Mortgage 2002-2005 All Rights Reserved. No part of this website may be
+reused commercially without the expressed<br />written consent of Lightning Mortgage.
+This site is directed at, and made available to, persons in the continental U.S., Alaska and Hawaii only.</p>
+
+<hr style='width:100%'>
+<div style='float:left; width:45%;top:0;height:58px;'>
+<p style='text-align: left;'><a href='http://validator.w3.org/check?uri=referer'> 
+<img style='border:0;width:88px;height:31px;margin-top:10px;' src='../images/valid-html401.gif' 
+alt='Valid HTML 4.01!' onMouseover='this.style.backgroundColor="#fc0";' onMouseOut='this.style.backgroundColor="transparent";'></a></p>
+</div><div style='float:left; width:10%;top:0;height:58px;'>
+<img border='0' src='../images/equalhouse.gif' 
+alt='Equal housing lender' style="height:58px;width:63px;"></div>
+<div style='float: right; width: 45%; top: 0;height:58px;'>
+<p style='text-align: right;'><a href='http://jigsaw.w3.org/css-validator/'> 
+<img style='border:0;width:88px;height:31px;margin-top:10px;' src='../images/valid-css.gif' 
+alt='Valid CSS!' onMouseover='this.style.backgroundColor="#fc0";' onMouseOut='this.style.backgroundColor="transparent";'></a></p></div>
+
+</div>
+</div>
+</div>
+<!--/ih:includeHTML-->
+<!--ih:includeHTML file="../include/top.php"--><!--
+// ./include/top-root.php is a copy of the contents ./include/top.htm with the directory levels changed
+-->
+<SCRIPT language="JavaScript" type="text/javascript"> 
+<!--
+BType();
+//-->
+</SCRIPT>
+<div id='MS'>
+<a href="../Answers/MortgageInsiderSecrets.htm" class="Top" onfocus="if(this.blur) this.blur();">
+<img src="../images/SecretsSignUp.gif" style='width:90px;height:83px;border:none;' alt='sign-up'><br />Sign up!</a>
+</div>
+<div id='TipTop'>
+<a href="../Administrative/AboutUs.htm" onfocus="if(this.blur) this.blur();">
+<img src="../images/Bolt/Bolt.gif" alt='bolt'></a>
+</div>
+<div class="Top">
+<noscript>
+<p style="text-align:center;border:5px dotted #fff;font-size:large;color:#fff;">
+<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+</noscript>
+<a class="Logo" onfocus="if(this.blur) this.blur();" href="../index.htm">
+<img src="../images/Lightning-Mortgage-logo.gif" style="border:none;margin-top:8px;"
+alt="Lightning Mortgage - Mortgages, even with Bad Credit" 
+title="Lightning Mortgage - Mortgages, even with Bad Credit"></a>
+<br />
+<span style="color:#fff;">
+<a href="../Administrative/OurMeeting.php" title="Our Web Meeting"
+class="Top">Web Meeting</a>&nbsp;&nbsp;|&nbsp;
+<a href="../Forum/index.php" title="Post and read our Mortgage Forums"
+class="Top">Mortgage Forums</a>&nbsp;&nbsp;|&nbsp;
+<a href="../Survey.php" title="Take our Satisfaction Survey"
+class="Top">Survey</a>&nbsp;&nbsp;|&nbsp;
+<a href="../Administrative/Feedback.htm" title="Ask questions and give us feedback"
+class="Top">Questions?</a>&nbsp;&nbsp;|&nbsp;
+<a href="../Administrative/AboutUs.htm" title="About Us"
+class="Top">About</a>&nbsp;&nbsp;|&nbsp;
+<a href="../Administrative/ContactUs.htm" title="How to contact us"
+class="Top">Contact</a>&nbsp;&nbsp;|&nbsp;
+<a href="#" title="opens a new window" onclick="if (window.MapWindow) window.MapWindow.close();MapWindow=open('../Administrative/WhereWeLend.htm',
+		'pcalculator','height=520,width=600,top=0,left=0,alwaysRaised=yes,resizable=no,scrollbars=no,menubar=no,titlebar=yes,toolbar=no, scroll=yes');"
+class="Top">Where We Lend</a></span><img src="../images/NewWindow.gif" alt="opens new window"> <!-- end of white '|' -->
+<br style="clear:both;">
+<div style="position:absolute;top:122px;left:0;text-align:center;width:100%;height:34px;">
+<div id="TabHeader">
+<script language="JavaScript" type="text/javascript">
+<!--
+ShowTabs("");
+//-->
+</SCRIPT>
+</div>
+</div><!-- Top -->
+</div><!-- ContactDIV -->
+<div class="TopFrame">
+<div class="TFL">
+<script language="JavaScript" type="text/javascript">
+<!--
+ShowLoginButton("Administrative");
+-->
+</script>
+</div>
+<div class="TFR">
+<script language="JavaScript" type="text/javascript">
+<!--
+ShowSearchButton();
+//d.getElementById('ContentDIV').style.visibility = 'visible';
+-->
+</script>
+</div></div>
+<!--/ih:includeHTML-->
+<div id="WebMeetingName">
+<?php 
+if (($user == "client") || ($user == "demo") || ($user == "admin"))
+print("<h1>For you, $ClientName</h1>");
+?>
+</div>
+<script language='JavaScript' type='text/javascript'>
+PositionPage();
+</script>
+<iframe
+id="EmptyFrame"
+name="EmptyFrame"
+src="AboutUs.htm"
+height="0" width="0"
+src="AboutUs.htm">
+<a href="AboutUs.htm">External Content</a>
+</iframe>
+<?php
+if (($user == "client") || ($user == "demo"))
+{
+flush();
+sleep(2);
+StayOrMove();
+}
+?>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!--
+// It is the web page bottom border that is inserted in all
+// appropriate .htm pages.
+-->
+<p class="CenterSmall">&copy; Copyright Lightning Mortgage 2005</p>
+<p class="CenterSmall">Click on <a
+href="../Administrative/Feedback.htm">feedback</a> or call (866) 822-8500 for assistance</p>
+<p class="CenterSmall">Last Updated:
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+var lastMod = new Date(document.lastModified);
+var MM = lastMod.getMonth() + 1;
+var DD = lastMod.getDate();
+document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+//-->
+</script>
+</p>
+</div>

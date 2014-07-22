@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>spriteMan</title>
+<meta name="copyright" content="Copyright 2010, Anthony Ferlazzo - aferlazzo at gmail dot com" />
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/spriteMan.css" />
+</head>
+<body>
+<!--
+	This area has the user controls:
+	- The name of the file containing the sprites.
+	- the input boxes and slide controls for adjusting the width and height coordinates
+-->
+<form action="#" method="post">
+	<div id='controlTablet'>
+		<div id="tabs" class="ui-tabs">
+			<ul>
+				<li><a href="#spriteTab">Sprite File</a></li>
+				<li><a href="#cssTab">Item CSS</a></li>
+				<li><a href="#coordinatesTab">Coordinates</a></li>
+				<li><a href="#aboutTab">About</a></li>
+				<li><a href="#helpTab">Help</a></li>
+			</ul>
+
+
+			<div id='spriteTab' class='controlsDiv ui-tabs-hide'>
+				<h3>Sprite Image File</h3>
+
+				<input type='text' id='sFile' name='sFile' value='http://www.prontocommercial.com/images/cssSprite2.png'/><div id='waiting'></div>
+				<div class='sbs gray' style='height:60px;margin:15px 0 0 33px;' title='Pick a color'>
+							<label for='spriteBGcolor'>Sprite<br/>Background</label>
+					<div class='colorChart' id='spriteBGcolor'>
+						<span class='colors BG0'></span><span class='colors BG1'></span><span class='colors BG2'></span><span class='colors BG3'></span><span class='colors BG4'></span><span class='colors BG5'></span><span class='colors BG6'></span><span class='colors BG7'></span><span class='colors BG8'></span>
+					</div>
+				</div>
+				<input type='button' id='getIt' value='Get Sprite File'/>
+
+				<div class='sbs gray' style='height:60px;margin:15px 0 0 0;' title='Pick a color'>
+							<label for='itemBGcolor'>Selection<br/>Background</label>
+					<div class='colorChart' id='itemBGcolor'>
+						<span class='colors BG0'></span><span class='colors BG1'></span><span class='colors BG2'></span><span class='colors BG3'></span><span class='colors BG4'></span><span class='colors BG5'></span><span class='colors BG6'></span><span class='colors BG7'></span><span class='colors BG8'></span>
+					</div>
+				</div>
+			</div>
+
+			<div id='coordinatesTab' class='controlsDiv ui-tabs-hide'>
+				<label for='itemTop'    class='sbs gray'>Item<br/>Top</label>
+				<label for='itemBottom' class='sbs gray'>Item<br/>Bottom</label>
+				<label for='itemLeft'   class='sbs gray'>Item<br/>Left</label>
+				<label for='itemRight'  class='sbs gray'>Item<br/>Right</label>
+				<div class='sbs gray'><input type='text' name='itemTop'		id='itemTop' 	value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='itemBottom'	id='itemBottom' value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='itemLeft'	id='itemLeft'   value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='itemRight'	id='itemRight'  value='0'/> px</div>
+
+				<label for='spriteTop'	  class='sbs gray'>Sprite<br/>Top</label>
+				<label for='spriteBottom' class='sbs gray'>Sprite<br/>Bottom</label>
+				<label for='spriteLeft'   class='sbs gray'>Sprite<br/>Left</label>
+				<label for='spriteRight'  class='sbs gray'>Sprite<br/>Right</label>
+				<div class='sbs gray'><input type='text' name='spriteTop'	 id='spriteTop'    value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='spriteBottom' id='spriteBottom' value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='spriteLeft'   id='spriteLeft'   value='0'/> px</div>
+				<div class='sbs gray'><input type='text' name='spriteRight'  id='spriteRight'  value='0'/> px</div>
+			</div>
+
+			<div id='cssTab' class='controlsDiv ui-tabs-hide'>
+				<h3>Generated CSS</h3>
+				<textarea id='spriteCSS' cols='50' rows='10'>Item not selected to generate</textarea>
+			</div>
+			<div id='aboutTab' class='controlsDiv ui-tabs-hide'>
+				<h3>About</h3>
+				<p>The spriteMan web page was written by Anthony Ferlazzo out of frustration with the lack of graphic
+				web development tools.</p>
+
+				<p>In a perfect world one would come up with an idea for a web page, write the HTML code, the CSS, the
+				javascript and server pieces, and then move on to the next assignment. But one then has to also assume that
+				there are no specification mistakes, changes of direction, or anything else that could possibly go wrong.
+				The real world of web development is not quite so tidy a place. For us, that means there are changes
+				introduced by internal and external factors, if not during development then over time.</p>
+
+				<p>This web page helps in developing, maintaining, and improving HTML pages that use sprites. Notice the
+				active-verb choices in the previous sentence. That's because there is rarely a 'development' or an 'improvement' event.
+				Rather we are often			developing and improving via a process called 'continuous improvement'. Frequently
+				referred to as 'tweaking' because we begin with a vision of a HTML page, but one we achieve that vision
+				we realize that it is wanting for a change here and an adjustment there. In fact as this page was being
+				developed, how it was going to look and what it was going to do was continually being refined.</p>
+
+				<p>Along with the HTML code, the graphic objects and other formating decisions like paragraph placement
+				and so forth are being fine-tuned. That's why the benefit of creating sprites during the initial web
+				page development for page load speed and memory savings have the unwanted side-effect of making page
+				'tweaking' a more complex endeavor.</p>
+
+				<p>Creating a sprite at any point in the HTML page life-cycle results in efficiencies, but it also
+				creates yet another thing that must be adjusted when a web page later changes. unfortunately there
+				are few tools that help the person who is charged with making such a change to rebuild or adjust
+				sprites, save for completely recreating the sprite from individual graphic files.</p>
+
+				<p>In fact spriteMan is a misnomer. Rather than managing sprites, what it actual does is create the
+				CSS code for a particular item within a sprite. For anyone who has received a sprite and is then asked
+				to make adjustments to it or to the way it is positioned on a page, spriteMan will be useful.</p>
+				<p>Should it be called spriteDecoder, or something else instead?</p>
+			</div>
+				<!--<img src='images/spriteManHelp.png' alt='help'>-->
+			<div id='helpTab' class='controlsDiv ui-tabs-hide'>
+				<h3>Help</h3>
+				<p>Enter the pathname to a local or remote sprite image file on the 'Sprite File' tab. It will appear
+				within a grid. Next to it will appear a copy of the sprite without a grid. You can drag this copy around
+				the page if needed for a better view of the selection.</p>
+
+				<p>Choose a selection background to colorize the
+				selected portion of the sprite. Initially the entire sprite will be selected. You may use the grid frame's
+				coordinates as handles for adjusting the selection rectangle. Likewise, you can directly adjust the
+				selection by dragging the rectangle or by resizing it.</p>
+
+				<p>The 'Coordinates' tab is yet another place to adjust the sprite grid and the selected item on it.</p>
+
+				<p>Some sprites may be too large to view along with the selected item to the right. Click on one of
+				the corners to reduce the sprite's size. A red corner means the height or width of the sprite is
+				partially hidden. Clicking again will restore the sprite's height or width to full view.</p>
+
+				<p>The 'Item CSS' tab contains the css code to use once you have selected an item. This is an accurate
+				representation of the item and is the result to use on your web pages.</p>
+			</div>
+		</div>
+	</div>
+</form>
+
+<div id='spriteBase'>
+	<div class='corners topLeft heightCorners' title="click to shrink sprite's height to selected item's height"></div>
+	<div id='spriteWidthSliderFrame'>
+		<div id='spriteWidthSlider'></div>
+	</div>
+	<div class='corners topRight widthCorners' title="click to shrink sprite's width to selected item's width"></div>
+
+	<div id="spriteHeightSliderFrame">
+		<div id="spriteHeightSlider"></div>
+	</div>
+	<div id='spriteBoxBackground'></div>
+	<div id='spriteBox'>
+		<div id='itemBox'></div>
+	</div>
+	<div id='itemHeightSliderFrame'>
+		<div id='itemHeightSlider'></div>
+	</div>
+	<div class='corners bottomLeft heightCorners' title="click to shrink sprite's height to selected item's height"></div>
+	<div id='itemWidthSliderFrame'>
+		<div id="itemWidthSlider"></div>
+	</div>
+	<div class='corners bottomRight widthCorners'  title="click to shrink sprite's width to selected item's width"></div>
+</div>
+<div id='spriteResultBox'>
+	<div id='itemResultBox'></div>
+</div>
+<script type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+<script type='text/javascript'>
+	google.load("jquery", "1.4.2");
+	google.load("jqueryui", "1.8.6");
+</script>
+<script type='text/javascript' src='./js/spriteMan.js'></script>
+</body>
+</html>

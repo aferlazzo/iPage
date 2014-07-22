@@ -1,0 +1,13 @@
+<?php
+
+$Message = $_POST['FCKeditor'];
+print("Message received |$PerfectResponseMessage|");
+/*
+$be_var = $_POST;
+foreach ( $be_var as $key => $value ) 
+{
+$be_var = $be_var."&".$key."=".$value;
+}
+echo str_replace( "Array&", "", $be_var ); // fruit=banana&color=yellow
+*/
+?>

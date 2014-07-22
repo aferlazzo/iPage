@@ -1,0 +1,75 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+*/
+//	Every campaign will have the following common messages:
+//
+//	seqno	subject
+//	-------	---------
+//    -4		Broadcast Message
+//	  -3		Subscription Confirmation Message, in a 2-step opt-in
+//	  -2		Welcome Message
+//	  -1		Unsubscribe Acknowledgement Message
+//	   0		Campaign Signature
+
+// Important: There is no message with sequence 1. The first message sent out
+// from every campaign is the welcome message, sequence -2.
+
+// Important: There cannot be 2 messages with the same seqno if row was selected
+// using '... order by seqno...' so the row is re-selected without the 'order by...'
+// specification
+
+include("check1.php");
+include("conn.php");
+$arid=$_GET[arid];
+$NumberOfMessages=$_GET[nM];
+//console.log('sortMessages.php: $NumberOfMessages='+$NumberOfMessages);
+
+for ($i = 0; $i < $NumberOfMessages; $i++)
+{
+	$ns = "nS".$i;
+	
+	//get the new/updated sequence of messages from the variable passed: $nS0 - $nS999
+	//and put them in the array $newSequenceArray
+	$newSequenceArray[$i]=$_GET[$ns];
+	
+	//put the messages in$PreviousSequenceArray[-4] ond so on
+	if($i > 4)
+		$PreviousSequence[$i] = $i - 3; //to account for the lack of message seqno 1;
+	else
+		$PreviousSequence[$i] = $i - 4; //the first 5 seqno are special (see table above)
+}
+
+for ($i = 0; $i < $NumberOfMessages; $i++)
+{
+	if ($newSequenceArray[$i] != $PreviousSequence[$i])  // if a message has moved record it in
+		$tempSeqno = $newSequenceArray[$i];				// the DB tempSeqno field
+	else
+		$tempSeqno = $PreviousSequence[$i];
+
+	$sql="Update messages set tempSeqno=$tempSeqno where seqno=$PreviousSequence[$i] and arid=$arid";
+	//print("<script type='text/javascript'>console.log('$sql');</script>");
+	$result = mysql_query($sql, $link); 
+		if ($result == false)
+			die("<p>sortMessages (".__LINE__.") Error on ($sql): ".mysql_error($link));
+}
+	// now order the messages in the database by the tempSeqno ...
+$MessageSelectResult = mysql_query("SELECT * FROM messages where arid=$arid order by tempSeqno", $link); 
+$NumberOfMessages = mysql_num_rows($MessageSelectResult);
+	// ... and rewrite the database seqno.
+for($i=0;$i<$NumberOfMessages;$i++)
+{
+	mysql_data_seek($MessageSelectResult, $i);
+	$row = mysql_fetch_object($MessageSelectResult);
+	$sql="Update messages set seqno=$row->tempSeqno where tempSeqno=$PreviousSequence[$i] and arid=$arid";
+	//print("<script type='text/javascript'>console.log('$sql');</script>");
+	$result = mysql_query($sql, $link); 
+	if ($result == false)
+		die("<p>sortMessages (".__LINE__.") Error on ($sql): ".mysql_error($link));
+}
+
+echo '1';
+?>

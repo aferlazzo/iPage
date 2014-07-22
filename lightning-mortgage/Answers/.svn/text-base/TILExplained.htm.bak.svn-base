@@ -1,0 +1,275 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>TIL Explained - Truth-In-Lending Disclosure Explained</title>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="description"
+content="Truth-In-Lending explained, described, and defined. US only.">
+<meta name="keywords"
+content=", TIL, Truth-In-Lending, HUD-1, HUD1, closing costs, GFE, Good Faith Estimate, LIGHTNING MORTGAGE">
+<link rel="stylesheet" href="../css/AnswersStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<!--[if IE 6]>
+<style type="text/css">
+html
+{
+scrollbar-base-color: #f5f2fe;
+scrollbar-arrow-color: #FFF;
+scrollbar-track-color: #6701A4;
+scrollbar-face-color: #93C;
+scrollbar-3dlight-color: #93c;
+}
+</style>
+<![endif]-->
+<script language="JavaScript" src="../js/Common.js" type="text/javascript"></script>
+<script src="https://www.google.com/coop/cse/brand?form=cse-search-box&lang=en" type="text/javascript"></script>
+</head>
+<body>
+
+<!--ih:includeHTML file="../include/top.php"--><!-- ./include/top-root.php is a copy of the contents ./include/top.htm with the directory levels changed-->
+<div class="Top">
+	<div id='MS'>
+		<a href="http://www.lightning-mortgage.com/Answers/MortgageInsiderSecrets.htm" class="Top" onfocus="if(this.blur) this.blur();">
+		<img src="../images/SignUp.jpg" onMouseover='this.src="../images/SignUpHover.jpg"' onMouseout='this.src="../images/SignUp.jpg"' 
+		style='border:none;' alt='sign-up'></a>
+	</div><!--MS-->
+	<div id='TipTop'>
+		<a class="Logo" onfocus="if(this.blur) this.blur();" href="http://www.lightning-mortgage.com/index.htm">
+		<img src="../images/Lightning-Mortgage.jpg" style="border:none;"
+		alt="Lightning Mortgage - Mortgages, even with Bad Credit" title="Lucio is in the house!"></a>
+	</div><!--TipTop-->
+	<noscript>
+	<!--
+	<p style="text-align:center;border:5px dotted #fff;font-size:large;color:#fff;">
+	<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+	This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+	//-->
+	</noscript>
+	<br style="clear:both;"> <!-- tabs here -->
+	<div id="TabDiv">
+		<div id="navTab">
+			<script language="JavaScript" type="text/javascript">
+			<!--
+			ShowNewTabs(Directory);
+			//-->
+			</SCRIPT>
+		</div><!--navTab-->
+	</div><!-- TabDiv-->
+</div><!--Top-->
+
+<div class="TopFrame">
+	<div class="TFL"></div>
+	<div id='BelowTabs'>
+		<a href="http://www.lightning-mortgage.com/Survey.php" title="Take our Satisfaction Survey"
+		class="Top">Survey</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/Feedback.htm" title="Ask questions and give us feedback"
+		class="Top">Questions?</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/AboutUs.htm" title="About Us"
+		class="Top">About</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/ContactUs.htm" title="How to contact us"
+		class="Top">Contact</a>&nbsp;|
+		<a href="#" title="opens a new window" onclick="if (window.MapWindow) window.MapWindow.close();MapWindow=open('../Administrative/WhereWeLend.htm',
+			'pcalculator','height=520,width=600,top=0,left=0,alwaysRaised=yes,resizable=no,scrollbars=no,menubar=no,titlebar=yes,toolbar=no, scroll=yes');"
+		class="Top">Where We Lend</a><img src="../images/NewWindow.gif" alt="opens new window">
+	</div> <!-- BelowTabs -->
+	<div class="TFR">
+		<script language="JavaScript" type="text/javascript">
+		<!--
+		ShowSearchButton();
+		//d.getElementById('ContentDIV').style.visibility = 'visible';
+		-->
+		</script>
+	</div><!--TFR-->
+</div>
+
+<div class="Main">
+	<div id="ContentBackground" style='background:transparent;'>
+		<div id='TopLeftCorner'></div><div id='TopFrame'></div><div id='TopRightCorner'></div>
+		<div style='clear:left;'></div>
+
+		<div id='LeftFrame'></div>
+		<div id="ContentDIV">
+<!-- TopFrame -->
+<!--/ih:includeHTML-->
+<div id="Heading" style="width:80%">
+<div class="Title"><h1 id="Small">Truth-In-<br />Lending Act</h1></div>
+<div class="Title">
+<div id="Big"><h1>TIL Spelled Out</h1></div>
+<div id="BigShadow"><h1>TIL Spelled Out</h1></div></div>
+</div><br style="clear:left;">
+<div class="QuickHits" style="margin:5px 0 1em 1em;padding:1.5em 0;">
+	<span  style="font-size:x-small; color:#009;"><a href="#" title="opens a new window"
+	onclick=" secondwindow=open('http://www.lightning-mortgage.com/PDF/til.pdf',
+	'TIL','height=660,width=540,scrollbars=yes,menuabar=no,titlebar=yes,toolbar=no,scroll=yes,resizable=yes');">
+	<img src="../images/pdfIcon.gif" style="border:0;" alt="TIL pdf file"><br /><br />Truth In Lending
+	Handbook</a><img src="../images/NewWindow.gif" ALT=""><br />For a detailed explanation</span>
+</div>
+	<p>You are almost there! After filling out
+	applications, digging up all those financial records, and watching
+	interest rates, you're almost ready to close the new mortgage. The finish
+	line is in sight!</p>
+	<p>But wait! Just as you're preparing to breathe a sign of
+	relief, you receive a <i>Truth In Lending</i> document. Yes, it's
+	yet another disclosure, another standard form meant to provide you
+	with more information. The Disclosure is designed to give you information
+	about the costs of your loan so that you may compare these costs with
+	those of other loan programs or lenders.</p>
+	<p>Good intentions aside, the document often causes more
+	questions than providing answers. But luckily you're working with us at
+	Lightning Mortgage. We'll explain this very confusing document. The
+	summary at the top of the form is in table form:</p>
+
+	<div style="float:left;margin-right:1em;padding:4px;width:160px;border:2px solid #9933CC;height:19em;">
+		<p style="text-align:center;font-size:medium">ANNUAL PERCENTAGE RATE</p>
+		<p style="font-size:small;text-align:left;">The cost of your credit at a yearly rate</p>
+		<span style="display:block;text-align:center;color:#009;margin-top:52px;font-size:xx-large;font-family:Verdana,Arial,Helvetica,sans-serif;">A<span style="font-size:x-large;">%</span></span>
+	</div>
+	<div style="float:left;margin-right:1em;padding:4px;width:160px;border:2px solid #9933CC;height:19em;">
+		<p style="text-align: center;font-size:medium;">FINANCE<br />CHARGE</p>
+		<p style="font-size:small;text-align:left;">The dollar amount the credit will cost you</p>
+		<p style="text-align:center;font-size: xx-large; color:#009;margin-top:52px;">
+		<span style="font-size:x-large;">$</span>B</p>
+	</div>
+	<div style="float:left;margin-right:1em;padding:4px;width:150px;border:2px solid #9933CC;height:19em;">
+		<p style="text-align: center;font-size:medium;">AMOUNT FINANCED</p>
+		<p style="font-size:small;text-align:left;">The amount of credit provided to you or on your behalf</p>
+		<p style="text-align:center;font-size: xx-large; color:#009;margin-top:36px;">
+		<span style="font-size:x-large;">$</span>C</p>
+	</div>
+	<div style="float:left;padding:4px;width:160px;border:2px solid #9933CC;height:19em;">
+		<p style="text-align: center;font-size:medium;">TOTAL OF PAYMENTS</p>
+		<p style="font-size:small;text-align:left;">The amount you will have paid after you have made
+		all payments as scheduled</p>
+		<p style="text-align:center;font-size: xx-large;color:#009;margin-top:18px;">
+		<span style="font-size:x-large;">$</span>D</p>
+	</div>
+	<br /><br />&nbsp;
+	<div style="clear:left;float:left;margin-right:1em;padding:4px;width:37px;text-align:center;height:43em;">
+	<span style="text-decoration:underline;font-size:medium;font-weight:bold;color:#009">Box</span>
+	<span style="font-size:medium;font-weight:bold;color:#009;line-height:5;">A<br />B<br /><br />C<br /><br />D</span>
+	</div>
+
+	<div style="float:left;margin-right:1em;padding:4px;width:137px;text-align:center;height:43em;">
+	<span style="text-decoration:underline;font-size:medium;font-weight:bold;color:#009">Heading</span>
+	<span style="font-size:medium;font-weight:bold;color:#009"><br /><br />Annual<br />Percentage<br />Rate
+	<br /><br /><br />Finance<br />Charge<br /><br /><br /><br /><br /><br /><br /><br />Amount<br />Financed
+	<br /><br /><br /><br /><br /><br /><br /><br />Total Of<br />Payments</span></div>
+
+	<div style="float:left;margin-right:1em;padding:4px;width:480px;text-align:center;font-size:small;height:43em;">
+	<span style="text-decoration:underline;font-size:medium;font-weight:bold;color:#009">Description</span>
+	<p>The Annual Percentage Rate (APR) is the <i>cost</i>
+	of your credit expressed as an annual rate. This is not necessarily equal
+	to the loan interest rate! Click <a class="DD"
+	href="http://www.lightning-mortgage.com/Answers/APRAnswers.htm">APR, Revealed</a>
+	for a more detailed description of APR and its relationship to your mortgage's interest rate.</p>
+
+	<p>The Finance Charge is the cost of credit expressed in
+	dollars. It is the total amount of interest calculated at the interest
+	rate over the life of the loan, plus Prepaid Finance Charges and the total
+	amount of any required <a class="DD"
+	href="GlossaryMP.htm#PMI">mortgage insurance</a> charged over the life
+	of the loan. This would cost only if you kept the loan for the entire loan
+	term.</p>
+
+	<p>The Amount Financed is the loan amount applied
+	for, plus or minus the Prepaid 	Finance Charges. When purchasing,
+	Prepaid Finance Charges include items paid at or before settlement, such as
+	loan origination, commitment or discount fees ('points'),
+	adjusted interest, and initial mortgage insurance premium. The
+	Amount Financed is lower than the amount you applied for because it
+	represents a NET figure. If you applied for $150,000 and the Prepaid
+	Finance Charges total $12,000, the Amount Financed would be $138,000.</p>
+
+	<p>When refinancing, one normally includes Prepaid
+	Finance&nbsp; Charges in the loan amount over and above the cost to
+	payoff ant existing loans on the property.</p>
+
+	<p>This figure represents the total amount you will
+	have paid if you make the minimum required payments for the entire term
+	of the loan. This includes principal, interest, and mortgage insurance
+	premiums, but does not include payments for real estate taxes or
+	property insurance premiums.</p>
+	</div>
+	<hr style="clear:left;">
+<div style='width:120px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+	<ul>
+		<li><a
+		href="../Answers.php">Explore the rest of our Loan Process</a></li>
+		<li><a
+		href="../LoanTypes.php">Learn about Loan Types</a></li>
+		<li><a
+		href="../CreditScores.htm">Learn about Credit Scores</a></li>
+		<li><a
+		href="../Answers/PreAnswers.htm">Determine if you want to be pre-qualified or pre-approved</a></li>
+		<li><a
+		href="../InterestRates/EducationTaxes.htm">Learn about the Tax Advantages of Home Ownership</a></li>
+		<li><a
+    	href="https://lightning-mortgage.ipower.com/MortgageApplication/LoanAppShort.htm">Submit A Loan Application</a></li>
+	</ul>
+</div>
+<!--ih:includeHTML file="../include/bottom.php"-->
+		<!--
+		// http://www.lightning-mortgage.com/include/bottom-root.php is a copy of the contents ../include/bottom.htm. It is the
+		// web page bottom border that is inserted in all appropriate .htm pages located at
+		// the root level of the website.
+		-->
+		<div id='RightFrame'></div><div style='clear:left;'></div>
+		<div id='LeftFrame' style='height:102px;'></div>
+		<div class="Bottom2">
+			<div style="float:right;height:90px;width:80px;">
+				<img border='0' src='../images/equalhouse.gif' alt='Equal housing lender' style="">
+			</div>
+			<a href="http://www.lightning-mortgage.com/Administrative/SiteMap.htm">Site Map</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Calculators.htm">Calculators</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Answers/GlossaryAD.htm">Glossary</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Legal.htm">Legal</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/AffiliateLinks.htm">Affiliates</a><br />
+
+			<p class="CenterSmall" style='text-align:center;'>Click on <a href="http://www.lightning-mortgage.com/Administrative/Feedback.htm">feedback</a> 
+			or call (866) 822-8500 for assistance - Last Updated:
+			<script language="JavaScript1.2" type="text/javascript">
+			<!--
+				var lastMod = new Date(document.lastModified);
+				var MM = lastMod.getMonth() + 1;
+				var DD = lastMod.getDate();
+				document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+			//-->
+			</script>
+			</p>
+
+			<p class="CenterSmall" style="margin:0;">This Website is NOT intended as a solicitation to customers in any jurisdiction in which we
+			are not authorized to operate. 
+
+			<script type="text/javascript">
+				var Today 	= new Date();
+				var ThisYear 	= Today.getFullYear();
+				var DayName = Today.getDate();
+				document.write("&copy; Lightning Mortgage 2002-" + ThisYear + " All Rights Reserved. No part of this website may be ");
+			</script>
+
+			reused commercially without the expressed written consent of Lightning Mortgage.
+			This site is directed at, and made available to, persons in the continental U.S., Alaska and Hawaii only.</p>
+		</div><!-- Bottom2 silver -->
+		<div id='RightFrame' style='height:102px;'></div><div style='clear:left;'></div>
+		<div id='BottomLeftCorner'></div><div id='BottomFrame'></div><div id='BottomRightCorner'></div>	
+	</div> <!-- ContentBackground yellow -->	
+</div> <!-- Main -->
+
+<SCRIPT language="JavaScript" type="text/javascript"> 
+<!--
+BType();
+SetContentHeight();
+//-->
+</SCRIPT>
+<!--/ih:includeHTML-->
+
+</body>
+</html>

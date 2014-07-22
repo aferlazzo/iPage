@@ -1,0 +1,412 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Edit Email Test</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<style type="text/css" media="screen">
+#UserNameDiv {display:none;}
+#EmailDiv {display:block;}
+</style>
+<script type="text/javascript">
+<!--
+function InputUserName()
+{
+	document.getElementById('UserNameDiv').style.display='block';
+  document.getElementById('EmailDiv').style.display='none';
+	document.edituserform.vtype.value='username';
+  //alert("vtype: "+document.edituserform.vtype.value);
+}
+function InputEmail()
+{
+  //alert("Email selected");
+	document.getElementById('EmailDiv').style.display='block';
+  document.getElementById('UserNameDiv').style.display='';
+	document.edituserform.vtype.value='email';
+  //alert("vtype: "+document.edituserform.vtype.value);
+}
+
+
+function LLogout()
+{
+	if (confirm('Do you really want to logout?'))
+	{
+		top.location.href='logout.php';  //bust out of frames
+		return (false);
+	}
+
+	return(true);
+}
+function Show()
+{
+//alert(document.getElementById('navBeta').style.display);
+if (document.getElementById('navBeta').style.display == '')
+{
+document.getElementById('navBeta').style.display='block';
+document.getElementById('submit').value='Click to hide hints!';
+document.getElementById('submit').style.borderWidth='2px';
+document.getElementById('submit').style.borderStyle='solid';
+document.getElementById('submit').style.borderColor='#ffffff';
+document.getElementById('submit').style.backgroundColor='#939';
+//document.getElementById('submit').focus();
+}
+else
+{
+document.getElementById('navBeta').style.display='';
+document.getElementById('submit').value='Click for helpful hints!';
+document.getElementById('submit').style.borderWidth='2px';
+document.getElementById('submit').style.borderStyle='solid';
+document.getElementById('submit').style.borderColor='#ffffff';
+document.getElementById('submit').style.backgroundColor='#004a8d';
+//document.getElementById('submit').focus();
+}
+}
+var Size=125;
+function GrowIt()
+{
+Size=Size+10;
+var I=Size+'%';
+//alert("I: "+I);
+document.getElementById('Grow').style.fontSize=I;
+if(Size>=200)
+ clearInterval(timer);
+}
+function SSS()
+{
+//GG=GrowIt(GG);
+//timer=setInterval('GrowIt()', 20);
+}
+
+function isDigit(c)
+{
+  //alert("isDigit(): "+c);
+  return ((c >= "0") && (c <= "9"));
+}
+
+function isEmpty(s)
+{
+  alert("isEmpty(): |"+s+"|");
+  var whitespace = " \t\n\r";
+  var i;
+	if((s == null) || (s.length == 0))
+	  return true;
+	//search string looking for characters that are not whitespace
+	for (i=0; i<s.length; i++)
+	{
+	  var c = s.charAt(i);
+		if (whitespace.indexOf(c) == -1)
+		{
+		  return false;
+		}
+	}
+	return true;
+}
+
+function isInteger(field)
+{
+ var i, c;
+ var xx = field.value;
+ //alert("isInteger(): "+xx);
+ if (isEmpty(xx))
+ {
+		   alert("Value "+field.name+" must be filled");
+ 		   return false;
+ }
+
+ for (i=0; i < xx.length; i++)
+ {
+ //check if all characters are numbers
+ 		c=xx.charAt(i);
+		if(!isDigit(c))
+		{
+		   alert("Field "+field.name+"'s value of |"+xx+"| is not numeric");
+			 return false;
+		}
+	}
+  return true;
+}
+
+function isIntegerInRange(field,min,max)
+{
+   var s = field.value;
+   //alert("isIntegerInRange(): "+s);
+
+   if (isEmpty(s))
+ {
+		   alert("Value "+field.name+" must be filled");
+ 		   return false;
+ }
+
+	 if (!isInteger(field))
+	   return false;
+
+   var num = parseInt(s,10); //this statement adds the leading zeros
+   if ((num < min) || (num > max))
+	 {
+	 	 alert("Field "+field.name+" is out of valid range. Should be "+min+" <= "+num+" <= "+max);
+	   return false;
+	 }
+}
+
+//JavaScript doesn’t have a built-in Trim function, which trims white spaces from the beginning
+//and the end of a string. These 3 very useful trim JavaScript functions – leftTrim(), rightTrim(), and allTrim().
+
+//Lets start with leftTrim() function, which will trim all white spaces in front of a string and will return the
+//trimmed string.
+//The leftTrim JavaScript function takes one parameter, which is the string that needs to be trimmed.
+//The function then loops through each of the characters of this string, starting with the first one.
+//If the current character in the loop is a single white space “ “, the function removes it from the
+//string and continues with the loop. The loop goes on until it finds character, which is different
+//than a single white space or until it reaches the end of the string. After the function exits the loop,
+//it returns the left trimmed string.
+
+function leftTrim(sString)
+{
+  while (sString.substring(0,1) == ' ')
+  {
+    sString = sString.substring(1, sString.length);
+  }
+  return sString;
+}
+
+
+//The rightTrim() JavaScript function works in exactly the same way, except that it trims the white spaces
+//at the end of the string:
+
+function rightTrim(sString)
+{
+  while (sString.substring(sString.length-1, sString.length) == ' ')
+  {
+    sString = sString.substring(0,sString.length-1);
+  }
+  return sString;
+}
+
+//The allTrim() JavaScript function combines both leftTrim() and rightTrim() functions:
+
+function allTrim(sString)
+{
+  while (sString.substring(0,1) == ' ')
+  {
+    sString = sString.substring(1, sString.length);
+  }
+  while (sString.substring(sString.length-1, sString.length) == ' ')
+  {
+    sString = sString.substring(0,sString.length-1);
+  }
+  return sString;
+}
+
+
+function Validate()
+{
+  var FullName1 =  allTrim(document.edituserform.FullName1.value);
+  document.edituserform.FullName1.value = FullName1;
+
+	if(isEmpty(FullName1))
+	{
+	   alert('1st Recipient Name address must be filled.');
+	   document.edituserform.Submit2.value='Send';
+		 document.edituserform.Submit2.className='submit';
+		 document.edituserform.Submit2.blur();
+		 return false;
+	}
+
+  var EmailAddress1 =  allTrim(document.edituserform.EmailAddress1.value);
+  document.edituserform.EmailAddress1.value = EmailAddress1;
+
+ if(isEmpty(EmailAdress1))
+	{
+	   alert('1st Email address must be filled.');
+	   document.edituserform.Submit2.value='Send';
+		 document.edituserform.Submit2.className='submit';
+		 document.edituserform.Submit2.blur();
+		 return false;
+	}
+
+  var SMTPmailServer =  allTrim(document.edituserform.SMTPmailServer.value);
+  document.edituserform.SMTPmailServer.value = SMTPmailServer;
+
+	if(isEmpty(SMTPmailServer))
+	{
+	   alert('SMTPmailServer address must be filled.');
+	   document.edituserform.Submit2.value='Send';
+		 document.edituserform.Submit2.className='submit';
+		 document.edituserform.Submit2.blur();
+		 return false;
+	}
+
+  var SMTPport =  allTrim(document.edituserform.SMTPport.value);
+  document.edituserform.SMTPport.value = SMTPport;
+
+	if(isEmpty(SMTPport))
+	{
+	   alert('SMTPport address must be filled.');
+	   document.edituserform.Submit2.value='Send';
+		 document.edituserform.Submit2.className='submit';
+		 document.edituserform.Submit2.blur();
+		 return false;
+	}
+
+  var SMTPmailbox =  allTrim(document.edituserform.SMTPmailbox.value);
+  document.edituserform.SMTPmailbox.value = SMTPmailbox;
+
+	if(isEmpty(SMTPmailbox))
+	{
+	   alert('SMTPmailbox address must be filled.');
+	   document.edituserform.Submit2.value='Send';
+		 document.edituserform.Submit2.className='submit';
+		 document.edituserform.Submit2.blur();
+		 return false;
+	}
+
+  var SMTPpassword =  allTrim(document.edituserform.SMTPpassword.value);
+  document.edituserform.SMTPpassword.value = SMTPpassword;
+
+	if(isEmpty(SMTPpassword))
+	{
+	   alert('SMTPpassword address must be filled.');
+	   document.edituserform.Submit2.value='Send';
+		 document.edituserform.Submit2.className='submit';
+		 document.edituserform.Submit2.blur();
+		 return false;
+	}
+
+ return true;
+}
+//-->
+</script>
+</HEAD>
+<body onload="window.document.edituserform.Email.focus();">
+<div class="content">
+<span class="BoxHeading">
+<input type="button" id="submit" name="submit" value="Click for helpful hints!" class="Button" onclick="Show();" onmouseover="document.getElementById('submit').style.fontWeight='bold';" onmouseout="document.getElementById('submit').style.fontWeight='normal';">
+</span>
+<div id="navBeta">
+	<h2>Note</h2>
+	<p>The User database is indexed by user number. Within each autoresponder campaign you can have records containing
+	duplicate Email Addresses and names. Each user record contains a pointer to what message to send next and when to send it.
+	All these field can be modified. To access a user record you must first enter its email address.</p>
+	<p>Special Message Numbers</p>
+	<p>0 - Welcome message</p>
+	<p>253 - removed from via BounceHandler.php</p>
+	<p>254 - removed from via remove.php - admin user remove</p>
+	<p>255 - removed from via us.php - unsubscribe request</p>
+</div>
+<div class="title">
+<table>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+</div>
+<TABLE CELLSPACING='4' align="center">
+	<TR>
+		<TD WIDTH='45%'></TD>
+		<TD WIDTH='55%'></TD>
+	</TR>
+	<tr>
+		<td colspan='2' align='center'><h2>
+		</td>
+	</TR>
+
+	<TR>
+		<td align="center" valign="top" colspan='2'>
+	<h2>Send Test Emails</h2>
+</td></tr></table>
+
+	<form name='edituserform' method='post' onSubmit='return(Validate();' action='edittestaction.php'>
+	<TABLE CELLSPACING='4' align='center'><tr>
+	 <td height='30' align='right'><label for='FullName1'>1st Recipient Name</label></td>
+	 <td align='left'>
+	  <input type='text' name='FullName1' id='FullName1' size='40' value='Anthony'
+			 onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'>
+		</td>
+	</tr>
+
+	<tr>
+		<td height='30' align='right'><label for='EmailAddress1'>1st Email Address</label></td>
+		<td align='left'>
+		 <input type='text' name='EmailAddress1' id='EmailAddress1' size='40' value='anthony@lightning-mortgage.com'
+			onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'>
+		</td>
+	</tr>
+
+	 <td height='30' align='right'><label for='FullName2'>2nd Recipient Name</label></td>
+
+	 <td align='left'>
+	  <input type='text' name='FullName2' id='FullName2' size='40' value='Fran'
+			 onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'>
+		</td>
+	</tr>
+
+	<tr>
+		<td height='30' align='right'><label for='EmailAddress2'>2nd Email Address</label></td>
+		<td align='left'>
+		 <input type='text' name='EmailAddress2' id='EmailAddress2' size='40' value='fran@lightning-mortgage.com'
+			onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'>
+		</td>
+	</tr>
+
+	<tr>
+	 <td height='30' align='right'><label for='SMTPmailServer'>SMTP Server</label></td>
+	 <td align='left'>
+	  <input type='text' name='SMTPmailServer' id='SMTPmailServer' size='40' value='localhost'
+			 onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'>
+		</td>
+	</tr>
+
+	<tr>
+		<td height='30' align='right'><label for='SMTPport'>SMTP port</label></td>
+		<td align='left'>
+		 <input type='text' name='SMTPport' id='SMTPport' size='2' value='25'
+			onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'>
+		</td>
+	</tr>
+
+	 <td height='30' align='right'><label for='SMTPmailbox'>SMTP mailbox</label></td>
+	 <td align='left'>
+	  <input type='text' name='SMTPmailbox' id='SMTPmailbox' size='40'
+			 onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'>
+		</td>
+	</tr>
+
+	<tr>
+		<td height='30' align='right'><label for='SMTPpassword'>SMTP password</label></td>
+		<td align='left'>
+		 <input type='text' name='SMTPpassword' id='SMTPpassword' size='40'
+			onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'>
+		</td>
+	</tr>
+	<tr>
+		<td height='30' align='right'><label for='LoopDelay'>Loop Delay</label></td>
+		<td align='left'>
+		 <input type='text' name='LoopDelay' id='LoopDelay' size='2' value='15'
+			onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'> Minutes
+		</td>
+	</tr>
+	<tr>
+		<td height='30' align='right'><label for='DebugSW'>Debug</label></td>
+		<td align='left'>
+		 <input type='text' name='DebugSW' id='DebugSW' size='2' value='2'
+		 title="set to 2 to debug"
+			onfocus='this.style.border="2px solid #000080"'  onblur='this.style.border="2px solid gray"'>
+		</td>
+	</tr>
+	</table>
+
+	<br><input class='submit' type='submit' name='Submit2' value='Send' onClick='this.value="Sending"'
+ 	onMouseover='this.className="MouseOver"' onMouseout="this.className='submit'">&nbsp;
+	<input class='cancel' type='button' value='Cancel' onClick='return;'
+		onMouseover=\"this.className='MouseOver'\" onMouseout=\"this.className='cancel'\"><br />&nbsp;</td></TR></TABLE>
+</form>
+
+</div>
+</BODY>
+</HTML>

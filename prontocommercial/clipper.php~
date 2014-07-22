@@ -1,0 +1,135 @@
+<?php
+	$eFile   = "";
+	$eWidth  = 0;
+	$eHeight = 0;
+
+	if(count($_POST) > 0){
+		//$eFile     = $_POST['eFile'];
+		//$eFile = $_FILES['eFile']['name'];
+		//print("received: |$eFile|<br>");
+
+		$eFile = $_FILES['eFile']['name'];
+		
+		$error = $_FILES["eFile"]["error"];
+		$bad = false;
+	
+		switch($error)
+		{
+			case UPLOAD_ERR_OK: //Value: 0; There is no error, the file uploaded with success.
+				$tmp_name = $_FILES["eFile"]["tmp_name"];
+				$eFile = $_FILES["eFile"]["name"];
+				move_uploaded_file($tmp_name, "junk");
+				//echo 'File "'. $eFile . '" was uploaded<br>';
+				break;
+
+			case UPLOAD_ERR_INI_SIZE:  //Value: 1; The uploaded file exceeds the upload_max_filesize directive in php.ini.
+
+			case UPLOAD_ERR_FORM_SIZE:
+				print('Error: File "$eFile" is too big to upload.');
+				$bad = true;
+				break;
+
+			case UPLOAD_ERR_PARTIAL:  //  Value: 3; The uploaded file was only partially uploaded.
+				print('Error: File "$name" was only partially uploaded. Please try to upload it again.');
+				$bad = true;
+				break;
+
+			case UPLOAD_ERR_NO_FILE:  // Value: 4; No file was uploaded.
+				break;
+
+			case UPLOAD_ERR_NO_TMP_DIR:  // Value: 6; Missing a temporary folder. Introduced in PHP 4.3.10 and PHP 5.0.3.
+				print('Error: Missing temp folder on server. File not uploaded');
+				$bad = true;
+				break;
+
+			case UPLOAD_ERR_CANT_WRITE:  // Value: 7; Failed to write file to disk. Introduced in PHP 5.1.0.
+				print('Error: Could not save on server. File not uploaded');
+				$bad = true;
+				break;
+		}
+    
+   	if($bad==true)
+			die("Upload result? Bad");
+	
+		$size = @getimagesize("junk");	// try obtaining the image size of supplied path
+	
+		if(($size == 0)	|| ($size == FALSE)){
+			die("getimagesize failed");
+		}else{
+			$theRectangleFieldsRight  = $eWidth  = $size[0];
+			$theRectangleFieldsBottom = $eHeight = $size[1];
+			unlink("junk");  // clean up the server by deleting the file
+			die("file '$eFile' is $eWidth pixels wide and $eHeight pixels high");
+		}
+	}
+?>
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8>
+<title>Clipper - CSS Sprite & Clip Utility</title>
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+<link rel="stylesheet" type='text/css' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+<link rel="stylesheet" type='text/css' href="css/clipper.css">
+<script type='text/javascript' src='js/clipper.js'></script>
+</head>
+<body>
+	<h1>Clipper: Sprite or Clip Selection</h1>
+		<div id='theImageWrapper'>
+			<div id='theImageContainer'></div>
+			<div id='theClippedContainer'></div>
+			<div id='theRectangle'></div>
+		</div>
+
+	<form id='clipForm' action='clipper.php' method='post' enctype="multipart/form-data"
+		<input type="hidden" name="MAX_FILE_SIZE" value="900000">
+		<fieldset id='fullImageFields'>
+			<legend>Full Image Parameters</legend>
+			<!-- for each input, the name argument is for form processing, the id is for jquery processing -->
+			<label for='eFile'>Image File Pathname</label><input onchange('checkSize(this)') type='file' name='eFile' id='eFile'><br>
+			<input type='submit' value='Get Image'>
+			<div class='hh hd'>
+				<label for='eWidth'>Width</label><input disabled type='text' value='<?php echo $eWidth ?>' name='eWidth' id='eWidth' class='amt'> px
+				<div id='backgroundColor'></div><div id='colorLegend'>Selection<br>Background Color</div>
+			</div>
+			<div class='hh hd'>
+				<label for='eHeight'>Height</label><input disabled type='text' value='<?php echo $eHeight ?>' name='eHeight' id='eHeight' class='amt'> px
+				<div id='zoomFactor'></div><div id='zoomLegend'><span>100%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300%</span><br>Image Zoom</div>
+			</div>
+		</fieldset>
+
+		<fieldset id='theRectangleFields'>
+			<legend>The Selection Rectangle</legend>
+			<div class='hh amtw'><label for='theRectangleFieldsWidth'>Width</label><input type='text' value=0 name='theRectangleFieldsWidth' id='theRectangleFieldsWidth' class='amt'> px</div>
+			<div class='hh amth'><label for='theRectangleFieldsHeight'>Height</label><input type='text' value=0 name='theRectangleFieldsHeight' id='theRectangleFieldsHeight' class='amt'> px</div>
+			<div class='hh amtw'><label for='theRectangleFieldsLeft'>Left Offset</label><input type='text' value=0 name='theRectangleFieldsLeft' id='theRectangleFieldsLeft' class='amt'> px</div>
+			<div class='hh amth'><label for='theRectangleFieldsTop'>Top Offset</label><input type='text' value=0 name='theRectangleFieldsTop' id='theRectangleFieldsTop' class='amt'> px</div>
+			<div class='hh amtw'><label for='theRectangleFieldsRight'>Right Limit</label><input type='text'  value=0 name='theRectangleFieldsRight' id='theRectangleFieldsRight' class='amt'> px</div>
+			<div class='hh amth'><label for='theRectangleFieldsBottom'>Bottom Limit</label><input type='text' value=0 name='theRectangleFieldsBottom' id='theRectangleFieldsBottom' class='amt'> px</div>
+
+		</fieldset>
+		<fieldset id='cssFields'>
+			<legend>CSS For Selection</legend>
+			<div id='cssDisplayed'></div>
+		</fieldset>
+		<fieldset id='referenceFields'>
+			<legend>For Reference</legend>
+			<div class='rel'>
+				<div id='refOriginalElement'>
+					<div id='refDescription'>Entire<br>Image<br>File</div>
+					<div id='refClippedArea'>Clipped<br>Area</div>
+					<div id='refTopLine'>top</div><div id='topArrow'></div>
+					<div id='refRightLine'>right</div><div id='rightArrow'></div>
+					<div id='refBottomLine'>bottom</div><div id='bottomArrow'></div>
+					<div id='refLeftLine'>left</div><div id='leftArrow'></div>
+					<div id='refClippedWidth'>width</div><div id='refClippedHeight'>height</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

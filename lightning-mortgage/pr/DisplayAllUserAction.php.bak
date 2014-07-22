@@ -1,0 +1,159 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+$user			= $_COOKIE["UName"];
+$ID				= $_POST["arid"];
+$arid			= $_POST["arid"];
+$vtype			= $_POST["vtype"];
+$UserName		= $_POST["UserName"];
+$Email			= $_POST["Email"];
+$MM				= $_POST["MM"];
+$DD				= $_POST["DD"];
+$YY				= $_POST["YY"];
+$hh				= $_POST["hh"];
+$mm				= $_POST["mm"];
+$MessageNumber	= $_POST["MessageNumber"];
+$Returned		= $_POST["Returned"];
+$uid			= $_POST["uid"];
+/*
+$LockKeyOnRow	= $_POST["LockKeyOnRow"];
+$LockExpiryTime	= $_POST["LockExpiryTime"];
+*/
+$SendDate = mktime($hh, $mm, 0, $MM, $DD, $YY);
+
+Include("conn.php");
+
+
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Edit User Action - Perfect Response</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css" media="screen">
+@import "PerfectResponse.css";
+div.user, div.email, div.arid, div.msgno {float:left;border:1px solid #000080;padding:4px;color:#000080;background:#fff;white-space:nowrap;font-size:8pt;}
+div.user {width:250px;text-align:left;}
+div.arid {width:250px;text-align:left;}
+div.msgno {width:50px;}
+div#Report {border:2px solid #000080;width:580px;text-align:center;background:#004a8d;color:#fff;margin-top:16px;}
+</style>
+</head>
+<body>
+<?php
+
+//print("email $Email received<br/>");
+
+		$aQuery = "SELECT * FROM autoresponders order by ardescription";
+		$AutoresponderResult 	= mysql_query("$aQuery", $link) or die("died $aQuery"); 
+		$NumberOfAutoresponders = mysql_num_rows($AutoresponderResult); 		
+
+		print("<div id='Report'><h2>Email Address $Email Subscriptions</h2>\n");
+		print("<div class='user'><br/>Subscribed Name</div><div class='arid'><br/>Campaign</div><div class='msgno'>Current<br />Msg No</div><br style='clear:left;'>");
+		if($NumberOfAutoresponders > 0) //autoresponder=email campaign
+		{
+			for($count=0; $count < $NumberOfAutoresponders; $count++) 
+			{
+				mysql_data_seek($AutoresponderResult, $count); //set db pointer to next autoresponder
+				$AutoresponderRow	= mysql_fetch_object($AutoresponderResult);
+				$arid				= $AutoresponderRow->arid;
+				$NextAridName		= $AutoresponderRow->ardescription;
+//print("<p>Checking arid $arid - $NextAridName</p>");
+
+$WithinScript = "I know the arid";
+include("settings.php");
+
+				$UserQuery = "select * from users where email='$Email' and arid=$arid";
+				$UserResult = mysql_query("$UserQuery", $link) or die("died $UserQuery");
+				$NumberOfUsers = mysql_num_rows($UserResult); 		
+				if($NumberOfUsers > 0)
+				{
+					$UserRow  = mysql_fetch_object($UserResult);				
+					$UserName = $UserRow->fname;
+					$currentmsg = $UserRow->currentmsg;
+					print("<div class='user'>$UserName</div><div class='arid'>$arid - $NextAridName</div><div class='msgno'>$currentmsg</div><br style='clear:left;'>");
+				}
+				//else
+				//	print("<p>$Email not found in arid |$arid| using query \"$UserQuery\"</p>");
+			}
+			
+		}
+/*
+if ($Returned == "")
+	$Returned = "false";
+
+if ($Returned == "false")
+{
+	$found = 0;
+	if($vtype == 'email')
+	{
+		$strSQL = "SELECT * FROM users WHERE email='$Email'";
+
+		$QueryResult = mysql_query($strSQL,$link);
+		$num_rows = mysql_num_rows($QueryResult);
+
+		if ( $num_rows < 1 )
+		{
+			print("<script type='text/javascript'>;alert ('Email |$Email|\\nis not subscribed to arid |$arid|');</script>");
+			$Returned=false;
+		}
+		else
+			$found = 1;
+			
+
+		for ($count = 0; $count < $num_rows_ar; $count++)
+		{
+			mysql_data_seek($QueryRresult, $count);
+			$rowuser = mysql_fetch_array($result_ar);
+			$arid = $rowuser['arid'];		
+			$UserName = $rowuser['fname'];		
+			print("<p>$UserName $email $arid</p>");
+		}
+	}
+*/
+	if($vtype == 'username')
+	{
+		$UserName = ucwords(strtolower($UserName));
+		$strSQL = "SELECT * FROM `users` WHERE `fname` LIKE CONVERT( _utf8 '$UserName' USING latin1 ) and arid=$arid LIMIT 1";
+
+		$Query_Result = mysql_query($strSQL,$link);
+		$num_rows = mysql_num_rows($Query_Result);
+		
+		if ( $num_rows <= 0 )
+		{
+		  print("<script type='text/javascript'>;alert ('User Name |$UserName|\\nis not subscribed to arid |$arid|');</script>");
+		  $Returned=false;
+		}
+		 else
+		   $found = 1;		
+	}
+/*
+	if ($found == 1)
+	{
+		$Returned = "true";
+		mysql_data_seek($Query_Result, 0);
+		$row = mysql_fetch_object($Query_Result);
+		$SendDate 		= $row->senddate;
+		$MessageNumber 	= $row->currentmsg;
+		$UserName 		= $row->fname;
+		$Email 			= $row->email;
+		$uid 			= $row->uid;
+		$MM = date("m", $SendDate);
+		$DD = date("d", $SendDate);
+		$YY = date("y", $SendDate);
+		$hh = date("H", $SendDate);
+		$mm = date("i", $SendDate);
+	}
+*/
+?>
+</body>
+</html>

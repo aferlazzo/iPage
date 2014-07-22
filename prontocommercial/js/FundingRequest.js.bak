@@ -1,0 +1,856 @@
+//var activeColor = '#025167', defaultColor = '#5EC4CD';
+
+function LoanApp(Request)
+{
+	if(Request.value == "Loan"){
+		window.location.replace('https://cl139.justhost.com/~prontoc2/LoanApplication.php');
+	}
+}
+
+$(document).ready(function(){
+
+	// this routine runs when form data is input, tabs, or buttons pressed
+	// TO DEBUG DEBUG DEBUG
+	// make sure FundingRequest.min.css in the css directory is deleted to debug
+	//if you are changing this file, also delete FundingRequest.min.js 
+	//to watch the bubbling of events, set the 'd' class to display:inline and set variable DebugFundingRequests in ProntoCommon.js to true
+	
+	$('#frDebug').toggle(function(){
+		$('.debug').css('display', 'inline-block');
+		$(this).text('Debug On');
+	},
+	function(){
+		$('.d').css('display', 'none');
+		$(this).text('Debug Off');
+	});
+
+	$('.featuretteMask')
+		.html("<p style='margin-top', '100px;color:red;background:yellow;'>Use the 'forward one slide' button (below) to fill-out all three slides of your request.</p>");
+/*
+	$('.ui-effects-transfer').css('border', '2px solid black');
+	$('#Dot').css('left', 630).css('top', 220).css('display', 'block');
+	$('#Dot').hover(function(){
+		$(this).effect('transfer', { to: $('#forwardOne'), className: 'ui-effects-transfer' },1000);
+	}, function(){
+		$(this).effect('transfer', { to: $('#forwardOne'), className: 'ui-effects-transfer' },500);
+	});
+		
+/*
+	for (var d=630; d > 370; d = d - 20){
+		$('#Dot').animate({left:d}, 'fast');
+	}
+	for (var d=220; d < 400; d = d + 20){
+		$('#Dot').animate({top: d}, 'fast');
+		//console.log(d);
+	}
+*/
+	//$('#forwardOne').trigger('click');	
+	
+	//$('#hint').(effect("bounce", { times:3 }, 300);
+		
+		var Currency = 'USD', SwiftType = 'None', FormData;
+		var Verror = false, panel0Valid = false, panel1Valid = false, panel2Valid = false;
+		var FullName, Phone, Country, Email, Category, Comments, Captcha;
+		var currencySymbol = "$"; // we start with currency symbol $
+
+		$('.ErrorMessage').each(function(i){	//blank out error messages
+			$(this).css('color', 'rgb(255, 255, 255)');
+		});
+
+		//**************************************************************************************************//
+		//																									//
+		//		Here is where we alter the default definitions from ProntoCommon.js							//
+		//		so that funding requests will get done correctly.											//
+		//																									//
+		//**************************************************************************************************//
+		
+		//$.fx.off = true; // -------------> disable all effects  <---------------------
+		$('h3').unbind();
+		$('#pause, #speedSlider, #sl').css('display', 'none'); 
+		$('#resume').css('display', 'block'); // make toggle icon 'resume'	
+	
+		//--------------set up the Amount and Length sliders ----------------------------------------
+
+		var aInterval = null;
+		$('#amountSlider').slider({
+			animate: true,
+			step: 1000000,
+			range: "min",
+			min: 1000000,
+			orientation: 'horizontal',
+			max: 500000000,
+			value: 1000000,
+			start: function(event, ui){
+				$('#current_value').empty();
+				aInterval = setInterval(UpdateAmtTextBox, 1);	
+			},
+			slide: function(event, ui){
+				setTimeout(UpdateAmtTextBox, 1);  
+			},
+			stop: function(event, ui){
+				clearInterval(aInterval);
+				aInterval = null;
+			}
+		});	
+		
+		var lInterval = null;
+		$('#lengthSlider').slider({
+			animate: true,
+			step: 1,
+			range: "min",
+			min: 1,
+			value: 12,
+			orientation: 'horizontal',
+			max: 15,
+			start: function(event, ui){
+				$('#LengthBox').empty();
+				lInterval = setInterval(UpdateLengthBox, 10);	
+			},
+			slide: function(event, ui){
+				setTimeout(UpdateLengthBox, 10);  
+			},
+			stop: function(event, ui){
+				clearInterval(lInterval);
+				lInterval = null;
+			}	
+		});
+		
+		//link the Amount textbox changes to the amountSlider
+		$('#Amount').change(function() {
+			var amt=document.getElementById('Amount').value;
+			amountTypedIn(amt);
+		});
+		//link the Length textbox changes to the lengthSlider
+		$('#LengthBox').change(function() {
+			var amt=document.getElementById('LengthBox').value;
+			lengthTypedIn(amt);
+		});
+
+			//by default, each graphic has a light blue background: rgb(94, 196, 205) or #5EC4CD is hex color notation
+			//the active accordion panel's color is dark blue: rgb(2, 81, 103) or #025167 is hex color notation
+		
+		$('button').focus(function(){
+			$(this).stop().effect('highlight', 'slow');
+		});
+
+		$('#CurrencyType').toggle(function() {
+				//console.log($(this).parent().attr('id')+ ' toggle EURO');
+				$(this).css('backgroundPosition', '0px -60px');
+				$('#EuroSymbol').css('display', 'block');
+				$('#DollarSymbol').css('display', 'none');
+				Currency = 'EURO';
+				currencySymbol = '\u20ac';
+				//console.log('EURO');
+				UpdateAmtTextBox();
+			}, function(){
+				//console.log($(this).parent().attr('id')+ ' toggle USD');
+				$(this).css('backgroundPosition', '0 0');		
+				$('#EuroSymbol').css('display', 'none');
+				$('#DollarSymbol').css('display', 'block');
+				Currency = 'USD';
+				currencySymbol = '$';
+				UpdateAmtTextBox();
+		});
+		
+		/*
+		.jquery-checkbox img{
+	background-position: 0px 0px;
+}
+.jquery-checkbox-hover img{
+	background-position: 0px -20px;
+}
+.jquery-checkbox-checked img{
+	background-position: 0px -40px;
+}
+.jquery-checkbox-checked .jquery-checkbox-hover img {
+	background-position: 0px -60px;
+	*/
+		
+		
+		
+			
+		//for sliders ----------------------------------------------
+		var sliderWidth= $('#amountSlider').css('width');			//length of amountSlider in px
+		sliderWidth = '600px';								//adjust width
+		$('#amountSlider').css('width', sliderWidth);
+		var digitpattern=/\d+/;									//just give me the digits in the exec (the regular expression
+		var sliderEnd = digitpattern.exec(sliderWidth);
+		var sliderMiddle = sliderEnd/2;						//these are the 3 labels we'll add
+		var sStartLabel  = '$1,000,000';
+		var sMiddleLabel = '$250,000,000';
+		var sEndLabel    = '$500,000,000';
+
+		var numberOfTicMarks = 50;							// 50 tics should be sufficient without being too crowded
+		var tic = new Array(numberOfTicMarks);				// this creates an array with 50 elements
+		var ticOffset = sliderEnd / (numberOfTicMarks - 1);
+		for(i=0; i<=numberOfTicMarks; i++){					// and fills the table with the x-location of each tic mark
+			tic[i] = i * ticOffset;
+		}
+		//now set the style attributes for amountSliderScale ol below the slider graphic
+		$('.amountSliderScale').css('list-style-type','none').css('margin','28px 0 0 0').css('padding', 0).css('width', sliderWidth);
+		$('.amountSliderScale li').css('display', 'inline');  //make sure the amountSliderScale ol li's are on one horizontal line
+		
+		var sliderBorderColor = $('.ui-slider').css('borderRightColor');	//use the same color for the tic marks as the slider
+		// now add the spans for actual lengthTic marks
+		for(i=1; i<numberOfTicMarks - 1; i++){
+			$('.amountSliderScale').find('.sStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[i]+'px;background:'+sliderBorderColor+';"></span>\n');
+		}
+	
+		//---------------------------------------------------------------------------------------------
+	
+		var lengthWidth  = $('#lengthSlider').css('width');				//length of lengthSlider in px
+		lengthWidth = '500px';
+		$('#lengthSlider').css('width', lengthWidth);
+		var lengthEnd    = digitpattern.exec(lengthWidth);
+
+		numberOfTicMarks = 15;										// for the 15 months in the lengthSlider scale 
+		var lengthTic = new Array(numberOfTicMarks);						// this creates an array with 15 elements
+		ticOffset = lengthEnd / Math.round(numberOfTicMarks - 1);	// the array describes the tic mark offsets
+		for(i=0; i<=numberOfTicMarks; i++){							// and fills the table with the x-location of each tic mark
+			lengthTic[i] = i * ticOffset;
+		}
+		
+		//now set the style attributes for lengthSliderScale ol below the slider graphic
+		$('.lengthSliderScale').css('list-style-type','none').css('margin','28px 0 0 0').css('padding', 0).css('width', lengthWidth);
+		$('.lengthSliderScale li').css('display', 'inline');  //this makes the lengthSliderScale ol li's to be displayed on one horizontal line
+		// now add the spans for actual lengthTic marks
+		for(i=1; i<numberOfTicMarks - 1; i++){
+			$('.lengthSliderScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+lengthTic[i]+'px;background:'+sliderBorderColor+';width:.01px;"></span>\n');
+		}
+		// end of slider code ------------------------------------------------------
+		
+		//let's say that we want to display the number with no decimal places using 
+		//spaces for thousands separators (a common international standard) and a 
+		//period for the decimal point. It is a monetary value but we don't know if 
+		//it is euros or USD so we'll leave the currency indicators blank. If the 
+		//number is negative we'll keep the - on the front. If our number field is 
+		//mynum then we would just replace the reference to mynum that is displaying 
+		//with the following to display our formatted version.
+		//formatNumber(mynum,0,' ','.','','','-','')
+				
+		function formatNumber(num,dec,thou,pnt,curr1,curr2,n1,n2) {
+			document.getElementById('Bubble').value += 'formatNumber start\r\n';
+			var x = Math.round(num * Math.pow(10,dec));
+			if (x >= 0){ n1=n2=''; }
+			var y = (''+Math.abs(x)).split('');
+			var z = y.length - dec;
+			if (z<0){ z--; }
+			for(var i = z;i < 0;i++){ 
+				y.unshift('0');
+			}
+			if (z<0){
+				z = 1;
+			}
+			y.splice(z, 0, pnt);
+			if(y[0] == pnt){
+				y.unshift('0');
+			}
+			while (z > 3) {
+				z-=3;
+				y.splice(z,0,thou);
+			}
+			var r = curr1+n1+y.join('')+n2+curr2;
+			return r;
+		}
+		
+		//when the slider is moved change the amount in the textbox		
+		function UpdateLengthBox() {
+			document.getElementById('Bubble').value += 'UpdateLengthBox start\r\n';
+		    var offset = $('#lengthSlider .ui-slider-handle').offset();
+		    var value = $('#lengthSlider').slider('option', 'value');
+			
+		    //$('#current_value').text(value).css({top:offset.top });
+			
+			document.getElementById('LengthBox').value=value;
+		}
+
+		//when the slider is moved change the amount in the textbox		
+		function UpdateAmtTextBox() {
+			document.getElementById('Bubble').value += 'UpdateTextBox start\r\n';
+		    var value = $('#amountSlider').slider('option', 'value');
+			value = formatNumber(value,0,' ','',currencySymbol,'','-','');
+			document.getElementById('Amount').value=value;
+		}
+
+		//when Amount textbox is updated, remove non-numerics and update slider
+		function amountTypedIn(amt){
+			document.getElementById('Bubble').value += 'amountTypedIn start\r\n';
+			// make slider's value equal to amount typed in
+			//first remove any non-numerics
+			var pattern = /[^0-9]/g;
+			amt = amt.replace(pattern, "");
+			$('#slider').slider('value', amt);
+			amt < 1000000 ? amt=1000000 : amt=amt;
+			amt > 500000000 ? amt=500000000 : amt=amt;
+			document.getElementById("Amount").value = formatNumber(amt,0,' ','',currencySymbol,'','-','');
+			$('#amountSlider').slider('option', 'value', amt);
+			UpdateAmtTextBox();		//we call this in case an out of range number was entered
+		}
+
+		// make lengthSlider's value equal to length typed in
+		function lengthTypedIn(amt){
+			document.getElementById('Bubble').value += 'lengthTypedIn start\r\n';
+		
+			//first remove any non-numerics
+			var pattern = /[^0-9]/g;
+			amt = amt.replace(pattern, "");
+			(amt < 1)  ? amt=1 : amt=amt;
+			(amt > 15) ? amt=15 : amt=amt;
+			$('#lengthSlider').slider('option', 'value', amt);
+			UpdateLengthBox(); //we call this in case an out of range number was entered
+		}	
+	
+		//*****disable the Enter key ********
+		$('select, input').live('keydown', function(e) { 
+			var keyCode = e.keyCode || e.which; 
+			//alert('keycode was '+keyCode);
+			if (keyCode == 9)
+			{			
+				//alert('tabindex '+ $(this).attr('tabindex'));
+				if ($(this).attr('tabindex') == 5) {
+					e.preventDefault();
+					openPanel(1);
+					$('#Category').focus();
+				}
+				if ($(this).attr('tabindex') == 18){
+					e.preventDefault();
+					openPanel(2);
+					$('#Comments').focus();
+				}
+			}
+			
+			return (keyCode == 13) ? false : true; 
+		});
+		//***********************************
+		
+		//here is the hover and click logic for Swift type buttons
+
+		$('.sw-button').click(function(e){
+			$('.sw-button').each(function(i){
+				$(this).removeClass('checked');
+			});
+			$(this).addClass('checked');
+		});
+
+		//--------------------------------------------------------------
+		
+		// the fields for accordion panel 0, this first panel
+			
+		$('#FullName').blur(function() {			
+			document.getElementById('fName').value = '$("#FullName").blur()';
+			document.getElementById('Bubble').value += '$("#FullName").blur()\r\n';
+			FullName = $('#FullName').val();
+			if (FullName.length === 0){
+				$('#FullNameError').css("color",  '#f00').css("backgroundColor", 'yellow');
+
+			}
+			else{
+				$('#FullNameError').css("color",  'rgb(255, 255, 255)').css("backgroundColor", 'transparent');
+			}
+			
+			return false; //must tell caller we're done with checking
+		});
+				
+		$('#Phone').blur(function() {					
+			document.getElementById('fName').value = '$("#Phone").blur()';
+			document.getElementById('Bubble').value += '$("#Phone").blur()\r\n';
+			Phone = $('#Phone').val();
+			if (Phone.length === 0) {
+				$('#PhoneError').css("color",  '#f00').css("backgroundColor", 'yellow');
+			}
+			else{
+				$('#PhoneError').css("color",  'rgb(255, 255, 255)').css("backgroundColor", 'transparent');
+			}
+
+				return false; //must tell caller we're done with checking
+		});
+		
+		$('#Country').blur(function() {					
+			document.getElementById('fName').value = '$("#Country").blur()';
+			document.getElementById('Bubble').value += '$("#Country").blur()\r\n';
+			Country	= $('#Country option:selected').val();
+			if (Country.length === 0){
+				$('#CountryError').css("color",  '#f00').css("backgroundColor", 'yellow');
+			}
+			else{
+				$('#CountryError').css("color",  'rgb(255, 255, 255)').css("backgroundColor", 'transparent');
+			}
+			
+			return false; //must tell caller we're done with checking
+		});
+		
+		$('#Email').blur(function() {					
+			document.getElementById('fName').value = '$("#Email").blur()';
+			document.getElementById('Bubble').value += '$("#Email").blur()\r\n';
+			Email	= $('#Email').val();
+			if (Email.length === 0){
+				$('#EmailFormatError').css("margin-top", '0').css("color", '#fff').css("backgroundColor", 'transparent');
+				$('#EmailError').css("margin-top", '0').css("color", '#f00').css("backgroundColor", 'yellow');
+			}
+			else
+			{
+				$('#EmailError').css("margin-top", '0').css("color", '#fff').css("backgroundColor", 'transparent');
+				if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Email))
+					$('#EmailFormatError').css("margin-top", '-24px').css("color", '#fff').css("backgroundColor", 'transparent');
+				else{
+					$('#EmailFormatError').css("margin-top", '-24px').css("color", '#f00').css("backgroundColor", 'yellow');
+				}
+			}
+
+			return false; //must tell caller of we are done
+		});
+		
+		//the Category field was blurred...
+		
+		$('#Category').blur(function() {
+			document.getElementById('fName').value = '$("#Category").blur()';			
+			document.getElementById('Bubble').value += '$("#Category").blur()\r\n';
+			panel1Valid = true;
+			Category = $('#Category option:selected').val();
+			if (Category.length == 0)
+			{
+				$('#CategoryError').css("color",  '#f00').css("backgroundColor", 'yellow');
+				$('#FormH3Label1').removeClass('panelValid');
+			}
+			else{
+				$('#CategoryError').css("color",  '#fff').css("backgroundColor", 'transparent');
+			}
+			
+			return false; //must tell caller we're done with checking
+		});
+		
+			//--------------------------------------------------------
+
+		$('#Comments').dblclick(function(){
+			$('#Content2New').css('background', defaultColor).css('display', 'block').corner();
+			$('#Content2New p').css('display', 'inline');
+			$('#C2Comments').css('display', 'inline-block').val($(this).val());
+		});
+		$('#C2Comments, #Content2New').dblclick(function(){
+			$('#Content2New').css('display', 'none');
+			$('#C2Comments').css('display', 'none');	
+			$('#Content2New p').css('display', 'none');	
+			$('#Comments').val($('#C2Comments').val()).blur();
+		});
+
+		$('#Comments').blur(function() {
+			document.getElementById('fName').value = '$("#Comments").blur()';			
+			document.getElementById('Bubble').value += '$("#Comments").blur()\r\n';
+			Comments = $('#Comments').val();
+			if (Comments == '')
+			{
+				$('#CommentsError').css("color",  '#f00').css("backgroundColor", 'yellow');
+			}
+			else{
+				$('#CommentsError').css("color",  'rgb(255, 255, 255)').css("backgroundColor", 'transparent');
+			}
+			return false; //must tell caller we're done with checking
+		});
+
+		function ReadCaptchaCookie() {
+			var count = 1; //default is 1
+			if(document.cookie) 
+			{
+				index = document.cookie.indexOf("CODE");	//see if cookie exists
+				if (index != -1) {								//if so, read cookie
+					countbegin = (document.cookie.indexOf("=", index) + 1);
+					countend = document.cookie.indexOf(";", index);
+					if (countend == -1) {
+						countend = document.cookie.length;
+					}
+					count = document.cookie.substring(countbegin, countend);
+				}
+			}
+			return (count);		//return contents of cookie
+		}		
+
+		$('#Captcha').blur(function() {			
+			document.getElementById('fName').value = '$("#Captcha").blur()';			
+			document.getElementById('Bubble').value += '$("#Captcha").blur()\r\n';
+
+			var Scode = ReadCaptchaCookie(); //at start-up check cookie
+			var Captcha = $('#Captcha').val();  //value of field on page
+			//alert('keyed in '+Captcha+' Scode '+Scode);
+			document.getElementById('Bubble').value += 'keyed in |'+Captcha+'|\r\n cookie  |'+ Scode + '|\r\n';
+			
+			if (Captcha.length == 0) 
+			{
+				$('#CaptchaCopyError').css("margin-top", '0').css("color", '#fff').css("backgroundColor", 'transparent');
+				$('#CaptchaError').css("margin-top", '0').css("color", '#f00').css("backgroundColor", 'yellow');
+			}
+			else
+			{
+				$('#CaptchaError').css("margin-top", '0').css("color", '#fff').css("backgroundColor", 'transparent');
+				if(Scode != Captcha)
+				{
+					$('#CaptchaCopyError').css("margin-top", '-24px').css("color", '#f00').css("backgroundColor", 'yellow');
+				}
+				else{
+					$('#CaptchaCopyError').css("margin-top", '-24px').css("color", '#fff').css("backgroundColor", 'transparent');
+				}
+			}	
+
+			return false; //must tell caller we're done with checking
+		});			
+			
+		//**************************************************************************************//
+		//																						//
+		//		openPanel - animates open of a particular panel									//
+		//																						//
+		//**************************************************************************************//
+		
+		function openPanel(i)
+		{
+			//alert('opening panel '+i);
+
+			activateH1(i);	//puts up title on the H1 line
+			panelIndex = i;	//panelIndex is a global variable used in normal accordion routines
+
+			$('.panel').eq(i) 
+				.css('width', fullPanelWidth).css('display', 'width')
+				//.filter(':not(:animated)')
+				.stop().animate({left:i*h3Width}, {speed: 'slow'}, easingMethod);	// until it is 0, the first active position.
+			document.getElementById('Bubble').value += 'Opened Content'+i+'\r\n';
+		}
+	
+		//**************************************************************************************//
+		//																						//
+		//		closePanel -	an animated close of a particular panel occurs.					//
+		//																						//
+		//**************************************************************************************//
+					
+		function closePanel(i)
+		{
+			//alert('closing panel '+i);
+			$('h3').each(function(){ $(this).css('backgroundColor', defaultColor); });
+
+			if(i>0)
+			{
+				$('.panel').eq(i) 
+					.css('width', fullPanelWidth).css('display', 'width')
+					.filter(':not(:animated)')
+					.stop().animate({left:(500 + i * h3Width)}, {speed: 'slow'}, easingMethod);	
+
+				document.getElementById('Bubble').value += 'Closed Content'+i+'\r\n';
+			}
+		}
+		
+		//**********************************************************************************//
+		//																					//
+		//	The first two accordion panels each have a blur-like function					//
+		//	The blur panel is where the contents of that panel is checked for validity		//
+		//																					//
+		//**********************************************************************************//
+		
+		function content0Blur(){
+		var xxx;
+		//alert('Content0 blur occurs here');
+			document.getElementById('fName').value = '$("#Content0").blur()';			
+			document.getElementById('Bubble').value += '$("#Content0").blur()\r\n';
+			
+			// look at *each* panel0Field and display error messages if fields are blank
+
+			$('#FormH3Label0').addClass('panelValid'); //start this way...
+			document.getElementById('Bubble').value += 'added class panelValid to FormH3Label0 before check\r\n';
+
+			//in div Content0 find every class = panel0Fields, and run this function against each match
+			//blur each field to force field validation check
+			$('.panel0Fields').each(function(i) {
+				xxx = $(this).attr('id');
+				//alert('#'+xxx);
+				//$('#'+xxx).focus();
+				$('#'+xxx).trigger('blur'); //cause a blur of the field to trigger the routine bound to it
+			});
+			
+			// now look at the error messages in the same div to see their foreground color
+			// if an error message is visible remove the PanelValid class from the label
+			$('.panel0Errors').each(function(i) {
+				if (($(this).css('color') != 'rgb(255, 255, 255)')	
+				&&  ($(this).css('color') != 'rgb(255,255,255)') 
+				&&  ($(this).css('color') != '#fff')){
+					$('#FormH3Label0').removeClass('panelValid');
+					document.getElementById('Bubble').value += 'removed class panelValid from FormH3Label0\r\n';
+					$('FormH3Label0').click();
+				}
+			});
+		}	
+	
+		//moving away from the first panel....
+		
+		function content1Blur(){
+			var xxx;
+		//alert('Content1 blur occurs here');
+			document.getElementById('fName').value = '$("#Content1").blur()';			
+			document.getElementById('Bubble').value += '$("#Content1").blur()\r\n';
+
+			// look at each panel1Field and display error messages if fields are blank
+
+			$('#FormH3Label1').addClass('panelValid');
+			document.getElementById('Bubble').value += 'added class panelValid to FormH3Label1 before check\r\n';
+			
+			//in div Content1 find every class = panel1Fields, and run this function against each match
+			//blur each field to force field validation check
+			$('.panel1Fields').each(function(i) {
+				xxx = $(this).attr('id');
+				//$('#'+xxx).focus();
+				$('#'+xxx).eq(i).trigger('blur'); //cause a blur of the field to trigger the routine bound to it
+			});
+			
+			//now look at the error messages in the same div to see their foreground color
+			
+			$('.panel1Errors').each(function(i) {
+				if (($(this).css('color') != 'rgb(255, 255, 255)') 
+				&&  ($(this).css('color') != 'rgb(255,255,255)')
+				&&  ($(this).css('color') != '#fff')){
+					$('#FormH3Label1').removeClass('panelValid');
+					document.getElementById('Bubble').value += 'removed class panelValid from FormH3Label1\r\n';
+					$('FormH3Label1').click();
+				}
+			});
+		}
+		
+		
+		var ftime0 = true, ftime1 = true;
+
+		// **************************************************************************************** //
+		//																							//
+		//		the 3 accordion panels each have a h3 header click() function						//
+		//		their ids are FormH3Label0, FormH3Label1, and FormH3Label2							//
+		//																							//
+		//		the label is clicked when the user tries moving to that panel						//
+		//		The blur panel is where the contents of that panel is checked for validity			//
+		//																							//
+		// **************************************************************************************** //
+	
+
+		$('#FormH3Label0').click(function(){
+			document.getElementById('fName').value = '$("#FormH3Label0").click()';			
+			document.getElementById('Bubble').value += '$("#FormH3Label0").click()\r\n';
+			document.getElementById('Bubble').value += 'activated panel 0 - Content0\r\n';
+			if(ftime0 == true){
+				tfime0 = false;
+			}
+			else{
+				$('#Content0').blur(); //check panel 0 for errors
+			}
+			closePanel(1);
+			closePanel(2);
+			panelIndex=0;
+			openPanel(0);
+		});
+		
+		// if the second panel's headers was clicked, panel 0's blur function will kick-off making 
+		// sure all fields in panel 0 are valid before leaving...
+	
+		$("#FormH3Label1").click(function() {	
+			document.getElementById('fName').value = '$("#FormH3Label1").click()';			
+			document.getElementById('Bubble').value += '$("#FormH3Label1").click()\r\n';
+			document.getElementById('Bubble').value += 'Trying to move to panel 1.1\r\n';
+			document.getElementById('Bubble').value += 'activated panel 1 - Content1\r\n';
+			if(ftime1 === true){
+				tfime1 = false;
+			}
+			else{
+				$('#Content1').blur(); //check panel 1 for errors
+			}
+			closePanel(0);
+			closePanel(2);
+			panelIndex=1;
+			openPanel(1);
+		});
+		
+		// if the third panel's headers was clicked, panels 0 and 1's blur functions will kick-off making 
+		// sure all fields in panel 0 and 1 are valid before leaving either of them...
+
+		$("#FormH3Label2").click(function() {	//this is the third tab
+			document.getElementById('fName').value = '$("#FormH3Label2").click()';			
+			document.getElementById('Bubble').value += '$("#FormH3Label2").click()\r\n';
+			document.getElementById('Bubble').value += 'trying to move to panel 2.1\r\n';
+			openPanel(1);
+			$('#Content1').trigger('blur'); 
+			$('#Content0').trigger('blur'); //check panel 0 for errors
+			panelIndex=2;	
+			openPanel(2);
+		});
+		
+		//------------------------------------------------------------------
+		//AJAX stuff: if submit button within FundingRequest.php is clicked execute the jquery routine in FundingRequest.js
+		// don't allow click unless all form fields are filled correctly ( meaning panel2Valid == true)*****************************************
+		//------------------------------------------------------------------
+	
+		$('button').css('backgroundColor', activeColor);
+		$('button').hover(function(){
+			$(this).css('backgroundColor', defaultColor);
+		}, function(){
+			$(this).css('backgroundColor', activeColor);
+		});
+		
+		$('#SendRequestButton').click(function(e) {
+			document.getElementById('fName').value = '$("#SendRequestButton").click()';			
+			document.getElementById('Bubble').value += '$("#SendRequestButton").click()\r\n';
+			//When tab 2 is clicked prevent form submission by default. Fields on tabs must first be entered or checked
+			e.preventDefault();
+			/*
+			$('#FormH3Label0').removeClass('panelValid');
+			$('#FormH3Label1').removeClass('panelValid');
+			*/
+			// now look at each error message and determine if the display css attribute is set to block or none
+			// if any field is display:block then don't leave tab
+			$('#FormH3Label1').addClass('panelValid');
+			
+			$('.panel1Fields').each(function(i) {	//this causes every .panel1Fields to be checked
+				content1Blur();
+			});
+			
+			$('.panel1Errors').each(function(i) {
+				if (($(this).css('color') != 'rgb(255, 255, 255)')	
+				&&  ($(this).css('color') != 'rgb(255,255,255)')
+				&&  ($(this).css('color') != '#fff')){
+					$('#FormH3Label1').removeClass('panelValid');
+				}
+			});
+			
+			// now look at each error message and determine if the display css attribute is set to block or none
+			// if any field is display:block then don't leave tab
+			$('#FormH3Label0').addClass('panelValid');
+			
+			$('.panel0Fields').each(function(i) {	//this causes every .panel0Fields to be checked
+				content0Blur();
+			});
+			
+			$('.panel0Errors').each(function(i) {
+				if (($(this).css('color') != 'rgb(255, 255, 255)')	
+				&&  ($(this).css('color') != 'rgb(255,255,255)')
+				&&  ($(this).css('color') != '#fff')){
+					$('#FormH3Label0').removeClass('panelValid');
+				}
+			});
+			
+			if (($('#FormH3Label0').hasClass('panelValid') === false)	//put up errors if required fields aren't filled in
+			||  ($('#FormH3Label1').hasClass('panelValid') === false))
+			{
+			
+				var $dialog = $('<div class="dialogBox"></div>')
+					.html('<p>Please use the forward/backward slide buttons to check all 3 slides and fill-in fields as requested.</p>')
+					.dialog({
+							autoOpen: true,
+							title: 'Your funding request is incomplete',
+							zIndex: 355,
+							buttons: { "Okay": function() { $(this).dialog("close"); } },
+							beforeclose: function(){
+									$(this).parent().hide("slide", { direction: "right" }, 1000);
+									return(false);
+								}
+				});
+				
+				//openPanel(0);
+				//$('#FormH3Label0').click();
+			}
+			
+			$('.panel2Fields').each(function(i) {	//this causes every .panel2Fields to be checked
+				$(this).blur();
+			});
+			// now look at each error message and determine if the display css attribute is set to block or none
+			// if any field is display:block then don't leave tab
+			$('#FormH3Label2').addClass('panelValid');
+			
+			$('.panel2Errors').each(function(i) {
+				if (($(this).css('color') != 'rgb(255, 255, 255)')	
+				&&  ($(this).css('color') != 'rgb(255,255,255)')
+				&&  ($(this).css('color') != '#fff')){
+					$('#FormH3Label2').removeClass('panelValid');
+				}
+			});
+				
+			document.getElementById('fName').value = 'panel2Valid ' + panel2Valid;
+			
+			if(($('#FormH3Label0').hasClass('panelValid')=== true)
+			&& ($('#FormH3Label1').hasClass('panelValid')=== true)
+			&& ($('#FormH3Label2').hasClass('panelValid')=== true))
+			{
+				$('#SendRequestBox').remove(); //hide the button to prevent spamming
+				
+ 			
+				$('.sw-button').each(function(i){
+					vv = $(this).attr('id');
+					stat = $(this).hasClass('checked');
+					//console.log(vv + ' ' + stat);
+					if(stat == true)
+						SwiftType = vv;
+				});
+
+				FullName	= $('input[name=FullName]').val();
+				ph			= $('input[name=Phone]').val();
+				var pattern = /(\d{3})(\d{3})(\d{4})/;
+				if(ph.length == 10){
+					Phone=ph.replace(pattern, "$1.$2.$3");
+				}
+				else{
+					Phone=ph;
+				}
+				//Phone			= ph.replace(pattern, "");
+				Skype			= $('input[name=Skype]').val();
+				Country			= $('#Country option:selected').val();
+				Category		= $('#Category option:selected').val(); 
+				Email			= $('input[name=Email]').val();
+				Amount			= $('#Amount').val();	//first remove any non-numerics
+				//var pattern = /[^0-9]/g;
+				//Amount			= amt.replace(pattern, "");				
+				LengthBox		= $('input[name=LengthBox]').val();
+				Comments		= $('textarea[name=Comments]').val();
+				security_code	= $('input[name=Captcha]').val();
+
+				//organize the form data properly
+				MyData = 'Category=' + Category + '&Amount=' + Amount +
+				'&Currency=' + Currency + '&Months=' + LengthBox+  
+				'&Swift=' + SwiftType + '&FullName=' + encodeURIComponent(FullName) +
+				'&Phone=' + encodeURIComponent(Phone) + '&Skype=' + Skype +  
+				'&Country=' + Country + '&Email=' + Email +'&security_code=' + security_code +  
+				'&Comments=' + encodeURIComponent(Comments);
+				
+				document.getElementById('Bubble').value += 'data string is ' + MyData;
+				//console.log('sending '+MyData);
+				$.get("FundingRequestAction.php", MyData, function(data){
+					//alert("Data Loaded: " + data);
+					$('#Return').html(data);
+					
+					if(data == '1'){
+						window.location='FundingRequestSent.php';
+					}
+					else{
+						alert('Ajax return code ' +data);
+					}
+				});
+				
+			} // end ta2Valid == true
+			
+			$('FormH3Label0').click();
+			$('FormH3Label1').click();
+			
+		}); //end click on SendRequest button
+		
+		$('#CancelRequestButton').click(function(e) {
+			//alert('cancelling');
+		});
+		
+		//all hover and click logic for buttons
+		$(".fg-button:not(.ui-state-disabled)")
+		.hover(
+			function(){ 
+				$(this).addClass("ui-state-hover"); 
+			},
+			function(){ 
+				$(this).removeClass("ui-state-hover"); 
+			}
+		)
+		.mousedown(function(){
+				$(this).parents('.fg-buttonset-single:first').find(".fg-button.ui-state-active").removeClass("ui-state-active");
+				if( $(this).is('.ui-state-active.fg-button-toggleable, .fg-buttonset-multi .ui-state-active') ){ $(this).removeClass("ui-state-active"); }
+				else { $(this).addClass("ui-state-active"); }	
+		})
+		.mouseup(function(){
+			if(! $(this).is('.fg-button-toggleable, .fg-buttonset-single .fg-button,  .fg-buttonset-multi .fg-button') ){
+				$(this).removeClass("ui-state-active");
+			}
+		});		
+}); // end jquery

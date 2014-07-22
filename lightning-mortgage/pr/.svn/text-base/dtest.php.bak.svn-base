@@ -1,0 +1,6 @@
+<?php
+	$Now = date ("dHis"); //returns current time in ddhhmmss format. 
+	$ComputedLockTime = 500 + $Now; //add 5 minutes returned as unsigned integer
+	$Future = substr($ComputedLockTime, 0, 2)." ".substr($ComputedLockTime, 2, 2).":".substr($ComputedLockTime, 6, 2).":".substr($ComputedLockTime, 8, 2);
+	$Present = substr($Now, 0, 2)." ".substr($Now, 2, 2).":".substr($Now, 6, 2).":".substr($Now, 8, 2);
+print("$Present $Future");

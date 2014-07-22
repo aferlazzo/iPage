@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Perfect Response</title>
+<link rel="SHORTCUT ICON" href="../favicon.ico" type="image/x-icon">
+</head>
+
+<frameset>
+  <frameset rows="*,70">  <!-- 630,*"> -->
+	<frameset cols="595,*">
+		<frame name="Main" src="home.php" marginwidth="0" marginheight="0" scrolling="yes" target="_self">
+    	<frame name="Monitor" src="home2.htm" marginwidth="0" marginheight="0" frameborder="1" scrolling="yes" resize>
+  </frameset>
+  <frameset>
+  	<frame name="LogFile" src="DisplayLog.php?f=activity"  marginwidth="0" marginheight="0" scrolling="yes" target="_self">
+</frameset>
+  <noframes>
+  <body>
+
+  <p>This page uses frames, but your browser doesn't support them.</p>
+
+  </body>
+  </noframes>
+</frameset>
+
+</html>

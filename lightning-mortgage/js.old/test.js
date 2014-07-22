@@ -1,0 +1,224 @@
+function Trim(strInput)
+{
+var Tstr;
+if(strInput.length == 0)
+{
+return "";
+}
+else
+{
+strTemp = strInput.substring(strInput.length - 1);
+}
+while (strTemp == " ")
+{
+strInput = strInput.substring(0, strInput.length - 1);
+if (strInput.length == 0)
+strTemp = "";
+else
+strTemp = strInput.substring(strInput.length - 1);
+}
+if (strInput.length == 0)
+strTemp = "";
+else
+strTemp = strInput.substring(0, 1);
+while (strTemp == " ")
+{
+//alert("|"+strTemp+"|");
+Tstr = strInput.substring(1);
+strInput = Tstr;
+if (strInput.length == 0)
+strTemp = "";
+else
+strTemp = strInput.substring(0, 1)
+}
+return strInput;
+}//close Trim Function
+function checkEmail(strEmail)
+{
+emailflag="";
+if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(strEmail))
+   emailflag="Valid";
+else
+emailflag="Not Valid";
+return emailflag;
+}
+function Validate()
+{
+var objName = document.Main;
+if((Trim(objName.Full_Name.value) == "") || (objName.Full_Name.value == "Enter Your First Name Here"))
+{
+alert("Please enter your name");
+objName.Full_Name.focus();
+return false;
+}
+if(Trim(objName.Email_Address.value) == "")
+{
+alert("Please enter your E-mail address");
+objName.Email_Address.focus();
+return false;
+}
+if(checkEmail(objName.Email_Address.value) == "Not Valid")
+{
+alert("Please enter a valid E-mail address");
+objName.Email_Address.focus();
+return false;
+}
+else
+return true;
+}
+var animateDelay = 7;
+var object = null;
+var cX = null; 
+var cY = null; 
+var fX = null; 
+var fY = null; 
+var endY, Direction;
+var nextX = 0, nextY=0;
+	
+function initAnimateRight(objectID) {
+	Blank();
+	object = document.getElementById(objectID);
+	cX = fX =  object.offsetLeft;
+	cY = fY =  object.offsetTop;
+	nextX=nextY=0;
+	animateObjectRight();
+}
+
+function animateObjectRight()  {
+	if (nextX <= 522) 
+	{ 
+		var nX = cX + 1;
+		var nY = cY;
+		
+		switch (nX)
+		{
+		case 6: nextY = 0;
+				endY = 75;
+				Direction = '-';
+				animateVertically();
+				nY = cY;
+				break;
+		case 58: nextY = 0;
+				endY = 75;
+				Direction = '-';
+				animateVertically();
+				nY = cY;
+				break;
+		case 70: document.getElementById('BoltApply').style.visibility="visible";
+				break;
+		case 140: nextY = 0;
+				endY = 24;
+				Direction = '+';
+				animateVertically();
+				nY = cY;
+				break;
+		case 165: nextY = 0;
+				endY = 25;
+				Direction = '+';
+				animateVertically();
+				nY = cY;
+				break;
+		case 216: nextY = 0;
+				endY = 50;
+				Direction = '+';
+				animateVertically();
+				nY = cY;
+				break;
+		case 211: //object.style.backgroundImage="url(images/Bolt/Document.gif)";
+				break;
+		case 290: nextY = 0;
+				endY = 80;
+				Direction = '-';
+				animateVertically();
+				nY = cY;
+				break;
+		case 306: //object.style.backgroundImage="url(images/Bolt/Appraisal.gif)";
+				break;
+		case 346: nextY = 0;
+				endY = 35;
+				Direction = '+';
+				animateVertically();
+				nY = cY;
+				break;
+		case 392: //object.style.backgroundImage="url(images/Bolt/Approval.gif)";
+				  //object.style.height="138px";
+				break;
+		case 390: nextY = 0;
+				endY = 50;
+				Direction = '+';
+				animateVertically();
+				nY = cY;
+				break;
+		case 420: nextY = 0;
+				endY = 50;
+				Direction = '-';
+				animateVertically();
+				nY = cY;
+				break;
+		case 520: nextY = 0;
+				endY = 78;
+				Direction = '+';
+				animateVertically();
+				nY = cY;
+				break;
+		case 522: nX=nX - 40;
+				break;
+		}
+		
+		object.style.left = nX + 'px';
+		object.style.top = nY + 'px';
+		cX = nX;
+		cY = nY;
+		nextX++;
+		setTimeout ('animateObjectRight()',animateDelay);
+	}
+	else
+		setTimeout ("Invert()", 750);
+
+	return;
+}
+
+function animateVertically()
+ {
+	while(nextY < endY)
+	{
+		if(Direction == '-')
+			var oY = cY - 1;
+		else
+			var oY = cY + 1;
+		//alert(nY);
+		object.style.top = oY + 'px';
+		nextY++;
+		cY = oY;		
+		setTimeout ('animateVertically()',animateDelay);
+	}
+	return;
+}
+
+function Blank()
+{
+	InvertElement('Lucio');
+	InvertElement('Maze');
+	BlankElement('Box2');
+	BlankElement('EndPosition');
+	BlankElement('Box3');
+}
+function Invert()
+{
+	BlankElement('Lucio');
+	BlankElement('Maze');
+	InvertElement('Box2');
+	InvertElement('EndPosition');
+	InvertElement('Box3');
+}
+function InvertElement(Element)
+{
+	if (document.getElementById(Element).style.visibility == 'visible')
+		document.getElementById(Element).style.visibility = 'hidden';
+	else
+		document.getElementById(Element).style.visibility = 'visible';
+}
+function BlankElement(Element)
+{
+	document.getElementById(Element).style.visibility = 'hidden';
+}

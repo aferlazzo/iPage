@@ -1,0 +1,7 @@
+Test of error loggingTest of error loggingTest of error logging
+Test of error logging
+Test of error logging
+Test of error logging<br/>Test of error logging/n/rMon, 14 Jul 2008 17:00:27 Test of error logging
+Mon, 14 Jul 2008 17:00:27 mailout test (542)  Session |329647313| locking  email campaigns until |14 17:10:27|
+Mon, 14 Jul 2008 17:02:49 Test of error logging
+Mon, 14 Jul 2008 17:02:50 mailout test (556)  Session |370319149| email campaigns appear to be locked until |14 17:10:27|

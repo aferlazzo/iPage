@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<title>Wheel</title>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<link rel="stylesheet" type='text/css' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+	<link rel="stylesheet" type='text/css' href="css/reset.css">
+<style>
+	body{
+	font-family:sans-serif;
+	font-size:16px;
+	}
+	div#wrapper{
+	position:absolute;
+	top:10px;
+	padding:0;
+	left:287px;
+	width:500px;
+	height:500px;
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	}
+	div#base1{
+	background-color:#000;
+	position:absolute;
+	text-align:center;
+	top:150px;
+	left:150px;
+	width:200px;
+	height:200px;
+	border-radius:50%;
+	display:none;
+	}
+	div#base2{
+	z-index:2;
+	background-color:#00f;
+	position:absolute;
+	text-align:center;
+	top:10px;
+	left:10px;
+	width:180px;
+	height:180px;
+	border-radius:50%;
+	display:none;
+	}
+	div#base3{
+	z-index:3;
+	background-color:#0f0;
+	position:absolute;
+	text-align:center;
+	top:10px;
+	left:10px;
+	width:160px;
+	height:160px;
+	border-radius:50%;
+	display:none;
+	}
+	div#base4{
+	z-index:4;
+	background-color:#0ff;
+	position:absolute;
+	text-align:center;
+	top:10px;
+	left:10px;
+	width:140px;
+	height:140px;
+	border-radius:50%;
+	display:none;
+	}
+	div#base5{
+	z-index:5;
+	background-color:#f00;
+	position:absolute;
+	text-align:center;
+	top:10px;
+	left:10px;
+	width:120px;
+	height:120px;
+	border-radius:50%;
+	display:none;
+	}
+	div#base6{
+	z-index:6;
+	background-color:#f0f;
+	position:absolute;
+	text-align:center;
+	top:10px;
+	left:10px;
+	width:100px;
+	height:100px;
+	border-radius:50%;
+	display:none;
+	}
+	div#base7{
+	z-index:7;
+	background-color:#ff0;
+	position:absolute;
+	text-align:center;
+	top:10px;
+	left:10px;
+	width:80px;
+	height:80px;
+	border-radius:50%;
+	display:none;
+	}
+	div#base8{
+	z-index:8;
+	background-color:orange;
+	position:absolute;
+	text-align:center;
+	top:10px;
+	left:10px;
+	width:60px;
+	height:60px;
+	border-radius:50%;
+	display:none;
+	}
+	div#base9{
+	z-index:9;
+	background-color:#fff;
+	position:absolute;
+	text-align:center;
+	top:10px;
+	left:10px;
+	width:40px;
+	height:40px;
+	border-radius:50%;
+	display:none;
+	}
+
+	div#spoke1, div#spoke2, div#spoke3, div#spoke4, div#spoke5, div#spoke6, div#spoke7, div#spoke8{
+	display:none;
+	height:50px;
+	width:150px;
+	border-radius:20px;
+	font-size:47px;
+	color:#000;
+	text-align:center;
+	/*border:1px solid #000;*/
+	position: absolute;
+	}
+	div#spoke1{
+	color:#fff;
+	top: 225px;
+	left: 350px;
+	background-color:#000;
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	}
+	div#spoke2{
+	top:100px;
+	left:300px;
+	font-size:36px;
+	background-color:#00f;
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	}
+	div#spoke3{
+	top: 50px;
+	left: 175px;
+	background-color:#0f0;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	}
+	div#spoke4{
+	top: 100px;
+	left: 50px;
+	background-color:#0ff;
+	-moz-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+	}
+	div#spoke5{
+	top: 225px;
+	left: 0px;
+	background-color:#f00;
+	-moz-transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+	}
+	div#spoke6{
+	top: 350px;
+	left:50px;
+	background-color:#f0f;
+	-moz-transform: rotate(-225deg);
+	-webkit-transform: rotate(-225deg);
+	}
+	div#spoke7{
+	top: 400px;
+	left: 175px;
+	background-color:#ff0;
+	-moz-transform: rotate(-270deg);
+	-webkit-transform: rotate(-270deg);
+	}
+	div#spoke8{
+	top: 350px;
+	left: 300px;
+	background-color:orange;
+	-moz-transform: rotate(-315deg);
+	-webkit-transform: rotate(-315deg);
+	}
+</style>
+</head>
+<body>
+	<div id='wrapper'>
+		<div id='base1'>
+			<div id='base2'>
+				<div id='base3'>
+					<div id='base4'>
+						<div id='base5'>
+							<div id='base6'>
+								<div id='base7'>
+									<div id='base8'>
+										<div id='base9'>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id='spoke1'></div>
+		<div id='spoke2'></div>
+		<div id='spoke3'></div>
+		<div id='spoke4'></div>
+		<div id='spoke5'></div>
+		<div id='spoke6'></div>
+		<div id='spoke7'></div>
+		<div id='spoke8'></div>
+	</div>
+
+	<script type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+	<script>
+
+	$(document).ready(function(){
+		var i=0, j=0, timeoutId, growItTimeoutId;
+
+		function rotate(){
+			i++;
+			$('#wrapper').css({'-webkit-transform': 'rotate('+i+'deg)', '-moz-transform'   : 'rotate('+i+'deg)'});
+			clearTimeout(timeoutId);
+			if (i%45 !== 0)
+				timeoutId = setTimeout(rotate,10);
+		}
+
+		function growIt(){
+			j++;
+			$('#base'+j).css('display', 'block');
+			console.log('#base'+j);
+		}
+
+
+		function rotateGrow(){
+			rotate();
+			growIt();
+		}
+
+		setTimeout(function(){$('#spoke1').css('display','block')}, 1000);
+		setTimeout(function(){$('#spoke1').css('display','none')},  2000);
+		setTimeout(function(){$('#spoke1').css('display','block')}, 3000);
+		setTimeout(rotateGrow, 4000);
+
+		setTimeout(function(){$('#spoke2').css('display','block')}, 6000);
+		setTimeout(function(){$('#spoke2').css('display','none')},  7000);
+		setTimeout(function(){$('#spoke2').css('display','block')}, 8000);
+		setTimeout(rotateGrow, 9000);
+
+		setTimeout(function(){$('#spoke3').css('display','block')}, 11000);
+		setTimeout(function(){$('#spoke3').css('display','none')},  12000);
+		setTimeout(function(){$('#spoke3').css('display','block')}, 13000);
+		setTimeout(rotateGrow, 14000);
+
+		setTimeout(function(){$('#spoke4').css('display','block')}, 16000);
+		setTimeout(function(){$('#spoke4').css('display','none')},  17000);
+		setTimeout(function(){$('#spoke4').css('display','block')}, 18000);
+		setTimeout(rotateGrow, 19000);
+
+		setTimeout(function(){$('#spoke5').css('display','block')}, 21000);
+		setTimeout(function(){$('#spoke5').css('display','none')},  22000);
+		setTimeout(function(){$('#spoke5').css('display','block')}, 23000);
+		setTimeout(rotateGrow, 24000);
+
+		setTimeout(function(){$('#spoke6').css('display','block')}, 26000);
+		setTimeout(function(){$('#spoke6').css('display','none')},  27000);
+		setTimeout(function(){$('#spoke6').css('display','block')}, 28000);
+		setTimeout(rotateGrow, 29000);
+
+		setTimeout(function(){$('#spoke7').css('display','block')}, 31000);
+		setTimeout(function(){$('#spoke7').css('display','none')},  32000);
+		setTimeout(function(){$('#spoke7').css('display','block')}, 33000);
+		setTimeout(rotateGrow, 34000);
+
+		setTimeout(function(){$('#spoke8').css('display','block')}, 36000);
+		setTimeout(function(){$('#spoke8').css('display','none')},  37000);
+		setTimeout(function(){$('#spoke8').css('display','block')}, 38000);
+		setTimeout(rotateGrow, 39000);
+		setTimeout(rotateGrow, 43000);
+});
+</script>
+</body>
+</html>

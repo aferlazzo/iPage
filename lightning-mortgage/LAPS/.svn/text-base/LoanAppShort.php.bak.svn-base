@@ -1,0 +1,1118 @@
+<!DOCTYPE html PUBLIC "-//W3//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html class="LoanApp">
+<!--
+//  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . //
+//																														//
+//	LoanAppShort.php - does the Back-end processing of newly entered applications.	//
+//	Date put into production: 6/26/03	- Tony Ferlazzo, copyright, all rights reserved.		//
+//	Date Modified	Description																					//
+//																														//
+//																														//
+//	Arguments passed for LoanAppShort.htm are:														//
+//																														//
+//	A confirmation page is displayed for the user to decide whether corrections to the 	//
+//	data entered is required.  LoanAppDB.php is called at confirmation.						//
+//																														//
+//																														//
+//  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . //
+-->
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<title>LoanAppShort Success</title>
+<meta name="Microsoft Border" content="tb, default">
+<base target="_self">
+<link rel="stylesheet" href="../bad-credit-mortgage-styles.css" type="text/css">
+<script language="JavaScript" src="https://host79.ipowerweb.com/~lightnin/js/Common.js">
+</script>
+</head>
+
+
+
+<!--	This PHP (Personal Home Page) is called from LoanAppShort.htm (the web page that accepts the application
+		from the user).
+		Using PHP code to retrieve the forms arguments (they were passed using method="post"
+		so they don't show up on the URL line like a method="get" would).
+		We're going to e-mail them from the server.
+-->
+
+
+<body  bgcolor="#F4F4F4" topmargin="0" leftmargin="0">
+<!-- - - - - - - - - - - - - Beginning Of Common Header - - - - - - - - - - - - - - - - -->
+
+
+<div style="text-align: center; width: 720; background-color: #004a8d; height: 168">
+
+ <center>
+
+ <table cellspacing="0" width="720" cellpadding="0" border="0">
+
+
+
+</left><!-- end of Top header -->
+
+  <td>
+
+<div align="center">
+
+ <table border="1" cellpadding="0" cellspacing="0" bordercolor="#004A8D" width="720" bgcolor="#004A8D" height="42">
+
+  <tr>
+
+   <td height="40">
+
+<div align="center">
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="716" height="84">
+
+	<tr>
+
+		<td align="center" width="120" valign="middle" height="84" rowspan="2">                 
+
+                   <p class="White" style="font-size:xx-small"> 
+                   <a href="../AboutUs.htm"> 
+                   <img style="border-color: #e5e5e5;" border="1" src="../images/Tony-Fran.jpg" width="83" height="74"
+                    alt="Tony &quot;Thunder&quot; &amp; Fran Ferlazzo of Lightning Mortgage"
+                    align="top"></a><br>
+                    Tony &amp; Fran Ferlazzo</p>
+       </td>
+
+		<td class="Top" align="left" height="29" width="463" valign="middle">
+            <a onclick="Exit=false" href="http://www.lightning-mortgage.com/Feedback.htm" class="Top">Help</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/AboutUs.htm" class="Top">About</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/ContactUs.htm" class="Top">Contact</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/Calculators.htm" class="Top">Calculators</a>
+			&nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/RecommendSite.php" class="Top">Recommend Site</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/PrivacyPolicy.htm" class="Top">Privacy</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/Legal.htm" class="Top">Legal</a>
+		</td>
+
+							<td class="Top" align="left" width="127" valign="middle" height="84" rowspan="3">
+								<br />&nbsp;<br />
+								<a href="../MortgageInsiderSecrets.htm" class="Top">
+								<IMG style="border-color: #e5e5e5;" border="1" SRC="../images/SecretsSignUp.png" ALT="Lightning Mortgage Insider Secrets"><br />Sign up!</A>								
+<!--
+<script language="JavaScript" type="text/javascript">
+	if (window.location.href.substring(0,5)!="https")  /* if not https secure protocol, display sign-up box */
+	{
+		document.write('<IMG BORDER="0"');
+		document.write('SRC="http://www.lightning-mortgage.com/../images/SecretsSignUp.png" ALT="Lightning Mortgage Insider Secrets"><br />Sign up!</A>');
+	}
+</script>
+-->
+							
+							</td>
+
+		</tr>
+
+
+
+		<tr>
+
+
+
+		<td height="55" align="center" width="463">
+
+            <a class="Logo" onclick="Exit=false" href="http://www.lightning-mortgage.com/index.htm">
+
+                 <img border="0"
+
+                  src="../images/Lightning-Mortgage-logo.gif" align="center" alt="Lightning Mortgage - Mortgages, even with Bad Credit" width="279" height="45">
+
+            </a>
+
+		</td>
+
+		</tr>
+
+
+
+   </table>
+
+
+
+</div>
+
+   </td>
+
+  </tr>
+
+ </table>
+
+</div>
+
+
+
+
+
+
+
+<!-- Start of Tab Header -->
+
+
+
+<table width=720 border="0" cellpadding="0" cellspacing="0" height="28">
+
+
+
+	<tr>
+	    	<!--<h2><a onclick="Exit=false" class=Index href="index2.htm">Bad Credit Home Loans</a></h2>-->
+		<td align="center" width="120" height="28" background="../images/Home_tab.gif">
+		<a class="IndexMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/index.htm">
+        Home</a></td>
+
+		<td align="center" width="120" height="28" background="../images/ApplyNow_tab.gif">
+		<a class="ApplyMM" onclick="Exit=false" href="http://host79.ipowerweb.com/~lightnin/LoanAppShort.htm">
+		Apply Now</a></td>
+
+		<td align="center" width="120" height="28" background="../images/Answers_tab.gif">
+		<a class="AnswersMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/Answers.htm">
+		Answers</span></a></td>
+
+		<td align="center" width="120" height="28" background="../images/SiteMap_tab.gif">
+		<a class="SiteMapMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/CreditScores.htm">
+		Credit Scores</a></td>
+				
+		<td align="center" width="120" height="28" background="../images/LoanTypes_tab.gif">
+		<a class="LoanTypesMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/LoanTypes.htm">
+        Loan Types</a></td>	
+
+		<td align="center" width="120" height="28" background="../images/InterestRates_tab.gif">
+		<a class="RatesMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/InterestRates.htm">
+		Interest Rates</a></td>								
+	</tr>	
+</table>
+
+
+
+</table>
+
+ </div>
+
+
+<!-- - - - - - - - - - - - - Ending Of Common Header - - - - - - - - - - - - - - - - -->
+
+<center>
+<table border="0" cellspacing="0" cellpadding="0" width="100%" background="../images/ApplyNow_tabColor.gif">
+ <td valign="top" align="right" height="20">
+ <p align="right">.</table>
+
+
+<div align="center">
+ <center>
+ <table border="0" cellpadding="4" cellspacing="0" bordercolor="#009999" width="720">
+  <tr>
+   <td>
+
+
+   <table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+     <td valign="bottom" height="30">
+          <h1 align="center"><i><font colspan="2" color="#207878" face="Verdana">Application Confirmation</font></i></h1>
+    </tr>
+
+<!-- Now let's embed some true PHP code into this HTML docuement -->
+
+<?php
+// ---------------
+//
+// Get the visitors IP Address
+//
+// ---------------
+function GetIP()
+{
+  if ($_SERVER)
+  {
+    if ( $_SERVER[HTTP_X_FORWARDED_FOR] )
+    {
+      $realip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+    }
+    elseif ( $_SERVER["HTTP_CLIENT_IP"] )
+    {
+      $realip = $_SERVER["HTTP_CLIENT_IP"];
+    }
+    else
+    {
+      $realip = $_SERVER["REMOTE_ADDR"];
+    }
+  }
+  else
+  {
+    if ( getenv( 'HTTP_X_FORWARDED_FOR' ) )
+    {
+      $realip = getenv( 'HTTP_X_FORWARDED_FOR' );
+    }
+    elseif ( getenv( 'HTTP_CLIENT_IP' ) )
+    {
+      $realip = getenv( 'HTTP_CLIENT_IP' );
+    }
+    else
+    {
+      $realip = getenv( 'REMOTE_ADDR' );
+    }
+  }
+
+  return $realip;
+}
+
+
+
+
+//---------------
+//
+// This handles leading zeros correctly, by using the "%s" instead of "%d" argument to sscanf().
+// This function assumes that the input has been stripped of all non-integer values.
+//
+//---------------
+
+
+function formatPhone($phone)
+{
+       if (empty($phone)) return "";
+       if (strlen($phone) == 7)
+               sscanf($phone, "%3s%4s", $prefix, $exchange);
+       else if (strlen($phone) == 10)
+             sscanf($phone, "%3s%3s%4s", $area, $prefix, $exchange);
+      else if (strlen($phone) > 10)
+               sscanf($phone, "%3s%3s%4s%s", $area, $prefix, $exchange, $extension);
+      else
+               return "unknown phone format: $phone";
+       $out = "";
+       $out .= isset($area) ? $area . '-' : "";
+       $out .= $prefix . '-' . $exchange;
+       $out .= isset($extension) ? ' x' . $extension : "";
+       return $out;
+}
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
+//																											//
+//	PrintFor2nd() conditionally display the following lines. We do this because there's no reason to list 	//
+//	blank lines because the visitor has no second mortgage. Notice the way HTML is embedded into PHP code.	//
+//	Tricky, huh?																							//
+//																											//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -//
+function PrintFor2nd($LenderNameOn2nd, $LoanBalanceOn2nd, $InterestRateOn2nd, $MonthlyPaymentOn2nd)
+{
+ 	//print("LenderNameOn2nd |$LenderNameOn2nd|<br>\n");
+
+   if ($LenderNameOn2nd != "")
+   {
+      print "<tr>
+      <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Current 2nd Lender:</b></font></td>
+      <td width=451 height='20' align='left'>
+      <font face='Verdana' color='#000066' size='2'>$LenderNameOn2nd</font></td></tr>";
+
+      print "<tr>
+      <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Balance on 2nd:</b></font></td>
+      <td width=451 height='20' align='left'>
+      <font face='Verdana' color='#000066' size='2'>$LoanBalanceOn2nd</font></td></tr>";
+
+      print "<tr>
+      <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Interest Rate:</b></font></td>
+      <td width=451 height='20' align='left'>
+      <font face='Verdana' color='#000066' size='2'>$InterestRateOn2nd</font></td></tr>";
+
+      print "<tr>
+      <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Monthly Payment:</b></font></td>
+      <td width=451 height='20' align='left'>
+      <font face='Verdana' color='#000066' size='2'>$MonthlyPaymentOn2nd</font></td></tr>";
+   }
+}
+
+
+
+
+
+
+
+
+
+//---------------
+//
+// // The calling HTML form 'method' could have been a method of Post of Get.
+//
+// First, put the passed variables into working variables. When the code begins passed variables are in one of
+// two arrays: $_POST array or $_GET array. Like any other array in PHP, you retrieve each element by using the
+// HTML page's form values as the array 'index' as in $_POST['DOB'] refers to the DOB form field.
+//
+// Rather than just do the simple assignment to a local variable, e.g. $DOB	= $_POST['B_DOB'], I'm going
+// to perform a 'regular expression' replacement function to remove any PHP escape characters ('\') that
+// might have been inserted by the PHP interpreter.
+//
+//---------------
+
+if(empty($_GET))
+{
+//  print "variables from POST:\n<p>";
+  $ApplicantName			= ereg_replace('[\]', '', $_POST['ApplicantName']);
+  $DOB						= ereg_replace('[\]', '', $_POST['DOB']);
+  $Street					= ereg_replace('[\]', '', $_POST['Street']);
+  $City						= ereg_replace('[\]', '', $_POST['PropertyCity']);
+  $State					= ereg_replace('[\]', '', $_POST['PropertyState']);
+  $Zipcode					= ereg_replace('[\]', '', $_POST['PropertyZipcode']);
+  $WorkPhone				= ereg_replace('[\]', '', $_POST['WorkPhone']);
+  $HomePhone				= ereg_replace('[\]', '', $_POST['HomePhone']);
+  $BestCallTime				= ereg_replace('[\]', '', $_POST['BestCallTime']);
+  $BestCallNumber			= ereg_replace('[\]', '', $_POST['BestPhoneToCall']);
+  $email					= ereg_replace('[\]', '', $_POST['email']);
+  $SSN						= ereg_replace('[\]', '', $_POST['SSN']);
+  $Employer					= ereg_replace('[\]', '', $_POST['Employer']);
+  $MonthlyIncome			= ereg_replace('[\]', '', $_POST['MonthlyIncome']);
+  $B_2002Income				= ereg_replace('[\]', '', $_POST['B_2002Income']);
+  $EmployerTime				= ereg_replace('[\]', '', $_POST['EmployerTime']);
+  $Position					= ereg_replace('[\]', '', $_POST['Position']);
+  $Co_ApplicantName			= ereg_replace('[\]', '', $_POST['Co_ApplicantName']);
+  $Co_DOB					= ereg_replace('[\]', '', $_POST['Co_DOB']);
+  $Co_SSN					= ereg_replace('[\]', '', $_POST['Co_SSN']);
+  $Co_Employer				= ereg_replace('[\]', '', $_POST['Co_Employer']);
+  $Co_MonthlyIncome			= ereg_replace('[\]', '', $_POST['Co_MonthlyIncome']);
+  $Co_2002Income			= ereg_replace('[\]', '', $_POST['Co_2002Income']);
+  $Co_EmployerTime			= ereg_replace('[\]', '', $_POST['Co_EmployerTime']);
+  $Co_Position				= ereg_replace('[\]', '', $_POST['Co_Position']);
+  $EstCreditRating			= ereg_replace('[\]', '', $_POST['EstCreditRating']);
+  $MonthlyCreditCardDebt	= ereg_replace('[\]', '', $_POST['MonthlyCreditCardDebt']);
+  $MonthlyOtherDebt			= ereg_replace('[\]', '', $_POST['MonthlyOtherDebt']);
+  $FinanceRequest			= ereg_replace('[\]', '', $_POST['FinanceRequest']);
+  $LoanAmount				= ereg_replace('[\]', '', $_POST['LoanAmount']);
+  $PropertyType				= ereg_replace('[\]', '', $_POST['PropertyType']);
+  $PurchasePrice			= ereg_replace('[\]', '', $_POST['PurchasePrice']);
+  $EstimatedValue			= ereg_replace('[\]', '', $_POST['EstimatedValue']);
+  $LenderNameOn1st			= ereg_replace('[\]', '', $_POST['LenderNameOn1st']);
+  $InterestRateOn1st		= ereg_replace('[\]', '', $_POST['InterestRateOn1st']);
+  $LoanBalanceOn1st			= ereg_replace('[\]', '', $_POST['LoanBalanceOn1st']);
+  $MonthlyPaymentOn1st		= ereg_replace('[\]', '', $_POST['MonthlyPaymentOn1st']);
+  $Impounds						= ereg_replace('[\]', '', $_POST['Impounds']);
+  $LenderNameOn2nd			= ereg_replace('[\]', '', $_POST['LenderNameOn2nd']);
+  $InterestRateOn2nd		= ereg_replace('[\]', '', $_POST['InterestRateOn2nd']);
+  $LoanBalanceOn2nd			= ereg_replace('[\]', '', $_POST['LoanBalanceOn2nd']);
+  $MonthlyPaymentOn2nd		= ereg_replace('[\]', '', $_POST['MonthlyPaymentOn2nd']);
+  $HowReferred				= ereg_replace('[\]', '', $_POST['HowReferred']);
+  $Situation				= ereg_replace('[\]', '', $_POST['Situation']);
+  $recipient				= ereg_replace('[\]', '', $_POST['recipient']);
+  $cc						= ereg_replace('[\]', '', $_POST['cc']);
+  $IPaddress				= ereg_replace('[\]', '', $_POST['IPaddress']);
+  $redirect					= ereg_replace('[\]', '', $_POST['redirect']);
+  $title					= ereg_replace('[\]', '', $_POST['title']);
+  $GetOrPost				= $_POST;
+}
+
+
+if(empty($_POST))
+{
+//  print "variables from GET:\n<p>";
+  $ApplicantName            = ereg_replace('[\]', '', $_GET['ApplicantName']);
+  $DOB						= ereg_replace('[\]', '', $_GET['DOB']);
+  $Street					= ereg_replace('[\]', '', $_GET['Street']);
+  $City						= ereg_replace('[\]', '', $_GET['PropertyCity']);
+  $State					= ereg_replace('[\]', '', $_GET['PropertyState']);
+  $Zipcode					= ereg_replace('[\]', '', $_GET['PropertyZipcode']);
+  $WorkPhone				= ereg_replace('[\]', '', $_GET['WorkPhone']);
+  $HomePhone				= ereg_replace('[\]', '', $_GET['HomePhone']);
+  $BestCallTime				= ereg_replace('[\]', '', $_GET['BestCallTime']);
+  $BestCallNumber			= ereg_replace('[\]', '', $_GET['BestPhoneToCall']);
+  $email					= ereg_replace('[\]', '', $_GET['email']);
+  $SSN						= ereg_replace('[\]', '', $_GET['SSN']);
+  $Employer					= ereg_replace('[\]', '', $_GET['Employer']);
+  $MonthlyIncome			= ereg_replace('[\]', '', $_GET['MonthlyIncome']);
+  $B_2002Income				= ereg_replace('[\]', '', $_GET['B_2002Income']);
+  $EmployerTime				= ereg_replace('[\]', '', $_GET['EmployerTime']);
+  $Position					= ereg_replace('[\]', '', $_GET['Position']);
+  $Co_ApplicantName			= ereg_replace('[\]', '', $_GET['Co_ApplicantName']);
+  $Co_DOB					= ereg_replace('[\]', '', $_GET['Co_DOB']);
+  $Co_SSN					= ereg_replace('[\]', '', $_GET['Co_SSN']);
+  $Co_Employer				= ereg_replace('[\]', '', $_GET['Co_Employer']);
+  $Co_MonthlyIncome			= ereg_replace('[\]', '', $_GET['Co_MonthlyIncome']);
+  $Co_2002Income			= ereg_replace('[\]', '', $_GET['Co_2002Income']);
+  $Co_EmployerTime			= ereg_replace('[\]', '', $_GET['Co_EmployerTime']);
+  $Co_Position				= ereg_replace('[\]', '', $_GET['Co_Position']);
+  $EstCreditRating			= ereg_replace('[\]', '', $_GET['EstCreditRating']);
+  $MonthlyCreditCardDebt	= ereg_replace('[\]', '', $_GET['MonthlyCreditCardDebt']);
+  $MonthlyOtherDebt			= ereg_replace('[\]', '', $_GET['MonthlyOtherDebt']);
+  $FinanceRequest			= ereg_replace('[\]', '', $_GET['FinanceRequest']);
+  $LoanAmount				= ereg_replace('[\]', '', $_GET['LoanAmount']);
+  $PropertyType				= ereg_replace('[\]', '', $_GET['PropertyType']);
+  $PurchasePrice			= ereg_replace('[\]', '', $_GET['PurchasePrice']);
+  $EstimatedValue			= ereg_replace('[\]', '', $_GET['EstimatedValue']);
+  $LenderNameOn1st			= ereg_replace('[\]', '', $_GET['LenderNameOn1st']);
+  $InterestRateOn1st		= ereg_replace('[\]', '', $_GET['InterestRateOn1st']);
+  $LoanBalanceOn1st			= ereg_replace('[\]', '', $_GET['LoanBalanceOn1st']);
+  $MonthlyPaymentOn1st		= ereg_replace('[\]', '', $_GET['MonthlyPaymentOn1st']);
+  $Impounds					= ereg_replace('[\]', '', $_GET['Impounds']);
+  $LenderNameOn2nd			= ereg_replace('[\]', '', $_GET['LenderNameOn2nd']);
+  $InterestRateOn2nd		= ereg_replace('[\]', '', $_GET['InterestRateOn2nd']);
+  $LoanBalanceOn2nd			= ereg_replace('[\]', '', $_GET['LoanBalanceOn2nd']);
+  $MonthlyPaymentOn2nd		= ereg_replace('[\]', '', $_GET['MonthlyPaymentOn2nd']);
+  $HowReferred				= ereg_replace('[\]', '', $_GET['HowReferred']);
+  $Situation				= ereg_replace('[\]', '', $_GET['Situation']);
+  $recipient				= ereg_replace('[\]', '', $_GET['recipient']);
+  $cc						= ereg_replace('[\]', '', $_GET['cc']);
+  $IPaddress				= ereg_replace('[\]', '', $_GET['IPaddress']);
+  $redirect					= ereg_replace('[\]', '', $_GET['redirect']);
+  $title					= ereg_replace('[\]', '', $_GET['title']);
+  $GetOrPost				= $_GET;
+}
+
+
+// Replace a 'regular expression' syntax:
+// Scan $Phone for anything that matches $Pattern.
+// Replace it with "" (remove it)
+
+// Regular expression metacharacter explanantion:    [[:digit:]] is any character that's a digit
+// Regular expression metacharacter explanantion:    [^[:digit:]] is any character that's NOT a digit
+
+$Pattern="[^[:digit:]]"; /* first assign the pattern we'll use to the variabe '$Pattern' */
+
+$out = ereg_replace($Pattern, "", $HomePhone); /* now perform the replacement for both phone numbers */
+
+// print "unformatted phone number|$out|\n";
+$HomePhone=formatPhone($out);
+// print "formatted phone number|$HomePhone|\n";
+
+$out = ereg_replace($Pattern, "", $WorkPhone);
+$WorkPhone=formatPhone($out);
+
+	/* before storing these values, remove the formatting (non-digit) characters */
+
+	$GetOrPost[SSN]					= ereg_replace($Pattern, "", $SSN);
+    $GetOrPost[Co_SSN]				= ereg_replace($Pattern, "", $Co_SSN);
+    $GetOrPost[DOB]					= ereg_replace($Pattern, "", $DOB);
+	$GetOrPost[Co_DOB]				= ereg_replace($Pattern, "", $Co_DOB);
+
+	$GetOrPost[MonthlyIncome]		= round($MonthlyIncome,0);
+	$GetOrPost[Co_MonthlyIncome]	= round($Co_MonthlyIncome,0);
+	$GetOrPost[B_2002Income]		= round($B_2002Income,0);
+	$GetOrPost[Co_2002Income]		= round($Co_2002Income,0);
+
+	$SS1			 				= substr($GetOrPost[SSN], 0, 3);
+	$SS2			 				= substr($GetOrPost[SSN], 3, 2);
+	$SS3			 				= substr($GetOrPost[SSN], 5, 4);
+	$SSN 						= $SS1."-".$SS2."-".$SS3;
+
+	
+	$SS1			 				= substr($GetOrPost[Co_SSN], 0, 3);
+	$SS2			 				= substr($GetOrPost[Co_SSN], 3, 2);
+	$SS3			 				= substr($GetOrPost[Co_SSN], 5, 4);
+	$Co_SSN 					= $SS1."-".$SS2."-".$SS3;
+
+	
+	$DOB				= $GetOrPost[DOB];
+	$Co_DOB				= $GetOrPost[Co_DOB];
+	$MonthlyIncome		= $GetOrPost[MonthlyIncome];
+	$Co_MonthlyIncome	= $GetOrPost[Co_MonthlyIncome];
+	$B_2002Income		= $GetOrPost[B_2002Income];
+	$Co_2002Income		= $GetOrPost[Co_2002Income];
+
+	// *-*-*-*-*-* format Street *-*-*-*-*-*-*-*-*-*
+
+	$Street = strtolower($GetOrPost[Street]);
+	$Street = ucwords($Street);
+	$GetOrPost[Street]=$Street;
+
+	// *-*-*-*-*-* format PropertyCity *-*-*-*-*-*-*-*-*-*
+
+	$City = strtolower($GetOrPost[PropertyCity]);
+	$City = ucwords($City);
+	$GetOrPost[PropertyCity]=$City;
+
+	// *-*-*-*-*-* format email *-*-*-*-*-*-*-*-*-*
+
+	$email = strtolower($GetOrPost[email]);
+	$GetOrPost[email]=$email;
+
+// neat way to printout the arrays keys and their values
+//
+//	for ($n=0; $n < count($GetOrPost); $n++)
+//	{
+//		$Parameter= each($GetOrPost);
+//		print ("In LoanAppShort.php $Parameter[key] = $Parameter[value]<p>\n");
+//	}
+
+ $SavedIPaddress = GetIP(); /* retrieve the visitor's IP address using PHP's convenient tools */
+
+// print "Visitor's IP Address: $SavedIPaddress\n<p>";
+// print "               Title: $title\n<p>";
+// print "      E-mail Address: $email\n<p>";
+// print "           Recipient: $recipient\n<p>";
+// print "                  cc: $cc\n<p>";
+// print "     Redirect String: $redirect\n<p>";
+
+//	now that we've obtained the calling page's form variables, display them to the visitor
+
+
+
+	print ("<tr><td valign='top'><div align='center'><center>");
+	print ("<table border='0' cellpadding='0' cellspacing='4'><tr>");
+	print ("<td align='left' colspan='2'><font face='Verdana' color='#000066' size='2'>");
+	print ("Here is a summary of your answers. Please review the information before continuing.");
+	print ("<BR><br></font></td></tr><tr><td align='center' colspan='2'>");
+
+	/* test $redirect string is hard-coded in. Normally it will be passed */
+	// $GetOrPost[redirect]="https://ecreditlending.com/V2.00/cp1Validation.aspx?&coid=9202&login=tony2003&password=lightning&transtype=CRD&charge=15.00&to_email=tony@lightning-mortgage.com&cc_email=fran@lightning-mortgage.com&email_subj=Home+Loan+Credit+Report+Waiting+for+your+review-See+below&returnURL=OrderCreditSuccess.htm&a_fullname=Robbie+Refinance&a_ssn=111-22-3333&co_fullname=Randi+Refinance&co_ssn=333-22-1111&ca_fullstreet_name=123+Anywhere+St.&ca_city=Pleasanton&ca_state=CA&ca_zipcode=98765&ca_county=Alameda&bill_email=tferlazzo@attbi.com&bill_phone=999-999-9999&autopopcc=Y";
+
+
+	print ("<font face='Verdana' color='#000066' size='2'><font face='Verdana'>");
+
+
+	//	When the Submit button is pressed, before performing the desired action, transferring control to LoanAppDB.php,
+	//	execute the JavaScript confirm function contained in the onsubmit= parameter
+	//	When executing LoanAppDB.php pass the $redirect string and the $GetOrPost array
+
+    print ("<form action='LoanAppDB.php' method='post' name='VerifyDataForm' id='VerifyDataForm'>");
+
+    //This works well for confirmations:
+    //print ("<form action='LoanAppDB.php' method='post' name='VerifyDataForm' id='VerifyDataForm'
+    //onreset= 'return(confirm(\"Clear Fields?\"))' onsubmit='confirm(\"Submit Form?\")'>");
+
+	print ("<input type='hidden' name='ApplicantName' value='$GetOrPost[ApplicantName]'>");
+	print ("<input type='hidden' name='DOB' value='$GetOrPost[DOB]'>");
+	print ("<input type='hidden' name='Street' value='$GetOrPost[Street]'>");
+	print ("<input type='hidden' name='PropertyCity' value='$GetOrPost[PropertyCity]'>");
+	print ("<input type='hidden' name='PropertyState' value='$GetOrPost[PropertyState]'>");
+	print ("<input type='hidden' name='PropertyZipcode' value='$GetOrPost[PropertyZipcode]'>");
+	print ("<input type='hidden' name='WorkPhone' value='$GetOrPost[WorkPhone]'>");
+	print ("<input type='hidden' name='HomePhone' value='$GetOrPost[HomePhone]'>");
+	print ("<input type='hidden' name='BestCallTime' value='$GetOrPost[BestCallTime]'>");
+	print ("<input type='hidden' name='BestPhoneToCall' value='$GetOrPost[BestPhoneToCall]'>");
+	print ("<input type='hidden' name='email' value='$GetOrPost[email]'>");
+	print ("<input type='hidden' name='SSN' value='$GetOrPost[SSN]'>");
+	print ("<input type='hidden' name='Employer' value='$GetOrPost[Employer]'>");
+
+	// now format the employer's name
+	$Employer = strtolower($Employer);
+	$Employer = ucwords($Employer);
+	$GetOrPost[Employer]=$Employer;
+
+	print ("<input type='hidden' name='MonthlyIncome' value='$GetOrPost[MonthlyIncome]'>");
+	print ("<input type='hidden' name='B_2002Income' value='$GetOrPost[B_2002Income]'>");
+	print ("<input type='hidden' name='EmployerTime' value='$GetOrPost[EmployerTime]'>");
+	print ("<input type='hidden' name='Position' value='$GetOrPost[Position]'>");
+	$Position = strtolower($Position);
+	$Position = ucwords($Position);
+	$GetOrPost[Position]=$Position;
+
+	print ("<input type='hidden' name='Co_ApplicantName' value='$GetOrPost[Co_ApplicantName]'>");
+	$Co_ApplicantName = strtolower($Co_ApplicantName);
+	$Co_ApplicantName = ucwords($Co_ApplicantName);
+	$GetOrPost[Co_ApplicantName]= $Co_ApplicantName;
+
+	print ("<input type='hidden' name='Co_DOB' value='$GetOrPost[Co_DOB]'>");
+	print ("<input type='hidden' name='Co_SSN' value='$GetOrPost[Co_SSN]'>");
+	print ("<input type='hidden' name='Co_Employer' value='$GetOrPost[Co_Employer]'>");
+	$Co_Employer = strtolower($Co_Employer);
+	$Co_Employer = ucwords($Co_Employer);
+	$GetOrPost[Co_Employer]=$Co_Employer;
+
+	print ("<input type='hidden' name='Co_MonthlyIncome' value='$GetOrPost[Co_MonthlyIncome]'>");
+	print ("<input type='hidden' name='Co_2002Income' value='$GetOrPost[Co_2002Income]'>");
+	print ("<input type='hidden' name='Co_EmployerTime' value='$GetOrPost[Co_EmployerTime]'>");
+	print ("<input type='hidden' name='Co_Position' value='$GetOrPost[Co_Position]'>");
+	$Co_Position = strtolower($Co_Position);
+	$Co_Position = ucwords($Co_Position);
+	$GetOrPost[Co_Position]=$Co_Position;
+
+	print ("<input type='hidden' name='EstCreditRating' value='$GetOrPost[EstCreditRating]'>");
+	print ("<input type='hidden' name='MonthlyCreditCardDebt' value='$GetOrPost[MonthlyCreditCardDebt]'>");
+	print ("<input type='hidden' name='MonthlyOtherDebt' value='$GetOrPost[MonthlyOtherDebt]'>");
+	print ("<input type='hidden' name='FinanceRequest' value='$GetOrPost[FinanceRequest]'>");
+	print ("<input type='hidden' name='LoanAmount' value='$GetOrPost[LoanAmount]'>");
+	print ("<input type='hidden' name='PropertyType' value='$GetOrPost[PropertyType]'>");
+	print ("<input type='hidden' name='PurchasePrice' value='$GetOrPost[PurchasePrice]'>");
+	print ("<input type='hidden' name='EstimatedValue' value='$GetOrPost[EstimatedValue]'>");
+	print ("<input type='hidden' name='LenderNameOn1st' value='$GetOrPost[LenderNameOn1st]'>");
+	$LenderNameOn1st = strtolower($LenderNameOn1st);
+	$LenderNameOn1st = ucwords($LenderNameOn1st);
+	$GetOrPost[LenderNameOn1st]=$LenderNameOn1st;
+
+	print ("<input type='hidden' name='InterestRateOn1st' value='$GetOrPost[InterestRateOn1st]'>");
+	print ("<input type='hidden' name='LoanBalanceOn1st' value='$GetOrPost[LoanBalanceOn1st]'>");
+	print ("<input type='hidden' name='MonthlyPaymentOn1st' value='$GetOrPost[MonthlyPaymentOn1st]'>");
+	print ("<input type='hidden' name='Impounds' value='$GetOrPost[Impounds]'>");
+	print ("<input type='hidden' name='LenderNameOn2nd' value='$GetOrPost[LenderNameOn2nd]'>");
+	$LenderNameOn2nd = strtolower($LenderNameOn2nd);
+	$LenderNameOn2nd = ucwords($LenderNameOn2nd);
+	$GetOrPost[LenderNameOn2nd]=$LenderNameOn2nd;
+
+	print ("<input type='hidden' name='InterestRateOn2nd' value='$GetOrPost[InterestRateOn2nd]'>");
+	print ("<input type='hidden' name='LoanBalanceOn2nd' value='$GetOrPost[LoanBalanceOn2nd]'>");
+	print ("<input type='hidden' name='MonthlyPaymentOn2nd' value='$GetOrPost[MonthlyPaymentOn2nd]'>");
+	print ("<input type='hidden' name='HowReferred' value='$GetOrPost[HowReferred]'>");
+	print ("<input type='hidden' name='Situation' value='$GetOrPost[Situation]'>");
+	print ("<input type='hidden' name='recipient' value='$GetOrPost[recipient]'>");
+	print ("<input type='hidden' name='cc' value='$GetOrPost[cc]'>");
+	print ("<input type='hidden' name='IPaddress' value='$SavedIPaddress'>");
+	print ("<input type='hidden' name='redirect' value='$GetOrPost[redirect]'>");
+	print ("<input type='hidden' name='title' value='$GetOrPost[title]'>");
+
+	//print ("<br><input type='Submit' value='Continue' name='Continue' id='Continue'>");
+	//print ("<input type='Reset' value='Make Corrections' onClick='history.back()'>");
+	
+//	This works well for confirmations:
+//	print ("<br><input type='Submit' value='Continue' name='Continue' id='Continue' onclick='alert(\"clicked\")'>");
+
+	
+/*
+	// print ("<input type='button' value='regular button'       onClick='alert(\"clicked\")'><br>");
+	// was onClick='alert(\"clicked\")'><br>");
+
+	print ("<input type='button' value='Focus Submit button'  onClick='document.VerifyDataForm.Continue.focus()'>");
+	print ("<input type='button' value='Blur Submit button'   onClick='document.VerifyDataForm.Continue.blur()'>");
+	print ("<input type='button' value='Clicks Submit button' onClick='document.VerifyDataForm.Continue.click()'>");
+*/
+	print ("</form></font>");
+
+
+	print ("</td></tr>");
+	print ("<tr><td colspan='2'><hr></td></tr><tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Applicant Name:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$ApplicantName</font></td></tr>");
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Date Of Birth:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$DOB</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Street:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$Street</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>City:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$City</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>State:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$State</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Zip:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$Zipcode</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Work Phone:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$WorkPhone</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Home Phone:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$HomePhone</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Best Time To Call:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$BestCallTime</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Phone To Call:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$BestCallNumber</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>E-Mail Address:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$email</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Social Security #:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$SSN</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Employer:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$Employer</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Position:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$Position</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Years Of Employment:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$EmployerTime</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Monthly Income:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$MonthlyIncome</font></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>2003 Annual Income:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$B_2002Income</font></td></tr>");
+
+	if (($Co_SSN != "") && ($Co_SSN > 0))
+	{
+		print ("<tr><td colspan='2' align='center'><hr></td></tr>");
+
+		print ("<tr>");
+		print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>CoApplicant's Name:</b></font></td>");
+		print (" <td width=451 height='20' align='left'>");
+		print (" <font face='Verdana' color='#000066' size='2'>$Co_ApplicantName</font></td></tr>");
+
+		print ("<tr>");
+		print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Date Of Birth:</b></font></td>");
+		print (" <td width=451 height='20' align='left'>");
+		print (" <font face='Verdana' color='#000066' size='2'>$Co_DOB</font></td></tr>");
+
+		print ("<tr>");
+		print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Social Security #:</b></font></td>");
+		print (" <td width=451 height='20' align='left'>");
+		print (" <font face='Verdana' color='#000066' size='2'>$Co_SSN</font></td></tr>");
+
+		print ("<tr>");
+		print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Employer:</b></font></td>");
+		print (" <td width=451 height='20' align='left'>");
+		print (" <font face='Verdana' color='#000066' size='2'>$Co_Employer</font></td></tr>");
+
+		print ("<tr>");
+		print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Position:</b></font></td>");
+		print (" <td width=451 height='20' align='left'>");
+		print (" <font face='Verdana' color='#000066' size='2'>$Co_Position</font></td></tr>");
+
+		print ("   <tr>");
+		print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Years Of Employment:</b></font></td>");
+		print ("    <td width=451 height='20' align='left'>");
+		print (" <font face='Verdana' color='#000066' size='2'>$Co_EmployerTime</font></td></tr>");
+
+		print ("   <tr>");
+		print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Monthly Income:</b></font></td>");
+		print ("    <td width=451 height='20' align='left'>");
+		print ("    <font face='Verdana' color='#000066' size='2'>$Co_MonthlyIncome</font></td></tr>");
+
+		print ("   <tr>");
+		print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>2003 Annual Income:</b></font></td>");
+		print ("    <td width=451 height='20' align='left'>");
+		print (" <font face='Verdana' color='#000066' size='2'>$Co_2002Income</font></td></tr>");
+	}
+
+	print ("<tr><td colspan='2' align='center'><hr></td></tr>");
+
+	print ("<tr>");
+	print (" <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Self-described Credit Rating:</b></font></td>");
+	print (" <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$EstCreditRating</font></td></tr>");
+
+	print (" <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Monthly Credit Card Debt:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$MonthlyCreditCardDebt</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Other Monthly Debt:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$MonthlyOtherDebt</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Requested Loan Amount:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$LoanAmount</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Financing Request Type:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$FinanceRequest</font></td></tr>");
+
+	print ("   <tr><td colspan='2' align='center'><hr></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Property Type:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$PropertyType</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Purchase Price:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$PurchasePrice</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Estimated Value:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$EstimatedValue</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Current 1st Lender:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$LenderNameOn1st</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Balance on 1st:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$LoanBalanceOn1st</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Interest Rate:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$InterestRateOn1st</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Monthly Payment:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$MonthlyPaymentOn1st</font></td></tr>");
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>Includes Taxes &amp; Insurance:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$Impounds</font></td></tr>");
+
+// * * * * * * * * * * * * * *
+
+//	now use PHP to conditionally display the following lines. We do this because there's no reason to list blank
+//	lines because the visitor has no second mortgage. Notice the way HTML is embedded into PHP code. Tricky, huh?
+
+
+	PrintFor2nd($LenderNameOn2nd, $LoanBalanceOn2nd, $InterestRateOn2nd, $MonthlyPaymentOn2nd);
+
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20'><font face='Verdana' color='#000066' size='2'><b>You Found Us By:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print ("    <font face='Verdana' color='#000066' size='2'>$HowReferred</font></td></tr>");
+
+
+// 	don't show this field to the user
+//	print ("<tr>");
+//	print ("<td align='right' width='50%' height='20' valign='top'><font face='Verdana' color='#000066' size='2'><b>Redirect String:</b></font></td>");
+//	print ("<td width=451 height='20' align='left'>");
+//	print ("<font face='Verdana' color='#000066' size='2'>$redirect</font></td></tr>");
+
+
+	print ("   <tr>");
+	print ("    <td align='right' width='50%' height='20' valign='top'><font face='Verdana' color='#000066' size='2'><b>Present Situation:</b></font></td>");
+	print ("    <td width=451 height='20' align='left'>");
+	print (" <font face='Verdana' color='#000066' size='2'>$Situation</font></td></tr>");
+
+    //	This form's action calls eCreditLending's page. The was built in the JavaScript portion of the Loan Application
+    //  web page. This PHP file can contain all the html you want plus any php commands. Because the page has a PHP
+    //  suffix, the server will strip out the PHP code and execute it itself. The browser will execute the HTML and
+  	//	JavaScript.
+
+	// The difference between GET and POST is that a GET method will send all gathered information as part of the URL.
+
+	// A page page generated by a for that used the GET method can be bookmarked.
+	// This limits the amount of data that can be passed. For example, you don't want a password visible
+
+	// It is easier to test pages generated by the GET  method because one can manually test the passed parameters
+	// on the URL line.
+
+	// The POST method will only not put the gathered data on the URL line where all can see.
+
+	// A page generated by the POST method cannot be Bookmarked.
+    // We use Post because the URL has already been manually created in the LoanAppShort.htm page JavaScript functions
+
+	print ("<tr><td colspan='2' align='center'><hr><br></td></tr>");
+	print (" <tr>");
+	print ("  <td align='center' colspan='2'><font face='Verdana' color='#000066' size='2'>Please review the information before continuing.<BR><br></font></td></tr>");
+	print ("<tr><td align='center' colspan='2'>");
+	print ("<font face='Verdana' color='#000066' size='2'><font face='Verdana'>");
+
+
+	//	When the Submit button is pressed, before performing the desired action, transferring control to LoanAppDB.php,
+	//	execute the JavaScript confirm function contained in the onsubmit= parameter
+	//	When executing LoanAppDB.php pass the $redirect string and the $GetOrPost array
+
+    print ("<form action='LoanAppDB.php' method='post' name='VerifyDataForm' id='VerifyDataForm'>");
+
+	print ("<input type='hidden' name='ApplicantName' value='$GetOrPost[ApplicantName]'>");
+	print ("<input type='hidden' name='DOB' value='$GetOrPost[DOB]'>");
+	print ("<input type='hidden' name='Street' value='$GetOrPost[Street]'>");
+	print ("<input type='hidden' name='PropertyCity' value='$GetOrPost[PropertyCity]'>");
+	print ("<input type='hidden' name='PropertyState' value='$GetOrPost[PropertyState]'>");
+	print ("<input type='hidden' name='PropertyZipcode' value='$GetOrPost[PropertyZipcode]'>");
+	print ("<input type='hidden' name='WorkPhone' value='$GetOrPost[WorkPhone]'>");
+	print ("<input type='hidden' name='HomePhone' value='$GetOrPost[HomePhone]'>");
+	print ("<input type='hidden' name='BestCallTime' value='$GetOrPost[BestCallTime]'>");
+	print ("<input type='hidden' name='BestPhoneToCall' value='$GetOrPost[BestPhoneToCall]'>");
+	print ("<input type='hidden' name='email' value='$GetOrPost[email]'>");
+	print ("<input type='hidden' name='SSN' value='$GetOrPost[SSN]'>");
+	print ("<input type='hidden' name='Employer' value='$GetOrPost[Employer]'>");
+	print ("<input type='hidden' name='MonthlyIncome' value='$GetOrPost[MonthlyIncome]'>");
+	print ("<input type='hidden' name='B_2002Income' value='$GetOrPost[B_2002Income]'>");
+	print ("<input type='hidden' name='EmployerTime' value='$GetOrPost[EmployerTime]'>");
+	print ("<input type='hidden' name='Position' value='$GetOrPost[Position]'>");
+	print ("<input type='hidden' name='Co_ApplicantName' value='$GetOrPost[Co_ApplicantName]'>");
+	print ("<input type='hidden' name='Co_DOB' value='$GetOrPost[Co_DOB]'>");
+	print ("<input type='hidden' name='Co_SSN' value='$GetOrPost[Co_SSN]'>");
+	print ("<input type='hidden' name='Co_Employer' value='$GetOrPost[Co_Employer]'>");
+	print ("<input type='hidden' name='Co_MonthlyIncome' value='$GetOrPost[Co_MonthlyIncome]'>");
+	print ("<input type='hidden' name='Co_2002Income' value='$GetOrPost[Co_2002Income]'>");
+	print ("<input type='hidden' name='Co_EmployerTime' value='$GetOrPost[Co_EmployerTime]'>");
+	print ("<input type='hidden' name='Co_Position' value='$GetOrPost[Co_Position]'>");
+	print ("<input type='hidden' name='EstCreditRating' value='$GetOrPost[EstCreditRating]'>");
+	print ("<input type='hidden' name='MonthlyCreditCardDebt' value='$GetOrPost[MonthlyCreditCardDebt]'>");
+	print ("<input type='hidden' name='MonthlyOtherDebt' value='$GetOrPost[MonthlyOtherDebt]'>");
+	print ("<input type='hidden' name='FinanceRequest' value='$GetOrPost[FinanceRequest]'>");
+	print ("<input type='hidden' name='LoanAmount' value='$GetOrPost[LoanAmount]'>");
+	print ("<input type='hidden' name='PropertyType' value='$GetOrPost[PropertyType]'>");
+	print ("<input type='hidden' name='PurchasePrice' value='$GetOrPost[PurchasePrice]'>");
+	print ("<input type='hidden' name='EstimatedValue' value='$GetOrPost[EstimatedValue]'>");
+	print ("<input type='hidden' name='LenderNameOn1st' value='$GetOrPost[LenderNameOn1st]'>");
+	print ("<input type='hidden' name='InterestRateOn1st' value='$GetOrPost[InterestRateOn1st]'>");
+	print ("<input type='hidden' name='LoanBalanceOn1st' value='$GetOrPost[LoanBalanceOn1st]'>");
+	print ("<input type='hidden' name='MonthlyPaymentOn1st' value='$GetOrPost[MonthlyPaymentOn1st]'>");
+	print ("<input type='hidden' name='Impounds' value='$GetOrPost[Impounds]'>");
+	print ("<input type='hidden' name='LenderNameOn2nd' value='$GetOrPost[LenderNameOn2nd]'>");
+	print ("<input type='hidden' name='InterestRateOn2nd' value='$GetOrPost[InterestRateOn2nd]'>");
+	print ("<input type='hidden' name='LoanBalanceOn2nd' value='$GetOrPost[LoanBalanceOn2nd]'>");
+	print ("<input type='hidden' name='MonthlyPaymentOn2nd' value='$GetOrPost[MonthlyPaymentOn2nd]'>");
+	print ("<input type='hidden' name='HowReferred' value='$GetOrPost[HowReferred]'>");
+	
+	print ("<input type='hidden' name='Situation' value=".urlencode($GetOrPost[Situation]).">");
+
+	print ("<input type='hidden' name='recipient' value='$GetOrPost[recipient]'>");
+	print ("<input type='hidden' name='cc' value='$GetOrPost[cc]'>");
+	print ("<input type='hidden' name='IPaddress' value='$SavedIPaddress'>");
+	print ("<input type='hidden' name='redirect' value='$GetOrPost[redirect]'>");
+	print ("<input type='hidden' name='title' value='$GetOrPost[title]'>");
+
+	print ("<br><input style='color: #ffffff; background-color: #009999;	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; width: 100px;' ");
+	print ("type='Submit' value='Continue' name='Continue' id='Continue'> ");
+	print ("<input style='color: #ffffff; background-color: #009999;	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; width: 180px;' ");
+	print ("type='Reset' value='Make Corrections' onClick='history.back()'>");
+	print ("</form></font>");
+//	Ends PHP segment
+?>
+
+
+    </td>
+    </tr>
+  </table>
+ </center>
+</div>
+    <p style="text-align: center;">
+<img border="0" src="../images/Bullseye.gif" alt="Loan Application Received" width="187" height="140">
+	</p>
+  </tr>
+
+</table>
+   </td>
+  </tr>
+ </table>
+ </center>
+ </div>
+</center>
+
+
+
+
+<!- - - - - - - - - - - - - - - - - - - - - -end of main body, start of common footer -- - - - - - - - - - - - ->
+<!-- - - - - - - - - - - - - Beginning Of Common Footer - - - - - - - - - - - - - - - - -->
+
+<div style="text-align: center; width: 100%; background-color: #004A8D">
+
+	<form method="get" onsubmit="Exit=false" action="http://search.atomz.com/search/">
+	<table border="0" cellpadding="2" bordercolor="#004A8D" width="720" cellspacing="0">
+	<tr>
+		<td style="text-align: right; vertical-align: middle; background-color: #004a8d" width="165" height="37" valign="middle">
+			<input type=hidden name="sp-a" value="sp1002b74c"> 
+			<input style="background-color: #e5e5e5; color: #000080; font-family: Verdana, Arial, Helvetica, sans-serif; size:" 
+			value=" Your search word(s)" onfocus="this.value=''" size=19 name="sp-q">
+			<br />
+
+			<input type=hidden name="sp-p" value="all">
+			<input type=hidden name="sp-f" value="ISO-8859-1">
+		</td>
+
+		<td style="text-align: left; vertical-align: middle; background-color: #004a8d" width="337">
+			<input style="background-color: #004a8d; color: #ffffff; font-family: Verdana, Arial, Helvetica, sans-serif; size: xx-small" 
+				type="submit" value="Search Site" onclick="Exit=false">
+	 	</td>
+		<td style="text-align: right; vertical-align: middle; background-color: #004a8d" width="200" height="37">
+			<font style="font-family: Verdana, Arial, Helvetica, sans-serif; 	color: #ffffff; font-size: small; font-weight: normal;">
+
+<script language="JavaScript1.2"> 
+document.write(doClock("M0","%20","D1",",%20","Y0"));
+</script>	
+			&nbsp;	
+			</font>
+		</td>
+	</tr>
+	</table>
+	</div>
+
+	</form>
+
+
+	<div align="center">
+		<table cellspacing="0" cellpadding="4" width="720" height="84">
+			<tr>
+				<td valign="middle" align="center" rowspan="3" width="85" height="69">
+					<a onclick="Exit=false" href="../Guarantee.htm">
+					<img border="0" src="../images/guarantee.gif" width="81"
+					height="85" alt="Lightning Mortgage Financing Guarantee"></a>
+				</td>
+				<td valign="middle" align="center" width="553" height="21">
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/index.htm">Home</a>&nbsp;| 
+					<a class="Bottom" onclick="Exit=false" href="../LoanAppShort.htm">Apply Now</a>&nbsp;| 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/OrderCreditDirect.htm">Order Credit</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/LoanTypes.htm">Loan Types</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Documentation.htm">Documents</a>&nbsp;| 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/MortgageInsiderSecrets.htm">Mortgage
+                    Insider Secrets</a>
+				</td>
+
+				<td valign="middle" align="center" width="68" rowspan="3" height="69">
+					<a onclick="Exit=false" href="../UpfrontMortgageBroker.htm"><img border="0"
+					src="../images/UMB1.gif" alt="I am an Upfront Mortgage Broker" width="68" height="85"></a>
+				</td>
+			</tr>
+
+			<tr>
+				<td valign="middle" align="center" width="553" height="4">
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/SiteMap.htm">Site Map</a> | 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Calculators.htm">Calculators</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Glossary.htm">Glossary</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/CreditScores.htm">Credit Scores</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Legal.htm">Legal</a> | 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/AffiliateLinks.htm">Affiliates</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="center" height="22">
+					<p class="CenterSmall">Click on <a class="Bottom" onclick="Exit=false" 
+					href="../Feedback.htm">feedback</a> or call (866) 822-8500 for assistance
+					- Last Updated: <!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%B %Y" startspan -->April 2004<!--webbot bot="Timestamp" endspan i-checksum="13833" -->
+					</p>
+				</td>
+			</tr>
+		</table>
+		<hr class="Administrative" style="width: 720px;">	
+		<table cellspacing="0" cellpadding="0" width="712">
+			<tr>
+				<td align="center" width="100%" colspan="3" height="15">
+					<p class="CenterSmall">This Website is NOT intended as a solicitation to customers in any
+					jurisdiction in which we are not authorized to operate.</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="center" width="100%" colspan="3" height="15">
+					<font face="Arial, Helvetica, sans-serif" size="1">©
+					Lightning Mortgage 2002-2004 All Rights Reserved. No part
+					of this website may be reused commercially without
+					the expressed written consent of Lightning Mortgage.<br />
+					&nbsp;This site is directed at, and made available
+					to, persons in the continental U.S., Alaska and
+					Hawaii only.</font>
+				</td>
+			</tr>
+		</table>
+
+		<hr class="Administrative" style="width: 720px;">	
+		<img src="../pr/imagecron.php" width="1" height="1" border="0" alt="">
+	</div>
+</body>
+ </html>
+ 

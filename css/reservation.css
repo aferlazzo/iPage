@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Chunkfive';
+    src: url('fonts/Chunkfive-webfont.eot');
+    src: url('fonts/Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Chunkfive-webfont.woff') format('woff'),
+    url('fonts/Chunkfive-webfont.ttf') format('truetype'),
+    url('fonts/Chunkfive-webfont.svg#Chunkfive') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'museo500';
+    src: url('fonts/museo500-regular-webfont.eot');
+    src: url('fonts/museo500-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/museo500-regular-webfont.woff') format('woff'),
+    url('fonts/museo500-regular-webfont.ttf') format('truetype'),
+    url('fonts/museo500-regular-webfont.svg#museo500') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    font-size: 14px;
+    font-family: Bree Serif, Georgia;
+    color: #2E2E2E;
+}
+.header{
+    background-color: #7fffd4;
+    border-style: solid;
+    border-color: #000;
+    border-width: 1px 0 5px 0;
+}
+.header h1{
+    font-size: 60px;
+    font-family: "Chunkfive", Georgia, serif;
+    color: #0BD6AE;
+    text-shadow: 2px 2px 5px #16579E;
+    margin: 20px 0 20px 75px;
+}
+p{
+    margin: 20px;
+}
+h3{
+    margin: 20px 0 -14px 133px;
+}
+#room-options{
+    margin: 24px;
+}
+.field-line label, .field-line .label-span {
+    width: 110px;
+    display: inline-block;
+}
+.inDate{
+    margin-right: 76px;
+}
+.inDate, .outDate {
+    width:80px;
+}
+#ui-datepicker-div {
+    display:none;
+    top:215px !important;
+}
+.stay-duration{
+    margin-left:12px;
+}
+label[for="accessible"], label[for="standard"], label[for="suite"] {
+    margin:0 -4px;
+    padding: 10px;
+    width:auto;
+}
+.previewed_guest_room, .reserved_guest_room{
+    float:left;
+    margin:0 30px 0 135px;
+    width: 300px;
+}
+.reserved_guest_room:after{
+    clear:left;
+}
+.previewed_guest_room p, .reserved_guest_room p{
+    margin-left: -50px;
+}
+.previewed_guest_room h2, .reserved_guest_room h2{
+    margin: 0 0 20px 25px;
+    font-size: 23px;
+    font-family: museo300, georgia, serif;
+}
+.previewed_guest_room, .reserved_guest_room h2{
+    display:none;
+}
+.previewed_guest_room h3, .reserved_guest_room h3{
+    margin: 15px 0 0 0;
+}
+.guest_room_photo, .guest_room_standard, .guest_room_accessible, .guest_room_suite{
+    width:208px;
+    height:119px;
+}
+.guest_room_suite{
+    background: url('../img/guestRoomSuite.jpg') no-repeat;
+}
+.guest_room_standard{
+    background: url('../img/guestRoomStandard.jpg') no-repeat;
+}
+.guest_room_accessible{
+    background: url('../img/guestRoomAccessible.jpg') no-repeat;
+}
+.confirm{
+    padding:4px;
+    font-size:20px;
+    margin: 20px 0 0 140px;
+}
+.confirm-container{
+    display:none;
+    width: 368px;
+}
+.error{
+    color:#f00;
+    font-weight:700;
+}
+form{
+    margin-bottom: 50px;
+}

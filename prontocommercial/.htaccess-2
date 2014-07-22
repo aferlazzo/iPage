@@ -1,0 +1,6 @@
+Header append P3P: 'CP="CAO DSP COR ADM DEV PSA IVA OUR IND STA"' 
+ErrorDocument 404 /404.php
+
+# make htm files be parsed as php scripts
+# AddType application/x-httpd-php .php .htm .html
+# AddHandler x-httpd-php .php .htm .html

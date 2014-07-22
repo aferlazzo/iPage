@@ -1,0 +1,21 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+$attname	= $_GET["attname"];
+$arid			= $_GET["arid"];
+$mid			= $_GET["mid"];
+
+if (file_exists("attachments/$arid/$mid/$attname"))
+{
+	unlink("attachments/$arid/$mid/$attname");
+	clearstatcache();
+	$attname = '';
+}	
+Header("Location: editmsg.php?arid=$arid&mid=$mid&dir=1");	
+?>

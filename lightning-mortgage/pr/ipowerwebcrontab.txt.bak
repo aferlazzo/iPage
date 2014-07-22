@@ -1,0 +1,6 @@
+# this is a sample crontab file
+# comments start with a '#'
+# jobs are relative to the pr directory where imagecron.php is begun. In our case, imagecron.php is in the eggs directory
+
+mailout.php	
+capture.php	

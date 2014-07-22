@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Sliding Tab Menu</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css" media="screen">
+	body {
+		background:#fff;
+		margin:0;
+		padding:0;
+		color:#000;
+		font:x-small/1.5em Georgia,Serif;
+		voice-family: "\"}\""; voice-family:inherit;
+		font-size:small;
+		} html>body {font-size:small;}
+	
+	#TabHeader 
+	{
+		float:left;
+		width:100%;
+		background: #004a8d;
+		font-size:93%;
+		line-height:normal;
+	}
+	#TabHeader ul 
+	{
+		margin:0;
+		padding: 10px 10px 0;
+		list-style:none;
+	}
+	#TabHeader li 
+	{
+		float:left;
+		background:url("../images/TabsAllLeft.gif") no-repeat left top;
+		margin:0;
+		padding:0 0 0 20px;
+		border-bottom: 0 solid black;
+	}
+	#TabHeader a
+	{
+		float:left;
+		display:block;
+		width: 0.1em;
+		background:url("../images/TabsAllRight.gif") no-repeat right top;
+		padding:5px 20px 4px 6px;
+		text-decoration: none;
+		font-weight:bold;
+		color: #ffffff;
+		font-family: Verdana, Arial, Helvetica, sans-serif;	
+		white-space:nowrap;			
+	}
+	#TabHeader > ul a {width:auto;}
+	/* Commented Backslash Hack hides rule from IE5-Mac \*/
+	#TabHeader a {float:none;}
+	/* End IE5-Mac hack */
+	#TabHeader a:hover 
+	{
+		color:#333;
+	}
+#TabHeader #IndexTab-nav
+{
+	background-position:0 0;	/* left stacked tab colors */
+	border-width:0;
+}
+#TabHeader #IndexTab-nav a
+{
+	background-position:100% 0;	/* right stacked tab colors */
+	padding-bottom:5px;
+}
+
+#TabHeader #LoanAppTab-nav
+{
+	background-position:0 -75px;	/* left stacked tab colors */
+	border-width:0;
+}
+#TabHeader #LoanAppTab-nav a
+{
+	background-position:100% -75px;	/* right stacked tab colors */
+	padding-bottom:5px;
+}
+
+#TabHeader #AnswersTab-nav
+{
+	background-position:0 -150px;	/* left stacked tab colors */
+	border-width:0;
+}
+#TabHeader #AnswersTab-nav a
+{
+	background-position:100% -150px;	/* right stacked tab colors */
+	padding-bottom:5px;
+}
+
+#TabHeader #CreditScoresTab-nav
+{
+	background-position:0 -225px;	/* left stacked tab colors */
+	border-width:0;
+}
+#TabHeader #CreditScoresTab-nav a
+{
+	background-position:100% -225px;	/* right stacked tab colors */
+	padding-bottom:5px;
+}
+
+#TabHeader #LoanTypesTab-nav
+{
+	background-position:0 -300px;	/* left stacked tab colors */
+	border-width:0;
+}
+#TabHeader #LoanTypesTab-nav a
+{
+	background-position:100% -300px;	/* right stacked tab colors */
+	padding-bottom:5px;
+}
+
+#TabHeader #InterestRatesTab-nav 
+{
+	background-position:0 -375px;	/* left stacked tab colors */
+	border-width:0;
+}
+#TabHeader #InterestRatesTab-nav a 
+{
+	background-position:100% -375px;	/* right stacked tab colors */
+	padding-bottom:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="TabHeader">
+	<ul>
+	<li id="IndexTab-nav"><a href="../Index.htm">Home</a></li>
+	<li id="LoanAppTab-nav"><a href="../MortgageApplication/LoanAppShort.htm">Apply Now</a></li>
+	<li id="AnswersTab-nav"><a href="../Answers.htm">Answers</a></li>
+	<li id="CreditScoresTab-nav"><a href="../CreditScores.htm">Credit Scores</a></li>
+	<li id="LoanTypesTab-nav"><a href="../LoanTypes.htm">Loan Types</a></li>
+	<li id="InterestRatesTab-nav"><a href="../InterestRates.htm">Interest Rates</a></li>
+	</ul>
+</div>
+
+<p style="margin:0; padding:1em; clear:both;">We change the images so that they now have transparent corners. Instead of allowing the two images to slide over each other, we add left padding to the list item, equivalent to the width of the left-side image. The visible edges of the two background images now butt up against each other.</p>
+
+</body>
+</html>

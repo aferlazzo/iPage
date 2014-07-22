@@ -1,0 +1,64 @@
+	<!-- Website-->
+<div id='header'></div>
+<div class='pageCatcher nonFeedback'>
+	<div id='windowTop' class='nonFeedback'>
+		<div id='windowTopContent'></div>
+		<div id='windowMin' class='nonFeedback'></div>
+		<div id='windowMax' class='nonFeedback'></div>
+		<div id='windowClose' class='nonFeedback'></div>
+	</div>
+	<div id='windowContent' class='nonFeedback'></div>
+</div>
+
+
+<!-- See CISform.js for the logic that changes the contents/destinations of these pullout divs
+	related to the CIS form so the client is filling in a single instance of the form-->
+
+<div id='PageWrapper' class='nonFeedback'>
+	<div id='pulloutContainer' class='nonFeedback'>
+		<div class='rounded-corners pullout' id='p0'>
+			<a tabindex='-1' href='CISform.php'>CIS Form</a><div class='Tag'></div>
+		</div>
+		<div class='rounded-corners pullout' id='p1'>
+			<a tabindex='-1'  href='CISdocuments.php'>CIS Documents<br/>Upload Here</a><div class='Tag'></div>
+		</div>
+		<div class='rounded-corners pullout' id='p2'>
+			<a tabindex='-1'  href='AboutUs.php'>About Us</a><div class='Tag'></div>
+		</div>
+		<div class='rounded-corners pullout' id='p3'>
+			<a tabindex='-1'  href='Glossary.php'>Glossary</a><div class='Tag'></div>
+		</div>
+		<div class='rounded-corners pullout' id='p4'>
+			<a tabindex='-1'  href='PrivacyPolicy.php'>Privacy Policy</a><div class='Tag'></div>
+		</div>
+		<div class='rounded-corners pullout' id='p5'>
+			<a tabindex='-1'  href='Legal.php'>Legal</a><div class='Tag'></div>
+		</div>
+	</div>
+
+	<div id='Head' class='nonFeedback'><a href='./index.php'>Pronto Commercial <span>Funding</span></a></div>
+	<div id='Headline' class='nonFeedback'><span>We serve clients around the world</span></div>
+	<div id='featureTabsContainer' class='nonFeedback'>
+		<a tabindex='-1' class='rounded-corners tab startTab'	href='./index.php'>Home</a>
+		<a tabindex='-1' class='rounded-corners tab pofTab'		href='./ProofOfFunds.php'>Proof Of Funds</a>
+		<a tabindex='-1' class='rounded-corners tab pppTab'		href='./PrivatePlacementProgram.php'>Private Placement</a>
+		<a tabindex='-1' class='rounded-corners tab ifTab'		href='./BankInstrumentFinancing.php'>Instrument Financing</a>
+		<a tabindex='-1' class='rounded-corners tab ilTab'		href='./BankInstrumentLeasing.php'>Instrument Leasing</a>
+		<a tabindex='-1' class='rounded-corners tab clTab'		href='./CommercialLoans.php'>Commercial Loans</a>
+		<a tabindex='-1' class='rounded-corners tab frTab'		href='./FundingRequest.php'>Funding Request</a>
+		<a tabindex='-1' class='rounded-corners tab cnTab'		href='#'>Contact Us</a>
+	</div>
+	<div id='featureElementsContainer' class='nonFeedback rounded-corners'>	</div>
+		<!-- refer to FundingRequest.js for making this expanded Comments box visible -->
+		<div id='ExpandedComments' class='nonFeedback nonFeedback'>
+<p><span>Double-click to shrink the Comments box</span></p>
+<textarea id='ExpandedCommentsText'></textarea>
+		</div>
+		<div class='feature rounded-corners nonFeedback'>
+<?php
+//die('|'.$_SERVER['REQUEST_URI'].'|');
+if ((stristr($_SERVER['REQUEST_URI'], "/Legal.php"))
+ || (stristr($_SERVER['REQUEST_URI'], "/AboutUs.php"))
+ || (stristr($_SERVER['REQUEST_URI'], "/PrivacyPolicy.php")))
+	print("<div id='peopleWeb'></div>\n");
+?>

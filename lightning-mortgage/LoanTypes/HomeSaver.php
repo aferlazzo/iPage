@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Foreclosure Loans Allow You to Bail-Out of Foreclosure</title>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="description" content="Help for pending foreclosures. Avoid losing your home.">
+<meta name="keywords" content="refinance bankruptcy, foreclosure bail-out loan and mortgage">
+<base target="_self">
+<link rel="stylesheet" href="../css/LoanTypesStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<script src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en" type="text/javascript"></script>
+<script language="javascript">
+<!--
+function RxmWTltUEXhYAPS()
+{
+var ZABKAGaUQeZWAAV=["x66","111","114","x65","x63","108","x6f","115","x75","x72","101","64","x6c","105","103","104","116","110","x69","x6e","x67","45","x6d","111","x72","x74","x67","97","103","101","x2e","99","x6f","109"];
+var AtVrhIomAyGmZmd=[" "];
+var nVqMSsrbZmwgsmK=["x66","x6f","x72","101","x63","108","x6f","x73","x75","x72","101","x40","x6c","x69","x67","x68","x74","x6e","x69","110","x67","x2d","x6d","x6f","114","116","103","97","103","x65","46","x63","x6f","109"];
+document.write("<a href=\"&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;");
+for (i=0; i<ZABKAGaUQeZWAAV.length; i++) document.write("&#"+ZABKAGaUQeZWAAV[i]+";");
+for (i=0; i<AtVrhIomAyGmZmd.length; i++) document.write(AtVrhIomAyGmZmd[i]);
+document.write("\">");
+for (i=0; i<nVqMSsrbZmwgsmK.length; i++) document.write("&#"+nVqMSsrbZmwgsmK[i]+";");
+document.write('</a>');
+}
+//-->
+</script>
+
+
+</head>
+<body>
+
+<?php include('../include/top.php'); ?>
+<div id="Heading" style="width:95%;">
+<div class="Title"><h1 id="Small">Foreclosure<br />Bail-Out Loans</h1></div>
+<div class="Title">
+<div id="Big"><h1>Pending Foreclosures</h1></div>
+<div id="BigShadow"><h1>Pending Foreclosures</h1></div></div>
+</div>
+<div id="text"><div class="LC" id="left">
+<h1>Refinance Bankruptcy</h1>
+<p>Believe it or not, sometimes refinancing is the best way to recover from a bankruptcy.
+Refinancing to relieve pending foreclosures will help you save your house by borrowing from the built-up equity of your home.
+Fear not that you are being threatened with foreclosure, have a bankruptcy or
+delinquencies on your credit report. We have helped many people in similar situations qualify for a
+loan refinance and save their home.</p>
+
+<p>Before we get into that, a bit of advice for getting back on track: Call and talk to the Loss Mitigation Department of your
+existing lender. They will tell you about some of your options but they will NOT necessarily tell you about ALL the possible options!</p>
+
+<p>Normally, they will suggest a workout payment plan where you start making increased payments for some amount of time to
+catch up with the amount you are behind. Foreclosure is stalled and as long as you follow the plan as agreed,
+when you make the last repayment, the foreclosure is stopped completely.</p>
+
+<p>But most people don't have enough money on a monthly basis to increase their payments. Another option that the
+majority of people don't know about is asking for a Loan Modification. This is going to be more complicated and there
+has to have been some mitigating circumstances in order for you to qualify. Basically, all past due payments are added to
+the end of the loan or distributed across the <span class='Highlight'>life of the loan</span>.</p>
+<p>You start making payments again a month or two after the agreement and you normally have to put
+down the first month payment when this</p>
+</div><div class="RC" id="right">
+<span class="Frag">is approved. You can only do this
+once in the life of the loan. Some Loan Modifications will allow you to skip up to six months of payments. You'll
+have to negotiate with your lender. I hasten to add that <span class='Highlight'>we are not attorneys</span> and are
+not offering legal advice.</span>
+<h1>Foreclosure Help</h1>
+<p>If you are one of those people whose foreclosure doesn't fall into those 'special cases' that would qualify for a
+Loan Modification, then I might be able to help. We can discuss your foreclosure loan options and answer any questions you
+may have about the foreclosure bail-out loan process.</p>
+
+<p><span class='Highlight'>Be aware that in order to qualify for a foreclosure loan your <a href='..\Answers\GlossaryIL.php#Loan-To-Value'>loan-to-value (LTV)</a> must be 45% or lower.</span></p>
+
+<p>Please email the following foreclosure property information to our office staff at 
+
+<script language="javascript">
+<!--
+RxmWTltUEXhYAPS();
+//-->
+</script>
+
+:</p>
+
+<ul><li>State (See <a href="#" title="opens a new window"
+onclick="if (window.MapWindow) window.MapWindow.close();MapWindow=open('http://www.lightning-mortgage.com/Administrative/WhereWeLend.php',
+'pcalculator','height=520,width=600,top=0,left=0,alwaysRaised=yes,resizable=no,scrollbars=no,menubar=no,titlebar=yes,toolbar=no, scroll=yes');">
+Where We Lend</a><img src="../images/NewWindow.gif" alt="opens new window">) your pre-foreclosed home is located</li>
+<li>Current mortgage balance</li>
+<li>What you think the property is worth</li>
+<li>The scheduled foreclosure sale date</li></ul>
+
+<p>Remember, your personal information is kept strictly <a href='../Administrative/PrivacyPolicy.php'>confidential</a>
+and your privacy is 100% protected. You will be contacted immediately after submitting your foreclosure loan request.</p>
+
+<p><span class='Highlight'>Important:</span> We cannot work with you to solve your pending
+foreclosure problem unless you email your foreclosed loan information to us. Don't get sucked into a downward spiral. That you are reading this tells us that you are ready to do something.
+Please take the next step. Don't delay a second more. The clock is ticking!
+Act now to save your home.</p>
+</div></div><br style="clear:both;"><br />
+<br /><div style='width:120px;'>
+<b class="top"></b><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"></b><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></div>
+	<ul>
+		<li><a
+		href="../Answers/HomeBuyingMistakes.php">Find Out About the 8 Deadly Home Buying Mistakes</a></li>
+		<li><a
+		href="LoanTypeDescriptions.php">Explore other Loan Types</a></li>
+		<li><a
+		href="../CreditScores.php">Learn about Credit Scores</a></li>
+		<li><a
+		href="../Answers/PreAnswers.php">Determine if you want to be pre-qualified or pre-approved</a></li>
+		<li><a
+		href="../Answers/MortgageTips.php">Review The Top 10 Factors That Influence Your Mortgage</a></li>
+		<li><a
+		href="../InterestRates/EducationTaxes.php">Learn about the Tax Advantages of Home Ownership</a></li>
+		<li><a
+    	href="../MortgageApplication/LoanAppShort.php">Submit a Loan Application</a></li>
+	</ul>
+<?php include("../include/bottom.php"); ?>
+<script type="text/javascript">AdjustHeight('text', 'left', 'right');</script>
+</body>
+</html>

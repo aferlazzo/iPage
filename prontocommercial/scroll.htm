@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>scroll</title>
+<meta name="copyright" content="Copyright 2010, Anthony Ferlazzo - aferlazzo at gmail dot com" />
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" />
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/spriteMan.css" />
+<style type="text/css">
+#itemName{width:44px;height:142px;
+background-image: url('http://www.prontocommercial.com/images/cssSprite2.png');
+background-position:-45px -237px;
+background-repeat: no-repeat;}
+div#spriteBox {
+background:url('images/cssSprite2.png') no-repeat;
+position:absolute;
+z-index:3;
+top:40px;
+padding:0;
+left:500px;
+height:510px;
+width:89px;
+margin:0;
+}
+.frameH, .frameV{
+position:fixed;
+z-index:10;
+top:30px;
+left:490px;
+width:120px;
+height:10px;
+background:#f00;
+}
+.frameV{
+top:30px;
+width:10px;
+height:110px;
+}
+.backing, .backingBottom{
+z-index:100;
+background:blue;
+position:fixed;
+top:0; left:0;
+height:30px;
+width:100%;
+}
+.backingBottom{
+top:150px;
+height:100%;
+}
+#rframe{left:600px;}
+#bframe{top:140px;}
+</style>
+<script type='text/javascript'>
+		var sTop=30, sHeight, fw = 10;
+
+		function goDown(){
+			sTop = parseInt($('#tframe').css('top'));		// get top position of top frame
+			sHeight = parseInt($('.frameV').css('height'));	// get height of frame
+			sHeight--;										//
+			sTop++;
+			$('#tframe, .frameV').css('top', sTop+'px');	// make top frame 1 pixel lower
+			$('.frameV').css('height', sHeight+'px');		// make height of frame 1 pixel shorter
+			// get what is inside frame
+
+		}
+		function goUp(){
+			sTop = parseInt($('#tframe').css('top'));
+			sHeight = parseInt($('.frameV').css('height'));
+			sHeight++;
+			sTop--;
+			if(sTop > 29)
+			{
+				$('#tframe, .frameV').css('top', sTop+'px');
+				$('.frameV').css('height', sHeight+'px');
+			}
+		}
+</script>
+</head>
+
+<body>
+	<div class='backing'>
+		<input type='button' value='lower top'	onclick='goDown();'/>
+		<input type='button' value='raise top' 	onclick='goUp();'/>
+		<div id='itemName'></div>
+	</div>
+	<div id='tframe' class='frameH'></div>
+	<div id='lframe' class='frameV'></div>
+	<div id='spriteBox'></div>
+	<div id='rframe' class='frameV'></div>
+	<div id='bframe' class='frameH'></div>
+	<div class='backingBottom'></div>
+
+
+<script type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+<script type='text/javascript'>
+	google.load("jquery", "1.4.2");
+	google.load("jqueryui", "1.8.6");
+</script>
+<script type='text/javascript'>
+	$(function() {  		//	start of jquery code
+	});
+
+</script>
+</body>
+</html>

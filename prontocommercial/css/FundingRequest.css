@@ -1,0 +1,276 @@
+#directions{
+margin:15px 5px 0;
+width:250px !important;
+height:330px;
+}
+#directions p{margin:20px;font-size:14px;line-height:inherit;text-align:left;}
+#directions h1{margin-bottom:0;font-size:24px;display:block;}
+#nextTab{display:block !important;}
+#tabControls{position:absolute;top:350px;left:50px !important;width:180px;height:30px;}
+#scrollControls{display:none;}
+form {text-align:left; width:460px;font-size:12px;height:340px;}
+#nextTab{top:9px;}
+#controlTablet{
+position: absolute;
+top:0;left:-999px;
+margin:20px;
+width:460px;
+height:320px;
+}
+fundingRequestTab{width:452px;}
+.ui-tabs .ui-tabs-nav {width:98%;}
+
+#fundingRequestContact, #fundingRequestCategory, #fundingRequestDetails {
+width:420px;
+height:300px;
+/*border:1px solid gray;*/
+padding:15px;
+}
+#SuccessDiv {
+display : none;
+}
+
+div.fundingPanelPtr{
+float:left;
+width:24px;
+height:24px;
+color:#fff;
+cursor:pointer;
+font-size:14px;
+font-weight:700;
+margin:8px 6px 0;
+line-height:24px;
+border-radius: 12px;
+-webkit-border-radius: 12px;
+-moz-border-radius: 12px;
+box-shadow:2px 2px 3px #000;
+-webkit-box-shadow:2px 2px 3px #000;
+-moz-box-shadow:2px 2px 3px #000;
+}
+
+
+/*.dialogBox{width:250px;height:72px;}
+
+.ui-dialog-titlebar, .ui-widget-header{height:30px !important;}*/
+
+p{margin:0;}
+
+form#formFundingRequest {
+margin:0;
+color : #000;
+width:680px;
+height:350px;
+}
+/*display the form's validation error messages in this format in these div elements... */
+
+.panel0ErrorMessage, .panel1ErrorMessage, .panel2ErrorMessage {
+color:#ddd;
+font-size:12px;
+height:24px;
+padding-left:40px;
+overflow:visible;
+}
+
+
+label{
+margin:3px 5px 0;
+display:inline-block;
+width:90px;
+text-align:right;
+font-size:14px;
+overflow:visible;
+white-space:nowrap;
+}
+#CodeDiv label{text-align:left;}
+input#Equation{margin:0 5px;}
+div#wrapper {
+height:100%;
+min-height:100%;
+margin : 8px auto;
+padding :20px 10px;
+width : 640px;
+background:#e86;
+}
+
+select {margin:0;}
+input text, textarea {
+font-family : Verdana, Arial, Helvetica, sans-serif;
+height : 20px;
+line-height : 20px;
+font-size : 15px;
+padding-left : 4px;
+border:1px dashed silver;
+}
+
+#FullName, #Phone, #Skype, #Email{width:185px;}
+input#LengthBox{width:20px;margin:0 5px;}
+.panel .panelContent
+{float:left;height:300px;width:500px;padding:10px;}
+/* for panel 0 */
+
+#Content0, #Content1,#Content2 {margin:5px 0;text-align:left;}
+#Content0 p, #Content1 p,#Content2 p{margin:0;}
+#Content2 {padding:0 0 0 60px;width:460px;}
+
+div#Start,div#FormHead0 {
+z-index:4;
+position:absolute;left:75px;top:280px;
+font-size:18px;
+font-weight:900;
+width:350px;
+height:60px;
+}
+div#Start {
+z-index:4;
+left:340px;top:55px;
+height:35px;
+width:270px;
+overflow:visible;
+}
+div#Request{
+position:absolute;left:55px;top:65px;
+}
+
+.hints{
+float:right;width:220px;margin:5px 8px 0 0;font-size:12px;
+}
+
+/* for jquery styled buttons like used in Currency */
+button { outline: 0; margin:0 2px 0 0; padding: .4em 1em; text-decoration:none !important;
+cursor:pointer; position: relative; text-align: center;color:#fff;}
+
+	/* remove extra button width in IE */
+button.fg-button { width:auto; overflow:visible; }
+
+button{
+background:#5EC4CD;
+}
+button.selected{
+background:#025167;
+}
+input#Amount{width:180px;}
+#CurrencyType {
+height:20px;width:60px;
+background:url(../images/jqueryCurrency.png) no-repeat;
+background-position:0 0;
+display:inline-block;
+}
+#ccc, #CurrencyType, #DollarSymbol, #EuroSymbol{cursor:pointer;}
+#DollarSymbol, #EuroSymbol {
+background:transparent url(../images/jqueryCurrency.png) no-repeat;
+background-position:-60px 0;
+width:90px;
+height:120px;
+float:right;
+margin-right:80px;
+}
+#EuroSymbol {background-position:-150px 0;display:none;}
+
+fieldset{
+margin:10px 20px 10px 40px;
+width:150px;
+border-radius: 8px;
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+-o-border-radius: 8px;
+behavior: url(PIE.htc);
+}
+div#SwiftType {
+margin-top:10px;
+margin-left:65px;height:100px;width:90px;
+}
+div#SwiftType label {text-align:left;}
+
+/* for Page 2 */
+
+div#FormHead2 {
+z-index:4;
+font-size:26px;
+font-weight:900;
+height:60px;
+}
+
+#Content2 label{
+margin-left:10px;
+text-align:left;
+width:350px;
+}
+
+textarea#Comments {
+border : 1px solid silver;
+width : 380px;
+height : 145px;
+margin : 5px;
+overflow : auto;
+background:#fff;
+}
+
+#CommentsEdiv{
+float:left;
+margin-left:10px !important;
+width:305px !important;
+height:95px;
+overflow:hidden;
+white-space:nowrap;
+}
+
+div#ExpandedComments{
+z-index:90;
+}
+#ExpandedComments p span{
+background-color:yellow;
+}
+#CommentsError{
+font-size:12px;
+width:300px;
+}
+
+div#CodeDiv{
+float:left;
+width:163px;
+height:65px;
+font-size:12px;
+}
+span#Equation {
+display:inline-block;
+width:50px;
+height:16px;
+padding:2px;
+text-align:right;
+background-color:#fff;
+border:1px solid silver;
+}
+#CaptchaDiv{
+float:left;
+width:165px;
+height:65px;
+overflow:hidden;
+white-space:nowrap;
+}
+input#Captcha{margin:4px 0;width:30px;}
+#CaptchaError, #CaptchaCopyError{padding-left:0 !important;width:175px;}
+#Captcha{
+width:68px;margin:0 5px;
+}
+
+#ButtonDiv{
+float:left;
+text-align:center;
+width:70px;
+height:90px;
+font-size:12px;
+white-space:nowrap;
+}
+
+div#SendRequestBox {
+position:absolute;left:605px;top:350px;
+}
+div#error{
+position:absolute;left:58px;top:335px;width:600px;text-align:right;height:20px;
+}
+div#error span {background:red;color:#fff;}
+
+.panelValid { background:green; }
+li.forTabProcessing a, li.forTabProcessing a:hover, li.forTabProcessing a:active{
+border-bottom:none;
+}

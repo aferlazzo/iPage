@@ -1,0 +1,9 @@
+ErrorDocument 404 /404.php
+ErrorDocument 403 /403.php
+AddType text/x-component .htc
+# disable directory browsing
+Options All -Indexes
+# block ip address
+order allow,deny
+deny from 75.66.7.179
+allow from all

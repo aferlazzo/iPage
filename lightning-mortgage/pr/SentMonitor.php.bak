@@ -1,0 +1,53 @@
+<?php 
+// This  is the Ajax SentMonitor server code
+
+include ("conn.php");
+
+$arid  = $_POST['arid'];
+$Email = $_POST['Email'];
+$seqno = $_POST['seqno'];
+$row   = $_POST['row'];
+/*
+$arid  = 143;
+$Email = "tferlazzo@gmail.com";
+$seqno = 2;
+$row   = 3;
+*/
+set_time_limit(0);			// don't time-out
+//ignore_user_abort (TRUE);	//don't abort script even if the user disconnects. Just continue monitoring mail delivery.
+
+
+function TellIt($Msg)
+{
+	print("<script type='text/javascript'>");
+	print("alert('$Msg')");
+	print("</script>");			
+}
+		 
+//----------------------------------------
+	//$SentDate=date("YmdHmiu");
+	
+	$Query  = "select * from messagesSent where email='$Email' and seqno=$seqno and arid=$arid";
+	$result = mysql_query($Query) or die("SentMonitor.php died with mysql_query: $Query");
+	$xxx = mysql_num_rows($result);
+	//TellIt("$xxx rows found");
+	if($xxx < 1)  // if no match
+	{
+		//TellIt("No matching messagesSent rows for arid |$arid| &lt;$Email&gt; seqno |$seqno|");
+		echo("F"); 
+	}	
+	else
+	{
+		/*
+		mysql_data_seek($result, 0);
+		$row = mysql_fetch_object($result);
+		$SentDate = $row->SentDate;
+		$Email = $row->Email;
+		$arid = $row->arid;
+		$seqno = $row->seqno;
+		*/
+		//TellIt("Found Row: $row");
+		echo("T$row"); //we must return the report row number that matched
+	}
+
+?>

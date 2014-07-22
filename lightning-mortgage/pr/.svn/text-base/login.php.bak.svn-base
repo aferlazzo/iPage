@@ -1,0 +1,98 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+function yyyReferenceLinks()
+	{
+		print("<div id='navKappa'>\n");
+		print("<div id='navKappaPadlock' onMouseOver='this.style.backgroundColor=\"silver\"' onMouseOut='this.style.backgroundColor=\"transparent\"'>\n");
+		print("<a href='unlock.php' target='Monitor' title='If you stopped all campaigns, restart them here.' onMouseOver='this.style.backgroundColor=\"transparent\"'>\n");
+		print("<img src='./images/unlocked.png' alt='If you stopped all campaigns, restart them here.' style='border:none;'></a></div>\n");
+
+		print("<div id='navKappaLinks'>\n");
+
+		print("<a href='DisplayLog.php?f=activity' title='View the Activity Log' target='LogFile'>Refresh Log</a> ::\n"); 
+		print("<a href='mailout.php' target='Monitor'>Send All Past Due</a> :: \n");
+		print("<a href='/pr/home.php?arid=143&amp;cmd=1' onclick='return(LLogout());'>Logout</a>\n");
+
+		print("<br/><br/><a href='home.php'>Home</a> :: <a href='Monitor.php?arid=143' title='View this campaign\'s pending email delivery'\n"); 
+		print("target='Monitor'>Monitor Pending</a></div>\n");
+
+		print("<div id='navKappaStop' onMouseOver='this.style.backgroundColor=\"silver\"' onMouseOut='this.style.backgroundColor=\"transparent\"'>\n");
+		print("<a href='lock.php' target='Monitor' title='Made a mistake? Immediately stop the email Send process.' onMouseOver='this.style.backgroundColor=\"transparent\"'>\n");
+		print("<img src='./images/locked.png' alt='Made a mistake? Immediately stop the email Send process.' style='border:none;'></a></div><br style='clear:left;'></div>\n");
+	}
+
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Perfect Response Login</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="../css/niftyCorners.css">
+<script type="text/javascript" src="../js/PerfectResponse.js"></script>
+<script type="text/javascript" src="../js/nifty.js"></script>
+</HEAD>
+<body>
+
+<div id='Wrapper'><div id="content">
+<div class="title" style='display:block;'> <!--make title visible.--> 
+<table summary="">
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+</div>
+<form name="main" method="post" action="loginaction.php">
+<table summary="" style="width:100%;padding:4px;text-align:center;">
+	<tr>
+		<td style="vertical-align:middle;text-align:right;width:50%;">
+			<p><label for="UserName">Login Name:</label></p>
+		</td>
+		<td style="vertical-align:middle;text-align:left;width:50%;">
+		<?php
+			print ("<p><input type='text'  tabindex='1' name='UserName' id='UserName' ");
+			print ("onfocus=\"this.style.border='2px solid #000080'\"  onblur=\"this.style.border='2px solid gray'\"></p>");
+		?>
+		</td>
+	</tr>
+	<tr>
+		<td style="vertical-align:middle;text-align:right;width:50%;">
+			<p><label for="pwd">Password:</label></p>
+		</td>
+		<td style="vertical-align:middle;text-align:left;width:50%;">
+
+		<?php
+			print ("<p><input type='password' tabindex='2' name='pwd' ");
+			print ("onfocus=\"this.style.border='2px solid #000080'\"  onblur=\"this.style.border='2px solid gray'\"></p>");
+		?>
+		<input type="hidden" name="Redirect" value="home.php">
+		</td>
+	</tr>
+	<tr> 
+		<td colspan='2'align='center'>
+			<br><input class='submit' type="submit" tabindex="3" name="Submit" value="Login" onClick="this.value='Logging In'"
+ 			onMouseover="this.className='MouseOver'" onMouseout="this.className='submit'" onfocus="if(this.blur) this.blur();"><br />&nbsp;
+		</td>
+	</tr>
+</table>
+</form>
+<p style="text-align: center;font-weight: bold;">Perfect Response Version 2.1   &copy; Lightning Mortgage 2004-2007</p>
+<?php
+yyyReferenceLinks();
+?>
+</div></div>
+
+</BODY>
+</HTML>

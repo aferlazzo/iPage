@@ -1,0 +1,406 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Eight Deadly Home Buying Mistakes</title>
+<meta http-equiv="Content-Type" content=
+"text/html; charset=us-ascii">
+<meta name="copyright" content=
+"Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="description" content=
+"Home Buying Mortgage mistakes explained, described, and defined. US only.">
+<meta name="keywords" content=
+"mortgage, home buying, bad credit, LIGHTNING MORTGAGE">
+<script language="JavaScript" src="../js/Common.js" type=
+"text/javascript">
+</script>
+<link rel="stylesheet" href="../css/AnswersStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+
+</head>
+<body>
+
+<?php include('../include/top.php'); ?>
+	<div id='PageHead'>
+		<h1>Home Buying Mistakes</h1>
+		<p>The Eight Most Costly Mistakes Buyers Make And How to Avoid Them</p>
+	</div>
+<p>Buying a home is undoubtedly the biggest financial
+decision most people ever make. At the same time, you are having to
+deal with moving, another potentially life altering decision.
+Getting caught up in the excitement of the moment is common, but it's
+serious business too &ndash; and you deserve serious advice. You don't
+know it but, in the next few minutes you're going to learn eight
+commonly made home buying mistakes. Avoiding these mistakes will
+save you thousands of dollars. It will also allow you to avoid
+the anguish of making a home purchasing mistake.</p>
+
+<div style='margin:0 auto;width:240px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:238px;'>1. Failing to have a plan</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<p>It is a lot harder to win a game, or any endeavor, without having a clear strategy, or game plan. With a
+game plan, you will eliminate many of the headaches involved in
+this complicated process. You need a clear plan when deciding
+to buy a house. Avoiding the other 7 mistakes by better planning will make
+your experience better from a number of perspectives.</p>
+<p><span class='Highlight'>The first step is to evaluate your current situation.</span></p>
+<p>If you currently own a home, will it be necessary to
+sell before making another purchase? Most people are frightened of putting their home
+on the market prior to knowing exactly where they'd be living next, but
+that's exactly what you must do. Your real estate agent can help with strategies and marketing your home to sell quickly.</p>
+<p>Are you renting? If so, how much time is left on your lease? You'll need
+to review the consequences of breaking the lease if you don't want to or can't wait before buying.
+Specifics regarding the location of the house and the desired amenities (number of bedrooms, a pool,
+or garage size) should be decided on, too. Commute distance is yet another factor to consider.</p>
+
+<p><span class='Highlight'>Next, determine what feature are important to have.</span></p>
+<p>Write down desirable locations you would consider, an
+acceptable price range, the number of bedrooms and bathrooms, and
+any other amenities that are important to you. Be specific. Although you probably won't find a home
+that offers every feature on your list, without a wish list it will be harder
+to recognize a home that meets your expectations.</p>
+<p>You might want to use the <a href="HomeBuyerChecklist.php">Home Buyer Checklist</a> when
+you are out looking for your home. There are so many things to
+think about when choosing a home--sales price, neighborhood,
+distance to work, and other special features--that it is difficult to keep them all in your head.</p>
+
+<p><span class='Highlight'>Tell others, like your realtor what's important to you.</span></p>
+<p>It is a lot of work finding a new home. A competent
+Realtor will look for homes that match your criteria. Using a realtor will
+save you time and effort. You'll spend less time looking
+at homes that don't fit your needs and desires. Some things to watch out for:</p>
+<ul>
+<li>A home which is too large or too small for future needs</li>
+<li>A fixer-upper when you are not handy</li>
+<li>A house that is too far from work or too close to traffic</li>
+<li>A home in the wrong price range</li>
+</ul>
+<p>Having a plan will save you time and reduce the hassle of
+shopping for a home. To summarize, spend a little time in up front
+and save a lot of time and money in the future!</p>
+
+<div style='margin:0 auto;width:441px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:439px;'>2. Not Realizing You Can Afford To Own a Home</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<p>Many people feel that home ownership is beyond their reach,
+but affording a home has never been easier. As you will realize
+after looking over this web site for a short time, home loan
+programs are more flexible today than ever, and the tax laws continue to favor home
+ownership like no other tax shelter.</p>
+<p>Home ownership is an investment like no other.
+Although no one can say if a specific home or community will
+appreciate in value, generally speaking, the odds favor the homeowner.</p>
+<p>Numerous unique tax advantages are available to home owners.
+The thousands of dollars you pay in mortgage interest is tax
+deductible. This tax deduction alone can sometimes make owning
+your own home cheaper than renting with "after tax" take home
+dollars.</p>
+<p>We, at Lightning Mortgage, will be glad to
+<a href='http://www.lightning-mortgage.com/InterestRates/EducationTaxes.php'>Show You</a> in detail
+the tax savings numbers. We will help you determine the best loan
+product to suit your specific needs.</p>
+<div style='margin:0 auto;width:280px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:278px;'>3. Failing to get Pre-qualified</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<p>Most people don't realize how much they can afford. Sometimes
+they spend hours searching for homes in a price range that is too
+high or too low! Save time and money by getting pre-qualified for a mortgage.
+Before you go shopping for a home, you must determine how much
+you can afford.</p>
+<p>Once you are pre-qualified for a mortgage, you
+will know your buying power-you will save time by looking only in
+your price range. The process is simple. We'll ask you basic questions
+concerning your credit history, and determine your buying power.
+<p>You can even get pre-approved for a loan! Imagine for a moment
+that when you and your Realtor initially draft your offer for the
+home you select, you are already approved for the loan &ndash; IN
+ADVANCE. From the seller's perspective, it's as if you are an
+all-cash buyer! By having this step done you will relieve stress
+and worrying about qualifying.</p>
+<p>In today's market, a pre-approval can be a powerful
+negotiating tool. The old way of buying a home caused people like you
+to spend a lot of time searching for the perfect home, carefully drafting an offer,
+awaiting acceptance of the offer, consulting a Loan Officer, and
+filling out the multitude of forms and applications. All the effort would
+often go to waste because, for whatever reason, you'd be
+turned down for the loan. You deserve peace of mind and
+negotiating power by getting an approved loan before you make an
+offer.</p>
+<p>Get Pre-Qualified for a Loan using our Free On-Line
+Service</p>
+<div style='margin:0 auto;width:410px'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:408px;'>4. Failing to Find the Right Lender or Realtor</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<p>Most likely you don't rarely, if ever, interview people. Yet, in
+order to find both the lender and the right Realtor (you'll need both),
+you may need to interview several. The quality of your home buying experience is
+dependent upon your skill at selecting the best-qualified
+people.</p>
+<p>In the real estate business, people who have helped buyers like you
+buy and finance many homes usually cost about the same as others who
+have less experience.
+Bringing that experience to bear on your home purchase could mean a
+lower price at the negotiating table, a faster close, better loan terms, as well as
+experiencing much less purchasing hassles. Your lender should understand how to
+find the right loan for your needs. Your agent should be a
+skilled, win-win negotiator!</p>
+<p>You need to select people who guarantee their services.
+You should have the right to fire either the lender or the Realtor if you are not
+satisfied - no questions asked.</p>
+<p>Both lenders and agents make it their business to provide expert service
+and advice through the entire process. The more
+closely you work with your lender and agent, the better your needs are known
+and the more effectively you can be served.</p>
+<p>The purchase of your home could well be the most important
+financial transaction you have ever made. The people you select
+can make it a satisfying and profitable activity or a terrible
+experience. It's your home. It's your money. Never hesitate to
+ask questions.</p>
+
+<div style='margin:0 auto;width:400px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:398px;'>5. Choosing a loan based only on loan type</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<p>One of the great modern-day myths is that a fixed rate
+mortgage is the best mortgage type.</p>
+<p>Many different types of loan programs are available. Refer to
+<a href=
+"http://www.lightning-mortgage.com/LoanTypes/LoanTypeDescriptions.php">
+Our Loan Types</a>. It would be a great mistake to think that
+just because "Aunt Sue got a 8.5% 30-year fixed rate" you should
+get the same loan.</p>
+<p>You should get together with an expert who can explain the
+different types of loan programs. Each program may have its own
+series of special benefits for you and your specific needs. When
+considering such an important decision, it is best to explore all
+possibilities. It may well be that a 30-year fixed rate is the
+best type of loan program for you. It may also be that you can
+save a significant amount of money by exploring alternative loan
+programs.</p>
+<p>A full-service lender like Lightning Mortgage with
+relationships throughout the mortgage industry is a must in
+today's market. Lenders need the flexibility of the small
+business owner with the clout of a large company.</p>
+<p>Today there are almost as many different programs as there are
+housing options. A few considerations for choosing the right type
+of mortgage are:</p>
+<ul>
+<li>Anticipated time in the home</li>
+<li>Available asset base</li>
+<li>Current income situation vs. future income situation,
+etc.</li>
+</ul>
+<p>It is wise to pick a loan program that fits YOUR lifestyle.</p>
+<p>Example: If you pay off a loan in fifteen years versus thirty
+years, you will obviously save a lot of money in interest
+expense. It is important to note that this savings is because you
+repay the loan in half the time. The savings is not due to a
+significant savings in interest rates, but in interest paid.</p>
+<p>You should expect that there would be a much lower interest
+rate since the loan has a quicker repayment and, from any
+lender's perspective, carries with it less risk. Yet the difference
+in interest rate will not be that significant. Rates on 15-year
+mortgages may be 1/4% to 3/8% better than 30-year mortgages. The
+other important consideration is that monthly payments on 15-year
+loans will be approximately 25% higher on a monthly basis.</p>
+<p>Another one of the great modern-day myths is that you should
+go to your bank to get the best mortgage at the best interest
+rate.</p>
+<p>Typically a commercial bank will own a separate business
+entity that shares the bank's name and offers mortgage financing.
+But, this does not mean that you will get a 'special' deal just
+because you are the bank's client. Each and every loan must stand
+on its own merits and meet loan program guidelines.</p>
+<p>The bank's mortgage subsidiary has no special access to your
+financial records as you might expect. The bank's mortgage
+subsidiary must request your financial records from the bank just
+as any other mortgage company. Your mortgage loan process will
+not be simplified or viewed differently from any other applicant
+making a request.</p>
+<p>The perception of most people who go to their bank's mortgage
+subsidiary is that their loan payments will always be made to
+their bank; thus, all of the individual's banking needs will be
+"under one roof." The reality is that most mortgage subsidiaries
+of banks sell their loans on the secondary mortgage market and
+may sell your loan servicing, just as any other mortgage company
+can.</p>
+<p>Another important consideration is that a typical bank
+mortgage subsidiary works with a small number of mortgage
+products. You will seldom find a wide variety of loan programs,
+and your loan officer may not have a good comprehension of all
+the different programs available. It is doubtful that they can
+adequately advise you as to the best program for your needs. It
+is possible that you, or the property you are buying, may need to
+have special underwriting to approve your loan application.</p>
+<p>Just as you should interview your Realtor, you should also
+interview your Lender. Not all lenders look after your needs.
+Select a Lender (we, of course, hope it will be Lightning
+Mortgage) who is willing to discuss your needs and help you
+choose the loan program that is best for your situation, not the
+best for the Lender!</p>
+
+<div style='margin:0 auto;width:370px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:368px;'>6. Failing to make your own inspection</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<p>You probably would not want to rely on the seller to point out
+defects in a house he is attempting to sell. There may even be
+hidden problems of which he is unaware.</p>
+<p>Be sure your sales contract is worded so that any "earnest
+money deposit" must be returned in the event the house fails
+inspection. If a major defect is found, you have the option to
+cancel the contract and have your deposit returned, bargain for a
+lower price to compensate for the cost of repairing the problem,
+or have the owner make needed repairs before the sale closes.</p>
+<p>Even before you get to the point of a contract and having a
+professional inspector look at the house, there are many items
+you can check yourself as you are shopping for a home:</p>
+<ul>
+<li>Structure: Basement, check the foundation for cracks or water
+marks. Floors, are they level? Does the roof sag?</li>
+<li>Water damage: Look for unevenly painted ceiling or wall;
+mildew odor in basement; signs of re-plastering or re-tiling in
+just one area of a room.</li>
+<li>Water pressure: Flush toilet and turn on both hot- and
+cold-water faucet at the same time to test.</li>
+<li>Plumbing: Ask what type of pipes are installed and their age. If
+applicable, ask when the septic system was last inspected and
+cleaned. Stand near the tank to detect odor or soggy ground.</li>
+<li>Wiring: A 100-amp system is typical in modern construction
+and uses a one-inch main line; this can be seen leading to the
+fuse box. Appliances such as drier or range require a 220-amp
+line. Notice if lights flicker or don't work. Check for
+electrical outlets . . . usually at least 2 in each room.</li>
+<li>Energy efficiency: Ask to check last year's heating and
+cooling bills. Determine if proper insulation has been used.</li>
+<li>Pests: Be alert for small accumulations of sawdust in the
+basement. This might indicate an insect problem. Obtain date and
+results of the last wood-destroying pest inspection.</li>
+<li>Ask to see the seller's survey made when the seller bought
+the house. Make sure you read it.</li>
+</ul>
+<h3 style="color:#009">Home Buyer Checklist</h3>
+<p>When you are shopping take a copies of the
+<a href="HomeBuyerChecklist.php">Home Buyer Checklist</a> to keep
+you alert to possible problem areas. The web page will print in black
+and white for your convenience if you press the print button of your browser. Avoid
+"surprises" by keeping your eyes open. A good realtor will point
+them out to you. Be certain that you are clear on items that
+would be your responsibility to correct and repairs the seller is
+agreeing to make. Have this list with you when you go for your
+walk-through. You can be successful in the home buying process.
+During the entire process you should remember to buy with resale
+in mind. In short, be alert! Be curious!</p>
+
+<div style='margin:0 auto;width:570px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:568px;'>7. Failing to obtain a home inspection from a qualified inspector</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<p>A home inspector reports on the structural and mechanical
+condition of every major part of the home. With this report you
+will have the facts you need to make a decision about whether the
+condition of the home suits your needs.</p>
+<p>A well-qualified inspector who has adhered to federal
+licensing standards can spot problems that you might not be able
+to see. Expect problems to be clearly explained, repair expenses
+closely calculated, maintenance costs estimated, and a written
+report delivered within a day or two.</p>
+<p>Most contracts are written conditional on the outcome of
+several inspections. These inspections may include several items
+including inspection for wood-boring insects, excessive amounts
+of radon gas, structural soundness, and the condition of the
+heating, wiring, roofing and plumbing.</p>
+<p>When the contract is written, it should specify who would be
+responsible for paying to correct problems that are uncovered by
+the results of any of these inspections.</p>
+<p>If the purchase contract is well written, home inspections can
+create a safety valve for both the buyer and seller. If poorly
+written, the result can be heartbreak or lawsuits.</p>
+<p>Your Realtor should be very familiar with the local laws and
+customs regarding home inspections. Many people have made costly
+mistakes about purchases because their agent failed to comprehend
+this crucial report.</p>
+
+<div style='margin:0 auto;width:400px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:398px;'>8. Not knowing your rights and obligations</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<p>Real estate law is extensive and complex. The contract for
+sale and purchase is a legally binding document. An improperly
+written contract can cause the sale to fall through or cost you
+thousands of dollars for repairs, inspections, and remedies for
+title defects.</p>
+<p>You must be certain which repairs and closing costs are your
+responsibility. You must know whether the property can legally be
+sold "as is" and how deed restrictions and local zoning will
+affect the transaction. If there are defects in the title, or if
+the property is in conflict with local restrictions, you or your
+Realtor must remedy them. Otherwise, you could lose
+thousands!</p>
+<p>It is your Realtor's job to know the laws governing real
+estate transactions. They are involved in an on-going training
+program to keep up to date with these laws.</p>
+<p>You deserve to have an agent who is not only knowledgeable
+about the transaction but is also willing to educate you
+throughout the process so you will feel more comfortable.</p>
+<p><span class='Highlight'>To turn the negative around, here's what you should do:</span></p>
+<ul>
+<li>Don't buy a home on a whim. Have a plan.</li>
+<li>Learn about the tax benefits of home ownership, giving you
+greater buying power.</li>
+<li>Get pre-approved for a mortgage with a great lender like
+Lightning Mortgage.</li>
+<li>Find a good realtor to help you, guide you, and protect
+you.</li>
+<li>Look at all your mortgage options and pick the best one for
+your situation, not simply the safest or most costly one.</li>
+<li>Use the attached <a href="HomeBuyerChecklist.php">Checklist</a>
+to help you make the best decision of which home to buy.</li>
+<li>Obtain a home inspection by a licensed inspector.</li>
+<li>Know your rights as a home buyer.</li>
+</ul>
+<hr>
+<br />
+<div style='width:120px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<ul>
+<li><a href="../Answers.php">Explore the
+rest of the Loan Process</a></li>
+<li><a href="../CreditScores.php">Explore
+Credit Score Topics</a></li>
+<li><a href="../LoanTypes.php">Learn about
+Loan Types</a></li>
+<li><a href=
+"../Answers/PreAnswers.php">Determine if you want to be
+pre-qualified or pre-approved</a></li>
+<li><a href=
+"../Answers/MortgageTips.php">Review The Top 10 Factors That
+Influence Your Mortgage</a></li>
+<li><a href=
+"../InterestRates/EducationTaxes.php">Learn about the Tax
+Advantages of Home Ownership</a></li>
+<li><a href=
+"../MortgageApplication/LoanAppShort.php">
+Submit A Loan Application</a></li>
+</ul>
+<?php include('../include/bottom.php'); ?>
+
+</body>
+</html>

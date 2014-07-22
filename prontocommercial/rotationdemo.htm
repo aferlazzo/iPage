@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>rotation demo</title>
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+<script src='./js/jquery.transform-0.9.3.min.js'></script>
+<style>
+	form{margin-top:50px;height:30px;}
+	div#workspace{position:fixed;height: 500px; width:100%;}
+	div#lineWrapper{
+		position:absolute;
+		z-index:10;
+		top:100px;
+		left:250px;
+		height:20px;
+	}
+		div#line{
+		position:relative; /* needed for transform */
+		height:20px;
+		width:215px;
+		border-bottom:2px solid #aaa;
+		}
+			div#middle{height:20px;float:left;background-color:#fff;margin:0 10px;}
+			div#red, div#green{height:20px;width:20px;background-color:red;float:left;}
+			div#green{background-color:green;}
+
+
+
+	div#box{
+		margin:0;
+		position:relative;
+		z-index:9;
+		top:122px;
+		left: 202px;
+		height:300px;
+		width:300px;
+		background-color:blue;
+		}
+	input option{text-align:right;}
+</style>
+
+<script>
+	function doHinge(angle){
+			$('#line').transform({origin: ['150px', '20px']});		// this is the pivot point
+
+
+
+
+			if (angle == 'down'){
+				$('#lineWrapper').animate({'left':50}, 2000, 'easeOutQuad', function(){			// move the horizontal line left
+					$('#line').animate({rotate: '-90deg'}, 900, 'easeOutSine', function(){	// change to vertical line
+						$('#line').animate({'top':200}, 500, 'easeOutBounce');
+					});
+				});
+			}
+
+			if (angle == 'up'){
+				$('#line').transform({rotate: '-90deg'});	//the line must be told it is vertical before moving it up
+				$('#line').animate({'top':0}, 2000, 'easeOutQuad', function(){		// move the vertical line up
+					$('#line').animate({rotate: '0deg'}, 900, 'easeOutSine', function(){	// change to horizontal line
+						$('#lineWrapper').animate({'left':250}, 500, 'easeOutBounce');
+					});
+				});
+			}
+	}
+	</script>
+</head>
+<body>
+	<form>
+		Pivot <select onChange='doHinge(this.value);'>
+			<option selected=selected>select</option>
+			<option>down</option>
+			<option>up</option>
+
+		</select>
+	</form>
+	<div id='workspace'>
+		<div id='lineWrapper'>
+			<div id='line'>
+				<div id='red'></div><div id='middle'>This is my rotating header</div><div id='green'></div>
+			</div>
+		</div>
+		<div id='box'></div>
+	</div>
+
+</body>
+</html>

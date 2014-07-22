@@ -1,0 +1,32 @@
+<doctype html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>stylizing</title>
+<link rel="stylesheet" type='text/css' href="css/stylizing.css">
+</head>
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+<script type='text/javascript'>
+
+$('document').ready(function(){
+	getPath(){
+		alert($('iFile').val());
+	}
+});
+</script>
+
+<body>
+	<h1>Stylizing File upload Button</h1>
+	<form id='iForm'  onsubmit='return sendingValues();' action='stylzing.php' method='get'> 
+		<label for="iFile">Image Name: </label>
+		<input type="file" name="iFile" id="iFile" onchange="getPath()">
+		<label for="iUser">User Name: </label>
+		<input type="text" name="iUser" id="iUser">
+		<input type='submit' value="hit me">
+	</form>
+</body>
+</html>

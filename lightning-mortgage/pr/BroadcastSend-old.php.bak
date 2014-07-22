@@ -1,0 +1,378 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+?>
+<HTML>
+<HEAD>
+<TITLE>Message Broadcast</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css" media="screen">
+@import "PerfectResponse.css";
+</style>
+</HEAD>
+<BODY topmargin="0" leftmargin="0">
+<div class="content" style="width: 600px;">
+
+<?php
+
+print ("<font face='Verdana' size='3' color='#000080'><br>");
+print ("Do not close this window until the 'Close' button appears. You may go back in main window and do your work.</font><br><br>\n");
+$user = $_COOKIE["UName"];
+include ("conn.php");
+$arid=$_GET['arid'];
+$WithinScript = "I know the arid";
+include("settings.php");
+include("removesettings.php");
+
+$arSQL = "select * from autoresponders where arid=$arid";
+$result_ar = mysql_query($arSQL) or die("BroadcastSend (".__LINE__.") $arSQL");
+$num_rows_ar = mysql_num_rows($result_ar);
+
+mysql_data_seek($result_ar, $count);
+$arrow = mysql_fetch_array($result_ar);
+$arname 			= $arrow[arname];
+$txtMessage_Subject	= $arrow[mansubject];
+$txtMessage_Text	= $arrow[manbody];
+
+//print ("BroadcastSend (".__LINE__.") text |$txtMessage_Text|<br>\n");
+
+/*
+echo '<pre>';
+print_r($arrow);
+echo '</pre>';
+*/
+
+
+$Good=true;
+
+if (($txtMessage_Subject == "") || ($txtMessage_Text == ""))
+{
+	print ("<font face='Verdana' size='2' color='#000080'>");
+	print ("Terminating: Subject and/or message is empty. Close this window.\n");
+	$Good=false;
+	
+	if ($debugIt > 0)
+		logMessage ("BroadcastSend (".__LINE__.") subject or message is empty. Close this window.\n");
+}
+
+if ($num_rows_ar == 0)
+{
+	print ("<font face='Verdana' size='2' color='#000080'>");
+	print ("Terminating: Autoresponder '$arid' is invalid\n");
+	$Good=false;
+	
+	if ($debugIt > 0)
+		logMessage ("BroadcastSend (".__LINE__.") Autoresponder '$arid' is invalid\n");
+}
+
+If ($Good == true)
+{
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//
+//	Read Subscriber list
+//	
+// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	if ($debugIt > 0)
+	{
+		//print ("Broadcasting to subscribers in arid $arid - '$arname'<br>");
+		logMessage ("BroadcastSend (".__LINE__.") Broadcasting for arid $arid - '$arname'");
+	}
+		
+	set_time_limit(0);
+
+	if($Mail_Format == 1)
+	{
+		$Mail_Footer=$Remove_HTML;
+	}
+	else
+	{
+		$Mail_Footer=$Remove_Text;
+	}
+
+	
+	$Mail_Error_Flag = 1;
+	
+	$WallclockTime = mktime(date("H")+2,date("i"),date("s"),date("m"),date("d"),date("Y"));
+	
+	$maxSQL = "select max(seqno) as maxseq from messages where arid=$arid";
+	$result_max = mysql_query($maxSQL) or die("$maxSQL");
+	mysql_data_seek($result_max, 0);
+	$maxrow = mysql_fetch_object($result_max);
+	$maxmsg=$maxrow->maxseq;
+	
+	if($maxmsg<1)
+		$maxmsg=0;
+	
+	//
+	//	Get all the records that have a current message number less than the maximum messages 
+	//	from the users database
+	//
+	
+	$SQL_Statement = "SELECT * FROM users where currentmsg<=$maxmsg and arid=$arid order by currentmsg";
+	$Query_Result = mysql_query($SQL_Statement);
+	$num_rows_usr = mysql_num_rows($Query_Result);
+	
+	if ($num_rows_usr > 0)
+	{
+		print ("<table border='1' cellpadding='2' cellspacing='0' bordercolor='#004a8d'>");
+		print ("<tr><td colspan='2' style=\"background-image: url('images/PerfectResponseLogo.jpg'); background-repeat: no-repeat;\"><br><br>&nbsp;</td></tr>");
+		print ("<tr><th colspan='2' style='font-family: Verdana, Arial, Helvetica; color: #ffffff; background: #004a8d; font-size: medium;'>");
+		print ("<br>Campaign '".$arname."' Broadcast</th></tr>");
+		print ("<tr><th colspan='2' style='text-align: right; font-family: Verdana, Arial, Helvetica; color: #ffffff; background: #004a8d; font-size: x-small;'>");
+		print ("As of ".date('l F j, Y g:i A')."</th></tr>");		
+		print ("<tr><th style='font-family: Verdana, Arial, Helvetica; color: #000080; font-size: x-small; width: 200px;'>");
+		print ("Send To Name</th>");
+		print ("<th style='font-family: Verdana, Arial, Helvetica; color: #000080; font-size: x-small; width: 322px'>Email Address</th></tr>\n");
+
+	}
+	else
+	{
+		print ("Not sending. No *current* subscribers.");
+	
+		if ($debugIt > 0)
+			logMessage ("BroadcastSend (".__LINE__.") Not sending. No *current* subscribers.");
+	}
+	
+	//
+	// for each user record...
+	//	
+	
+	for($ucount=0;$ucount<$num_rows_usr;$ucount++)
+	{
+		mysql_data_seek($Query_Result, $ucount);
+		$rowusr 					= mysql_fetch_object($Query_Result);
+		$IP_Address 				= $rowusr->ip;
+		$Email_Address 				= $rowusr->email;
+		$MessageNumberInSequence 	= $rowusr->currentmsg;
+		$TimeToSendMsg 				= $rowusr->senddate;
+
+		$Full_Name 					= trim($rowusr->fname." ".$rowusr->lname);
+		$UserDefined1				= trim($rowusr->fname." ".$rowusr->UserDefined1);
+		$UserDefined2				= trim($rowusr->fname." ".$rowusr->UserDefined2);
+		$UserDefined3				= trim($rowusr->fname." ".$rowusr->UserDefined3);
+		$UserDefined4				= trim($rowusr->fname." ".$rowusr->UserDefined4);
+		
+
+//	Print this message's fields
+//	Format this user record's Date & Time from the field Mail_Send_Date 
+
+		if ($MessageNumberInSequence < $maxmsg)
+		{
+	
+			print ("<tr><td style='font-family: Verdana, Arial, Helvetica; color: #000080; font-size: x-small;'>\n");		
+			print ("$Full_Name</td><td>$Email_Address</td>");
+			$sDateH	= date("H", $TimeToSendMsg);
+			$sDateI	= date('i', $TimeToSendMsg);
+			$sDateS = date('s', $TimeToSendMsg);
+			$sDateM	= date('m', $TimeToSendMsg);
+			$sDateD	= date('d', $TimeToSendMsg);
+			$sDateY	= date('y', $TimeToSendMsg);
+	
+//		Format the current Date & Time		
+	
+			$cDateH	= date("H");
+			$cDateI	= date('i');
+			$cDateS	= date('s');
+			$cDateM	= date('m');
+			$cDateD	= date('d');
+			$cDateY	= date('y');
+			
+			
+			$CurrentTime = mktime($cDateH, $cDateI, $cDateS, $cDateM, $cDateD, $cDateY);
+
+			// Replace message personalization (EmailAddress & FullName)
+			
+			$txtNewMessage = eregi_replace("%EmailAddress%",$Email_Address,$txtMessage_Text);
+			$txtNewSubject = eregi_replace("%EmailAddress%",$Email_Address,$txtMessage_Subject);
+			
+			$txtNewMessage = eregi_replace("%FullName%",$Full_Name,$txtNewMessage);
+			$txtNewSubject = eregi_replace("%FullName%",$Full_Name,$txtNewSubject);
+			
+			$txtNewMessage = eregi_replace("%UserDefined1%",$UserDefined1,$txtNewMessage);
+			$txtNewSubject = eregi_replace("%UserDefined1%",$UserDefined1,$txtNewSubject);
+			
+			$txtNewMessage = eregi_replace("%UserDefined2%",$UserDefined2,$txtNewMessage);
+			$txtNewSubject = eregi_replace("%UserDefined2%",$UserDefined2,$txtNewSubject);
+			
+			$txtNewMessage = eregi_replace("%UserDefined3%",$UserDefined3,$txtNewMessage);
+			$txtNewSubject = eregi_replace("%UserDefined3%",$UserDefined3,$txtNewSubject);
+			
+			$txtNewMessage = eregi_replace("%UserDefined4%",$UserDefined4,$txtNewMessage);
+			$txtNewSubject = eregi_replace("%UserDefined4%",$UserDefined4,$txtNewSubject);
+	
+			// Perform message word wrap
+			
+			if (($Wrap_On == 1) && ($Mail_Format == 0))
+			{
+				$txtNewMessage = wordwrap($txtNewMessage, $Length_Of_Wrap, "\n");
+			}
+			
+			// clean up any message 'artifacts' that may exist so message will display properly on the screen
+			
+			$txtNewMessage		= eregi_replace("\r\n","\n",$txtNewMessage);
+			$txtMessage_Text 		= stripslashes($txtNewMessage);
+			$txtMessage_Subject	= stripslashes($txtNewSubject);
+	
+			//print ("BroadcastSend (".__LINE__.") text |$txtMessage_Text|<br>\n");
+	
+			//
+			//	Is there a file attachment for this message?
+			//
+			
+			$MessageAttachmentFound=0;
+			
+			if(is_dir("attachments/$arid/$MessageID"))
+			{
+				//print ("\$MessageID: $MessageID attachment directory 'attachments/$arid/$MessageID' <br>\n");
+				
+				$d = dir("attachments/$arid/$MessageID");
+				$icount = 1;	
+				while (false !== ($entry = $d->read())) 
+				{
+					if (!(($entry == ".") || ($entry == "..")))
+					{
+						//print ("\$MessageID: $MessageID attachment directory 'attachments/$arid/$MessageID' found file '$entry'<br>\n");
+						$AttachmentFileName=$entry;
+						$icount++;
+						$MessageAttachmentFound=1;
+						break;
+					}
+				}
+				
+				$d->close();
+			}
+			
+			//print ("BroadcastSend (".__LINE__.") text |$txtMessage_Text|<br>\n");
+	  
+			//	
+			//	If an attachment is found, then add it the the mail message we are constructing
+	
+			if($MessageAttachmentFound==1)
+			{
+				$sep = chr(13) . chr(10); // carriage return & linefeed
+				$k = 0;
+				$boundary = "--" . md5( uniqid("myboundary") );
+				
+				//$ctype="application/x-unknown-content-type";
+				
+				$ctype			= "text/text";
+				$disposition	= "attachment";
+				$ctencoding	= "7bit";
+				$subhdr 		= "--$boundary\nContent-type: $ctype;\n name=\"$AttachmentFileName\"\nContent-Transfer-Encoding: base64\nContent-Disposition: $disposition;\n  filename=\"$AttachmentFileName\"\n";
+				$ata[$k++]	= $subhdr;
+				
+				// non encoded line length
+				
+				$linesz = filesize("attachments/$arid/$MessageID/$AttachmentFileName")+1;
+				$fp = fopen( "attachments/$arid/$MessageID/$AttachmentFileName", 'r' );
+				$ata[$k++] = chunk_split(base64_encode(fread( $fp, $linesz)));
+				fclose($fp);
+				$atttext			= implode($sep, $ata);
+				$subheader	= "This is a multi-part message in MIME format.\n--$boundary\n";
+				$subheader	.= "$MailHeader\nContent-Transfer-Encoding: $ctencoding\n\n";
+				$MailHeader	= $subheader."Content-type: multipart/mixed;\n boundary=\"$boundary\"";
+			}
+			
+			//print ("BroadcastSend (".__LINE__.") text |$txtMessage_Text|<br>\n");
+			$Final_Body = $txtMessage_Text;	
+	
+/* - - - - - - - - - - - - - */
+				
+			//Append the removal instructions and the removal instructions lines to *every* message body
+
+			if($Mail_Format == 1)
+			{
+				$Final_Body.="<br>$Removal_Link_HTML$Email_Address'>$Remove_HTML";
+				if ($Ad != 45)
+					$Final_Body.=$PoweredbyHTML;
+			}
+			else
+			{
+				$Final_Body.="\n\n".$Remove_Text." ".$Removal_Link_Text.$Email_Address;
+
+				if ($Ad != 45)
+					$Final_Body.=$PoweredbyText;
+			}
+
+			if (!isset($Removal_Link_Text))
+				die (logMessage ("BroadcastSend (".__LINE__.") no remove link found"));
+				
+/* - - - - - - - - - - - - - */
+
+			$Body_To_Send = $Final_Body;
+			$PrintBody    = $Final_Body;
+
+			// Append the file attachment
+			
+			if($MessageAttachmentFound==1)
+			{
+				$Body_To_Send=$subheader."\n".$Body_To_Send."\n".$atttext;
+				//mail();
+			}
+							
+			$directory=dirname(__FILE__);
+				
+			if (stristr($directory, "demo"))
+			{
+				if ($debugIt > 0)
+				{
+					logMessage ("BroadcastSend ".__LINE__." ***Beta Test*** Not sending email To: ".$Full_Name."<".$Email_Address."> Subject: ".$txtNewSubject." From: ".$EmailAddressFrom);
+				}
+				
+			}
+			else
+			{
+				$Sent = phpmailer($Email_Address, $Full_Name, $txtNewSubject,  "$Body_To_Send",  "$Body_To_Send", "", $Mail_Format, $arid);
+				
+				if ($debugIt > 0)
+				{
+					if($Mail_Format == 1)
+						$Format = "HTML";
+					else
+						$Format = "Text";
+					//print("BroadcastSend (".__LINE__.") Sending to $Full_Name<br>");
+
+					if ($Sent == true)
+						logMessage ("BroadcastSend (".__LINE__.") Sending broadcast, format $Format, To: ".$Full_Name."<".$Email_Address."> Subject: ".$txtNewSubject);
+					else
+						logMessage ("BroadcastSend (".__LINE__.") Error: Not sent a broadcast, format $Format, To: ".$Full_Name."<".$Email_Address."> Subject: ".$txtNewSubject);
+				}
+			}
+		}
+		else // otherwise it is *not* time to send
+		{
+			$done=0;
+		}
+	}
+	
+	print("</table>\n");	
+}
+?>
+
+<br><center>
+
+<script language='Javascript1.2'>
+if (window.history.length < 2)
+{
+	document.write("<form>");
+	document.write("<input class='cancel' type='button' value='Close' onClick='window.close();'>");
+	document.write("</form>");
+}
+else
+{
+	document.write("<form>");
+	document.write("<input class='cancel' type='button' value='Continue' onClick='window.history.back();'>");
+	document.write("</form>");
+}
+</script>
+</div>
+</body>
+</html>

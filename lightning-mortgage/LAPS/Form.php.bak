@@ -1,0 +1,62 @@
+<?php
+require ("../include/authenticate.php");
+require ("../include/SetCookies.php");
+SetCookies();
+?>
+<!DOCTYPE html PUBLIC "-//W3//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-transitional.dtd">
+<html xlns="http://www.w3.org.1999.xhtml">
+<head>
+<title>LoanList form handler</title>
+<script language="JavaScript">
+function theList()
+{
+      	document.write("Length: " + document.FilterIt.elements[0].length + "<br>");
+      	//document.write("Name: " + window.document.FilterIt.name + "<br>");
+      	
+  	    document.FilterIt.SearchTerm.value = "test";
+      	window.document.FilterIt.submit.value='clicked';
+      	
+      	for (var i=0; i < window.document.FilterIt.elements.length; i++)
+      		document.write("Elements[" + i + "]='" + window.document.FilterIt.elements[i].type + "'<br>");
+      	
+      	
+      	//submit.click();  // emulate hitting the submit button on the search form
+}
+</script>	
+</head>
+<body topmargin="0" leftmargin="0">
+<?php
+	print ("<table width='100%'><form id='FilterIt' name='FilterIt' action='LoanList.php' method='post'>");
+	print ("<td align='left' width='25%' valign='middle'>");
+	print ("&nbsp;&nbsp;<input type='submit' value='Clear' onclick='window.document.FilterIt.SearchTerm.value=\"\"'>\n");
+	print ("&nbsp;&nbsp;<input type='button' value='test' onclick='theList()'>\n");
+
+	if ($SearchTerm != "")
+		print ("&nbsp;&nbsp;<input type='text' style='background: #FFFF00' name='SearchTerm' value='$SearchTerm'size='20'>&nbsp;&nbsp;");
+	else
+		print ("&nbsp;&nbsp;<input type='text' name='SearchTerm' id='SearchTerm' size='20'>&nbsp;&nbsp;");
+
+	print ("<input type='submit' name'Search' value='Search'></td>\n");
+
+	print ("<td align='center' width='35%' valign='middle'><font face='Verdana' size='3' color='#000099080'>");
+
+	print ("<table border='1' bordercolor='#000099080' cellpadding='2' cellspacing='0'>");
+	print ("<td bgcolor='#009C9C'><a href='./WorkingStatusList.php'><font face='Verdana' size='3' color='#FFFFFF'>Daily Status</font></a></td>");
+	print ("<td bgcolor='#9C319C'><a href='./ApplicantList.php'><font face='Verdana' size='3' color='#FFFFFF'>Applicant</font></a></td>");
+	print ("<td bgcolor='#397352'><a href='./ContactList.php'><font face='Verdana' size='3' color='#FFFFFF'>Contact</font></a></td>");
+	print ("<td bgcolor='#CE6300'><font face='Verdana' size='3' color='#FFFF00'><b>Loan</b></font></td>");
+	print ("<td bgcolor='#9C9C31'><a href='./EmploymentList.php'><font face='Verdana' size='3' color='#FFFFFF'>Employment</font></a></td>");
+	print ("</table></td>\n");
+
+	print ("<td align='right' width='14%' valign='middle'><font face='Verdana' size='2' color='#000099080'>");
+	print ("Filter By Status&nbsp;</font></td>\n");
+
+	print ("<td align='Left' width='8%' valign='middle'><font face='Verdana' size='2' color='#000099080'>");
+	FilterStatus();
+	print ("</td><td align=center valign=middle width='8%'><font face='Verdana' size='3' color='#000099080'>&nbsp;</td></font>");
+	print ("</tr>\n");
+	print ("</font></form></table>\n");
+?>
+</body>
+</html>

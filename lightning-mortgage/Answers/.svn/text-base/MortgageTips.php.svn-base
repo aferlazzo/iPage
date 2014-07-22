@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Top 10 Factors Influencing Your Mortgage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="copyright"
+content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="keywords"
+content="mortgage tips, bad credit mortgage loan lenders, bad credit loans, bad credit home loans, bad credit 1st mortgage, loans with bad credit, loans for people with bad credit, bad credit mortgages, bad credit mortgage loans, mortgages for bad credit, bad credit mortgage, mortgages with bad credit, mortgage bad credit, mortgages for people with bad credit, mortgages bad credit, mortgage for bad credit, bad credit mortgage loan, bad credit home mortgage, LIGHTNING MORTGAGE">
+<meta name="description"
+content="Buy a home loan, even with bad credit. We provide mortgage refinancing options, debt consolidation, 100% financing options, investor mortgage financing, lease-purchase conversions, and more. US only.">
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1252">
+<link rel="stylesheet" href="../css/AnswersStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<!--[if IE 6]>
+<style type="text/css">
+html
+{
+scrollbar-base-color: #f5f2fe;
+scrollbar-arrow-color: #FFF;
+scrollbar-track-color: #6701A4;
+scrollbar-face-color: #93C;
+scrollbar-3dlight-color: #93c;
+}
+</style>
+<![endif]-->
+<script language="JavaScript" src="../js/Common.js" type="text/javascript"></script>
+<script src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en" type="text/javascript"></script>
+</head>
+<body>
+
+<?php include('../include/top.php'); ?>
+<div id="Heading" style="width:85%">
+<div class="Title"><h1 id="Small">Top Ten<br />Influences</h1></div>
+<div class="Title">
+<div id="Big"><h1>To Your Mortgage</h1></div>
+<div id="BigShadow"><h1>To Your Mortgage</h1></div></div>
+</div><br style="clear:left;">
+<div id="text"><div class="LC" id="left">
+	<p>Obtaining the best mortgage loan is more than a matter
+	of luck and finding the right broker, although it sure does help (See <a
+		href="MortgageHiccups.php">Mortgage Hiccups</a>). Some of
+	the factors affecting your ability to obtain a loan at the best possible
+	interest rate:</p>
+
+	<ol>
+		<li>
+			<p>Your application: Fill out the application fully and
+			completely. You don't want surprises to pop up when the
+			information is verified.</p>
+		</li>
+		<li>
+			<p>Debt-to-income ratio: How much of your income is spent on paying
+			existing bills?</p>
+		</li>
+		<li>
+			<p>Down payment (purchases) or Home equity
+			(refinances): how much you owe compared to the current worth of your home.</p>
+		</li>
+		<li>
+			<p>Liquid reserves: You've saved up to purchase the home. But you
+			still need to keep some reserves for a &quot;rainy day.&quot;</p>
+		</li>
+		<li>
+			<p>Occupancy type: Primary home, second home, or an investment
+			(rental)</p>
+		</li></ol>
+</div>
+<div class="RC" id="right">
+		<ol start=6><li>
+			<p>Home type: A single family home
+			represents less risk to lenders than multi-family dwellings, so they will
+			increase interest rates</p>
+		</li>
+		<li>
+			<p>Credit History: Currents debts and payment history, particularly
+			on your mortgage payments.</p>
+		</li>
+		<li>
+			<p>Delinquent Accounts: A pattern of paying
+			bills 30 or more days late will cause your interest rate to go up.</p>
+		</li><li>
+			<p>Recent Credit Inquiries: Every time
+			your credit report is checked, a note of this activity is kept. It is best
+			not to try refinancing at the same time you are buying a new car, applying for credit
+			cards, and buying jewelry using an installment plan.</p>
+		</li>
+		<li>
+			<p>Public records (liens and judgments), foreclosures,
+			accounts turned to collection companies are negative factors affecting your
+			ability to borrow.</p>
+		</li>
+	</ol>
+	<p>In the lender's eyes, it's all about finding ways to
+	minimize the risk that a mortgage won't be repaid.</p>
+</div></div><br style="clear:left;"><br />
+<script language="JavaScript" type="text/javascript">AdjustHeight('text', 'left', 'right');</script>
+<div style='width:120px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+	<ul>
+		<li><a
+		href="../Answers.php">Explore the rest of our Loan Process</a></li>
+		<li><a
+		href="../LoanTypes.php">Learn about Loan Types</a></li>
+		<li><a
+		href="../CreditScores.php">Learn about Credit Scores</a></li>
+		<li><a
+		href="../Answers/PreAnswers.php">Determine if you want to be pre-qualified or pre-approved</a></li>
+		<li><a
+		href="../InterestRates/EducationTaxes.php">Learn about the Tax Advantages of Home Ownership</a></li>
+		<li><a
+    	href="https://lightning-mortgage.ipower.com/MortgageApplication/LoanAppShort.php">Submit A Loan Application</a></li>
+	</ul>
+</div>
+<?php include('../include/bottom.php'); ?>
+
+</body>
+</html>

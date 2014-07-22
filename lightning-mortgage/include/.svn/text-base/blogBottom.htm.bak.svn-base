@@ -1,0 +1,74 @@
+<br style="clear:both;" />
+<div class="Content" id="bad-Credit" style="margin-bottom:1em;display:none;"><hr> <!-- chg to display:block to show -->
+<div style="float:left;margin:0 1em;">
+<br style="clear:both;" />
+<div class="Bottom1">
+<div style="z-index:6;float:left;text-align:left;margin-left:8%;margin-right:10%;">
+<form style="margin:0;" name="Atomz" method="get" onsubmit="return isBlank();" action="http://search.atomz.com/search/">
+<input type="hidden" name="sp-a" value="sp1002b74c">
+<input type="text" style="background-color: #e5e5e5; color: #000080; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small;"
+value="Your search word(s)" onfocus="this.value=''" size="20" name="sp-q">
+<input type="hidden" name="sp-p" value="all">
+<input type="hidden" name="sp-f" value="ISO-8859-1">
+<input style="background-color: #009; color: #ffffff; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small"
+type="submit" class='Submit' value="Search Site" title="Search this web site"></form>
+</div> <!-- end of (left) search z-index 6 DIV -->
+<div style="z-index:6; float:right; text-align:left; margin-right:8%;">
+</div>  <!-- end of (right) date z-index 6 DIV -->
+</div>  <!-- end of Bottom1 DIV -->
+<div class="Bottom2">
+<div style="z-index: 6; text-align: center;">
+
+<div style="float:left;vertical-align:middle;text-align:center;width:92px;height:7em;">
+<a href="../Administrative/Guarantee.htm"><img border="0"
+onMouseover='this.style.background="#ffffff";' onMouseOut='this.style.background="transparent";'
+src="../images/guarantee88w91h.gif" width="88" height="91" alt="Lightning Mortgage Financing Guarantee"></a>
+</div>
+<div style="float:left;text-align:center;width:553px;height:7em;">
+<a href="http://www.lightning-mortgage.com">Home</a>&nbsp;|
+<a href="https://host373.ipowerweb.com/~lightnin/MortgageApplication/LoanAppShort.htm">Apply Now</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/MortgageApplication/OrderCreditDirect.htm">Order Credit</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/LoanTypes.php">Loan Types</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Answers/Documentation.php">Documents</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/BusinessPractices.htm">Our Meeting</a><br /><br />
+
+<a href="../Administrative/SiteMap.htm">Site Map</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/Calculators.htm">Calculators</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Answers/GlossaryAD.htm">Glossary</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/CreditScores.htm">Credit Scores</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/Legal.htm">Legal</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/AffiliateLinks.htm">Affiliates</a><br /><br />
+
+<p class="CenterSmall">Click on <a
+href="http://www.lightning-mortgage.com/Administrative/Feedback.htm">feedback</a> or call (866) 822-8500 for assistance - Last
+Updated:
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+var lastMod = new Date(document.lastModified);
+var MM = lastMod.getMonth() + 1;
+var DD = lastMod.getDate();
+document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+//-->
+</script>
+</p>
+</div>
+<div style="float:left;vertical-align:middle;text-align:center;width:72px;height:7em;">
+<a href="../Administrative/UpfrontMortgageBroker.htm">
+<img onMouseover='this.style.backgroundColor="#ffffff";' onMouseOut='this.style.background="transparent";'
+border="0" src="../images/UMB1.gif" alt="I am an Upfront Mortgage Broker &reg;" width="68" height="85"></a>
+</div>
+<br style="clear:both;"><hr style="width: 100%;">
+<p class="CenterSmall" style="margin:0;">This Website is NOT intended as a solicitation to customers in any jurisdiction in which we
+are not authorized to operate.<br /><br />
+
+&copy; Lightning Mortgage 2002-2005 All Rights Reserved. No part of this website may be
+reused commercially without the expressed<br />written consent of Lightning Mortgage.
+This site is directed at, and made available to, persons in the continental U.S., Alaska and Hawaii only.</p>
+
+<hr style="width:100%;">
+
+
+</div>
+</div>
+</div>

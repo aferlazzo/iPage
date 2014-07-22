@@ -1,0 +1,272 @@
+<?php
+
+$FromHost = $_GET['h'];
+
+// Swift Mailer is located within the 'pr' directory
+define("DEFAULT_LIBRARY_PATH", "/home/lightnin/public_html/pr/Swift-3.3.1-php4/lib");
+
+require_once DEFAULT_LIBRARY_PATH . '/Swift.php';
+require_once DEFAULT_LIBRARY_PATH . "/Swift/Connection/SMTP.php";
+//In order for the SMTP connection to perform authentication, some “Authenticator” classes are used. 
+//These are individual units of code which know how to perform some common authentication procedures 
+//over SMTP. The procedures are “LOGIN”, “PLAIN” and “CRAM-MD5”. 
+//require_once DEFAULT_LIBRARY_PATH . "/Swift/Authenticator/LOGIN.php";
+//require_once DEFAULT_LIBRARY_PATH . "/Swift/Authenticator/PLAIN.php";
+//require_once DEFAULT_LIBRARY_PATH . "/Swift/Authenticator/CRAMMD5.php";
+//if it could be used...
+//require_once DEFAULT_LIBRARY_PATH . '/Swift/Authenticator/$PopB4Smtp$.php';
+/* alternative method...*/
+require_once DEFAULT_LIBRARY_PATH . '/class.pop3.php';
+
+/*
+	ipowerweb is an isp that requires popb4smtp authentication.
+	
+	Why? To avoid "553: Sorry, that domain isn't in my list of allowed rcpthosts' errors.
+	
+	This error occurs when a user tries to send mail and the server blocks the mail from being sent. 
+	There a number of reasons as to why this occurs and we will discuss a few of them below.
+
+	1) iPower email is configured to authenticate using POP rather than SMTP. This means that our 
+	server verifies who you are based on the incoming mail server, your username, and password. 
+	When you check incoming mail, the server opens a gateway of 20 mins where it will allow you to 
+	send your mail out to your intended recipients. Should the 20 minutes pass, the server no longer 
+	recognizes who you are and will need to verify security again using the incoming mail server.
+
+	The issue starts when email clients (such as Outlook) have an option set to send messages 
+	immediately. When you send a message immediately, your email program skips the authentication 
+	(verification) process and tries to send without receiving. If this happens after the 20 minute 
+	gateway closes, the server gets stuck because it has no idea which user is sending this email. It 
+	then stops, and says (not literally), "I do not know you; therefore, I will not let your mail through".
+
+	Basically, "553, Sorry, that domain isn't in my list of allowed rcpthosts" means that the server is 
+	not recognizing you.
+
+	So what are some ways to avoid this? We have two easy methods (A and B) to stop this from happening 
+	in Outlook and Outlook Express.
+
+	A. Click Send/Receive before composing an email. This way, you have 20 minutes to send the email and 
+	will not see the error. 
+	
+	*/
+function SendUsingPOPB4SMTPauthentication($SMTP_HOST, $POP3_HOST, $POP3_USER, $POP3_PASS)
+{	
+	$smtp =& new Swift_Connection_SMTP("$SMTP_HOST"); //create a new instance of the smtp connector
+	print("<h3>HTMLtest.php (".__LINE__.") default Timeout: ".$smtp->getTimeout()."<br />\n");
+	print("<h3>HTMLtest.php (".__LINE__.") port: ".$smtp->getPort()."<br />\n");
+	print("<h3>HTMLtest.php (".__LINE__.") server: ".$smtp->getServer()."<br />\n");
+	print("<h3>HTMLtest.php (".__LINE__.") Username: ".$smtp->getUsername()."<br />\n");
+	$Stat = $smtp->isAlive();
+	if($Stat == true)
+		print("<h3>HTMLtest.php (".__LINE__.") isAlive: true<br />\n");
+	else
+		print("<h3>HTMLtest.php (".__LINE__.") isAlive: false<br />\n");
+	$smtp->setTimeout(60);
+	print("<h3>HTMLtest.php (".__LINE__.") new Timeout: ".$smtp->getTimeout()."<br />\n");
+
+	
+		
+	//If it could be used, we'd load the PopB4Smtp authenticator with the pop3 hostname
+	//$smtp->attachAuthenticator(new Swift_Authenticator_PopB4Smtp("$POP3_HOST"));
+		
+	/* alternative method...*/
+
+	$pop = new POP3();  //Needed only once, only if the smtp server uses pop before smtp authenication.
+	//The Authorise parameters are as follows:
+	//$pop->Authorise('pop3.example.com', 110, 30, 'mailer', 'password', 1);
+	//1. pop3.example.com - The POP3 Mail Server Name (hostname or IP address)
+	//2. 110 - The POP3 Port on which to connect (default is usually 110, but check with your host)
+	//3. 30 - A connection time-out value (in seconds)
+	//4. mailer - The POP3 Username required to logon
+	//5. password - The POP3 Password required to logon
+	//6. 1 - The class debug level (0 = off, 1+ = debug output is echoed to the browser)
+
+	$pop->Authorise("$POP3_HOST", 110, 30, "$POP3_USER", "$POP3_PASS", 1);
+		
+	//Here is where the problem resides: These smtp variables cannot be sent to ipowerweb, so the swift popb4smtp cannot be used
+	//$smtp->setUsername("$POP3_USER");  
+	//$smtp->setPassword("$POP3_PASS");
+				
+	//die("before creating Swift Instance");
+		
+	// this is where we attempt to do all that we have set-up to this point
+
+	//the send method throws a "Swift_ConnectionException" if an error occurs. We are instructing swift
+	//that we expect an exception and if it happens we want to log the message produced by it.
+	Swift_Errors::expect($e, "Swift_ConnectionException");
+	print("<h2>Attempting to create an instance of Swift</h2>");
+	$swift =& new Swift($smtp);
+	if ($e !== null)
+	{
+	    logMessage("HTMLtest (".__LINE__.") An error occurred " . $e->getMessage());
+	    print("<h3>HTMLtest (".__LINE__.") An error occurred " . $e->getMessage() ."</h3>\n");
+	}
+	else 
+		Swift_Errors::clear("Swift_ConnectionException");	
+
+	$Stat = $smtp->isAlive();
+	if($Stat == true)
+		print("<h3>HTMLtest.php (".__LINE__.") isAlive: true<br />\n");
+	else
+		die("<h3>HTMLtest.php (".__LINE__.") isAlive: false<br />\n");
+	
+	return($swift);
+}
+	
+	
+
+
+// Create a Swift instance. In order to do this, we are using the smtp protocol. There are 4 methods of authentication:
+// none, popb4smtp, ssl, and tls.
+//ipowerweb uses popb4smtp. It uses the default port of 25
+//sbcglobal uses ssl. The (standard) port it uses is 465
+ 
+
+
+  	if ($FromHost == "s")  //sbcglobal
+	{
+		$SMTP_HOST = "smtp.att.yahoo.com";
+		$SMTP_USER = "tferlazzo@sbcglobal.net";
+		$SMTP_PASS = "unicycl1";
+		$FROM_NAME = "Anthony (sbc)";
+		$FROM_ADDRESS = "tferlazzo@sbcglobal.net";
+		$SMTP_PORT = 465;
+		//$SMTP_ENCRYPTION constants: SWIFT_SMTP_ENC_OFF, SWIFT_SMTP_ENC_TLS and SWIFT_SMTP_ENC_SSL.
+
+	Swift_Errors::expect($e, "Swift_ConnectionException");
+		$smtp =& new Swift(new Swift_Connection_SMTP("$SMTP_HOST", $SMTP_PORT, SWIFT_SMTP_ENC_SSL));	
+	if ($e !== null)
+	{
+	    logMessage("HTMLtest (".__LINE__.") An error occurred " . $e->getMessage());
+	    print("<h3>HTMLtest (".__LINE__.") An error occurred " . $e->getMessage() ."</h3>\n");
+	}
+	else 
+		Swift_Errors::clear("Swift_ConnectionException");	
+
+			
+			
+				
+		$smtp->setUsername("$SMTP_USER");
+		$smtp->setPassword("$SMTP_PASS");
+
+		$smtp->setTimeout(2);
+		//die("HTMLtest (".__LINE__.") Creating New Swift Instance: Host: $SMTP_HOST, Port: $SMTP_PORT, Encyrption: $SMTP_ENCRYPTION"); 
+		$swift =& new Swift($smtp);
+	}
+	
+  	elseif ($FromHost == "g") //gmail
+	{
+		$SMTP_HOST = "smtp.gmail.com";
+		$SMTP_USER = "tferlazzo@gmail.com";
+		$SMTP_PASS = "1commguru";
+		$FROM_NAME = "Anthony (gmail)";
+		$FROM_ADDRESS = "tferlazzo@gmail.com";
+		$SMTP_PORT = 587;  //465 didn't work
+		//$SMTP_ENCRYPTION constants: SWIFT_SMTP_ENC_OFF, SWIFT_SMTP_ENC_TLS and SWIFT_SMTP_ENC_SSL.
+		$smtp =& new Swift(new Swift_Connection_SMTP(
+			"$SMTP_HOST", $SMTP_PORT, SWIFT_SMTP_ENC_TLS)); //gmail uses TLS encryption		
+		$smtp->setUsername("$SMTP_USER");
+		$smtp->setPassword("$SMTP_PASS");
+
+		//$smtp->setTimeout(2);
+		$swift =& new Swift($smtp);
+	}
+	
+	elseif ($FromHost == "p") //prontocommercial
+	{
+		$SMTP_HOST = "mail.prontocommercial.com";
+		$POP3_HOST = "mail.prontocommercial.com"; //ipowerweb servers use the same pop3 name as smtp servers
+		$POP3_USER = "anthony@prontocommercial.com";
+		$POP3_PASS = "1commguru";
+		$FROM_NAME = "Anthony (Pronto Commercial)";
+		$FROM_ADDRESS = "anthony@prontocommercial.com";
+		//$SMTP_PORT = 25;
+		$SMTP_ENCRYPTION = false;
+		//Connect to localhost on port 25
+		// this is untested but probably works: $swift =& new Swift(new Swift_Connection_SMTP("localhost"));
+
+
+
+		//the send method throws a "Swift_ConnectionException" if an error occurs. We are instructing swift
+		//that we expect an exception and if it happens we want to log the message produced by it.
+		Swift_Errors::expect($e, "Swift_ConnectionException");
+		$swift = SendUsingPOPB4SMTPauthentication($SMTP_HOST, $POP3_HOST, $POP3_USER, $POP3_PASS);
+		if ($e !== null)
+		{
+		    logMessage("HTMLtest (".__LINE__.") An error occurred " . $e->getMessage());
+		    print("<h3>HTMLtest (".__LINE__.") An error occurred " . $e->getMessage() ."</h3>\n");
+		}
+		else 
+			Swift_Errors::clear("Swift_ConnectionException");	
+	}
+	
+	elseif ($FromHost == "l") //lightning-mortgage
+	{
+		$SMTP_HOST = "mail.lightning-mortgage.com";
+		$POP3_HOST = "mail.lightning-mortgage.com"; //ipowerweb servers use the same pop3 name as smtp servers
+		$POP3_USER = "anthony@lightning-mortgage.com";
+		$POP3_PASS = "1commguru";
+		$FROM_NAME = "Anthony (lightning)";
+		$FROM_ADDRESS = "anthony@lightning-mortgage.com";
+		//$SMTP_PORT = 25;
+		$SMTP_ENCRYPTION = false;
+		//Connect to localhost on port 25
+		// this is untested but probably works--> $swift =& new Swift(new Swift_Connection_SMTP("localhost"));
+		$swift = SendUsingPOPB4SMTPauthentication($SMTP_HOST, $POP3_HOST, $POP3_USER, $POP3_PASS);
+	}
+	else
+		die("No host specified");
+		
+
+/*
+The SMTP logging system provides the following levels of log information:
+
+0 = Off (Swift_Log::LOG_NOTHING or SWIFT_LOG_NOTHING in PHP4)
+1 = Errors only (Swift_Log::LOG_ERRORS or SWIFT_LOG_ERRORS in PHP4)
+2 = Failed deliveries (Swift_Log::LOG_FAILURES or SWIFT_LOG_FAILURES in PHP4)
+3 = Network commands (Swift_Log::LOG_NETWORK or SWIFT_LOG_NETWORK in PHP4)
+4 = Everything (Swift_Log::LOG_EVERYTHING or SWIFT_LOG_EVERYTHING in PHP4)
+
+Each succesive error level includes everything below it, so if you set an error level of “3” you’ll also get log entries as levels 1 and 2 being logged.
+
+To set the log level:
+*/
+$log =& Swift_LogContainer::getLog();
+$log->setLogLevel(SWIFT_LOG_NETWORK);
+
+//Enable disk caching if we can
+if (is_writable("./Swift-3.3.1-php4/tmp"))
+{
+    Swift_CacheFactory::setClassName("Swift_Cache_Disk");
+    Swift_Cache_Disk::setSavePath("./Swift-3.3.1-php4/tmp");
+}
+
+ 
+//Create the message instance. Make it HTML.
+$message = new Swift_Message();
+$message->setContentType("text/html");
+$message->setSubject("You are my Test Subject. From: $SMTP_HOST");
+$message->setBody("Testing...");
+
+//Create the sender from the details we've been given, depending on the smtp server
+$Sender = new Swift_Address("$FROM_ADDRESS", "$FROM_NAME");
+$TO_ADDRESS = "anthony@lightning-mortgage.com";
+$TO_NAME = "Anthony (lightning)"; 
+$Recipient = new Swift_Address("$TO_ADDRESS", "$TO_NAME");
+
+//Now check if Swift actually sends it
+if ($swift->send($message, $Recipient, $Sender) == true) 
+	echo "Sent HTML message to $TO_ADDRESS via $SMTP_HOST";
+else 
+	echo "Failed";
+
+//To get data back out of the log:
+
+$log =& Swift_LogContainer::getLog();
+
+
+
+print("<h2>SMTP Log</h2>\n<pre>\n");
+echo $log->dump(true);
+print("</pre>\n");
+
+?>

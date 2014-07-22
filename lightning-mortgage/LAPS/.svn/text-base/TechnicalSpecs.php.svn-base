@@ -1,0 +1,284 @@
+<?php
+require ("../include/authenticate.php");
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Technical Specs Documentation</title>
+<script language="JavaScript" src="https://host373.ipowerweb.com/~lightnin/js/Common.js">
+</script>
+<link rel="stylesheet" href="../css/AdministrativeStyles.css" type="text/css">
+<!--[if IE 6]>
+<style type="text/css">
+html
+{
+  scrollbar-base-color: #F4F4F4;
+  scrollbar-arrow-color: #FFFFFF;
+  scrollbar-track-color: #002179;
+  scrollbar-face-color: #000099;
+  scrollbar-3dlight-color: #000099;
+}
+</style>
+<![endif]-->
+<style type="text/css">
+pre{
+text-align:left;
+font-size:x-small;
+color:#009;
+}
+</style>
+</head>
+
+<body>
+<div class="Main" id="MainDIV">
+<div class="Content" id="ContentDIV">
+
+<script>
+  if (window.location.href.substring(0,5)!="https"){ window.location.replace('https://host373.ipowerweb.com/~lightnin/LAPS/TechnicalSpecs.php') }
+</script>
+     <h1>Technical Specs</h1>
+
+<?php
+if ($UserLevel == 'Admin')
+{
+	print ("<p>Server Information<br />Operating System - Linux</P>");
+	print ("<p>Software Used<br />PHP Version - 4.3.2<br />Mysql Version - 4.0.12<br />");
+	print ("Javascript<br />Microsoft VB</P>");
+	print ("<p>Search Feature by Atomz.com</p>");
+	print ("<p>../images were made using:</p>");
+	print ("<p>Adobe PhotoDeluxe Business Edition 1.1<br />");
+	print ("Illustrator 8.0</p>");
+	print ("<hr>");
+	print ("<p>Database Schema<br /></p>");
+	print ("<p><A href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/db_details_structure.php?lang=en-iso-8859-1");
+	print ("&amp;server=1&amp;db=lightnin_LoanApps'>lightnin_LoanApps</A> - Table ");
+	print ("<a href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/tbl_properties_structure.php?");
+	print ("lang=en-iso-8859-1&amp;server=1&amp;db=lightnin_LoanApps&amp;table=ContactInfo'>");
+	print ("ContactInfo</A></I> running on <I><A href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/main.php?lang=en-iso-8859-1&amp;");
+	print ("server=1'>localhost</A></I></p>");
+	print ("<PRE># phpMyAdmin MySQL-Dump<br />");
+	print ("# version 2.4.0<br />");
+	print ("# http://www.phpmyadmin.net/ (download page)<br />");
+	print ("#<br />");
+	print ("# Host: localhost<br />");
+	print ("# Generation Time: Jul 25, 2003 at 07:02 AM<br />");
+	print ("# Server version: 4.0.12<br />");
+	print ("# PHP Version: 4.2.3<br />");
+	print ("# Database : `lightnin_LoanApps`<br />");
+	print ("<br />");
+	print ("#<br />");
+	print ("# Table structure for table `ContactInfo`<br />");
+	print ("#<br />");
+	print ("<br />");
+	print ("CREATE TABLE ContactInfo (<br />");
+  	print ("SSN int(10) unsigned NOT NULL default '0',<br />");
+  	print ("Street varchar(30) NOT NULL default '',<br />");
+  	print ("City varchar(30) NOT NULL default '',<br />");
+  	print ("State char(2) NOT NULL default '',<br />");
+  	print ("Zip varchar(10) NOT NULL default '',<br />");
+  	print ("WorkPhone varchar(12) NOT NULL default '',<br />");
+  	print ("HomePhone varchar(12) NOT NULL default '',<br />");
+  	print ("BestCallTime varchar(12) NOT NULL default '',<br />");
+  	print ("BestCallNumber varchar(12) NOT NULL default '',<br />");
+  	print ("email varchar(30) NOT NULL default '',<br />");
+  	print ("StatusFlag char(1) NOT NULL default '',<br />");
+  	print ("PRIMARY KEY  (SSN)<br />");
+	print (") TYPE=MyISAM COMMENT='Contains Property &amp;amp; Contact Information ';<br />");
+	print ("<br />");
+	print ("    </FONT></PRE>");
+	print ("<hr>");
+	print ("Database <I><A ");
+	print ("href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/db_details_structure.php?lang=en-iso-8859-1");
+	print ("&amp;server=1&amp;db=lightnin_LoanApps'>");
+	print ("lightnin_LoanApps</A></I> - Table <I><A ");
+	print ("href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/tbl_properties_structure.php?lang=");
+	print ("en-iso-8859-1&amp;server=1&amp;db=lightnin_LoanApps&amp;table=ContactInfo'>");
+	print ("ContactInfo</A></I> running on <I><A ");
+	print ("href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/main.php?lang=en-iso-8859-1&amp;server=1'>");
+	print ("localhost</A></I> ");
+	print ("<PRE># phpMyAdmin MySQL-Dump<br />");
+	print ("# version 2.4.0<br />");
+	print ("# http://www.phpmyadmin.net/ (download page)<br />");
+	print ("#<br />");
+	print ("# Host: localhost<br />");
+	print ("# Generation Time: Jul 25, 2003 at 07:02 AM<br />");
+	print ("# Server version: 4.0.12<br />");
+	print ("# PHP Version: 4.2.3<br />");
+	print ("# Database : `lightnin_LoanApps`<br />");
+	print ("<br />");
+	print ("#<br />");
+	print ("# Table structure for table `ContactInfo`<br />");
+	print ("#<br />");
+	print ("<br />");
+	print ("CREATE TABLE ContactInfo (<br />");
+  	print ("SSN int(10) unsigned NOT NULL default '0',<br />");
+  	print ("Street varchar(30) NOT NULL default '',<br />");
+  	print ("City varchar(30) NOT NULL default '',<br />");
+  	print ("State char(2) NOT NULL default '',<br />");
+  	print ("Zip varchar(10) NOT NULL default '',<br />");
+  	print ("WorkPhone varchar(12) NOT NULL default '',<br />");
+  	print ("HomePhone varchar(12) NOT NULL default '',<br />");
+  	print ("BestCallTime varchar(12) NOT NULL default '',<br />");
+  	print ("BestCallNumber varchar(12) NOT NULL default '',<br />");
+  	print ("email varchar(30) NOT NULL default '',<br />");
+  	print ("StatusFlag char(1) NOT NULL default '',<br />");
+  	print ("PRIMARY KEY  (SSN)<br />");
+	print (") TYPE=MyISAM COMMENT='Contains Property &amp;amp; Contact Information ';<br />");
+	print ("<br />");
+	print ("    </PRE>");
+	print ("<hr>");
+	print ("Database <I><A ");
+	print ("href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/db_details_structure.php?");
+	print ("lang=en-iso-8859-1&amp;server=1&amp;db=lightnin_LoanApps'>");
+	print ("lightnin_LoanApps</A></I> - Table <I><A ");
+	print ("href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/tbl_properties_structure.php?");
+	print ("lang=en-iso-8859-1&amp;server=1&amp;db=lightnin_LoanApps&amp;table=EmploymentInfo'>");
+	print ("EmploymentInfo</A></I> running on <I><A class=h1");
+	print ("href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/main.php?");
+	print ("lang=en-iso-8859-1&amp;server=1'>");
+	print ("localhost</A></I> ");
+	print ("<PRE># phpMyAdmin MySQL-Dump<br />");
+	print ("# version 2.4.0<br />");
+	print ("# http://www.phpmyadmin.net/ (download page)<br />");
+	print ("#<br />");
+	print ("# Host: localhost<br />");
+	print ("# Generation Time: Jul 25, 2003 at 07:03 AM<br />");
+	print ("# Server version: 4.0.12<br />");
+	print ("# PHP Version: 4.2.3<br />");
+	print ("# Database : `lightnin_LoanApps`<br />");
+	print ("<br />");
+	print ("#<br />");
+	print ("# Table structure for table `EmploymentInfo`<br />");
+	print ("#<br />");
+	print ("<br />");
+	print ("CREATE TABLE EmploymentInfo (<br />");
+  	print ("SSN int(10) unsigned NOT NULL default '0',<br />");
+  	print ("Employer varchar(35) default NULL,<br />");
+  	print ("Position varchar(30) NOT NULL default '',<br />");
+  	print ("MonthlyIncome int(6) unsigned NOT NULL default '0',<br />");
+  	print ("IncomeLastYear int(7) unsigned NOT NULL default '0',<br />");
+  	print ("LengthOfEmployment smallint(2) unsigned NOT NULL default '0',<br />");
+  	print ("PRIMARY KEY  (SSN)<br />");
+	print (") TYPE=MyISAM;<br />");
+	print ("<br />");
+	print ("<hr>");
+	print ("    </PRE><PRE>Database <I><A href=");
+	print ("'http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/db_details_structure.php?");
+	print ("lang=en-iso-8859-1&amp;server=1&amp;db=lightnin_LoanApps'>");
+	print ("lightnin_LoanApps</A></I> - Table <I><A class=h1 href='http://host373.ipowerweb.com:");
+	print ("2082/3rdparty/phpMyAdmin/tbl_properties_structure.php?lang=en-iso-");
+	print ("8859-1&amp;server=1&amp;db=lightnin_LoanApps&amp;table=LoanInfo'>");
+	print ("LoanInfo</FONT></A></I> running on <I><A class=h1 href='http://host373.ipowerweb.com:");
+	print ("2082/3rdparty/phpMyAdmin/main.php?lang=en-iso-8859-1&amp;server=1'>");
+	print ("localhost</FONT></A></I> <PRE># phpMyAdmin MySQL-Dump<br />");
+	print ("# version 2.4.0<br />");
+	print ("# http://www.phpmyadmin.net/ (download page)<br />");
+	print ("#<br />");
+	print ("# Host: localhost<br />");
+	print ("# Generation Time: Jul 25, 2003 at 07:03 AM<br />");
+	print ("# Server version: 4.0.12<br />");
+	print ("# PHP Version: 4.2.3<br />");
+	print ("# Database : `lightnin_LoanApps`<br />");
+	print ("<br />");
+	print ("#<br />");
+	print ("# Table structure for table `LoanInfo`<br />");
+	print ("#<br />");
+	print ("<br />");
+	print ("CREATE TABLE LoanInfo (<br />");
+  	print ("RequestedLoanAmount int(10) unsigned NOT NULL default '0',<br />");
+  	print ("LoanPurpose varchar(30) NOT NULL default '0',<br />");
+  	print ("PurchasePrice int(10) unsigned NOT NULL default '0',<br />");
+  	print ("EstimatedValue int(10) unsigned NOT NULL default '0',<br />");
+  	print ("LenderNameOn1st varchar(20) default NULL,<br />");
+  	print ("BalanceOn1st int(10) unsigned NOT NULL default '0',<br />");
+  	print ("InterestRateOn1st float unsigned NOT NULL default '0',<br />");
+  	print ("MonthlyPaymentOn1st int(10) unsigned NOT NULL default '0',<br />");
+  	print ("Impounds char(1) default NULL,<br />");
+  	print ("LenderNameOn2nd varchar(20) default NULL,<br />");
+  	print ("BalanceOn2nd int(10) unsigned NOT NULL default '0',<br />");
+  	print ("InterestRateOn2nd float unsigned NOT NULL default '0',<br />");
+  	print ("MonthlyPaymentOn2nd int(10) unsigned NOT NULL default '0',<br />");
+  	print ("CreditReport char(2) NOT NULL default 'N',<br />");
+  	print ("SSN int(10) unsigned NOT NULL default '0',<br />");
+  	print ("PRIMARY KEY  (SSN)<br />");
+	print (") TYPE=MyISAM;<br />\n<br />");
+	print ("<br />");
+	print ("<hr>");
+	print ("    </FONT></PRE><PRE>Database <I><A class=h1 href=");
+	print ("'http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/db_details_structure.php?");
+	print ("lang=en-iso-8859-1&amp;server=1&amp;db=lightnin_LoanApps'>");
+	print ("lightnin_LoanApps</FONT></A></I> - Table <I><A class=h1 href='http://host373.ipowerweb.com:");
+	print ("2082/3rdparty/phpMyAdmin/tbl_properties_structure.php?lang=en-");
+	print ("iso-8859-1&amp;server=1&amp;db=lightnin_LoanApps&amp;table=Users'>");
+	print ("Users</FONT></A></I> running on <I><A class=h1 href='http://host373.ipowerweb.com:");
+	print ("2082/3rdparty/phpMyAdmin/main.php?lang=en-iso-8859-1&amp;server=1'>");
+	print ("localhost</FONT></A></I> </FONT><PRE># phpMyAdmin MySQL-Dump<br />");
+	print ("# version 2.4.0<br />");
+	print ("# http://www.phpmyadmin.net/ (download page)<br />");
+	print ("#<br />");
+	print ("# Host: localhost<br />");
+	print ("# Generation Time: Jul 25, 2003 at 07:03 AM<br />");
+	print ("# Server version: 4.0.12<br />");
+	print ("# PHP Version: 4.2.3<br />");
+	print ("# Database : `lightnin_LoanApps`<br />");
+	print ("<br />");
+	print ("#<br />");
+	print ("# Table structure for table `Users`<br />");
+	print ("#<br />");
+	print ("<br />");
+	print ("CREATE TABLE Users (<br />");
+  	print ("RealName varchar(45) NOT NULL default '',<br />");
+  	print ("UserName varchar(28) NOT NULL default '',<br />");
+  	print ("Password varchar(15) NOT NULL default '',<br />");
+  	print ("AdminUserGuest varchar(6) NOT NULL default '',<br />");
+  	print ("KEY UserName (UserName),<br />");
+  	print ("KEY Password (Password)<br />");
+	print (") TYPE=MyISAM;<br />");
+	print ("<br />");
+	print ("<hr>");
+	print ("    </FONT></PRE><PRE>Database <I><A class=h1 href='http://host373.ipowerweb.com:");
+	print ("2082/3rdparty/phpMyAdmin/db_details_structure.php?lang=en-iso-8859-1&amp;server=1&amp;");
+	print ("db=lightnin_LoanApps'>lightnin_LoanApps</FONT></A></I> - Table <I>");
+	print ("<A class=h1 href='http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/tbl_properties_structure.php?");
+	print ("lang=en-iso-8859-1&amp;server=1&amp;db=lightnin_LoanApps&amp;table=WorkingStatusInfo'>");
+	print ("WorkingStatusInfo</FONT></A></I> running on <I><A class=h1 href=");
+	print ("'http://host373.ipowerweb.com:2082/3rdparty/phpMyAdmin/main.php?lang=en-iso-8859-1&amp;");
+	print ("server=1'><br />\nlocalhost</FONT></A></I> </FONT><PRE>");
+	print ("# phpMyAdmin MySQL-Dump<br />");
+	print ("# version 2.4.0<br />");
+	print ("# http://www.phpmyadmin.net/ (download page)<br />");
+	print ("#<br />");
+	print ("# Host: localhost<br />");
+	print ("# Generation Time: Jul 25, 2003 at 07:04 AM<br />");
+	print ("# Server version: 4.0.12<br />");
+	print ("# PHP Version: 4.2.3<br />");
+	print ("# Database : `lightnin_LoanApps`<br />");
+	print ("<br />");
+	print ("#<br />");
+	print ("# Table structure for table `WorkingStatusInfo`<br />");
+	print ("#<br />");
+	print ("<br />");
+	print ("CREATE TABLE WorkingStatusInfo (<br />");
+  	print ("id int(10) unsigned NOT NULL auto_increment,<br />");
+  	print ("SSN int(10) unsigned NOT NULL default '0',<br />");
+  	print ("Comments text NOT NULL,<br />");
+  	print ("ReportDate varchar(10) NOT NULL default '',<br />");
+  	print ("PointStatus varchar(16) NOT NULL default '',<br />");
+  	print ("PRIMARY KEY  (id),<br />");
+  	print ("KEY SSN (SSN)<br />");
+	print (") TYPE=MyISAM COMMENT='WorkInProgress';<br />");
+}
+else
+{
+print ("Sorry, but you can't see this....");
+}
+?>
+</div>
+<!--  * * * * * * * * * * * * * * * * COMMON FOOTER  * * * * * * * * * * * * * * * -->
+<?php include("../include/bottom.php"); ?>
+<?php include("../include/top.php"); ?>
+<!--  * * * * * * * * * * * * * * * * * * * End of COMMON HEADER * * * * * * * * * * * * * * * * * * -->
+</body>
+
+</html>

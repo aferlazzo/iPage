@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>New Homebuyers Seminar Slide 3</title>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1252">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="description" content="New Homebuyers Seminar Slide 3">
+<meta name="keywords"
+content="New Homebuyers Seminar Slide 3, LIGHTNING MORTGAGE">
+<script src="../js/Common.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../Administrative/../css/AdministrativeStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<!--[if IE 6]>
+<style type="text/css">
+html
+{
+	scrollbar-base-color: #F4F4F4;
+	scrollbar-arrow-color: #FFF;
+	scrollbar-track-color: #002179;
+	scrollbar-face-color: #009;
+	scrollbar-3dlight-color: #009;
+}
+</style>
+<![endif]-->
+</head>
+<body>
+<div class="Main" id="MainDIV">
+<div class="Content" id="ContentDIV">
+	<table style="width:100%">
+        <tr>
+			<td width="70">
+				<input class='Submit' type="button"
+				onMouseover="this.className='MouseOver'" onMouseout="this.className='Submit'"
+                value="Slide 2" onClick='window.location.href="HomeBuyerSeminarSlide2.htm"'>
+			</td>
+			<td style="text-align: center" class="main" width="747">
+	            <h1>Slide 3</h1>
+			</td>
+			<td width="70">
+				<input class='Submit' type="button"
+				onMouseover="this.className='MouseOver'" onMouseout="this.className='Submit'"
+                value="Slide 4" onClick='window.location.href="HomeBuyerSeminarSlide4.htm"'>
+			</td>
+        </tr>
+		<tr>
+			<td style="text-align: left" class="main" width="887" colspan="3">
+                <p id="Small"><img src="../images/NHBSeminar/Slide3.gif" alt="Slide3" width="720" height="540"></p>
+			</td>
+		</tr>
+		<tr>
+			<td width="70">
+				<input class='Submit' type="button"
+				onMouseover="this.className='MouseOver'" onMouseout="this.className='Submit'"
+                value="Slide 2" onClick='window.location.href="HomeBuyerSeminarSlide2.htm"'>
+			</td>
+			<td width="747">
+			</td>
+			<td width="70">
+				<input class='Submit' type="button"
+				onMouseover="this.className='MouseOver'" onMouseout="this.className='Submit'"
+                value="Slide 4" onClick='window.location.href="HomeBuyerSeminarSlide4.htm"'>
+			</td>
+		</tr>
+	</table>
+</div>
+<!--ih:includeHTML file="../include/bottom.php"-->
+		<!--
+		// http://www.lightning-mortgage.com/include/bottom-root.php is a copy of the contents ../include/bottom.htm. It is the
+		// web page bottom border that is inserted in all appropriate .htm pages located at
+		// the root level of the website.
+		-->
+		<div id='RightFrame'></div><div style='clear:left;'></div>
+		<div id='LeftFrame' style='height:102px;'></div>
+		<div class="Bottom2">
+			<div style="float:right;height:90px;width:80px;">
+				<img border='0' src='../images/equalhouse.gif' alt='Equal housing lender' style="">
+			</div>
+			<a href="http://www.lightning-mortgage.com/Administrative/SiteMap.htm">Site Map</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Calculators.htm">Calculators</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Answers/GlossaryAD.htm">Glossary</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Legal.htm">Legal</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/AffiliateLinks.htm">Affiliates</a><br />
+
+			<p class="CenterSmall" style='text-align:center;'>Click on <a href="http://www.lightning-mortgage.com/Administrative/Feedback.htm">feedback</a> 
+			or call (866) 822-8500 for assistance - Last Updated:
+			<script language="JavaScript1.2" type="text/javascript">
+			<!--
+				var lastMod = new Date(document.lastModified);
+				var MM = lastMod.getMonth() + 1;
+				var DD = lastMod.getDate();
+				document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+			//-->
+			</script>
+			</p>
+
+			<p class="CenterSmall" style="margin:0;">This Website is NOT intended as a solicitation to customers in any jurisdiction in which we
+			are not authorized to operate. 
+
+			<script type="text/javascript">
+				var Today 	= new Date();
+				var ThisYear 	= Today.getFullYear();
+				var DayName = Today.getDate();
+				document.write("&copy; Lightning Mortgage 2002-" + ThisYear + " All Rights Reserved. No part of this website may be ");
+			</script>
+
+			reused commercially without the expressed written consent of Lightning Mortgage.
+			This site is directed at, and made available to, persons in the continental U.S., Alaska and Hawaii only.</p>
+		</div><!-- Bottom2 silver -->
+		<div id='RightFrame' style='height:102px;'></div><div style='clear:left;'></div>
+		<div id='BottomLeftCorner'></div><div id='BottomFrame'></div><div id='BottomRightCorner'></div>	
+	</div> <!-- ContentBackground yellow -->	
+</div> <!-- Main -->
+
+<SCRIPT language="JavaScript" type="text/javascript"> 
+<!--
+BType();
+SetContentHeight();
+//-->
+</SCRIPT>
+<!--/ih:includeHTML-->
+<!--ih:includeHTML file="../include/top.php"--><!-- ./include/top-root.php is a copy of the contents ./include/top.htm with the directory levels changed-->
+<div class="Top">
+	<div id='MS'>
+		<a href="http://www.lightning-mortgage.com/Answers/MortgageInsiderSecrets.htm" class="Top" onfocus="if(this.blur) this.blur();">
+		<img src="../images/SignUp.jpg" onMouseover='this.src="../images/SignUpHover.jpg"' onMouseout='this.src="../images/SignUp.jpg"' 
+		style='border:none;' alt='sign-up'></a>
+	</div><!--MS-->
+	<div id='TipTop'>
+		<a class="Logo" onfocus="if(this.blur) this.blur();" href="http://www.lightning-mortgage.com/index.htm">
+		<img src="../images/Lightning-Mortgage.jpg" style="border:none;"
+		alt="Lightning Mortgage - Mortgages, even with Bad Credit" title="Lucio is in the house!"></a>
+	</div><!--TipTop-->
+	<noscript>
+	<!--
+	<p style="text-align:center;border:5px dotted #fff;font-size:large;color:#fff;">
+	<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+	This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+	//-->
+	</noscript>
+	<br style="clear:both;"> <!-- tabs here -->
+	<div id="TabDiv">
+		<div id="navTab">
+			<script language="JavaScript" type="text/javascript">
+			<!--
+			ShowNewTabs(Directory);
+			//-->
+			</SCRIPT>
+		</div><!--navTab-->
+	</div><!-- TabDiv-->
+</div><!--Top-->
+
+<div class="TopFrame">
+	<div class="TFL"></div>
+	<div id='BelowTabs'>
+		<a href="http://www.lightning-mortgage.com/Survey.php" title="Take our Satisfaction Survey"
+		class="Top">Survey</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/Feedback.htm" title="Ask questions and give us feedback"
+		class="Top">Questions?</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/AboutUs.htm" title="About Us"
+		class="Top">About</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/ContactUs.htm" title="How to contact us"
+		class="Top">Contact</a>&nbsp;|
+		<a href="#" title="opens a new window" onclick="if (window.MapWindow) window.MapWindow.close();MapWindow=open('../Administrative/WhereWeLend.htm',
+			'pcalculator','height=520,width=600,top=0,left=0,alwaysRaised=yes,resizable=no,scrollbars=no,menubar=no,titlebar=yes,toolbar=no, scroll=yes');"
+		class="Top">Where We Lend</a><img src="../images/NewWindow.gif" alt="opens new window">
+	</div> <!-- BelowTabs -->
+	<div class="TFR">
+		<script language="JavaScript" type="text/javascript">
+		<!--
+		ShowSearchButton();
+		//d.getElementById('ContentDIV').style.visibility = 'visible';
+		-->
+		</script>
+	</div><!--TFR-->
+</div>
+
+<div class="Main">
+	<div id="ContentBackground" style='background:transparent;'>
+		<div id='TopLeftCorner'></div><div id='TopFrame'></div><div id='TopRightCorner'></div>
+		<div style='clear:left;'></div>
+
+		<div id='LeftFrame'></div>
+		<div id="ContentDIV">
+<!-- TopFrame -->
+<!--/ih:includeHTML-->
+</body>
+</html>

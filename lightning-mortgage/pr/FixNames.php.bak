@@ -1,0 +1,102 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+/*																				*/
+/*	FixNames: This script queries the autoresponder db.					*/
+/*																				*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+$arid = $_GET["arid"];
+$Newnameid = $_GET["Newnameid"];
+$Email = $_GET["Email"];
+
+include("conn.php");
+if ($arid == "")
+{
+die("<h3>Please Specify the Campaign Number. e.g. http://www.lightning-mortgage.com/pr/FixNames.php?arid=173</h3>");	
+$arSQL = "select * from autoresponders where user='admin'";
+$result_ar = mysql_query($arSQL) or die("$arSQL");
+$num_rows_ar = mysql_num_rows($result_ar);
+print ("FixNames (".__LINE__.") found $num_rows_ar email campaigns<br />");
+if ($num_rows_ar < 1)
+	exit;
+$WithinScript="I am embedded in another script";
+}
+else
+{
+$arSQL = "select * from autoresponders where arid='$arid' and user='admin'";
+$result_ar = mysql_query($arSQL) or die("$arSQL");
+$num_rows_ar = mysql_num_rows($result_ar);
+//print ("FixNames (".__LINE__.") found $num_rows_ar email campaigns<br />");
+if ($num_rows_ar < 1)
+	exit;
+$WithinScript = "I know the arid";
+}
+include("settings.php");
+include("removesettings.php");
+
+//print ("FixNames (".__LINE__.") prior to loop<br />");	
+
+for($count=0;$count<$num_rows_ar;$count++)	// for each mail campaign....
+{
+	mysql_data_seek($result_ar, $count);
+	$arrow 			= mysql_fetch_object($result_ar);
+	$arid			= $arrow->arid;
+	$ArDescription	= $arrow->ardescription;
+	$User			= $arrow->user;
+	
+	DisplaySubscribers($arid, $ArDescription, $Newnameid, $Email);
+}
+function DisplaySubscribers($arid, $ArDescription, $Newnameid, $Email)
+{
+	if($Newnameid != "")
+		UpdateSub($Newnameid, $Email);
+		
+	print("<h2>Subscriber Names for $arid - $ArDescription</h2>\n");
+	$SQL_Statement = "select * from users where arid='$arid' and currentmsg < 253 order by email ASC LIMIT 0 , 5000";
+	$Query_Result = mysql_query($SQL_Statement);
+	$NumberOfSubscribers = mysql_num_rows($Query_Result);
+
+	print("<h2>There are $NumberOfSubscribers Active Subscribers");
+	if($NumberOfSubscribers>150)
+		print(" - Listing first 150");
+	print("</h2>");
+	if($NumberOfSubscribers>0)
+	{
+	for($scount=1;(($scount<=$NumberOfSubscribers) && ($scount < 151));$scount++)
+	{
+		$UserRow = mysql_fetch_object($Query_Result);
+		$FullName=$UserRow->fname; //get FullName from user record
+		$Email=$UserRow->email;
+		print("<form method='get' action=''><input type='hidden' name=arid value='$arid'><input type='hidden' name=Email value='$Email'>");
+		print("<div style='float:left;width:300px;height:30px;'>$scount Email: $Email</div><div style='height:30px;'> Name: <input type='text' name='Newnameid' id='Newnameid' size='33' value='$FullName' ");
+		print("title='' onfocus='this.style.border=\"2px solid #000080\"' ");
+		print("onblur='this.style.border=\"2px solid gray\"' onChange='this.form.submit();'></form></div>");
+		flush();
+		ob_flush();		
+	}
+	}
+}
+		
+function UpdateSub($Newnameid, $Email)
+{
+	mysql_data_seek($Query_Result, 0);
+
+	$Query_Update_Message = "update users set fname='$Newnameid' where email='$Email'";
+	//print("Query: $Query_Update_Message");
+	mysql_query($Query_Update_Message) or die(logMessage("FixNames (".__LINE__.") Could not update user record: '$Query_Update_Message'"));
+
+	if ($debugIt > 0)
+	{
+		logMessage("FixNames (".__LINE__.") Recipient name '$FullName' updated for $Email");
+	}
+}
+
+?>

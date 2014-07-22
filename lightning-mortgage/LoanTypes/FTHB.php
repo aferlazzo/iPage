@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>First-time Home Buyer Mortgages</title>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="description" content="First-time Home Buyer Mortgage Programs">
+<meta name="keywords"
+content="First-time HomeBuyer Mortgage, FTHB mortgage,
+First-time HomeBuyer loan, FTHB loan, home buyer training">
+<base target="_self">
+<link rel="stylesheet" href="../css/LoanTypesStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<script src="../js/Letter.js" type="text/javascript"></SCRIPT>
+</head>
+<body>
+
+<?php include('../include/top.php'); ?>
+<div id="Heading" style="width:80%;">
+<div class="Title"><h1 id="Small">Mortgages<br />For</h1></div>
+<div class="Title">
+<div id="Big"><h1>First-Time Buyers</h1></div>
+<div id="BigShadow"><h1>First-Time Buyers</h1></div></div>
+</div>
+<div class="QuickHits" style='width:130px;height:290px;'>
+<ul style="font-size:x-small;margin-bottom:0;">
+	<li style="padding-bottom:1em;"><a
+	href="http://www.lightning-mortgage.com/InterestRates/EducationTaxes.php">Tax breaks</a> and how much you can afford</li>
+	<li style="padding-bottom:1em;">The effects of <a
+	href="http://www.lightning-mortgage.com/CreditScores/CreditScoreEffects.php">credit blemishes</a></li>
+	<li style="padding-bottom:1em;">A quick breakdown of the <a
+	href="http://www.lightning-mortgage.com/Answers/Closing.php">Closing Process</a></li>
+<!--
+	<li style="padding-bottom:1em;">How to buy with<br /><a
+	href="http://www.lightning-mortgage.com/LoanTypes/ZeroDown.php">No Down Payment</a></li>
+-->
+	<li style="padding-bottom:1em;"><a href="#" title="opens a new window"
+	onclick="if (window.secondwindow) window.secondwindow.close();secondwindow=open('http://www.lightning-mortgage.com/Administrative/PaymentCalculator.php',
+	'pcalculator','height=360,width=280,top=0,left=0,alwaysRaised=yes,resizable=yes,scrollbars=yes,menubar=no,titlebar=yes,toolbar=no, scroll=yes');">
+	Monthly Payment Calculator</a><img src="../images/NewWindow.gif" ALT=""></li>
+	<li style="padding-bottom:0;"><a href="#" title="opens a new window"
+	onclick="if (window.thirdwindow) window.thirdwindow.close();thirdwindow=open('http://www.lightning-mortgage.com/Administrative/MinimumSalaryCalculator.php',
+	'scalculator','height=600,width=300,top=0,left=0,alwaysRaised=yes,resizable=yes,scrollbars=yes,menubar=no,titlebar=yes,toolbar=no, scroll=yes');">
+	Minimum Salary Calculator</a><img src="../images/NewWindow.gif" ALT=""></li>
+</ul>
+</div>
+	<p>For most people, <a href='http://www.lightning-mortgage.com/LoanTypes/StopRenting.php'>Rent Stinks!</a> You spend you money on fixing up your place as best you can,
+	but it really doesn't change much. It's somebody else's property and you can
+	only dress it up so much. It's still someone else's! But the alarm rings and
+	it's time to dress and feed the kids, and then <i>go to work</i>. Rent stinks!</p>
+	<p><img src="../images/Bolt/DownPayment.gif" onMouseover='this.style.display="none";' alt="Bolt" style="margin-right:1em;float:left;">
+Looking for a way to escape the rental trap? Want
+	to buy a brand new house, pay nothing down, and walk away from the closing
+	table with a check to help pay for moving expenses? Think you have a down payment hurdle, and think
+	you can't win? Think again. We've provided that
+	kind of service to others like you. Not only that, but the whole process
+	can take as little as 3 weeks!</p>
+	<p>You aren't trapped except for your own limiting thoughts. You may be unsure of where to
+	begin. That's not unusual. No one goes to school to	learn how to become a borrower,
+	but we do the next best thing. What about the tax savings? See our summary of
+	<a href="http://www.lightning-mortgage.com/InterestRates/EducationTaxes.php">
+The Tax Advantages of Home Ownership</a> and the official word from the IRS publication 530,
+<a target="_blank"
+href="http://www.irs.gov/app/vita/content/basic/lesson09/images/pub530.pdf" title="opens a new window">Tax
+Information for First-time Homeowners</a><img src="../images/NewWindow.gif" ALT=""></p>
+	<p>We show you how easy it is to buy a home on this site! A great guide to get you started
+	is our <a href="../Answers.php">Loan Process</a>, just don't get overwhelmed by it all.
+	We will be there for you. If you are looking for a mortgage education, this is the place. View our <a
+	href="HomeBuyerSeminarSlide1.php">First-time Home Buyers Seminar Slides</a> for more
+	helpful advice.</p>
+
+	<p>Check out our <a href="LoanTypeDescriptions.php"
+	class="LoanTypes">Description of Loan Types</a> to get a good sense of
+	the various loan products we have to offer, even if you are a first-time home buyer. Look around the website.
+	We have many great loan programs that are sure to fill your need. Another great resource
+	available to you is the	<a href="../Answers/MortgageInsiderSecrets.php">Mortgage
+	Insiders Secrets Mailing List</a> link.</p>
+	<hr>
+<br /><div style='width:120px;'>
+<b class="top"></b><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"></b><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></div>
+	<ul>
+		<li><a
+		href="../Answers/HomeBuyingMistakes.php">Find Out About the 8 Deadly Home Buying Mistakes</a></li>
+		<li><a
+		href="LoanTypeDescriptions.php">Explore other Loan Types</a></li>
+		<li><a
+		href="../CreditScores.php">Learn about Credit Scores</a></li>
+		<li><a
+		href="../Answers/PreAnswers.php">Determine if you want to be pre-qualified or pre-approved</a></li>
+		<li><a
+		href="../InterestRates/EducationTaxes.php">Learn about the Tax Advantages of Home Ownership</a></li>
+		<li><a
+    	href="../MortgageApplication/LoanAppShort.php">Submit a Loan Application</a></li>
+	</ul>
+<?php include('../include/bottom.php'); ?>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?php
+/*
+ * BounceHeader.php
+ */
+
+?><HTML>
+<HEAD>
+<TITLE>Perfect Response Bounce Handler</TITLE>
+</HEAD>
+<BODY>
+<?php
+DetermineBadAddress(1, "<587test@lightning.com>:");
+DetermineBadAddress(2, "<587test@lightning-mortgage.com>:");
+
+function DetermineBadAddress($MsgNo, $line)
+{
+	$Addr = trim($line);
+	$End = strlen($Addr) - 3;
+	if (substr($Addr,0,1)=='<')
+	{
+	  if((substr($Addr,$End+1,2)==">:") || (substr($Addr,$End+2,1)==">"))
+	  {
+	  	$Pattern="^<?([0-9a-z]+)([ 0-9a-z\.-_]+)@([0-9a-z\-_]+)\.([0-9a-z]+)([>:]+)?$"; //email address matching pattern
+		$Replace="\\1\\2@\\3.\\4";
+		$BadAddr=eregi_replace($Pattern, $Replace, $Addr);
+		
+		print("<PRE>   Addr:|".HtmlSpecialChars($Addr)."|</PRE><br />");
+		print("<PRE>Replace:|".HtmlSpecialChars($Replace)."|</PRE><br />");
+		print("<PRE>Pattern:|".HtmlSpecialChars($Pattern)."|</PRE><br />");
+		print("<PRE>BadAddr:|".HtmlSpecialChars($BadAddr)."|</PRE><br />");
+		
+	    print("DetermineBadAddress() Msg No. $MsgNo - Bad email found: ".HtmlSpecialChars($BadAddr)."<br />");
+	  }
+	}
+}
+?>
+
+</BODY>
+</HTML>

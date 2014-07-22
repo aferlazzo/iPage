@@ -1,0 +1,153 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+?>
+<HTML>
+<HEAD>
+<TITLE>Perfect Response Manage Mail Campaign</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css" media="screen">
+@import "PerfectResponse.css";
+</style>
+</HEAD>
+<BODY BGCOLOR=#FFFFFF leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 align="center">
+  <TR>
+		<TD>
+			<IMG SRC="images/op01_01.gif" WIDTH=194 HEIGHT=13></TD>
+		<TD>
+			<IMG SRC="images/op01_02.gif" WIDTH=428 HEIGHT=13></TD>
+	</TR>
+	<TR>
+    <TD background="images/head.gif" align='center' valign="bottom" WIDTH=194 HEIGHT=67>
+	<font style="color: #000080; font-family: helvetica; font-size: 14px; font-weight: bolder;">
+    Email Go-Getter System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></font>
+    <font style="color: #000080; font-family: helvetica; font-size: 10px; font-weight: bolder;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version 4.0</font>
+    </TD>
+		<TD>
+			<IMG SRC="images/op01_04.gif" WIDTH=428 HEIGHT=67></TD>
+	</TR>
+	<TR>
+		<TD>
+			<IMG SRC="images/op01_05.gif" WIDTH=194 HEIGHT=89></TD>
+		<TD>
+			<IMG SRC="images/op01_06.gif" WIDTH=428 HEIGHT=89></TD>
+	</TR>
+	<TR>
+		
+    <TD ROWSPAN=2 bgcolor="#99CCFF">&nbsp; </TD>
+		
+    <TD background="images/op01_08.gif" height="131" valign="bottom"> 
+      <h2><b><font face="Verdana, Arial, Helvetica, sans-serif" size="4"><br>
+        <br>
+        </font></b>&nbsp;Welcome admin</h2>
+    </TD>
+	</TR>
+	<TR>
+		
+    <TD>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td align="center">             
+            <form name="form1" method="post" action="manaction.php">
+              <table width="95%" border="1" cellspacing="0" cellpadding="0" align="center">
+                <tr> 
+                  <td >&nbsp;Autoresponder Name:</td>
+                  <td > &nbsp; 
+                    <input type="text" name="arname">
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;Autoresponder Email:</td>
+                  <td> &nbsp; 
+                    <input type="text" name="arfrommail">
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;ReplyTo Email:</td>
+                  <td> &nbsp; 
+                    <input type="text" name="arreplymail">
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;Bad Email:</td>
+                  <td> &nbsp; 
+                    <input type="text" name="arbadmail">
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;Admin Email:</td>
+                  <td> &nbsp; 
+                    <input type="text" name="aradminemail">
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;Autoresponder Mode:</td>
+                  <td> &nbsp; 
+                    <select name="armode">
+                      <option value="1" selected>Single Optin</option>
+                      <option value="2">Double Optin</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;Subscription Email POP3 Server:</td>
+                  <td> &nbsp; 
+                    <input type="text" name="pophost">
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;POP3 Server Port:</td>
+                  <td> &nbsp; 
+                    <input type="text" name="popport" value="110">
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;POP3 Username:</td>
+                  <td> &nbsp; 
+                    <input type="text" name="popuname">
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;POP3 Password:</td>
+                  <td> &nbsp; 
+                    <input type="text" name="poppwd">
+                  </td>
+                </tr>
+                <tr> 
+                  <td>&nbsp;Subscription Confirmation Page:</td>
+                  <td> &nbsp; 
+                    <input type="text" name="confpage">
+                  </td>
+                </tr>
+                <tr> 
+                  <td colspan="2" align="right" height="25"> 
+                    <input type="reset" name="Reset" value="Reset Values">
+                    <input type="submit" name="Submit2" value="Add Autoresponder">
+                    &nbsp; </td>
+                </tr>
+              </table>
+            </form>
+            <br>
+          </td>
+          <td bgcolor="#003399" width="5">&nbsp;</td>
+        </tr>
+      </table>
+    </TD>
+	</TR>
+	<TR>
+		
+    <TD COLSPAN=2> <IMG SRC="images/op01a_10.gif" WIDTH=622 HEIGHT=31></TD>
+	</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+    <base href="http://www.anthonyferlazzo.com/jqm/">
+    <title>List Manipulation</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
+    <style>
+        h3{text-align:center;}
+        .ui-field-contain fieldset.ui-controlgroup {width:90%;margin:0 auto;}
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            /*
+            //clicked on a task name
+            $("label").click(function(e){
+                alert('click');
+                e.preventDefault();
+                return false;
+            });
+            /*/
+            $(".custom").click(function(e){
+               $(this).parent().animate({"margin":"0 -10% 0 10%"},150,"swing",function(){
+                   $(this).animate({"margin":"0"},"fast", "swing");
+               });
+            });
+
+
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head>
+<body>
+    <div data-role="header" data-theme="b">
+        <h1>Testing</h1>
+    </div>
+    <form>
+        <div data-role="fieldcontain" data-theme="a">
+            <h3>Task List</h3>
+            <fieldset data-role="controlgroup">
+                <input data-theme="e" type="checkbox" name="checkbox-1a" id="checkbox-1a" class="custom">
+                <label for="checkbox-1a">Task 1</label>
+                <input data-theme="e" type="checkbox" name="checkbox-1b" id="checkbox-1b" class="custom">
+                <label for="checkbox-1b">Task 2</label>
+                <input data-theme="e" type="checkbox" name="checkbox-1c" id="checkbox-1c" class="custom">
+                <label for="checkbox-1c">Task 3</label>
+            </fieldset>
+        </div>
+    </form>
+    <p><a href="./multipagetemplate.html" data-role="button">Go to Multi-page Template demo</a></p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!--
+// It is the web page bottom border that is inserted in all
+// appropriate .php pages.
+-->
+<p class="CenterSmall">&copy; Copyright <a href='http://www.lightning-mortgage.com'>Lightning Mortgage</a> 2005</p>
+<p class="CenterSmall">Last Updated:
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+var lastMod = new Date(document.lastModified);
+var MM = lastMod.getMonth() + 1;
+var DD = lastMod.getDate();
+document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+//-->
+</script>
+</p>
+</div>

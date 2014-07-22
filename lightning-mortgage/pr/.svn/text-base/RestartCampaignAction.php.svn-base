@@ -1,0 +1,93 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+Include("conn.php");
+$arid=$_POST["arid"];
+$reset=$_POST["reset"];
+
+//die("reset: $reset");
+$maxSQL = "select max(seqno) as maxseq from messages where arid=$arid";
+$result_max = mysql_query($maxSQL) or die("$maxSQL");
+mysql_data_seek($result_max, 0);
+$maxrow = mysql_fetch_object($result_max);	
+$maxmsg=$maxrow->maxseq;
+if($maxmsg<1)
+$maxmsg=0;
+if ($reset == 0 ) 
+{
+	$SQL_Statement = "select * from users where confirmed='Y' AND arid=$arid and currentmsg < 253"; 
+}
+elseif ($reset == 1 ) 
+{
+	
+	$SQL_Statement = "select * from users where confirmed='Y' and currentmsg>=$maxmsg AND arid=$arid and currentmsg < 253"; 
+}
+elseif ($reset == 2 ) 
+{
+	$SQL_Statement = "select * from users where confirmed='Y' and currentmsg<$maxmsg AND arid=$arid and currentmsg < 253"; 
+}
+else  
+{
+	print "<html>\n<Head>\n<Title> Error! </Title>\n</Head>\n<Body BGcolor=\"#003399\">\n";
+	print "<Font size=\"2\" face=\"Verdana\" color=\"#ff0000\"><b>Incomplete Selection: \n</b></font>";	
+	print "<Font size=\"2\" face=\"Verdana\" color=\"#ffffff\"> Please Select a Restart Option.</font><BR>\n";
+	print "<BR><BR>\n";
+	print "<form><input class='cancel' type='button' value='Click here to return' onClick=\"javascript:window.location.href='manar.php?arid=<?php echo $arid; ?>';\"></form>\n";
+	print "</Body>\n</Html>"; 
+}
+
+?>
+<html>
+<Head><Title>RestartCampaignAction</Title>
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="../css/niftyCorners.css">
+<script type="text/javascript" src="../js/PerfectResponse.js"></script>
+<script type="text/javascript" src="../js/nifty.js"></script>
+</Head>
+<body>
+<div id="Wrapper"><div id="content">
+<?php
+$result = mysql_query($SQL_Statement) or die("revert.php (".__LINE__.") died: $SQL_Statement");
+$Count = mysql_num_rows($result)      or die("revert.php (".__LINE__.") Could not calculate number of rows");
+mysql_data_seek($result, 0) 		  or die("revert.php (".__LINE__.") Could not move pointer to next  row");
+$row = mysql_fetch_object($result)    or die("revert.php (".__LINE__.") Could not read next  row");
+
+//die("Found $Count subscribers is arid $arid");
+if ($Count == 1)
+{
+	print("<p style='font-family:verdana;font-size:small;'>matching user: $row->fname &lt;$row->email&gt;</p>\n"); 
+}
+
+	$Send_To = mktime(1,0,0,date("m"),date("d"),date("Y")); //start date is today at 1 AM
+	$dd = 
+	printf("<p style='font-family:verdana;font-size:small;'>arid %s restart campaign date/time: %s</p>",$arid, date('m\/d\/Y H:i:s'));
+	
+	if ($reset == 0 ) 						// -2 is the welcome msg
+	{
+		$SQL_Statement = "update users set currentmsg=-2,senddate='$Send_To' where confirmed='Y' AND arid=$arid and currentmsg < 253";
+		$result = mysql_query($SQL_Statement) or die("$SQL_Statement"); 
+	}
+	elseif ($reset == 1 ) 
+	{
+		$SQL_Statement = "update users set currentmsg=-2,senddate='$Send_To' where confirmed='Y' and currentmsg>=$maxmsg AND arid=$arid and currentmsg < 253";
+		$result = mysql_query($SQL_Statement) or die("$SQL_Statement"); 
+	}
+	elseif ($reset == 2 ) 
+	{
+		$SQL_Statement = "update users set currentmsg=-2,senddate='$Send_To' where confirmed='Y' and currentmsg<$maxmsg AND arid=$arid and currentmsg < 253";
+		$result = mysql_query($SQL_Statement) or die("$SQL_Statement"); 
+	}
+?>
+<h2>Restarting <?php echo $Count ?> subscribers</h2>
+<p>The subscribers you selected will begin receiving messages, 
+starting from the Welcome message.</p>
+</div></div>
+</Body>
+</Html> 

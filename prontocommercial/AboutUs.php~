@@ -1,0 +1,37 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>About Us - Pronto Commercial Funding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Pronto Commercial Funding" />
+<meta name="rating" content="General" />
+<meta name="robots" content="Index, ALL, follow" />
+	<meta name="OWNER" content="Pronto Commercial Funding" />
+	<link rel="SHORTCUT ICON" href="http://www.prontocommercial.com/favicon.ico" />
+	<?php include("include/Head.php"); ?>
+</head>
+<body>
+<?php include("include/top.php"); ?>
+	<h1>About Us</h1>
+	<p>Pronto Commercial Financing helps corporate and private investors leverage their money. We offer high yield programs and strategies for multiplying your wealth.</p>
+	<h4>Quick Response - Creative Structuring - Persistence - Proven Success</h4>
+	<p>Pronto Commercial Funding is an internationally recognized leader in the
+	commercial lending community. We arrange conventional financing through institutions and use private money sources for non-traditional or unique financing requests.</p>
+	<p>Geographically, we are active worldwide.</p>
+
+	<p>Pronto Commercial Funding provides Proof of Funds service, access to private placement program, and funds for bank instruments such as SBLCs and other Letters of Credit, MTNs, BGs. </p>
+
+	<p>We work with private and institutional lenders, traders, investors. Being very experienced with investing and trading is paramount to getting the job done, but we also maintain that wise investing is only possible if we make certain you feel that (for lending) your investment is very safe and secure, and (for trading) your money will grow at a rapid pace.</p>
+
+	<p>We work hard to overcome your initial distrust, if it is present, but also understand that until the transaction is complete and you see results, you may still remain skeptical. Skepticism is natural once you've had a bad experience. We recognize we have to prove ourselves again and again through our actions and making good on our promises.</p>
+
+	<p>There are limits. We can not foretell the future. We act on good faith and occasionally will give you inaccurate or misleading statements made by others, but only because we believe they are true when we present them to you. When we tell you to expect one course of action and have another one actually occur brings on feelings of distrust, so we work hard to filter out inaccurate information before forwarding it to you.</p>
+
+	<p>We understand that the journey to our client's goal is often complex. So the two-way street of frequent communication during this stage is another very important component of what we do.
+
+	Being able to describe the process with enough detail to make you confident and safe during the process is the first step. Carrying out the agreed upon plan is the second step.</p>
+
+	<p>Quite often people come to us after having had very bad experiences with other traders or lenders. Programs that don't pay, loans that never close, and dealing with people that don't tell the truth. While we can't erase what is in the  past, we make certain not to repeat the mistakes of others.</p>
+<?php include("./include/bottom.php"); ?>
+</body>
+</html>

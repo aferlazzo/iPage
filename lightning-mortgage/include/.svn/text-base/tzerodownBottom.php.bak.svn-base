@@ -1,0 +1,99 @@
+<!--
+// ../include/tzerodownBottom.php is a copy of the contents ../include/bottom.htm. It is the
+// web page bottom border that is inserted in all appropriate .htm pages for pages
+// specific to www.trivalleymortgage.com
+-->
+<br style="clear:both;" />
+
+<div class="Bottom1">
+<div style="z-index:6;float:left;text-align:left;margin-left:8%;margin-right:10%;">
+<form style="margin:0;" name="Atomz" method="get" onsubmit="Exit=false; return isBlank();" action="http://search.atomz.com/search/">
+<input type="hidden" name="sp-a" value="sp1002b74c">
+<input type="text" style="background-color: #e5e5e5; color: #000080; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small;"
+value="Your search word(s)" onfocus="this.value=''" size="20" name="sp-q">
+<input type="hidden" name="sp-p" value="all">
+<input type="hidden" name="sp-f" value="ISO-8859-1">
+<input style="background-color: #009; color: #ffffff; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small"
+type="submit" value="Search Site" title="Search this web site"></form>
+</div> <!-- end of (left) search z-index 6 DIV -->
+<div style="z-index:6; float:right; text-align:left; margin-right:8%;">
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+document.write(doClock("M0","%20","D1",",%20","Y0"));
+-->
+</script>
+</div>  <!-- end of (right) date z-index 6 DIV -->
+</div>  <!-- end of Bottom1 DIV -->
+<div class="Bottom2">
+<div style="z-index: 6; text-align: center;">
+
+<div style="float:left;vertical-align:middle;text-align:center;width:92px;height:7em;">
+<a class="Bottom" href="http://www.lightning-mortgage.com/Administrative/Guarantee.htm"><img border="0"
+onMouseover='this.style.background="#ffffff";' onMouseOut='this.style.background="transparent";'
+src="http://www.lightning-mortgage.com/images/guarantee88w91h.gif" width="88" height="91" alt="Lightning Mortgage Financing Guarantee"></a>
+</div>
+<div style="float:left;text-align:center;width:553px;height:7em;">
+<a class="Bottom" href="http://www.lightning-mortgage.com">Home</a>&nbsp;|
+<a class="Bottom" href="https://host373.ipowerweb.com/~lightnin/MortgageApplication/LoanAppShort.htm">Apply Now</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/MortgageApplication/OrderCreditDirect.htm">Order Credit</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/LoanTypes.php">Loan Types</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/Answers/Documentation.htm">Documents</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/Answers/MortgageInsiderSecrets.htm">Mortgage Insider Secrets</a><br /><br />
+
+<a class="Bottom" href="http://www.lightning-mortgage.com/Administrative/SiteMap.htm">Site Map</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/Administrative/Calculators.htm">Calculators</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/Answers/GlossaryAD.htm">Glossary</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/CreditScores.htm">Credit Scores</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/Administrative/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/Administrative/Legal.htm">Legal</a>&nbsp;|
+<a class="Bottom" href="http://www.lightning-mortgage.com/Administrative/AffiliateLinks.htm">Affiliates</a><br /><br />
+
+<p class="CenterSmall">Click on <a class="Bottom" 
+href="http://www.lightning-mortgage.com/Administrative/Feedback.htm">feedback</a> or call (866) 822-8500 for assistance - Last
+Updated:
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+var lastMod = new Date(document.lastModified);
+document.write(lastMod.getMonth()+"\/"+lastMod.getDay()+"\/"+lastMod.getFullYear());
+//-->
+</script>
+</p>
+</div>
+<div style="float:left;vertical-align:middle;text-align:center;width:72px;height:7em;">
+<a class="Bottom"  href="http://www.lightning-mortgage.com/Administrative/UpfrontMortgageBroker.htm">
+<img onMouseover='this.style.backgroundColor="#ffffff";' onMouseOut='this.style.background="transparent";'
+border="0" src="http://www.lightning-mortgage.com/images/UMB1.gif" alt="I am an Upfront Mortgage Broker &reg;" width="68" height="85"></a>
+</div>
+<br style="clear:both;"><hr style="width: 100%;">
+<p class="CenterSmall" style="margin:0;">This Website is NOT intended as a solicitation to customers in any jurisdiction in which we
+are not authorized to operate.<br /><br />
+
+&copy; Lightning Mortgage 2002-2004 All Rights Reserved. No part of this website may be
+reused commercially without the expressed<br />written consent of Lightning Mortgage.
+This site is directed at, and made available to, persons in the continental U.S., Alaska and Hawaii only.</p>
+
+<hr style="width:100%;">
+
+<script language="JavaScript" type="text/javascript">
+<!--
+if (window.location.href.indexOf("https:")==-1)
+{ /* if NOT on a secure server page, enable link */
+document.write("<img src='http://www.lightning-mortgage.com/pr/imagecron.php' width='1' height='1' border='0'>");
+}
+//-->
+</script>
+<div style='float:left; width:45%;top:0;height:58px;'>
+<p style='text-align: left;'><a href='http://validator.w3.org/check?uri=referer'> 
+<img style='border:0;width:88px;height:31px;margin-top:10px;' src='http://www.lightning-mortgage.com/images/valid-html401.gif' 
+alt='Valid HTML 4.01!'></a></p>
+</div><div style='float:left; width:10%;top:0;height:58px;'>
+<img border='0' src='http://www.lightning-mortgage.com/images/equalhouse.gif' 
+alt='Equal housing lender' style="height:58px;width:63px;"></div>
+<div style='float: right; width: 45%; top: 0;height:58px;'>
+<p style='text-align: right;'><a href='http://jigsaw.w3.org/css-validator/check/referer'> 
+<img style='border:0;width:88px;height:31px;margin-top:10px;' src='http://www.lightning-mortgage.com/images/valid-css.gif' 
+alt='Valid CSS!'></a></p></div>
+
+</div>
+</div>
+</div>

@@ -1,0 +1,246 @@
+body{
+font-size:11px;
+font-family:verdana,sans-serif;
+background:silver;
+}
+
+form#spriteForm{margin:0;width:450px;height:200px;}
+/* for input specifiers */
+input[type=text]{margin-left:10px;width:35px;text-align:right;}
+#sFile{margin:5px 0;width:340px;text-align:left;}
+#getIt {width:120px;margin:5px 20px 0;display:block;float:left;}
+
+label{
+display:block;
+font-weight:700;
+}
+
+textarea#spriteCSS{
+margin:0 20px;
+height:110px;
+width:355px;
+padding:5px;
+display:inline-block;
+}
+
+.colorChart{
+padding-top:5px;
+width:90px;
+display:inline-block;
+height:25px;
+}
+.BG0, .BG1, .BG2, .BG3, .BG4, .BG5, .BG6, .BG7, .BG8 {
+width:8px;
+height:21px;
+display:inline-block;
+cursor:pointer;
+}
+.BG0{background-color:aqua;}
+.BG1{background-color:black;}
+.BG2{background-color:coral;}
+.BG3{background-color:crimson;}
+.BG4{background-color:yellow;}
+.BG5{background-color:Green;}
+.BG6{background-image:url('../images/transBackground.gif')}
+.BG7{background-color:purple;}
+.BG8{background-color:red;}
+
+label.gray{margin-top:5px;}
+.gray{background-color:#aaa}
+
+.sbs{
+display:block;
+float:left;
+width:90px;
+text-align:center;
+margin:0 6px;
+height:30px;
+font-weight:900;
+}
+
+#spriteBase, #spriteBox,  #spriteBoxBackground, #spriteResultBox, .heightSliderFrame {
+position:absolute;
+z-index:10;
+top:-9999px;
+left:0;
+color:#000;
+width:100%;
+height:100%;
+background-color:transparent;
+}
+#spriteResultBox{
+top:40px;
+left:9999px;
+}
+
+#uploadingNow{margin:20px 0;width:220px;height:19px;background: url("../images/loader.gif") no-repeat}
+
+#spriteBase{position:absolute;left:550px;top:30px;z-index:9;}
+#spriteBoxBackground {z-index:9;background: url('../images/transBackground.gif') repeat;}
+
+#itemBox, #itemResultBox{
+position:absolute;
+text-align:center;
+z-index:26;
+cursor:move;
+width:0px;
+height:0px;
+background-color:transparent;
+filter:alpha(opacity=35);
+-moz-opacity:0.35;
+-khtml-opacity: 0.35;
+opacity: 0.35;
+behavior: url(PIE.htc); /* the IE fix from css3pie.com */
+}
+
+
+/* div for width slider */
+#spriteWidthSliderFrame, #itemWidthSliderFrame {
+position:absolute;
+float:left;
+left:-999px;
+top:999px;
+width:0px;
+height:12px;
+z-index:3; /* less than sprite */
+}
+#spriteWidthSlider, #itemWidthSlider{
+border-left:none;
+border-right:none;
+width:100%;
+height:10px;
+border:1px solid gray;
+}
+#spriteWidthSlider{
+border-left: none;
+border-right: none;
+background:url("../images/rulerTop.gif") repeat;
+}
+#itemWidthSlider{
+border-left: none;
+border-right: none;
+background:url("../images/rulerBottom.gif") repeat;
+}
+
+/* div for height slider */
+#spriteHeightSliderFrame, #itemHeightSliderFrame{
+position:absolute;
+height:0px;
+width:12px;
+top:-9999px;
+left:0;
+}
+#spriteHeightSlider, #itemHeightSlider{
+border-top:none;
+border-bottom:none;
+height:100%;
+width:10px;
+}
+#spriteHeightSlider{
+border-top:none;
+border-bottom:none;
+background:url("../images/rulerLeft.gif") repeat;
+}
+#itemHeightSlider{
+border-top:none;
+border-bottom:none;
+background:url("../images/rulerRight.gif") repeat;
+}
+
+img#logo{margin-left:150px;}
+#controlTablet{
+position: absolute;
+top:-9999px;left:0;
+margin:20px;
+width:460px;
+height:220px;
+}
+.controlsDiv{
+position:static;
+width:420px;
+background:#ddd;
+padding:10px 5px;
+height:140px;
+text-align:center;}
+#cssTab {
+height: 180px;
+}
+#spriteTab{height:180px;padding:5px;width:450px;}
+#f1_upload_process{visibility:hidden;}
+#aboutTab, #helpTab {
+height: 375px;
+width: 375px;
+overflow: auto;
+margin:15px;
+}
+#aboutTab p, #helpTab p{text-align:left;margin:6px 4px;width:100%;}
+#tabs{}
+
+h3{text-align:center;padding:10px 0;}
+
+#itemHeightSlider a.ui-slider-handle,
+#itemWidthSlider  a.ui-slider-handle,
+#spriteHeightSlider a.ui-slider-handle,
+#spriteWidthSlider  a.ui-slider-handle{text-decoration:none;font-size:10px;font-weight:400;}
+
+#itemHeightSlider a.ui-slider-handle,
+#spriteHeightSlider a.ui-slider-handle{
+height:1px;
+width:10px;
+left:0;
+border:none;
+background:#000;
+white-space:nowrap;
+margin:0;
+}
+
+/* spriteTopHandle = left side, top-left corner */
+/* itemLeftHandle = bottom side, left-bottom corner */
+#spriteTopHandle a, #spriteBottomHandle a, #spriteLeftHandle a, #spriteRightHandle a,
+#itemTopHandle a, #itemBottomHandle a , #itemLeftHandle a, #itemRightHandle a{
+color: #000;width:50px}
+
+/* for the ever-changing legends at top/bottom sides only */
+#spriteLeftHandle, #spriteRightHandle, #itemLeftHandle, #itemRightHandle
+{position:absolute;top:-20px;left:0px;text-align:left;}
+
+/* top/bottom sides - right only */
+#spriteRightHandle, #itemRightHandle {text-align:left;left:0px;}
+
+/* right side only */
+#itemTopHandle, #itemBottomHandle {position:absolute;top:-10px;left:15px;text-align:left;}
+
+/* left side only */
+#spriteTopHandle, #spriteBottomHandle
+{position:absolute;top:-10px;left:-55px;text-align:right;width:50px;}
+
+/* left/right sides -  bottom only */
+#spriteBottomHandle, #itemBottomHandle {top:0;}
+#spriteLeftHandle{left:-20px}
+
+/* bottom side only */
+#itemLeftHandle{top: 18px;width:70px;left:-70px;text-align:right;}
+#itemRightHandle{top: 18px;left:0;}
+
+/* */
+a.ui-slider-handle {height:1px;width:10px;left:0;border:none;background:#000;}
+.ui-slider-horizontal .ui-slider-handle {height:10px;width:1px;margin:0 0 0 -1px;top:0;border:none;background:#000;}
+
+#spriteWidthSlider .ui-slider-range, #spriteHeightSlider .ui-slider-range,
+#itemWidthSlider   .ui-slider-range,   #itemHeightSlider .ui-slider-range	{ background: #ddd; }
+
+div.corners{
+cursor:pointer;
+width:10px;
+height:10px;
+background:#fff;
+border:1px solid gray;
+z-index:3;
+position:absolute;
+top:999px;left:-999px;
+}
+/* corner classes */
+div.corners .topLeft .heightCorners{border-left-color:gray;border-top-color:gray;top:999px;left:-999px;}
+div.corners .topRight .widthCorners{border-right-color:gray;border-top-color:gray;top:999px;left:999px;}
+div.corners .bottomLeft .heightCorners{border-left-color:gray;border-bottom-color:gray;top:999px;left:-999px;}
+div.corners .bottomRight .widthCorners{border-right-color:gray;border-bottom-color:gray;top:999px;left:999px;}

@@ -1,0 +1,43 @@
+<?php
+$arid=$_GET['arid'];
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<HTML>
+<HEAD>
+<TITLE>Mail Subscribers - Perfect Response Mail</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="./css/PerfectResponse.css">
+<script type="text/javascript" src="./js/PerfectResponse.js"></script>
+<style type="text/css" media="screen">
+th, td {font-family:Verdana, Arial, Helvetica;color:#000080;font-size:8pt;padding:2px 4px;white-space:nowrap;}
+</style>
+<script type="text/javascript">
+function VerifyAction()
+{
+	if(confirm('Do you want to really send the special mail to all users in this campaign?\n(Please double-check!)') == true)
+	{
+		return(true);
+	}	
+	else
+	{
+		return(false);
+	}
+}
+</script>
+</HEAD>
+<body>
+
+<?php
+print ("<p>You should have the message you want to send located at:<br/>www.lightning-mortgage.com/pr/MailSubscribersMessage.php</p>\n");
+print ("<p><br/>The message subject should be in a file located at:<br/> www.lightning-mortgage.com/pr/MailSubscribersSubject.txt</p>\n"); 
+
+	// verify
+	
+	print("<script type='text/javascript'>if (VerifyAction() == false)\nlocation.href='home2.php';\n"); 
+	print("else\nlocation.href='MailSubscribersAction.php?arid=$arid';\n"); 
+	print("</script>\n");
+?>
+</body>
+</html>

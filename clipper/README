@@ -1,0 +1,25 @@
+Overview
+
+	This script accepts a sprite file as input and outputs the proper css rules for a selection image
+	or portion of the sprite file. Two features of note are:
+
+	- It uses the new files API from HTML5 to read files from a browser PC's local drive
+	- It utilizes the Canvas object from CSS3 to manipulate the sprite image
+
+	The image file must first be selected from the local drive. Go to the Input tab and
+	click the button to browse and choose the file. The sprite file will be displayed
+	to the right.
+
+	Default operation is to click on an image on the sprite. You'll see a rectangle with a blue border
+	grow around the 	selected area. If you wish to expand or reduce the selected area simply click
+	on the sprite outside the presently selected area to cause the border to reappear, then click and
+	drag to manually select the desired area. This is useful for selecting text and other non-contiguous
+	images.
+
+	You can instead click and drag around an image you'd like to select. This is helpful when you wish
+	to select text, or multiple objects. If adjustments to the rectangle size, use the mouse along the
+	inner edges of the rectangle or update the pixel settings on the Input tab to grow or shrink the
+	selection.
+
+	Go to the Output tab to copy the generated CSS of the clipped image to your HTML or CSS file.
+

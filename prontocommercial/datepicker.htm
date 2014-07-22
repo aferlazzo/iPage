@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<title>Datepicker by Anthony Ferlazzo</title>
+<style>
+	/* http://meyerweb.com/eric/tools/css/reset/
+	v2.0 | 20110126
+	License: none (public domain)
+	*/
+
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed,
+	figure, figcaption, footer, header, hgroup,
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure,
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	/*
+	ol, ul {
+		list-style: none;
+	}
+	*/
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+/*-----*/
+	body{
+	font-family:helvetica, arial, sans-serif;
+	font-size:62.5%;
+	}
+	form#dates{
+	margin:50px 20px;
+	width:790px;
+	height:auto;
+	}
+	fieldset{
+		text-align:center;
+		border-radius:10px;
+		border: 1px solid #aaa;
+	}
+	legend{
+		font-size:18px;
+	}
+	label{
+	font-size:16px;
+	font-weight:700;
+	margin:20px 64px 20px 0;
+	width:490px;
+	text-align:right;
+	display:inline-block;
+	}
+	a.calendarIcon, a.monthPickerPrev, a.monthPickerNext{
+	display: block;
+	cursor:pointer;
+	position: absolute;
+	width: 19px;
+	height: 16px;
+	padding: 0;
+	margin: 5px 3px 0;
+	text-indent: -9999px;
+	overflow: hidden;
+	background: url(./datepickerSprite.png) no-repeat;
+	background-position: 0 0;
+	}
+
+	a.sd{
+		top: 85px;
+		left: 547px;
+	}
+	a.fd{
+		top: 140px;
+		left: 547px;
+	}
+	a.rd{
+		top: 195px;
+		left: 547px;
+	}
+	a.monthPickerPrev{
+		display:block;
+		position:absolute;
+		top:0;
+		left:2px;
+		background-position: -54px 0;
+		z-index:15;
+	}
+	a.monthPickerNext{
+		display:block;
+		position:absolute;
+		top:0;
+		left:164px;
+		background-position: -19px 0;
+		z-index:15;
+	}
+
+	div.datePicker{
+		display: none;
+		width:185px;
+		height:230px;
+		border:1px solid #aaa;
+		border-radius:9px;
+		z-index:10;
+		position:absolute;
+		left:855px;
+		top:58px;
+	}
+	div.monthPicker{
+		width:100%;
+		height:19px;
+		text-align:center;
+		background-color:#ccc;
+		height:20px;
+		margin-top:0;
+		border-radius:9px 9px 0 0;
+	}
+	div.monthPickerName{
+		border-radius:9px 9px 0 0;
+		font-weight:700;
+		font-size:11px;
+		padding-top: 5px;
+		text-align:center;
+	}
+
+	table.calendar{
+		width:182px;
+		font-size: .9em;
+		border-collapse: collapse;
+		margin:0;
+		padding:2px;
+		position: absolute;
+		top:16px;
+	}
+	table.calendar th, tr {
+		vertical-align:middle;
+		height:21px;
+		width:24px;
+		text-align:right;
+	}
+	table.calendar th{
+		font-weight:700;
+	}
+	table.calendar tr th{
+		color:#000;
+		font-size:11px;
+		width:23px;
+		height:18px;
+		padding:7px 3px;
+		text-align:center;
+	}
+	table.calendar tr td span{
+		height:12px;
+		width:15px;
+		padding:2px;
+		border:1px solid #aaa;
+		background-color:#dadada;
+		font-size: 10px;
+		color:#555;
+		display:inline-block;
+		cursor:pointer;
+	}
+	div.TZ{
+		position:relative;
+		top:150px;
+		left:9px;
+		font-size:14px;
+		font-weight: 700;
+	}
+	input#useDate{
+		position:absolute;
+		top:200px;
+		left:35px;
+		width:125px;
+	}
+	div#jsonReturn{
+		margin:40px 20px;
+		border-radius:10px;
+		color:#555;
+		border:1px solid #555;
+		width:790px;
+		height:40px;
+	}
+	div#jsonReturn p{
+		font-size:16px;
+		margin:10px;
+	}
+</style>
+</head>
+<body>
+<form id='dates'>
+	<fieldset>
+		<legend>Enter Dates</legend>
+		<label for='startDate'>Click on Calendar Icon to Choose My Employment Start Date</label><input disabled type='text' id='startDate' class='SD'>
+		<a href='#' class='sd calendarIcon' title='Select Date'></a>
+		<label for='freezeDate'>Click on Calendar Icon to Choose Next Code Freeze Date</label><input disabled type='text' id='freezeDate' class='FD'>
+		<a href='#' class='fd calendarIcon' title='Select Date'></a>
+		<label for='releaseDate'>Click on Calendar Icon to Choose Next Code Release Date</label><input disabled type='text' id='releaseDate' class='RD'>
+		<a href='#' class='rd calendarIcon' title='Select Date'></a>
+<!--
+		<label for='epochDate'>epoch Date Snapshot</label><input type='text' id='epochDate'>
+-->
+	</fieldset>
+
+
+
+	<div class='datePicker SD FD RD'>
+		<div class='monthPicker'>
+			<a class='monthPickerPrev'></a>
+			<a class='monthPickerNext'></a>
+			<div class='monthPickerName'>
+				<span class='monthPickerMonth'></span>
+				<span class='monthPickerYear'></span>
+			</div>
+			<table class='calendar'>
+				<thead>
+					<tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr>
+				</thead>
+				<tbody class='Days'>
+					<tr><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td></tr>
+					<tr><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td></tr>
+					<tr><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td></tr>
+					<tr><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td></tr>
+					<tr><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td></tr>
+					<tr><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td><td><span></span></td></tr>
+				</tbody>
+			</table>
+		</div>
+		<div class='TZ'>
+			TimeZone
+			<select id='timeZone' size=1>
+				<option value='unfilled' selected='selected'>Select</option>
+				<option value='EST'>Eastern</option>
+				<option value='CST'>Central</option>
+				<option value='MST'>Mountain</option>
+				<option value='PST'>Pacific</option>
+			</select>
+		</div>
+		<input type='button' id='useDate' value="Set the Date">
+	</div>
+
+</form>
+<div id='jsonReturn'></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+	function daysInMonth(month,year) {
+	var m = [31,28,31,30,31,30,31,31,30,31,30,31];
+	if (month !== 1) {return m[month];}
+	if (year%4 !== 0) {return m[1];}
+	if (year%100 === 0 && year%400 !== 0) {return m[1];}
+	return m[1] + 1;
+	}
+
+
+
+
+
+	$(document).ready(function(){
+		var dateFor;
+
+		// When one of the calendar icons is clicked the corresponding and a mini-calendar appeared.
+
+		// This function handles logic for chhosing a date.
+
+		// The inner functions determines the dates in each month and the days they fall on.
+
+		// Other inner functions jump to next and previous months.
+
+		function miniCalendarWrapper(thisCalendar){
+			//alert('miniCalendarWrapper('+thisCalendar+')');
+			var now = new Date(),
+				chosenMonth = now.getMonth(),
+				chosenYear  = now.getFullYear(),
+				chosenTimeZone='unfilled', chosenDay, chosenDate=0, chosenHours, chosenMinutes, chosenSeconds, lastChosenIndex=-9999, lastChosenCell;
+
+			// This inner function builds the mini-calendar
+			function buildMiniCalendar(myCalendar, myMonth, myYear){
+				//alert('buildMiniCalendar('+myCalendar+') for '+myMonth+'/'+myYear);
+				var i, d, myDays, numberOfDays,
+					months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+					days   = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+					ff = new Date((+myMonth+1) + '/01/' + myYear),
+					firstIsOn = ff.getDay();
+
+				// initial label of the mini-calendar
+				$('.monthPickerMonth').text(months[myMonth]);
+				$('.monthPickerYear').text(myYear);
+
+				// label the days of the month
+				myDays = '.Days span ';
+
+				// reset the calendar so all table cells show
+				for(i=0;i<42;i++){
+					//console.log(' blanking index '+i);
+					$(myDays).eq(i).css('display','inline-block');
+				}
+
+				//blank all days before the first of month
+				for(i=0;i<firstIsOn;i++){
+					$(myDays).eq(i).css('display','none');
+				}
+				numberOfDays = daysInMonth(myMonth,myYear);
+
+				d=1;
+				for (i=firstIsOn; d <= numberOfDays;i++){
+					$(myDays).eq(i).text(d++);
+				}
+				//blank all days after the last of month
+				for(i=i;i<42;i++){
+					//console.log(' blanking index '+i);
+					$(myDays).eq(i).css('display','none');
+				}
+
+				if ($(myCalendar).css('display') == 'none')
+				$(myCalendar).slideDown('slow');					// Buiding is finished. Now display the mini-calendar.
+			}	// end of buildMiniCalendar()
+
+			// Build/display the initial mini-calendar with this month/year...
+			buildMiniCalendar(thisCalendar, chosenMonth, chosenYear);
+
+
+
+
+			$('.monthPickerPrev').click(function(){
+				$('td span').click(); //reset last highlighted date (chosenDate), if any
+				chosenMonth--;
+				if(chosenMonth < 0){
+					chosenMonth=11;
+					chosenYear--;
+				}
+
+				//alert('(prev) thisCalendar should be same calendar: '+thisCalendar);
+
+				// Build/display the previous month's mini-calendar ...
+				buildMiniCalendar(thisCalendar, chosenMonth, chosenYear);
+			});
+
+
+
+
+
+			$('.monthPickerNext').click(function(){
+				$('td span').click(); //reset last highlighted date, if any
+				chosenMonth++;
+				if(chosenMonth > 11){
+					chosenMonth=0;
+					chosenYear++;
+				}
+
+				//alert('(next) thisCalendar should be same calendar: '+thisCalendar);
+
+				// Build/display the next month's mini-calendar ...
+				buildMiniCalendar(thisCalendar, chosenMonth, chosenYear);
+			});
+
+
+
+			$('#timeZone').blur(function(e) {
+				chosenTimeZone = $('#timeZone option:selected').val();
+			});
+
+
+			// a date is selected by the user, or deselected
+
+			$('td span').click(function(){
+				/*
+				if (chosenDate === 0){
+					chosenDate = parseInt($(this).text(), 10);		//get the date in the cell
+				}else{
+					//$(this).css({'fontWeight': 400, 'backgroundColor': '#dadada'}); // first reset prior chosen date
+					//lastChosenIndex = $('td span').index(lastChosenCell);
+				}
+				*/
+				chosenDate = parseInt($(this).text(), 10);		//get the date in the cell
+				$('td span').eq(lastChosenIndex).css({'fontWeight': 400, 'backgroundColor': '#dadada'}); // first reset any prior chosen date
+				lastChosenCell=$(this);
+				lastChosenIndex = $('td span').index(lastChosenCell);
+				//alert('lastChosenIndex: '+ lastChosenIndex);
+				$(this).css({'fontWeight': 700, 'backgroundColor': '#f66'});
+			});
+
+
+
+
+
+			// Allow data output from instance in the following JSON format:
+			// {day : 'tuesday', date : 31, month : 5, year : 2011, hours : 15, minutes : 19, seconds : 52, tz : 'PST'}
+
+			$('#useDate').click(function(e){
+				var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+					now = new Date();
+				e.preventDefault();
+				if(chosenDate === 0){										// are we lacking either field?
+					alert('Please choose a date');
+				}else{
+					if (chosenTimeZone === 'unfilled'){
+						alert('Please select your timezone');
+					}
+				}
+
+				if((chosenDate > 0) && (chosenTimeZone != 'unfilled')){		// we must have a date chosen and a time-zone selected
+					$(thisCalendar).slideUp('slow');
+					chosenHours   = now.getHours();
+					chosenMinutes = now.getMinutes();
+					chosenSeconds = now.getSeconds();
+
+					//alert('At end processing thisCalendar: '+ thisCalendar);
+
+					// now place the date string on the page
+					thisCalendar = '.datePicker.'+dateFor;
+					if(thisCalendar === '.datePicker.SD'){
+						$('#startDate').val((chosenMonth+1)+'/'+chosenDate+'/'+chosenYear+' '+chosenHours+':'+chosenMinutes+':'+chosenSeconds+' '+chosenTimeZone);
+					}else{
+						if(thisCalendar === '.datePicker.FD'){
+							$('#freezeDate').val((chosenMonth+1)+'/'+chosenDate+'/'+chosenYear+' '+chosenHours+':'+chosenMinutes+':'+chosenSeconds+' '+chosenTimeZone);
+						}else{
+							if(thisCalendar === '.datePicker.RD'){
+								$('#releaseDate').val((chosenMonth+1)+'/'+chosenDate+'/'+chosenYear+' '+chosenHours+':'+chosenMinutes+':'+chosenSeconds+' '+chosenTimeZone);
+							}
+						}
+					}
+					jsonReturn='{day : "'+days[lastChosenIndex%7]+'", date : "'+chosenDate+'", month : "'+(chosenMonth+1)+'", year : "'+ chosenYear+'", hours : "'+ chosenHours+ '", minutes : "'+chosenMinutes+'", seconds : "'+chosenSeconds+ '", tz : "'+ chosenTimeZone+'"}';
+					//console.log('returning: '+ jsonReturn);
+					$('#jsonReturn').html('<p>'+jsonReturn+'</p>');			// put the json string on the page for easy confirmation
+
+					// reset timezone
+					$('#timeZone option')[0].selected = true;
+					chosenDate = 0;  //reset date
+
+					chosenMonth = now.getMonth();	//reset month/year when building new mini-calendar
+					chosenYear  = now.getFullYear();
+
+					$('td span').eq(lastChosenIndex).css({'fontWeight': 400, 'backgroundColor': '#dadada'}); // reset prior chosen date
+					return jsonReturn;
+				}
+			});
+		} //end of miniCalendarWrapper()
+
+
+
+
+
+
+
+		// when a calendar icon is clicked, display the corresponding datePicker after the calendar table is populated with day numbers
+		$('.calendarIcon').click(function(e){
+			dateFor = $(this).prev('input').attr('class');  // class will be SD, FD, or RD
+			if (dateFor === 'SD'){
+				$('#useDate').attr('value', 'Set Start Date');
+			}
+			if (dateFor === 'FD'){
+				$('#useDate').attr('value', 'Set Freeze Date');
+			}
+			if (dateFor === 'RD'){
+				$('#useDate').attr('value', 'Set Release Date');
+			}
+			$('.datePicker').removeClass('SD').removeClass('FD').removeClass('RD').addClass(dateFor);
+			thisCalendar = '.datePicker.'+dateFor;
+			//alert('at start thisCalendar: '+ thisCalendar);
+			e.preventDefault();
+
+			miniCalendarWrapper(thisCalendar);		// process this calendar
+		});
+
+	});
+
+</script>
+</body>
+</html>

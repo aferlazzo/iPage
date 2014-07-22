@@ -1,0 +1,44 @@
+#Calculator{
+width: 310px;
+float:left;
+height:540px;
+color:#009;
+}
+#Inner{
+border-right:4px solid #039;
+border-left:4px solid #039;
+width:300px;
+background:#eff;
+margin:0;
+white-space:nowrap;
+height:540px;
+}
+h3, #Calculator h1 {color:#009;margin:16px 0;}
+.Head{
+width:157px;
+text-align:right;
+float:left;
+padding:2px 10px 0 0;
+height:25px;
+line-height:24px;
+border-bottom:2px solid #039;
+border-right:1px solid #039;
+}
+.Amt{
+width:86px;
+text-align:right;
+float:left;
+padding:2px 36px 0 10px;
+height:25px;
+line-height:24px;
+border-bottom:2px solid #039;
+}
+.Light{background:#f7f7f7;}
+.Dark{background:#dee;}
+.DarkAmt{background:#dee;}
+
+#Calculator br {clear:left;}
+#Calculator input.Text {text-align:right;color:#009;}
+#Calculator input.Submit {font-size:medium;margin-top:19px;}
+#Possible ul {white-space:normal;}
+#text {float:left;width:380px;height:580px;padding-right:10px;}

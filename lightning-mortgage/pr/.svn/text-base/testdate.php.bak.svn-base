@@ -1,0 +1,15 @@
+<?php
+$Send_Time = mktime(9,0,0,date("m"),date("d")+1,date("Y")); // record the date (9:00:00 am tomorrow) to send 1st message (welcome message sent immediately)
+print("Hour:    ".date('h', $Send_Time)."<br />"); 
+print("Minutes: ".date('i', $Send_Time)."<br />"); 
+print("Seconds: ".date('s', $Send_Time)."<br />"); 
+print("Month:   ".date('m', $Send_Time)."<br />"); 
+print("Day:     ".date('d', $Send_Time)."<br />"); 
+print("Year:    ".date('y', $Send_Time)."<br />"); 
+print("All together: ".date('h:i:s m-d-y', $Send_Time)."<br />"); 
+
+
+$NextMsgTimeToSend = mktime(date("h"), date("i"), date("s"), date("m"), date("d")+3, date("Y"));
+print("Next message to send: ".date('h:i:s m-d-y', $NextMsgTimeToSend)."<br />"); 
+	
+?>

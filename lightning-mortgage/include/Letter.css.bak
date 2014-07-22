@@ -1,0 +1,54 @@
+div#OverAll, div.OverAll {display:none;z-index:98;position:absolute;
+	filter:alpha(opacity=95);
+	opacity:0.95;
+	moz-opacity:0.95;
+top:0;width:97%;margin:7px 2%;text-align:center;background:#ddd;
+border:3px dashed #060;}
+div.WebIntro {display:none;background:#eef;
+	filter:alpha(opacity=95);
+	opacity:0.95;
+	moz-opacity:0.95;
+position:relative;height:3270px;
+border:2px solid #039;width:740px;margin:40px auto 100px;
+text-align:center;padding:20px;}
+div.WebIntro h1, div.WebIntro p {white-space:normal;color:#039;}
+div.WebCreditIntro {height:3200px;}
+div.Letter {background:#fff;position:relative;
+height:2920px;width:610px;padding:50px;border:2px solid #039;margin:0 auto;}
+div.Letter p, div.Letter ol {font-size:130%;color:#039;border-color:#039;}
+input.LButton, input.MouseOver{
+margin-left:.5em;
+cursor:pointer;
+width:3em;
+font-size:100%;
+color:#fff;
+}
+input.LButton, div.Letter h2 {background:#039;}
+input.MouseOver{color:#039;border:2px solid #039;background:#fff;font-family:Verdana,Arial,Helvetica,sans-serif;}
+div.CreditLetter {height:2600px;}
+div#LetterOptIn {border-right:4px solid #039;margin-left:1px;border-left:4px solid #039;padding:20px 0;width:591px;}
+.Ltop {
+  display:block; 
+  background:transparent; 
+  font-size:1px;
+  }
+
+.Lbottom {
+  display:block; 
+  background:transparent; 
+  font-size:1px; 
+  /*border-top:1px solid #fff;*/
+  }
+.Lb1, .Lb2, .Lb3, .Lb4 {
+display:block; 
+/* hide overflow:hidden from IE5/Mac */ 
+/* \*/ 
+overflow: hidden; 
+/* */ 
+}
+.Lb1, .Lb2, .Lb3 {height:1px;}
+.Lb2, .Lb3, .Lb4 {background:#039;border-left:1px solid #fff; border-right:1px solid #fff;}
+.Lb1 {margin:0 5px; background:#fff;}
+.Lb2 {margin:0 3px; border-width:0 2px;}
+.Lb3 {margin:0 2px;}
+.Lb4 {height:2px; margin:0 1px;}

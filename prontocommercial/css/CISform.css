@@ -1,0 +1,96 @@
+#directions{
+margin:15px 5px 0;
+width:250px !important;
+height:330px;
+}
+#directions p{margin:20px;font-size:14px;line-height:inherit;text-align:left;}
+#directions h1{margin-bottom:0;font-size:24px;line-height:26px;display:block;}
+#nextTab{display:block !important;}
+#carouselControls2{position:absolute;top:350px;left:20px;width:230px;}
+#scrollControls{display:none;}
+form {text-align:left; width:460px;font-size:12px;height:340px;}
+#nextTab{top:9px;}
+#controlTablet{
+position: absolute;
+top:0;left:-999px;
+margin:20px;
+width:460px;
+height:320px;
+}
+cisTabs{width:452px;}
+.ui-tabs .ui-tabs-nav {width:98%;}
+label, .bType {font-size:14px;font-weight:900;width:180px;text-align:right;margin-right:5px;display:inline-block;}
+.bType{display:inline;margin:0;}
+input {text-align:left;border:1px dotted silver;line-height:16px;font-size:13px;}
+
+
+div.cisPanelPtr{
+float:left;
+width:24px;
+height:24px;
+color:#fff;
+cursor:pointer;
+font-size:14px;
+font-weight:700;
+margin:8px 6px 0;
+line-height:24px;
+border-radius: 12px;
+-webkit-border-radius: 12px;
+-moz-border-radius: 12px;
+box-shadow:2px 2px 3px #000;
+-webkit-box-shadow:2px 2px 3px #000;
+-moz-box-shadow:2px 2px 3px #000;
+}
+
+
+
+#cStructure, #Request{width:173px;}
+textarea
+{
+border: 1px dotted silver;
+width: 410px;
+height: 275px;
+margin: 5px;
+overflow: auto;
+}
+
+#cisContact, #cisCompany, #cisBank, #cisService, #cisUse {
+text-align:right;
+width:412px;
+height:315px;
+border:1px solid gray;
+padding:10px 35px 5px 0;
+}
+#cisUse{text-align:center;padding:5px;width:440px;height:327px;}
+div#cisService input, div#cisCompany input, div#cisBank input, div#cisContact input  {margin:2px 0;}
+input#cisSendRequestButton {
+position: absolute;
+left: 180px;
+background-color:#b12b06;
+color:#fff;
+font-weight:900;
+cursor:pointer;
+border:1px solid #000;
+padding:3px 5px;
+width:75px;
+}
+#cisSendRequestButton:hover{background-color:#3acff8;color:#b12b06;}
+#it, #pof  {display:none;text-align:center;}
+
+div#cisService select, div#cisCompany select, div#cisContact select {margin:2px 0;}
+
+/*#cisUse {margin:5px 0 0 20px;width:780px;height:334px;padding-top:2px;}*/
+
+div#tt{width:380px;height:20px;text-align:left;margin:3px 0 0 40px;}
+div#tt label{width:30px;}
+div#tt span {width:295px;cursor:pointer;white-space:nowrap;text-align:left;margin:0 10px;}
+/*span {margin:-283px;}*/
+div#messageType{width:220px;text-align:left;margin:10px 0 0 220px;}
+
+div#messageType label, div#messageType span {width:50px;cursor:pointer;white-space:nowrap;text-align:left;margin-left:4px;}
+div#messageType span{margin-left:-10px;}
+div#messageType input {margin-left:30px;}
+.countryRightMargin{margin-left:-200px;}
+li.cisTab a, li.cisTab a:hover, li.cisTab a:active{
+border-bottom:none;
+}

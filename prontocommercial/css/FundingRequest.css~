@@ -1,0 +1,349 @@
+FH#SuccessDiv {
+display : none;
+}
+
+form#formFundingRequest {
+margin:0;
+color : #000;
+width:680px;
+height:350px;
+}
+/*display the form's validation error messages in this format in these div elements... */
+
+.ErrorMessage, .error {
+color:transparent;
+height:24px;
+padding-left:40px;
+overflow:visible;
+/*background:url("../images/unchecked.gif") no-repeat 0px 0px;padding-left: 16px;*/
+}
+.error {background:yellow;}
+/*
+.success {left:3px;top:6px;color:#000;
+background:url("../images/checked.gif") no-repeat 0px 0px; padding-left: 16px;
+}
+ */
+
+label{
+/*vertical-align:top;*/
+margin:3px 0 0 10px;
+width:60px;
+display:inline-block;
+text-align:right;
+font-size:12px;
+overflow:visible;
+white-space:nowrap;
+}
+div#wrapper {
+height:100%;
+min-height:100%;
+margin : 8px auto;
+padding :20px 10px;
+width : 640px;
+background:#e86;
+}
+
+select {margin:0;}
+input text, textarea {
+font-family : Verdana, Arial, Helvetica, sans-serif;
+height : 20px;
+line-height : 20px;
+font-size : 15px;
+padding-left : 4px;
+border:1px dashed silver;
+}
+
+#FullName, #Phone, #Skype, #Email{width:185px;}
+input#LengthBox{width:20px;margin:0 5px;}
+/*
+.featurette div{width:530px;} /*white-space:nowrap;}
+*/
+
+/*
+.ui-state-hover {background-color:#025167;color:#fff;}
+.ui-state-active {background-color:#025167;color:#fff;}
+*/
+#Container0:hover, #Container1:hover, #Container2:hover,
+#Container0.ui-state-active, #Container1.ui-state-active, #Container2.ui-state-active,
+#Container0.ui-state-hover, #Container1 .ui-state-hover, #Container2.ui-state-hover{
+color:#000 !important; background:#fff !important;
+}
+
+#Content0, #Content1,#Content2 {margin:5px 0;text-align:left;}
+#Content0 p, #Content1 p,#Content2 p{margin:0;}
+
+
+.panel .panelContent
+{float:left;height:300px;width:500px;
+background: transparent;
+background: -webkit-gradient(none);
+background: -moz-linear-gradient(none);
+background: linear-gradient(none);
+-pie-background: linear-gradient(none);
+behavior: url(/css/PIE.htc);
+}
+/* for panel 0 */
+
+div#Start,div#FormHead0 {
+z-index:4;
+position:absolute;left:75px;top:280px;
+font-size:18px;
+font-weight:900;
+width:350px;
+height:60px;
+}
+div#Start {
+z-index:4;
+left:340px;top:55px;
+height:35px;
+width:270px;
+overflow:visible;
+}
+div#Request{
+position:absolute;left:55px;top:65px;
+}
+
+.hints{
+float:right;width:220px;margin-right:8px;font-size:12px;
+}
+
+/* for jquery styled buttons like used in Currency */
+button { outline: 0; margin:0 2px 0 0; padding: .4em 1em; text-decoration:none !important;
+cursor:pointer; position: relative; text-align: center;color:#fff;}
+	/*'backgroundColor', '#025167'
+	'backgroundColor', '#5EC4CD'	*/
+	/* remove extra button width in IE */
+button.fg-button { width:auto; overflow:visible; }
+
+button{
+background:#5EC4CD;
+}
+button.selected{
+background:#025167;
+}
+
+label#ccc{vertical-align:top;}
+#CurrencyType {
+margin-left:3px;
+height:20px;width:70px;
+background:url(../images/jqueryCurrency.png) no-repeat;
+background-position:0 0;
+display:inline-block;
+}
+#DollarSymbol, #EuroSymbol {
+background:url(../images/jqueryCurrency.png) no-repeat;
+background-position:-60px 0;
+width:90px;
+height:120px;
+float:right;
+margin-right:150px;
+}
+#EuroSymbol {background-position:-150px 0;display:none;}
+
+/* for use with jquery checkbox
+.jquery-checkbox       {display: inline; font-size: 20px; line-height: 20px; cursor: pointer; cursor: hand;}
+.jquery-checkbox .mark {display: inline;}
+
+.jquery-checkbox img {vertical-align: middle; width: 60px; height: 20px;}
+.jquery-checkbox img{background: red url(../images/jqueryCurrency.png) no-repeat;}
+
+.jquery-checkbox img{
+	background-position: 0px 0px;
+}
+.jquery-checkbox-hover img{
+	background-position: 0px -20px;
+}
+.jquery-checkbox-checked img{
+	background-position: 0px -40px;
+}
+.jquery-checkbox-checked .jquery-checkbox-hover img {
+	background-position: 0px -60px;
+}
+*/
+div#SwiftType {
+margin-top:30px;
+margin-left:65px;height:100px;width:250px;
+}
+div#SwiftType label {text-align:left;}
+
+div#amountSlider{
+position:absolute;left:55px;top:175px;display:none;
+}
+
+div#lengthSlider {
+position:absolute;left:55px;top:270px;display:none;
+}
+	/* specifies dealing with the sliders themselves */
+
+#amountSlider ol, #amountSlider ol li,
+#lengthSlider ol, #lengthSlider ol li {
+margin:0;padding:0;
+font-size:10px;
+}
+    div#amountSlider {background:#6d6;}     /* this is the base, the right side, of the slider */
+    div#amountSlider .ui-slider-range {		/* this is the (left side) background fill color of the slider */
+	height:18px;
+	background:#090;}
+
+	div#amountSlider .ui-slider-handle {
+	background:#0e0;
+	z-index:2;
+	width:10px;
+	height:18px;
+	}
+    div#amountSlider .ui-state-active{           /* active part is the handle when click and held */
+	background:#ff0;
+	}
+
+    div#lengthSlider {background:#66b;}     /* this is the (right side) plain background fill color of the slider */
+    div#lengthSlider .ui-slider-range {
+	height:18px;
+	background:#008;}						/* this is the (left side) background fill color of the slider */
+
+    div#lengthSlider .ui-slider-handle {    /* the handle must be on z-index higher than tic marks or tic marks show through */
+    background:#00e;
+	z-index:2;
+	width:10px;
+	height:18px;
+	}
+    div#lengthSlider .ui-state-active{           /* active part is the handle when click and held */
+	background:#f00;
+	}
+
+    .ui-slider-horizontal {					/* height of the slider graphic */
+    height:12px;
+}
+    span.ui-slider-tic {						/* for tic marks */
+    position: absolute;
+    z-index:1;								/* asuming the slider graphic is a z-index 0, we must be on a plane above the background color to show tics */
+    left: 0;
+    width:0;								/* width of tic mark */
+    height:11px;							/* height of tic mark inside slider graphic */
+    top:-29px;								/* distance above the ordered list (ol) spans we add below*/
+    }
+
+/* for Page 2 */
+
+div#FormHead2 {
+z-index:4;
+font-size:26px;
+font-weight:900;
+height:60px;
+}
+
+#Content2 label{
+margin-left:10px;
+text-align:left;
+width:350px;
+}
+
+textarea#Comments {
+border : 1px solid silver;
+width : 380px;
+height : 145px;
+margin : 5px;
+overflow : auto;
+background:#fff;
+}
+
+#CommentsEdiv{
+float:left;
+margin-left:10px !important;
+width:305px !important;
+height:95px;
+overflow:hidden;
+white-space:nowrap;
+}
+
+div#ExpandedComments{
+z-index:90;
+}
+#ExpandedComments p span{
+background-color:yellow;
+}
+#CommentsError{
+font-size:12px;
+width:300px;
+}
+
+div#CodeDiv{
+float:left;
+width:120px;
+height:60px;
+font-size:12px;
+text-align:center;
+}
+
+#CaptchaDiv{
+float:left;
+width:175px;
+height:60px;
+font-size:10px;
+overflow:hidden;
+white-space:nowrap;
+}
+#Captcha{
+width:60px;margin:0 5px;
+}
+
+#ButtonDiv{
+float:left;
+text-align:center;
+width:80px;
+height:90px;
+font-size:10px;
+overflow:hidden;
+white-space:nowrap;
+}
+
+div#SendRequestBox {
+position:absolute;left:605px;top:350px;
+}
+div#error{
+position:absolute;left:58px;top:335px;width:600px;text-align:right;height:20px;
+}
+div#error span {background:red;color:#fff;}
+/* end of panels */
+
+/*
+#msg {
+display : none;
+position : absolute;
+z-index : 200;
+background : url('../images/FrameShapes.png') -63px -50px;
+padding-left : 7px;
+}
+#msgcontent {
+display : block;
+background : #f3e6e6;
+border : 2px solid #924949;
+border-left : none;
+padding : 5px;
+min-width : 150px;
+max-width : 250px;
+}
+
+		#wrap{
+			width:600px;
+			margin:5px auto;
+			padding:10px;
+			border:1px solid silver;
+			background:black;
+		}
+
+		#current_value{
+			margin-left:25px;
+			width:180px;
+			padding:4px;
+			display:none;
+		}
+*/
+a#FormH3Label0:hover,a#FormH3Label1:hover,a#FormH3Label2:hover,
+a#FormH3Label0:visited,a#FormH3Label1:visited,a#FormH3Label2:visited{
+background:transparent;
+border-bottom:0;
+}
+
+.panelValid { background:green; }
+/* see FundingRequest.js: when a h3 element has the panelValid class added to it,
+change the background to green so we have a visual for debugging */

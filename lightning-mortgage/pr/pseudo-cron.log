@@ -1,0 +1,72 @@
+Sat,  3 Jan 2004 18:18:41 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 18:18:41 -0800    Last run:       Wed, 31 Dec 1969 16:00:00 -0800
+Sat,  3 Jan 2004 18:18:41 -0800    Last scheduled: Sat,  3 Jan 2004 18:18:00 -0800
+Sat,  3 Jan 2004 18:22:27 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 18:22:27 -0800    Last run:       Sat,  3 Jan 2004 18:18:00 -0800
+Sat,  3 Jan 2004 18:22:27 -0800    Last scheduled: Sat,  3 Jan 2004 18:21:00 -0800
+Sat,  3 Jan 2004 18:27:10 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 18:27:10 -0800    Last run:       Sat,  3 Jan 2004 18:21:00 -0800
+Sat,  3 Jan 2004 18:27:10 -0800    Last scheduled: Sat,  3 Jan 2004 18:27:00 -0800
+Sat,  3 Jan 2004 18:42:52 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 18:42:52 -0800    Last run:       Sat,  3 Jan 2004 18:27:00 -0800
+Sat,  3 Jan 2004 18:42:52 -0800    Last scheduled: Sat,  3 Jan 2004 18:42:00 -0800
+Sat,  3 Jan 2004 18:42:55 -0800  Running 	*/3  *    *    *    *        capture.php	#runs every 30 minutes
+Sat,  3 Jan 2004 18:42:55 -0800    Last run:       Wed, 31 Dec 1969 16:00:00 -0800
+Sat,  3 Jan 2004 18:42:55 -0800    Last scheduled: Sat,  3 Jan 2004 18:42:00 -0800
+Sat,  3 Jan 2004 18:43:06 -0800  Completed	*/3  *    *    *    *        capture.php	#runs every 30 minutes
+Sat,  3 Jan 2004 18:45:15 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 18:45:15 -0800    Last run:       Sat,  3 Jan 2004 18:42:00 -0800
+Sat,  3 Jan 2004 18:45:15 -0800    Last scheduled: Sat,  3 Jan 2004 18:45:00 -0800
+Sat,  3 Jan 2004 18:49:08 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 18:49:08 -0800    Last run:       Sat,  3 Jan 2004 18:45:00 -0800
+Sat,  3 Jan 2004 18:49:08 -0800    Last scheduled: Sat,  3 Jan 2004 18:48:00 -0800
+Sat,  3 Jan 2004 19:33:44 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 19:33:44 -0800    Last run:       Sat,  3 Jan 2004 18:48:00 -0800
+Sat,  3 Jan 2004 19:33:44 -0800    Last scheduled: Sat,  3 Jan 2004 19:33:00 -0800
+Sat,  3 Jan 2004 19:33:58 -0800  Running 	*/3  *    *    *    *        capture.php	#runs every 30 minutes
+Sat,  3 Jan 2004 19:33:58 -0800    Last run:       Sat,  3 Jan 2004 18:42:00 -0800
+Sat,  3 Jan 2004 19:33:58 -0800    Last scheduled: Sat,  3 Jan 2004 19:33:00 -0800
+Sat,  3 Jan 2004 19:34:04 -0800  Completed	*/3  *    *    *    *        capture.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:16:00 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:16:00 -0800    Last run:       Sat,  3 Jan 2004 19:33:00 -0800
+Sat,  3 Jan 2004 21:16:00 -0800    Last scheduled: Sat,  3 Jan 2004 21:15:00 -0800
+Sat,  3 Jan 2004 21:16:00 -0800  Message Sent From: tony@lightning-mortgage.com To: Ryan Beadle<ryan@beadle.us> Subject:The Seven Most Important Questions To Ask Your Lender...
+Sat,  3 Jan 2004 21:16:00 -0800  Message Sent From: tony@lightning-mortgage.com To: mohan<vmohan7911@hotmail.com> Subject:The Seven Most Important Questions To Ask Your Lender...
+Sat,  3 Jan 2004 21:16:00 -0800  Message Sent From: tony@lightning-mortgage.com To: Susan West<ferlazzo@winterowl.com> Subject:The Seven Most Important Questions To Ask Your Lender...
+Sat,  3 Jan 2004 21:16:00 -0800  Message Sent From: tony@lightning-mortgage.com To: deirdre<englishcompany11@aol.com> Subject:The Seven Most Important Questions To Ask Your Lender...
+Sat,  3 Jan 2004 21:16:01 -0800  Message Sent From: tony@lightning-mortgage.com To: Rudy<eskander2002lb@yahoo.com> Subject:The Seven Most Important Questions To Ask Your Lender...
+Sat,  3 Jan 2004 21:16:01 -0800  Message Sent From: tony@lightning-mortgage.com To: Travis Cohea<tcohea@oaklandbank.com> Subject:The Seven Most Important Questions To Ask Your Lender...
+Sat,  3 Jan 2004 21:16:01 -0800  Message Sent From: tony@lightning-mortgage.com To: Dad<leftytony29@juno.com> Subject:The Seven Most Important Questions To Ask Your Lender...
+Sat,  3 Jan 2004 21:23:36 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:23:36 -0800    Last run:       Sat,  3 Jan 2004 21:15:00 -0800
+Sat,  3 Jan 2004 21:23:36 -0800    Last scheduled: Sat,  3 Jan 2004 21:21:00 -0800
+Sat,  3 Jan 2004 21:25:06 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:25:06 -0800    Last run:       Sat,  3 Jan 2004 21:21:00 -0800
+Sat,  3 Jan 2004 21:25:06 -0800    Last scheduled: Sat,  3 Jan 2004 21:24:00 -0800
+Sat,  3 Jan 2004 21:28:02 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:28:02 -0800    Last run:       Sat,  3 Jan 2004 21:24:00 -0800
+Sat,  3 Jan 2004 21:28:02 -0800    Last scheduled: Sat,  3 Jan 2004 21:27:00 -0800
+Sat,  3 Jan 2004 21:32:21 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:32:21 -0800    Last run:       Sat,  3 Jan 2004 21:27:00 -0800
+Sat,  3 Jan 2004 21:32:21 -0800    Last scheduled: Sat,  3 Jan 2004 21:30:00 -0800
+Sat,  3 Jan 2004 21:32:21 -0800  Completed	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:32:21 -0800  Running 	*/3  *    *    *    *        capture.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:32:21 -0800    Last run:       Sat,  3 Jan 2004 19:33:00 -0800
+Sat,  3 Jan 2004 21:32:21 -0800    Last scheduled: Sat,  3 Jan 2004 21:30:00 -0800
+Sat,  3 Jan 2004 21:32:21 -0800  Completed	*/3  *    *    *    *        capture.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:34:11 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:34:11 -0800    Last run:       Sat,  3 Jan 2004 21:30:00 -0800
+Sat,  3 Jan 2004 21:34:11 -0800    Last scheduled: Sat,  3 Jan 2004 21:33:00 -0800
+Sat,  3 Jan 2004 21:34:11 -0800  Completed	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:34:11 -0800  Running 	*/3  *    *    *    *        capture.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:34:11 -0800    Last run:       Sat,  3 Jan 2004 21:30:00 -0800
+Sat,  3 Jan 2004 21:34:11 -0800    Last scheduled: Sat,  3 Jan 2004 21:33:00 -0800
+Sat,  3 Jan 2004 21:34:11 -0800  Completed	*/3  *    *    *    *        capture.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:52:07 -0800  Running 	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:52:07 -0800    Last run:       Sat,  3 Jan 2004 21:33:00 -0800
+Sat,  3 Jan 2004 21:52:07 -0800    Last scheduled: Sat,  3 Jan 2004 21:51:00 -0800
+Sat,  3 Jan 2004 21:52:07 -0800  Completed	*/3  *    *    *    *        mailout.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:52:07 -0800  Running 	*/3  *    *    *    *        capture.php	#runs every 30 minutes
+Sat,  3 Jan 2004 21:52:07 -0800    Last run:       Sat,  3 Jan 2004 21:33:00 -0800
+Sat,  3 Jan 2004 21:52:07 -0800    Last scheduled: Sat,  3 Jan 2004 21:51:00 -0800
+Sat,  3 Jan 2004 21:52:07 -0800  Completed	*/3  *    *    *    *        capture.php	#runs every 30 minutes

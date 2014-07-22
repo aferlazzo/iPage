@@ -1,0 +1,250 @@
+
+/*-----------------------------------------------------------------*/
+	body{
+		font-family:arial, hevetica, sans-serif;
+		background-color:#ede;
+		background-image: url('../images/background/lightBlue.png');
+		background-repeat:repeat;
+	}
+
+	header{position:fixed;left:180px;top:0;}
+	h1{text-shadow: 1px 1px 2px #fff;font-size:43px;}
+	img#scissors{
+	position:absolute;
+	left:60px;
+	top:11px;
+	-moz-transform: rotate(-76deg);
+	-webkit-transform: rotate(-76deg);
+	}
+	h2{
+	text-shadow: 1px 1px 2px #fff;
+	position:fixed;
+	top:300px;
+	left:-157px;
+	font-size:32px;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	}
+	.rounded{
+	-moz-border-radius: 4px/*{cornerRadius}*/;
+	-webkit-border-radius: 4px/*{cornerRadius}*/;
+	border-radius: 4px/*{cornerRadius}*/;
+	}
+	form#clipForm {position:fixed;top:90px;left:85px;height:530px;width:374px;background:#fff;border:1px solid #000;}
+	fieldset{display:block;margin:10px 20px;background:#ede;width:300px;clear:left;}
+	legend{text-align:center;font-size:18px;text-shadow: 1px 2px 2px #fff;}
+	#backgroundColor{margin:6px 0 0 14px;width:120px;height:7px;border:1px solid #777;}
+	#zoomFactor{margin:6px 0 0 14px;width:120px;height:7px;border:1px solid #777;}
+	#backgroundColor a, #zoomFactor a{border:1px solid #777;text-decoration:none;width:10px;height:15px;}
+	#colorLegend {margin:10px 0 0 7px;font-size:10px;float:left;}
+	#zoomLegend {margin:10px 0 0 23px;font-size:10px;float:left;}
+	#tabs{height:50px;border:none;}
+	#tabs a {text-shadow: 1px 1px 2px #ebe;}
+	div#instructionsTab p {font-size:15px;margin-top:0;}
+
+	#fullImageFields{
+	position:absolute;
+	top:50px;
+	left:0;
+	height:160px;
+	background-color: #ede; /*rgba(136, 136, 136, .3);			/*opacity:.3;  hex 88 = 136 */
+	}
+	#theRectangleFields{
+	position:absolute;
+	top:250px;
+	left:0;
+	height:222px;
+	background-color: #ede; /*rgba(119, 119, 119, .1);			/*opacity:.1;*/  /* hex 77 = dec 119 */
+	}
+	#notSupported, #supportsHTML5 {margin-bottom:5px;}
+	.amt{}
+	.amtw{background-color: #cd9dcd;margin-right:2px;}	/* the two shades of pink separating height and width */
+	.amth{background-color: #8cabc5;margin-left:2px;}
+	#cssFields{position:absolute;top:50px;left:0;height:340px;}	/* area where the computed css is displayed*/
+	#cssDisplayed{font-size:14px;}
+	#quickStart{position:absolute;top:50px;left:0;height:415px;}
+	/* diagram */
+	#referenceFields{display:none;position:absolute;top:50px;left:0;height:260px;}
+	#referenceFields legend{padding:0;}
+	div.rel {width:100%;height:252px;position:relative;}
+	div#refOriginalElement{z-index:10;position:absolute;top:21px;left:6px;height:200px;width:270px;border:1px dashed #999;background-color:#bb5;}
+	div#refDescription{position:absolute;top:80px;left:175px;height:80px;width:100px;text-align:center;}
+	div#refClippedArea{position:absolute;top:30px;left:55px;height:80px;width:100px;border:1px solid #000;background-color:#dd0;padding:50px 10px 10px;text-align:center;}
+
+	div#refTopLine   {position:absolute;top:0;left:70px; height:9px; width:100px;border-left:2px dotted black;  padding:10px;}
+	div#refBottomLine{position:absolute;top:0;left:145px;height:143px;width:100px;border-left:2px dotted green;padding:10px 10px 10px 10px;}
+	div#refRightLine{position:absolute;top:141px; left:0;height:80px;width:155px;border-top:2px dotted blue;padding:10px;}
+	div#refLeftLine {position:absolute;top:90px;left:0;height:80px;width:35px; border-top:2px dotted #700;padding:10px;}
+	div#refClippedWidth {position:absolute;top:206px;left:0px;width:270px;text-align:center;border-top:1px dashed blue;}
+	div#refClippedHeight{
+	position:absolute;
+	text-align:center;
+	width:200px;
+	top:90px;
+	left:187px;
+	border-top:1px dashed blue;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	}
+
+
+
+ 		/* use red triangle facing down */
+		/*			top         right           bottom      left */
+	#topArrow {
+	border-color:   black       transparent    transparent  transparent;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:23px;
+	left:64px;
+	width:0;
+	height:0;
+	}
+	#rightArrow {
+	border-color:transparent transparent     transparent  blue;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:135px;
+	left:169px;
+	width:0;
+	height:0;
+	}
+	#bottomArrow {
+	border-color:   green       transparent    transparent  transparent;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:164px;
+	left: 139px;
+	width:0;
+	height:0;
+	}
+	#leftArrow {
+	border-color:transparent transparent     transparent  brown;
+	border-style:solid;
+	border-width:7px;
+	position:absolute;
+	top:84px;
+	left:49px;
+	width:0;
+	height:0;
+	}
+
+	div#workspace{position:fixed;height: 500px; width:100%;}
+	div#line{
+		position:absolute;
+		z-index:10;
+		top:250px;
+		left:300px;
+		height:20px;
+		/*width:200px;*/
+		/*filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand');*/
+		}
+	div#middle{height:20px;float:left;background-color:#fff;margin:0 10px;}
+	div#red, div#green{height:20px;width:20px;background-color:red;float:left;}
+	div#green{background-color:green;}
+	div#frame{
+		position:absolute;
+		z-index:9;
+		top:270px;
+		left: 200px;
+		height:300px;
+		width:300px;
+		background-color:blue;
+		}
+	#supportsHTML5, #notSupported{display:none;}
+	input {width:40px;text-align:right;}
+	input#browsedFileName, input#eFile {width:210px;text-align:left;}
+	input#browsedFileName{font-size:12px;}
+	input#btn {width:70px;}
+	input[type="checkbox"] {margin:0 2px 0 35px;width:14px;}
+	span.chk {font-size:12px;}
+	input#newSelection{margin-bottom:7px;width: 79px;font-size: 14px;}
+	label {display:block;}
+	div#hideIt{text-align:left;white-space:nowrap;}
+	div.hh{
+	width:148px;
+	float:left;
+	padding: 5px 0;
+	text-align:center;
+	margin-bottom:3px;
+	height:44px;
+	font-size:16px;
+	text-shadow: 1px 1px 2px #fff;
+	}
+
+	.hd{height: 55px;}
+
+	/* the overall wrapper div controls the location of the image and contains the 3 layers of and over the image */
+	/* notice it has no dimensions specified.*/
+
+	div#theImageWrapper{
+	position:absolute;
+	top:90px;
+	left:480px;
+	}
+
+	div#theImageMouseText{position:absolute;left:0; top:-20px;white-space:nowrap;}
+
+	/* the stacked divs contain the opaque view of the image  (theImageContainer),
+	* a crystal clear view of the portion of the image being measured/altered/evaluated (theClippedContainer),
+	* and the layer holding the transparent draggable and resizable rectangle (theRectangle)
+		Layer Name			Stacked		z-index	Opacity		notes
+							Order
+		theRectangle		Top			12		1.0			draggable/resizable transparent rectangle
+		theClippedContainer	Middle		11		1.0			fully visible image in clipped area, hidden everywhere else
+		theImageContainer	Bottom		10		0.5			Opaque version of full image
+	*/
+	div#theImageContainer, div#theClippedContainer, div#theRectangle{
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+
+	div#theImageContainer{
+	z-index:-999910;
+	opacity:.5;
+	background-color:#999;
+	}
+	img#theImage{}
+
+	div#theClippedContainer{
+	z-index:-999911;
+	background-color:#999;			/* initial default*/
+	}
+	img#theClippedImage{}
+
+	div#theRectangle{
+	z-index:12;
+	top:0;left:0;					/* initial default*/
+	}
+	.theRectangleHelper{border: 2px dashed #009;}
+
+	img#temporaryImage{position:absolute; top:0;left:-9999px;}
+	.theSpriteImage{display:none;}  /*hides image at load-time only*/
+
+	#logDiv{
+	display:none;
+	position:fixed;
+	top:0;
+	right:0;
+	width:508px;
+	height:200px;
+	border:4px solid #009;
+	}
+	#log{
+	width:500px;
+	height:100%;
+	background-color:#fff;
+	overflow:auto;
+	font-size:12px;
+	padding:0 4px;
+	}
+
+	#debugDiv{
+	position:absolute;
+	top:505px;
+	left:100px;
+	}

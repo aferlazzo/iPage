@@ -1,0 +1,17 @@
+label:hover { 
+background-color:#fff; 
+font-weight:bold;
+cursor:pointer; 
+}
+div{white-space:nowrap;text-align:center;font-weight:bold;}
+div#msgHeadings{width:100%;height:30px;}
+div#Messages{position:relative;width:100%;}
+
+div#OneMessage{text-align:center;border:none;position:relative;width:100%;height:26px;}
+div.cmd{width:100px;float:left;clear:left;height:26px;}
+div.box {width:35px;float:left;height:26px;}
+div.delay {width:55px;float:left;height:26px;}
+div.msgNumber{width:40px;float:left;height:26px;}
+div.subject{width:300px;float:left;text-align:left;height:26px;}
+div#droppable {width:100%;clear:left;position:relative:height:26px;color:#fff;background:red;}
+div#Mbottom {width:100%;}

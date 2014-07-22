@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>jQuery Tools standalone demo</title> 
+ 
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+<script type="text/javascript">
+google.load("jquery", "1.4.2");
+google.load("jqueryui", "1.8.2");
+</script>
+<!-- tooltip styling --> 
+<style> 
+ 
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+	display:none;
+	background:transparent url('./images/white_arrow.png');
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#000;	
+}
+
+</style> 
+<!--<script src="/tools/download/combine/1.2.3/jquery.tools.min.js?select=full&debug=true"></script>-->
+	<script src='./js/jquery.tools.min.js' type='text/javascript'></script>
+</head> 
+ 
+<body> 
+<h3 title='text'>test</h3>
+ 
+<script> 
+
+$("h3[title]").tooltip();
+</script> 
+</body> 
+</html> 

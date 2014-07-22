@@ -1,0 +1,136 @@
+<?php
+if ((stristr($_SERVER['REQUEST_URI'], "/index.php"))
+ || ($_SERVER['REQUEST_URI'] == "/")
+ || (stristr($_SERVER['REQUEST_URI'], "/ProofOfFunds.php"))
+ || (stristr($_SERVER['REQUEST_URI'], "/PrivatePlacementProgram.php"))
+ || (stristr($_SERVER['REQUEST_URI'], "/BankInstrumentFinancing.php"))
+ || (stristr($_SERVER['REQUEST_URI'], "/BankInstrumentLeasing.php"))
+ || (stristr($_SERVER['REQUEST_URI'], "/CommercialLoans.php"))
+ || (stristr($_SERVER['REQUEST_URI'], "/FundingRequest.php")))
+ {
+
+?>
+	<div class='featuretteMask'></div>
+	<div id='carouselControls'>
+		<div id='pause' class='pauseResume' title='pause web slide auto-play'></div>
+		<div id='resume' class='pauseResume' style='display:none;' title='restart web slide auto-play'></div>
+<!-- panelPtr boxes are added to DOM here once the number of panels is determined -->
+	</div>
+<?php
+}
+?>
+
+	<div id='extraTabsContainer' class='rounded-corners nonFeedback'>
+			<div id='contactPanel'>
+				<h1>Contact Us</h1>
+				<table style='margin:0 auto;width:500px;'>
+					<tr>
+						<td style='width:80px;'>
+							<span id='c1'></span>
+						</td>
+						<td style="vertical-align:middle;">
+							<p>
+								You may make a <a href='./FundingRequest.php'>Funding Request</a> via this website<br/>
+								You may email <img src="./captcha/text2image.php" style='width:216px;height:15px;margin-bottom:-4px;'
+								title="Sorry. To minimize spam we only allow the address to be copied by typing it"
+								alt='' /></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span id='c2'></span>
+						</td>
+						<td style="vertical-align:middle;">
+							<p>
+								Our office phone number is +1.925.399.5359<br/>
+								We are in the Pacific Time Zone, GMT -8 hours.
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span id='c3'></span>
+						</td>
+						<td style="vertical-align:middle;">
+							<p>
+								Our fax number is +1.925.215.4577<br/>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span id='c4'></span>
+						</td>
+						<td style="vertical-align:middle;width:350px;white-space:nowrap">
+							<p>
+								Our office is in Pleasanton, CA USA
+							</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+	</div>
+
+			</div> <!-- closes this div -->
+		<div id='Bottom' class='nonFeedback'>
+
+			<p>
+<script type='text/javascript'>
+	var Today		= new Date();
+	var ThisYear 	= Today.getFullYear();
+	var DayName 	= Today.getDate();
+	document.write("&copy; Pronto Commercial Funding 2006-" + ThisYear + " All Rights Reserved.");
+	document.close();
+</script>
+			</p>
+<!--
+		<div id='FontSize'>
+			<div id='DecreaseSize' title='Decrease Font Size' onclick='decreaseFontSize();'>A</div>
+			<div id='IncreaseSize' title='Increase Font Size' onclick='increaseFontSize();'>A</div>
+		</div> <!-- FontSize -->
+
+		</div> <!-- Bottom -->
+
+	</div> <!--end of PageWrapper -->
+
+	<!--feedback-->
+	<div id='container200'>
+		<div id='slide-panel201'>
+			<div class='block202'>
+				<form id='feedback' action="#" method="get">
+					<p>Have any questions? Want to make a comment?<br/>If so, here is a place to do it. Want to discuss a project?<br/>Make a <a href='FundingRequest.php'>Funding Request</a> instead.</p>
+					<p><input type="text" class="feedbackfield" name="visitorname" onfocus="if (this.value=='Name') this.value='';" value="Name" size="30" maxlength="50"/></p>
+					<p><input type="text" class="feedbackfield" name='email' onfocus="if (this.value=='email (if you\'d like a reply)') this.value='';" value="email (if you'd like a reply)" size="30" maxlength="50"/></p>
+					<p><textarea cols='40' rows='40' class="feedbackfield" name='feedbacktext' id='feedbacktext' onfocus="if (this.value=='Feedback') this.value='';" >Feedback</textarea></p>
+					<div id='submit202'><p><input name="submit" type="submit" value="Send"/></p></div>
+					<div id='cancel202'><p><input name="cancel" type="reset" value="Cancel"/></p></div>
+				</form>
+			</div>
+			<div id='done202'>
+				<div id='doneImg202'></div>
+				<div id='doneMsg202'><strong>Thank you!</strong> We have received your message.<br/><br/>Click the 'Feedback' button again to close this window.</div>
+				<div class="clear202"></div>
+			</div>
+		</div>
+		<div id="FeedbackButton"></div>
+	</div><!-- container200 -->
+
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1.4.4");
+	google.load("jqueryui", "1.8.9");
+	</script>
+<script src='./js/ProntoCommercial-js.php'></script>
+<script type='text/javascript'>
+//google analytics
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16743285-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+document.close();
+</script>

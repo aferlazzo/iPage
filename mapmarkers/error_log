@@ -1,0 +1,830 @@
+[03-Sep-2011 13:03:30] markerserver.php received 1 elements
+[03-Sep-2011 13:03:30] Key: request Value: list
+[03-Sep-2011 13:03:30] request: list pname:  numb: 
+[03-Sep-2011 13:03:30] lat:  lng: 
+[03-Sep-2011 13:03:30] list request(): count of records read is 16
+[03-Sep-2011 13:03:39] markerserver.php received 1 elements
+[03-Sep-2011 13:03:39] Key: request Value: list
+[03-Sep-2011 13:03:39] request: list pname:  numb: 
+[03-Sep-2011 13:03:39] lat:  lng: 
+[03-Sep-2011 13:03:39] list request(): count of records read is 16
+[03-Sep-2011 20:02:59] markerserver.php received 5 elements
+[03-Sep-2011 20:02:59] Key: request Value: add
+[03-Sep-2011 20:02:59] Key: pname Value: Dublin
+[03-Sep-2011 20:02:59] Key: lat Value: 53.34410399999999
+[03-Sep-2011 20:02:59] Key: lng Value: -6.267493699999932
+[03-Sep-2011 20:02:59] Key: numb Value: 0
+[03-Sep-2011 20:02:59] request: add pname: Dublin numb: 0
+[03-Sep-2011 20:02:59] lat: 53.34410399999999 lng: -6.267493699999932
+[03-Sep-2011 20:02:59] Resulting marker file with 17 markers
+[03-Sep-2011 20:02:59] $this->ret[0]: {"pname":"Dublin","lat":"53.34410399999999","lng":"-6.267493699999932"}
+[03-Sep-2011 20:02:59] $this->ret[1]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[03-Sep-2011 20:02:59] $this->ret[2]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[03-Sep-2011 20:02:59] $this->ret[3]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[03-Sep-2011 20:02:59] $this->ret[4]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[03-Sep-2011 20:02:59] $this->ret[5]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[03-Sep-2011 20:02:59] $this->ret[6]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[03-Sep-2011 20:02:59] $this->ret[7]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[03-Sep-2011 20:02:59] $this->ret[8]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[03-Sep-2011 20:02:59] $this->ret[9]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[03-Sep-2011 20:02:59] $this->ret[10]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[03-Sep-2011 20:02:59] $this->ret[11]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[03-Sep-2011 20:02:59] $this->ret[12]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[03-Sep-2011 20:02:59] $this->ret[13]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[03-Sep-2011 20:02:59] $this->ret[14]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[03-Sep-2011 20:02:59] $this->ret[15]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[03-Sep-2011 20:02:59] $this->ret[16]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[03-Sep-2011 20:03:28] markerserver.php received 5 elements
+[03-Sep-2011 20:03:28] Key: request Value: delete
+[03-Sep-2011 20:03:28] Key: pname Value: Dublin
+[03-Sep-2011 20:03:28] Key: lat Value: 53.34410399999999
+[03-Sep-2011 20:03:28] Key: lng Value: -6.267493699999932
+[03-Sep-2011 20:03:28] Key: numb Value: 0
+[03-Sep-2011 20:03:28] request: delete pname: Dublin numb: 0
+[03-Sep-2011 20:03:28] lat: 53.34410399999999 lng: -6.267493699999932
+[05-Sep-2011 19:41:12] markerserver.php received 1 elements
+[05-Sep-2011 19:41:12] Key: request Value: list
+[05-Sep-2011 19:41:12] request: list pname:  numb: 
+[05-Sep-2011 19:41:12] lat:  lng: 
+[05-Sep-2011 19:41:12] list request(): count of records read is 16
+[05-Sep-2011 19:41:56] markerserver.php received 4 elements
+[05-Sep-2011 19:41:56] Key: request Value: move
+[05-Sep-2011 19:41:56] Key: pname Value: Ghana
+[05-Sep-2011 19:41:56] Key: lat Value: 27.1142989982
+[05-Sep-2011 19:41:56] Key: lng Value: 3.898681
+[05-Sep-2011 19:41:56] request: move pname: Ghana numb: 
+[05-Sep-2011 19:41:56] lat: 27.1142989982 lng: 3.898681
+[05-Sep-2011 19:43:17] markerserver.php received 5 elements
+[05-Sep-2011 19:43:17] Key: request Value: move
+[05-Sep-2011 19:43:17] Key: pname Value: Dallas
+[05-Sep-2011 19:43:17] Key: lat Value: 36.7009985569
+[05-Sep-2011 19:43:17] Key: lng Value: -93.78164175
+[05-Sep-2011 19:43:17] Key: numb Value: 2
+[05-Sep-2011 19:43:17] request: move pname: Dallas numb: 2
+[05-Sep-2011 19:43:17] lat: 36.7009985569 lng: -93.78164175
+[05-Sep-2011 19:44:00] markerserver.php received 5 elements
+[05-Sep-2011 19:44:00] Key: request Value: change
+[05-Sep-2011 19:44:00] Key: pname Value: Kenya A
+[05-Sep-2011 19:44:00] Key: lat Value: -0.023559
+[05-Sep-2011 19:44:00] Key: lng Value: 37.90619300000003
+[05-Sep-2011 19:44:00] Key: numb Value: 2
+[05-Sep-2011 19:44:00] request: change pname: Kenya A numb: 2
+[05-Sep-2011 19:44:00] lat: -0.023559 lng: 37.90619300000003
+[05-Sep-2011 19:44:34] markerserver.php received 1 elements
+[05-Sep-2011 19:44:34] Key: request Value: list
+[05-Sep-2011 19:44:34] request: list pname:  numb: 
+[05-Sep-2011 19:44:34] lat:  lng: 
+[05-Sep-2011 19:44:34] list request(): count of records read is 16
+[05-Sep-2011 20:18:10] markerserver.php received 1 elements
+[05-Sep-2011 20:18:10] Key: request Value: list
+[05-Sep-2011 20:18:10] request: list pname:  numb: 
+[05-Sep-2011 20:18:10] lat:  lng: 
+[05-Sep-2011 20:18:10] list request(): count of records read is 16
+[05-Sep-2011 20:18:39] markerserver.php received 1 elements
+[05-Sep-2011 20:18:39] Key: request Value: list
+[05-Sep-2011 20:18:39] request: list pname:  numb: 
+[05-Sep-2011 20:18:39] lat:  lng: 
+[05-Sep-2011 20:18:39] list request(): count of records read is 16
+[05-Sep-2011 20:18:56] markerserver.php received 1 elements
+[05-Sep-2011 20:18:56] Key: request Value: list
+[05-Sep-2011 20:18:56] request: list pname:  numb: 
+[05-Sep-2011 20:18:56] lat:  lng: 
+[05-Sep-2011 20:18:56] list request(): count of records read is 16
+[05-Sep-2011 20:24:57] markerserver.php received 4 elements
+[05-Sep-2011 20:24:57] Key: request Value: change
+[05-Sep-2011 20:24:57] Key: pname Value: Kenya A
+[05-Sep-2011 20:24:57] Key: lat Value: -0.023559
+[05-Sep-2011 20:24:57] Key: lng Value: 37.90619300000003
+[05-Sep-2011 20:24:57] request: change pname: Kenya A numb: 
+[05-Sep-2011 20:24:57] lat: -0.023559 lng: 37.90619300000003
+[05-Sep-2011 20:25:22] markerserver.php received 4 elements
+[05-Sep-2011 20:25:22] Key: request Value: move
+[05-Sep-2011 20:25:22] Key: pname Value: Kenya A
+[05-Sep-2011 20:25:22] Key: lat Value: 25.6202855942
+[05-Sep-2011 20:25:22] Key: lng Value: 3.62884925
+[05-Sep-2011 20:25:22] request: move pname: Kenya A numb: 
+[05-Sep-2011 20:25:22] lat: 25.6202855942 lng: 3.62884925
+[05-Sep-2011 20:25:39] markerserver.php received 4 elements
+[05-Sep-2011 20:25:39] Key: request Value: move
+[05-Sep-2011 20:25:39] Key: pname Value: S F
+[05-Sep-2011 20:25:39] Key: lat Value: 34.8181809445
+[05-Sep-2011 20:25:39] Key: lng Value: -109.675274875
+[05-Sep-2011 20:25:39] request: move pname: S F numb: 
+[05-Sep-2011 20:25:39] lat: 34.8181809445 lng: -109.675274875
+[05-Sep-2011 20:25:43] markerserver.php received 4 elements
+[05-Sep-2011 20:25:43] Key: request Value: move
+[05-Sep-2011 20:25:43] Key: pname Value: S F
+[05-Sep-2011 20:25:43] Key: lat Value: 42.4922338524
+[05-Sep-2011 20:25:43] Key: lng Value: -112.136212375
+[05-Sep-2011 20:25:43] request: move pname: S F numb: 
+[05-Sep-2011 20:25:43] lat: 42.4922338524 lng: -112.136212375
+[05-Sep-2011 20:37:08] markerserver.php received 1 elements
+[05-Sep-2011 20:37:08] Key: request Value: list
+[05-Sep-2011 20:37:08] request: list pname:  numb: 
+[05-Sep-2011 20:37:08] lat:  lng: 
+[05-Sep-2011 20:37:08] list request(): count of records read is 16
+[05-Oct-2011 08:37:34] markerserver.php received 0 elements
+[05-Oct-2011 08:37:34] request:  pname:  numb: 
+[05-Oct-2011 08:37:34] lat:  lng: 
+[05-Oct-2011 08:37:45] markerserver.php received 1 elements
+[05-Oct-2011 08:37:45] Key: request Value: list
+[05-Oct-2011 08:37:45] request: list pname:  numb: 
+[05-Oct-2011 08:37:45] lat:  lng: 
+[05-Oct-2011 08:37:45] list request(): count of records read is 16
+[05-Oct-2011 09:30:50] markerserver.php received 5 elements
+[05-Oct-2011 09:30:50] Key: request Value: add
+[05-Oct-2011 09:30:50] Key: pname Value: Seattle
+[05-Oct-2011 09:30:50] Key: lat Value: 47.6062095
+[05-Oct-2011 09:30:50] Key: lng Value: -122.3320708
+[05-Oct-2011 09:30:50] Key: numb Value: 1
+[05-Oct-2011 09:30:50] request: add pname: Seattle numb: 1
+[05-Oct-2011 09:30:50] lat: 47.6062095 lng: -122.3320708
+[05-Oct-2011 09:30:50] Resulting marker file with 17 markers
+[05-Oct-2011 09:30:50] $this->ret[0]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[05-Oct-2011 09:30:50] $this->ret[1]: {"pname":"Seattle","lat":"47.6062095","lng":"-122.3320708"}
+[05-Oct-2011 09:30:50] $this->ret[2]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[05-Oct-2011 09:30:50] $this->ret[3]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[05-Oct-2011 09:30:50] $this->ret[4]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[05-Oct-2011 09:30:50] $this->ret[5]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[05-Oct-2011 09:30:50] $this->ret[6]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[05-Oct-2011 09:30:50] $this->ret[7]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[05-Oct-2011 09:30:50] $this->ret[8]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[05-Oct-2011 09:30:50] $this->ret[9]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[05-Oct-2011 09:30:50] $this->ret[10]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[05-Oct-2011 09:30:50] $this->ret[11]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[05-Oct-2011 09:30:50] $this->ret[12]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[05-Oct-2011 09:30:50] $this->ret[13]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[05-Oct-2011 09:30:50] $this->ret[14]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[05-Oct-2011 09:30:50] $this->ret[15]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[05-Oct-2011 09:30:50] $this->ret[16]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[05-Oct-2011 09:32:49] markerserver.php received 5 elements
+[05-Oct-2011 09:32:49] Key: request Value: add
+[05-Oct-2011 09:32:49] Key: pname Value: Portland
+[05-Oct-2011 09:32:49] Key: lat Value: 45.5234515
+[05-Oct-2011 09:32:49] Key: lng Value: -122.6762071
+[05-Oct-2011 09:32:49] Key: numb Value: 3
+[05-Oct-2011 09:32:49] request: add pname: Portland numb: 3
+[05-Oct-2011 09:32:49] lat: 45.5234515 lng: -122.6762071
+[05-Oct-2011 09:32:49] Resulting marker file with 18 markers
+[05-Oct-2011 09:32:49] $this->ret[0]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[05-Oct-2011 09:32:49] $this->ret[1]: {"pname":"Seattle","lat":"47.6062095","lng":"-122.3320708"}
+[05-Oct-2011 09:32:49] $this->ret[2]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[05-Oct-2011 09:32:49] $this->ret[3]: {"pname":"Portland","lat":"45.5234515","lng":"-122.6762071"}
+[05-Oct-2011 09:32:49] $this->ret[4]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[05-Oct-2011 09:32:49] $this->ret[5]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[05-Oct-2011 09:32:49] $this->ret[6]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[05-Oct-2011 09:32:49] $this->ret[7]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[05-Oct-2011 09:32:49] $this->ret[8]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[05-Oct-2011 09:32:49] $this->ret[9]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[05-Oct-2011 09:32:49] $this->ret[10]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[05-Oct-2011 09:32:49] $this->ret[11]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[05-Oct-2011 09:32:49] $this->ret[12]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[05-Oct-2011 09:32:49] $this->ret[13]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[05-Oct-2011 09:32:49] $this->ret[14]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[05-Oct-2011 09:32:49] $this->ret[15]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[05-Oct-2011 09:32:49] $this->ret[16]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[05-Oct-2011 09:32:49] $this->ret[17]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[05-Oct-2011 09:36:08] markerserver.php received 5 elements
+[05-Oct-2011 09:36:08] Key: request Value: add
+[05-Oct-2011 09:36:08] Key: pname Value: Portland, OR
+[05-Oct-2011 09:36:08] Key: lat Value: 45.5234515
+[05-Oct-2011 09:36:08] Key: lng Value: -122.6762071
+[05-Oct-2011 09:36:08] Key: numb Value: 3
+[05-Oct-2011 09:36:08] request: add pname: Portland, OR numb: 3
+[05-Oct-2011 09:36:08] lat: 45.5234515 lng: -122.6762071
+[05-Oct-2011 09:36:08] Resulting marker file with 19 markers
+[05-Oct-2011 09:36:08] $this->ret[0]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[05-Oct-2011 09:36:08] $this->ret[1]: {"pname":"Seattle","lat":"47.6062095","lng":"-122.3320708"}
+[05-Oct-2011 09:36:08] $this->ret[2]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[05-Oct-2011 09:36:08] $this->ret[3]: {"pname":"Portland, OR","lat":"45.5234515","lng":"-122.6762071"}
+[05-Oct-2011 09:36:08] $this->ret[4]: {"pname":"Portland","lat":"45.5234515","lng":"-122.6762071"}
+[05-Oct-2011 09:36:08] $this->ret[5]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[05-Oct-2011 09:36:08] $this->ret[6]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[05-Oct-2011 09:36:08] $this->ret[7]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[05-Oct-2011 09:36:08] $this->ret[8]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[05-Oct-2011 09:36:08] $this->ret[9]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[05-Oct-2011 09:36:08] $this->ret[10]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[05-Oct-2011 09:36:08] $this->ret[11]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[05-Oct-2011 09:36:08] $this->ret[12]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[05-Oct-2011 09:36:08] $this->ret[13]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[05-Oct-2011 09:36:08] $this->ret[14]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[05-Oct-2011 09:36:08] $this->ret[15]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[05-Oct-2011 09:36:08] $this->ret[16]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[05-Oct-2011 09:36:08] $this->ret[17]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[05-Oct-2011 09:36:08] $this->ret[18]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[05-Oct-2011 11:25:23] markerserver.php received 1 elements
+[05-Oct-2011 11:25:23] Key: request Value: list
+[05-Oct-2011 11:25:23] request: list pname:  numb: 
+[05-Oct-2011 11:25:23] lat:  lng: 
+[05-Oct-2011 11:25:24] list request(): count of records read is 19
+[05-Oct-2011 15:50:23] markerserver.php received 1 elements
+[05-Oct-2011 15:50:23] Key: request Value: list
+[05-Oct-2011 15:50:23] request: list pname:  numb: 
+[05-Oct-2011 15:50:23] lat:  lng: 
+[05-Oct-2011 15:50:23] list request(): count of records read is 19
+[05-Oct-2011 20:16:47] markerserver.php received 1 elements
+[05-Oct-2011 20:16:47] Key: request Value: list
+[05-Oct-2011 20:16:47] request: list pname:  numb: 
+[05-Oct-2011 20:16:47] lat:  lng: 
+[05-Oct-2011 20:16:47] list request(): count of records read is 19
+[05-Oct-2011 20:17:57] markerserver.php received 1 elements
+[05-Oct-2011 20:17:57] Key: request Value: list
+[05-Oct-2011 20:17:57] request: list pname:  numb: 
+[05-Oct-2011 20:17:57] lat:  lng: 
+[05-Oct-2011 20:17:57] list request(): count of records read is 19
+[05-Oct-2011 20:18:18] markerserver.php received 1 elements
+[05-Oct-2011 20:18:18] Key: request Value: list
+[05-Oct-2011 20:18:18] request: list pname:  numb: 
+[05-Oct-2011 20:18:18] lat:  lng: 
+[05-Oct-2011 20:18:18] list request(): count of records read is 19
+[05-Oct-2011 20:18:43] markerserver.php received 1 elements
+[05-Oct-2011 20:18:43] Key: request Value: list
+[05-Oct-2011 20:18:43] request: list pname:  numb: 
+[05-Oct-2011 20:18:43] lat:  lng: 
+[05-Oct-2011 20:18:43] list request(): count of records read is 19
+[17-Oct-2011 12:10:08] markerserver.php received 1 elements
+[17-Oct-2011 12:10:08] Key: request Value: list
+[17-Oct-2011 12:10:08] request: list pname:  numb: 
+[17-Oct-2011 12:10:08] lat:  lng: 
+[17-Oct-2011 12:10:08] list request(): count of records read is 19
+[20-Nov-2011 05:04:13] markerserver.php received 1 elements
+[20-Nov-2011 05:04:13] Key: request Value: list
+[20-Nov-2011 05:04:14] request: list pname:  numb: 
+[20-Nov-2011 05:04:14] lat:  lng: 
+[20-Nov-2011 05:04:14] list request(): count of records read is 19
+[20-Nov-2011 06:55:10] markerserver.php received 1 elements
+[20-Nov-2011 06:55:10] Key: request Value: list
+[20-Nov-2011 06:55:10] request: list pname:  numb: 
+[20-Nov-2011 06:55:10] lat:  lng: 
+[20-Nov-2011 06:55:10] list request(): count of records read is 19
+[20-Nov-2011 06:55:17] markerserver.php received 0 elements
+[20-Nov-2011 06:55:17] request:  pname:  numb: 
+[20-Nov-2011 06:55:17] lat:  lng: 
+[20-Nov-2011 06:55:20] markerserver.php received 5 elements
+[20-Nov-2011 06:55:20] Key: request Value: add
+[20-Nov-2011 06:55:20] Key: pname Value: Baltimore Test Project
+[20-Nov-2011 06:55:20] Key: lat Value: 39.2903848
+[20-Nov-2011 06:55:20] Key: lng Value: -76.6121893
+[20-Nov-2011 06:55:20] Key: numb Value: 2
+[20-Nov-2011 06:55:20] request: add pname: Baltimore Test Project numb: 2
+[20-Nov-2011 06:55:20] lat: 39.2903848 lng: -76.6121893
+[20-Nov-2011 06:55:20] Resulting marker file with 20 markers
+[20-Nov-2011 06:55:20] $this->ret[0]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[20-Nov-2011 06:55:20] $this->ret[1]: {"pname":"Seattle","lat":"47.6062095","lng":"-122.3320708"}
+[20-Nov-2011 06:55:20] $this->ret[2]: {"pname":"Baltimore Test Project","lat":"39.2903848","lng":"-76.6121893"}
+[20-Nov-2011 06:55:20] $this->ret[3]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[20-Nov-2011 06:55:20] $this->ret[4]: {"pname":"Portland, OR","lat":"45.5234515","lng":"-122.6762071"}
+[20-Nov-2011 06:55:20] $this->ret[5]: {"pname":"Portland","lat":"45.5234515","lng":"-122.6762071"}
+[20-Nov-2011 06:55:20] $this->ret[6]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[20-Nov-2011 06:55:20] $this->ret[7]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[20-Nov-2011 06:55:20] $this->ret[8]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[20-Nov-2011 06:55:20] $this->ret[9]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[20-Nov-2011 06:55:20] $this->ret[10]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[20-Nov-2011 06:55:20] $this->ret[11]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[20-Nov-2011 06:55:20] $this->ret[12]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[20-Nov-2011 06:55:20] $this->ret[13]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[20-Nov-2011 06:55:20] $this->ret[14]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[20-Nov-2011 06:55:20] $this->ret[15]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[20-Nov-2011 06:55:20] $this->ret[16]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[20-Nov-2011 06:55:20] $this->ret[17]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[20-Nov-2011 06:55:20] $this->ret[18]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[20-Nov-2011 06:55:20] $this->ret[19]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[20-Nov-2011 06:55:28] markerserver.php received 4 elements
+[20-Nov-2011 06:55:28] Key: request Value: change
+[20-Nov-2011 06:55:28] Key: pname Value: Changed Projectname
+[20-Nov-2011 06:55:28] Key: lat Value: 40.7143528
+[20-Nov-2011 06:55:28] Key: lng Value: -74.0059731
+[20-Nov-2011 06:55:28] request: change pname: Changed Projectname numb: 
+[20-Nov-2011 06:55:28] lat: 40.7143528 lng: -74.0059731
+[20-Nov-2011 06:56:00] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/prontoc2/public_html/mapmarkers/class_lib.php on line 120
+[27-Jan-2012 18:26:25] markerserver.php received 1 elements
+[27-Jan-2012 18:26:25] Key: request Value: list
+[27-Jan-2012 18:26:25] request: list pname:  numb: 
+[27-Jan-2012 18:26:25] lat:  lng: 
+[27-Jan-2012 18:26:25] list request(): count of records read is 20
+[02-Feb-2012 12:08:35] markerserver.php received 1 elements
+[02-Feb-2012 12:08:35] Key: request Value: list
+[02-Feb-2012 12:08:35] request: list pname:  numb: 
+[02-Feb-2012 12:08:35] lat:  lng: 
+[02-Feb-2012 12:08:35] list request(): count of records read is 20
+[02-Feb-2012 14:33:21] markerserver.php received 1 elements
+[02-Feb-2012 14:33:21] Key: request Value: list
+[02-Feb-2012 14:33:21] request: list pname:  numb: 
+[02-Feb-2012 14:33:21] lat:  lng: 
+[02-Feb-2012 14:33:21] list request(): count of records read is 20
+[02-Feb-2012 14:49:24] markerserver.php received 1 elements
+[02-Feb-2012 14:49:24] Key: request Value: list
+[02-Feb-2012 14:49:24] request: list pname:  numb: 
+[02-Feb-2012 14:49:24] lat:  lng: 
+[02-Feb-2012 14:49:24] list request(): count of records read is 20
+[02-Feb-2012 20:05:46] markerserver.php received 1 elements
+[02-Feb-2012 20:05:46] Key: request Value: list
+[02-Feb-2012 20:05:46] request: list pname:  numb: 
+[02-Feb-2012 20:05:46] lat:  lng: 
+[02-Feb-2012 20:05:46] list request(): count of records read is 20
+[02-Feb-2012 20:45:08] markerserver.php received 1 elements
+[02-Feb-2012 20:45:08] Key: request Value: list
+[02-Feb-2012 20:45:08] request: list pname:  numb: 
+[02-Feb-2012 20:45:08] lat:  lng: 
+[02-Feb-2012 20:45:08] list request(): count of records read is 20
+[02-Feb-2012 20:45:27] markerserver.php received 1 elements
+[02-Feb-2012 20:45:27] Key: request Value: list
+[02-Feb-2012 20:45:27] request: list pname:  numb: 
+[02-Feb-2012 20:45:27] lat:  lng: 
+[02-Feb-2012 20:45:27] list request(): count of records read is 20
+[02-Feb-2012 20:45:29] markerserver.php received 1 elements
+[02-Feb-2012 20:45:29] Key: request Value: list
+[02-Feb-2012 20:45:29] request: list pname:  numb: 
+[02-Feb-2012 20:45:29] lat:  lng: 
+[02-Feb-2012 20:45:29] list request(): count of records read is 20
+[02-Feb-2012 20:45:31] markerserver.php received 1 elements
+[02-Feb-2012 20:45:31] Key: request Value: list
+[02-Feb-2012 20:45:31] request: list pname:  numb: 
+[02-Feb-2012 20:45:31] lat:  lng: 
+[02-Feb-2012 20:45:31] list request(): count of records read is 20
+[04-Feb-2012 14:35:48] markerserver.php received 1 elements
+[04-Feb-2012 14:35:48] Key: request Value: list
+[04-Feb-2012 14:35:48] request: list pname:  numb: 
+[04-Feb-2012 14:35:48] lat:  lng: 
+[04-Feb-2012 14:35:48] list request(): count of records read is 20
+[04-Feb-2012 23:39:21] markerserver.php received 1 elements
+[04-Feb-2012 23:39:21] Key: request Value: list
+[04-Feb-2012 23:39:21] request: list pname:  numb: 
+[04-Feb-2012 23:39:21] lat:  lng: 
+[04-Feb-2012 23:39:21] list request(): count of records read is 20
+[04-Feb-2012 23:40:43] markerserver.php received 5 elements
+[04-Feb-2012 23:40:43] Key: request Value: add
+[04-Feb-2012 23:40:43] Key: pname Value: Tucson 
+[04-Feb-2012 23:40:43] Key: lat Value: 32.2217429
+[04-Feb-2012 23:40:43] Key: lng Value: -110.92647899999997
+[04-Feb-2012 23:40:43] Key: numb Value: 1
+[04-Feb-2012 23:40:43] request: add pname: Tucson  numb: 1
+[04-Feb-2012 23:40:43] lat: 32.2217429 lng: -110.92647899999997
+[04-Feb-2012 23:40:43] Resulting marker file with 21 markers
+[04-Feb-2012 23:40:43] $this->ret[0]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[04-Feb-2012 23:40:43] $this->ret[1]: {"pname":"Tucson ","lat":"32.2217429","lng":"-110.92647899999997"}
+[04-Feb-2012 23:40:43] $this->ret[2]: {"pname":"Seattle","lat":"47.6062095","lng":"-122.3320708"}
+[04-Feb-2012 23:40:43] $this->ret[3]: {"pname":"Baltimore Test Project","lat":"39.2903848","lng":"-76.6121893"}
+[04-Feb-2012 23:40:43] $this->ret[4]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[04-Feb-2012 23:40:43] $this->ret[5]: {"pname":"Portland, OR","lat":"45.5234515","lng":"-122.6762071"}
+[04-Feb-2012 23:40:43] $this->ret[6]: {"pname":"Portland","lat":"45.5234515","lng":"-122.6762071"}
+[04-Feb-2012 23:40:43] $this->ret[7]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[04-Feb-2012 23:40:43] $this->ret[8]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[04-Feb-2012 23:40:43] $this->ret[9]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[04-Feb-2012 23:40:43] $this->ret[10]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[04-Feb-2012 23:40:43] $this->ret[11]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[04-Feb-2012 23:40:43] $this->ret[12]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[04-Feb-2012 23:40:43] $this->ret[13]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[04-Feb-2012 23:40:43] $this->ret[14]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[04-Feb-2012 23:40:43] $this->ret[15]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[04-Feb-2012 23:40:43] $this->ret[16]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[04-Feb-2012 23:40:43] $this->ret[17]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[04-Feb-2012 23:40:43] $this->ret[18]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[04-Feb-2012 23:40:43] $this->ret[19]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[04-Feb-2012 23:40:43] $this->ret[20]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[07-Feb-2012 14:16:27] markerserver.php received 1 elements
+[07-Feb-2012 14:16:27] Key: request Value: list
+[07-Feb-2012 14:16:27] request: list pname:  numb: 
+[07-Feb-2012 14:16:27] lat:  lng: 
+[07-Feb-2012 14:16:27] list request(): count of records read is 21
+[07-Feb-2012 14:18:58] markerserver.php received 1 elements
+[07-Feb-2012 14:18:58] Key: request Value: list
+[07-Feb-2012 14:18:58] request: list pname:  numb: 
+[07-Feb-2012 14:18:58] lat:  lng: 
+[07-Feb-2012 14:18:58] list request(): count of records read is 21
+[22-Feb-2012 08:57:31] markerserver.php received 1 elements
+[22-Feb-2012 08:57:31] Key: request Value: list
+[22-Feb-2012 08:57:31] request: list pname:  numb: 
+[22-Feb-2012 08:57:31] lat:  lng: 
+[22-Feb-2012 08:57:31] list request(): count of records read is 21
+[23-Feb-2012 18:30:24] markerserver.php received 1 elements
+[23-Feb-2012 18:30:24] Key: request Value: list
+[23-Feb-2012 18:30:24] request: list pname:  numb: 
+[23-Feb-2012 18:30:24] lat:  lng: 
+[23-Feb-2012 18:30:24] list request(): count of records read is 21
+[23-Feb-2012 18:31:39] markerserver.php received 1 elements
+[23-Feb-2012 18:31:39] Key: request Value: list
+[23-Feb-2012 18:31:39] request: list pname:  numb: 
+[23-Feb-2012 18:31:39] lat:  lng: 
+[23-Feb-2012 18:31:39] list request(): count of records read is 21
+[23-Feb-2012 18:32:19] markerserver.php received 1 elements
+[23-Feb-2012 18:32:19] Key: request Value: list
+[23-Feb-2012 18:32:19] request: list pname:  numb: 
+[23-Feb-2012 18:32:19] lat:  lng: 
+[23-Feb-2012 18:32:19] list request(): count of records read is 21
+[23-Feb-2012 18:40:51] markerserver.php received 1 elements
+[23-Feb-2012 18:40:51] Key: request Value: list
+[23-Feb-2012 18:40:51] request: list pname:  numb: 
+[23-Feb-2012 18:40:51] lat:  lng: 
+[23-Feb-2012 18:40:51] list request(): count of records read is 21
+[23-Feb-2012 18:41:36] markerserver.php received 1 elements
+[23-Feb-2012 18:41:36] Key: request Value: list
+[23-Feb-2012 18:41:36] request: list pname:  numb: 
+[23-Feb-2012 18:41:36] lat:  lng: 
+[23-Feb-2012 18:41:36] list request(): count of records read is 21
+[23-Feb-2012 18:47:18] markerserver.php received 1 elements
+[23-Feb-2012 18:47:18] Key: request Value: list
+[23-Feb-2012 18:47:18] request: list pname:  numb: 
+[23-Feb-2012 18:47:18] lat:  lng: 
+[23-Feb-2012 18:47:18] list request(): count of records read is 21
+[23-Feb-2012 18:48:14] markerserver.php received 1 elements
+[23-Feb-2012 18:48:14] Key: request Value: list
+[23-Feb-2012 18:48:14] request: list pname:  numb: 
+[23-Feb-2012 18:48:14] lat:  lng: 
+[23-Feb-2012 18:48:14] list request(): count of records read is 21
+[23-Feb-2012 19:52:37] markerserver.php received 1 elements
+[23-Feb-2012 19:52:37] Key: request Value: list
+[23-Feb-2012 19:52:37] request: list pname:  numb: 
+[23-Feb-2012 19:52:37] lat:  lng: 
+[23-Feb-2012 19:52:37] list request(): count of records read is 21
+[27-Feb-2012 18:50:19] markerserver.php received 1 elements
+[27-Feb-2012 18:50:19] Key: request Value: list
+[27-Feb-2012 18:50:19] request: list pname:  numb: 
+[27-Feb-2012 18:50:19] lat:  lng: 
+[27-Feb-2012 18:50:19] list request(): count of records read is 21
+[28-Feb-2012 13:23:25] markerserver.php received 1 elements
+[28-Feb-2012 13:23:25] Key: request Value: list
+[28-Feb-2012 13:23:25] request: list pname:  numb: 
+[28-Feb-2012 13:23:25] lat:  lng: 
+[28-Feb-2012 13:23:25] list request(): count of records read is 21
+[28-Feb-2012 19:37:32] markerserver.php received 1 elements
+[28-Feb-2012 19:37:32] Key: request Value: list
+[28-Feb-2012 19:37:32] request: list pname:  numb: 
+[28-Feb-2012 19:37:32] lat:  lng: 
+[28-Feb-2012 19:37:32] list request(): count of records read is 21
+[12-Mar-2012 20:25:41] markerserver.php received 1 elements
+[12-Mar-2012 20:25:41] Key: request Value: list
+[12-Mar-2012 20:25:41] request: list pname:  numb: 
+[12-Mar-2012 20:25:41] lat:  lng: 
+[12-Mar-2012 20:25:41] list request(): count of records read is 21
+[12-Mar-2012 20:25:42] markerserver.php received 1 elements
+[12-Mar-2012 20:25:42] Key: request Value: list
+[12-Mar-2012 20:25:42] request: list pname:  numb: 
+[12-Mar-2012 20:25:42] lat:  lng: 
+[12-Mar-2012 20:25:42] list request(): count of records read is 21
+[12-Mar-2012 20:26:10] markerserver.php received 5 elements
+[12-Mar-2012 20:26:10] Key: request Value: delete
+[12-Mar-2012 20:26:10] Key: pname Value: London
+[12-Mar-2012 20:26:10] Key: lat Value: 51.5001524
+[12-Mar-2012 20:26:10] Key: lng Value: -0.12623619999999391
+[12-Mar-2012 20:26:10] Key: numb Value: 15
+[12-Mar-2012 20:26:10] request: delete pname: London numb: 15
+[12-Mar-2012 20:26:10] lat: 51.5001524 lng: -0.12623619999999391
+[20-Mar-2012 09:33:17] markerserver.php received 1 elements
+[20-Mar-2012 09:33:17] Key: request Value: list
+[20-Mar-2012 09:33:17] request: list pname:  numb: 
+[20-Mar-2012 09:33:17] lat:  lng: 
+[20-Mar-2012 09:33:17] list request(): count of records read is 20
+[22-Mar-2012 13:39:32] markerserver.php received 1 elements
+[22-Mar-2012 13:39:32] Key: request Value: list
+[22-Mar-2012 13:39:32] request: list pname:  numb: 
+[22-Mar-2012 13:39:32] lat:  lng: 
+[22-Mar-2012 13:39:32] list request(): count of records read is 20
+[23-Mar-2012 16:59:44] markerserver.php received 1 elements
+[23-Mar-2012 16:59:44] Key: request Value: list
+[23-Mar-2012 16:59:44] request: list pname:  numb: 
+[23-Mar-2012 16:59:44] lat:  lng: 
+[23-Mar-2012 16:59:44] list request(): count of records read is 20
+[26-Mar-2012 09:28:50] markerserver.php received 1 elements
+[26-Mar-2012 09:28:50] Key: request Value: list
+[26-Mar-2012 09:28:50] request: list pname:  numb: 
+[26-Mar-2012 09:28:50] lat:  lng: 
+[26-Mar-2012 09:28:50] list request(): count of records read is 20
+[02-Apr-2012 12:52:30] markerserver.php received 1 elements
+[02-Apr-2012 12:52:30] Key: request Value: list
+[02-Apr-2012 12:52:30] request: list pname:  numb: 
+[02-Apr-2012 12:52:30] lat:  lng: 
+[02-Apr-2012 12:52:30] list request(): count of records read is 16
+[04-Apr-2012 12:06:59] markerserver.php received 1 elements
+[04-Apr-2012 12:06:59] Key: request Value: list
+[04-Apr-2012 12:06:59] request: list pname:  numb: 
+[04-Apr-2012 12:06:59] lat:  lng: 
+[04-Apr-2012 12:06:59] list request(): count of records read is 16
+[04-Apr-2012 12:08:17] markerserver.php received 5 elements
+[04-Apr-2012 12:08:17] Key: request Value: add
+[04-Apr-2012 12:08:17] Key: pname Value: Santa Clara, US
+[04-Apr-2012 12:08:17] Key: lat Value: 37.3541079
+[04-Apr-2012 12:08:17] Key: lng Value: -121.95523559999998
+[04-Apr-2012 12:08:17] Key: numb Value: 0
+[04-Apr-2012 12:08:17] request: add pname: Santa Clara, US numb: 0
+[04-Apr-2012 12:08:17] lat: 37.3541079 lng: -121.95523559999998
+[04-Apr-2012 12:08:17] Resulting marker file with 17 markers
+[04-Apr-2012 12:08:17] $this->ret[0]: {"pname":"Santa Clara, US","lat":"37.3541079","lng":"-121.95523559999998"}
+[04-Apr-2012 12:08:17] $this->ret[1]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[04-Apr-2012 12:08:17] $this->ret[2]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[04-Apr-2012 12:08:17] $this->ret[3]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[04-Apr-2012 12:08:17] $this->ret[4]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[04-Apr-2012 12:08:17] $this->ret[5]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[04-Apr-2012 12:08:17] $this->ret[6]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[04-Apr-2012 12:08:17] $this->ret[7]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[04-Apr-2012 12:08:17] $this->ret[8]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[04-Apr-2012 12:08:17] $this->ret[9]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[04-Apr-2012 12:08:17] $this->ret[10]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[04-Apr-2012 12:08:17] $this->ret[11]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[04-Apr-2012 12:08:17] $this->ret[12]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[04-Apr-2012 12:08:17] $this->ret[13]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[04-Apr-2012 12:08:17] $this->ret[14]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[04-Apr-2012 12:08:17] $this->ret[15]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[04-Apr-2012 12:08:17] $this->ret[16]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[04-Apr-2012 12:26:54] markerserver.php received 5 elements
+[04-Apr-2012 12:26:54] Key: request Value: add
+[04-Apr-2012 12:26:54] Key: pname Value: New York
+[04-Apr-2012 12:26:54] Key: lat Value: 40.7143528
+[04-Apr-2012 12:26:54] Key: lng Value: -74.0059731
+[04-Apr-2012 12:26:54] Key: numb Value: 0
+[04-Apr-2012 12:26:54] request: add pname: New York numb: 0
+[04-Apr-2012 12:26:54] lat: 40.7143528 lng: -74.0059731
+[04-Apr-2012 12:26:54] Resulting marker file with 18 markers
+[04-Apr-2012 12:26:54] $this->ret[0]: {"pname":"New York","lat":"40.7143528","lng":"-74.0059731"}
+[04-Apr-2012 12:26:54] $this->ret[1]: {"pname":"Santa Clara, US","lat":"37.3541079","lng":"-121.95523559999998"}
+[04-Apr-2012 12:26:54] $this->ret[2]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[04-Apr-2012 12:26:54] $this->ret[3]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[04-Apr-2012 12:26:54] $this->ret[4]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[04-Apr-2012 12:26:54] $this->ret[5]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[04-Apr-2012 12:26:54] $this->ret[6]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[04-Apr-2012 12:26:54] $this->ret[7]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[04-Apr-2012 12:26:54] $this->ret[8]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[04-Apr-2012 12:26:54] $this->ret[9]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[04-Apr-2012 12:26:54] $this->ret[10]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[04-Apr-2012 12:26:54] $this->ret[11]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[04-Apr-2012 12:26:54] $this->ret[12]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[04-Apr-2012 12:26:54] $this->ret[13]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[04-Apr-2012 12:26:54] $this->ret[14]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[04-Apr-2012 12:26:54] $this->ret[15]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[04-Apr-2012 12:26:54] $this->ret[16]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[04-Apr-2012 12:26:54] $this->ret[17]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[04-Apr-2012 18:02:13] markerserver.php received 1 elements
+[04-Apr-2012 18:02:13] Key: request Value: list
+[04-Apr-2012 18:02:13] request: list pname:  numb: 
+[04-Apr-2012 18:02:13] lat:  lng: 
+[04-Apr-2012 18:02:13] list request(): count of records read is 18
+[04-Apr-2012 18:02:25] markerserver.php received 5 elements
+[04-Apr-2012 18:02:25] Key: request Value: add
+[04-Apr-2012 18:02:25] Key: pname Value: Fremont,Ca
+[04-Apr-2012 18:02:25] Key: lat Value: 37.5482697
+[04-Apr-2012 18:02:25] Key: lng Value: -121.98857190000001
+[04-Apr-2012 18:02:25] Key: numb Value: 0
+[04-Apr-2012 18:02:25] request: add pname: Fremont,Ca numb: 0
+[04-Apr-2012 18:02:25] lat: 37.5482697 lng: -121.98857190000001
+[04-Apr-2012 18:02:25] Resulting marker file with 19 markers
+[04-Apr-2012 18:02:25] $this->ret[0]: {"pname":"Fremont,Ca","lat":"37.5482697","lng":"-121.98857190000001"}
+[04-Apr-2012 18:02:25] $this->ret[1]: {"pname":"New York","lat":"40.7143528","lng":"-74.0059731"}
+[04-Apr-2012 18:02:25] $this->ret[2]: {"pname":"Santa Clara, US","lat":"37.3541079","lng":"-121.95523559999998"}
+[04-Apr-2012 18:02:25] $this->ret[3]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[04-Apr-2012 18:02:25] $this->ret[4]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[04-Apr-2012 18:02:25] $this->ret[5]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[04-Apr-2012 18:02:25] $this->ret[6]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[04-Apr-2012 18:02:25] $this->ret[7]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[04-Apr-2012 18:02:25] $this->ret[8]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[04-Apr-2012 18:02:25] $this->ret[9]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[04-Apr-2012 18:02:25] $this->ret[10]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[04-Apr-2012 18:02:25] $this->ret[11]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[04-Apr-2012 18:02:25] $this->ret[12]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[04-Apr-2012 18:02:25] $this->ret[13]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[04-Apr-2012 18:02:25] $this->ret[14]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[04-Apr-2012 18:02:25] $this->ret[15]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[04-Apr-2012 18:02:25] $this->ret[16]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[04-Apr-2012 18:02:25] $this->ret[17]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[04-Apr-2012 18:02:25] $this->ret[18]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[06-Apr-2012 15:36:37] markerserver.php received 1 elements
+[06-Apr-2012 15:36:37] Key: request Value: list
+[06-Apr-2012 15:36:37] request: list pname:  numb: 
+[06-Apr-2012 15:36:37] lat:  lng: 
+[06-Apr-2012 15:36:37] list request(): count of records read is 16
+[19-Apr-2012 14:19:27] markerserver.php received 1 elements
+[19-Apr-2012 14:19:27] Key: request Value: list
+[19-Apr-2012 14:19:27] request: list pname:  numb: 
+[19-Apr-2012 14:19:27] lat:  lng: 
+[19-Apr-2012 14:19:27] list request(): count of records read is 16
+[19-Apr-2012 14:19:59] markerserver.php received 5 elements
+[19-Apr-2012 14:19:59] Key: request Value: add
+[19-Apr-2012 14:19:59] Key: pname Value: Las Vegas, Nv
+[19-Apr-2012 14:19:59] Key: lat Value: 36.114646
+[19-Apr-2012 14:19:59] Key: lng Value: -115.17281600000001
+[19-Apr-2012 14:19:59] Key: numb Value: 0
+[19-Apr-2012 14:19:59] request: add pname: Las Vegas, Nv numb: 0
+[19-Apr-2012 14:19:59] lat: 36.114646 lng: -115.17281600000001
+[19-Apr-2012 14:19:59] Resulting marker file with 17 markers
+[19-Apr-2012 14:19:59] $this->ret[0]: {"pname":"Las Vegas, Nv","lat":"36.114646","lng":"-115.17281600000001"}
+[19-Apr-2012 14:19:59] $this->ret[1]: {"pname":"Madagascar","lat":"-18.766947","lng":"46.869106999999985"}
+[19-Apr-2012 14:19:59] $this->ret[2]: {"pname":"Ghana","lat":"7.946527","lng":"-1.0231939999999895"}
+[19-Apr-2012 14:19:59] $this->ret[3]: {"pname":"Kenya","lat":"-0.023559","lng":"37.90619300000003"}
+[19-Apr-2012 14:19:59] $this->ret[4]: {"pname":"Rio","lat":"-22.9035393","lng":"-43.20958689999998"}
+[19-Apr-2012 14:19:59] $this->ret[5]: {"pname":"Dallas","lat":"32.802955","lng":"-96.769923"}
+[19-Apr-2012 14:19:59] $this->ret[6]: {"pname":"Denver","lat":"39.7391536","lng":"-104.9847034"}
+[19-Apr-2012 14:19:59] $this->ret[7]: {"pname":"Bangalore, In","lat":"12.9715987","lng":"77.59456269999998"}
+[19-Apr-2012 14:19:59] $this->ret[8]: {"pname":"Moscow","lat":"55.755786","lng":"37.61763300000007"}
+[19-Apr-2012 14:19:59] $this->ret[9]: {"pname":"Hong Kong","lat":"22.396428","lng":"114.10949700000003"}
+[19-Apr-2012 14:19:59] $this->ret[10]: {"pname":"Berlin","lat":"52.5234051","lng":"13.411399899999992"}
+[19-Apr-2012 14:19:59] $this->ret[11]: {"pname":"London","lat":"51.5001524","lng":"-0.12623619999999391"}
+[19-Apr-2012 14:19:59] $this->ret[12]: {"pname":"Paris","lat":"48.856614","lng":"2.3522219000000177"}
+[19-Apr-2012 14:19:59] $this->ret[13]: {"pname":"Atlanta","lat":"33.7489954","lng":"-84.3879824"}
+[19-Apr-2012 14:19:59] $this->ret[14]: {"pname":"Miami","lat":"25.7889689","lng":"-80.22643929999998"}
+[19-Apr-2012 14:19:59] $this->ret[15]: {"pname":"Tokyo","lat":"35.6894875","lng":"139.69170639999993"}
+[19-Apr-2012 14:19:59] $this->ret[16]: {"pname":"S F","lat":"37.7749295","lng":"-122.41941550000001"}
+[19-Apr-2012 15:27:17] markerserver.php received 1 elements
+[19-Apr-2012 15:27:17] Key: request Value: list
+[19-Apr-2012 15:27:17] request: list pname:  numb: 
+[19-Apr-2012 15:27:17] lat:  lng: 
+[19-Apr-2012 15:27:17] list request(): count of records read is 17
+[18-Nov-2012 18:22:50] markerserver.php received 1 elements
+[18-Nov-2012 18:22:50] Key: request Value: list
+[18-Nov-2012 18:22:50] request: list pname:  numb: 
+[18-Nov-2012 18:22:50] lat:  lng: 
+[18-Nov-2012 18:22:51] list request(): count of records read is 17
+[19-Nov-2012 10:12:16] markerserver.php received 1 elements
+[19-Nov-2012 10:12:16] Key: request Value: list
+[19-Nov-2012 10:12:16] request: list pname:  numb: 
+[19-Nov-2012 10:12:16] lat:  lng: 
+[19-Nov-2012 10:12:16] list request(): count of records read is 17
+[19-Nov-2012 16:31:00] markerserver.php received 1 elements
+[19-Nov-2012 16:31:00] Key: request Value: list
+[19-Nov-2012 16:31:00] request: list pname:  numb: 
+[19-Nov-2012 16:31:00] lat:  lng: 
+[19-Nov-2012 16:31:00] list request(): count of records read is 17
+[20-Nov-2012 13:34:35] markerserver.php received 1 elements
+[20-Nov-2012 13:34:35] Key: request Value: list
+[20-Nov-2012 13:34:35] request: list pname:  numb: 
+[20-Nov-2012 13:34:35] lat:  lng: 
+[20-Nov-2012 13:34:35] list request(): count of records read is 17
+[21-Nov-2012 05:33:14] markerserver.php received 1 elements
+[21-Nov-2012 05:33:14] Key: request Value: list
+[21-Nov-2012 05:33:14] request: list pname:  numb: 
+[21-Nov-2012 05:33:14] lat:  lng: 
+[21-Nov-2012 05:33:14] list request(): count of records read is 17
+[21-Nov-2012 05:36:20] markerserver.php received 1 elements
+[21-Nov-2012 05:36:20] Key: request Value: list
+[21-Nov-2012 05:36:20] request: list pname:  numb: 
+[21-Nov-2012 05:36:20] lat:  lng: 
+[21-Nov-2012 05:36:20] list request(): count of records read is 17
+[27-Nov-2012 11:00:15] markerserver.php received 1 elements
+[27-Nov-2012 11:00:15] Key: request Value: list
+[27-Nov-2012 11:00:15] request: list pname:  numb: 
+[27-Nov-2012 11:00:15] lat:  lng: 
+[27-Nov-2012 11:00:15] list request(): count of records read is 17
+[03-Dec-2012 10:10:03] markerserver.php received 1 elements
+[03-Dec-2012 10:10:03] Key: request Value: list
+[03-Dec-2012 10:10:03] request: list pname:  numb: 
+[03-Dec-2012 10:10:03] lat:  lng: 
+[03-Dec-2012 10:10:03] list request(): count of records read is 17
+[03-Dec-2012 11:19:44] markerserver.php received 1 elements
+[03-Dec-2012 11:19:44] Key: request Value: list
+[03-Dec-2012 11:19:44] request: list pname:  numb: 
+[03-Dec-2012 11:19:44] lat:  lng: 
+[03-Dec-2012 11:19:44] list request(): count of records read is 17
+[04-Dec-2012 09:46:11] markerserver.php received 1 elements
+[04-Dec-2012 09:46:11] Key: request Value: list
+[04-Dec-2012 09:46:11] request: list pname:  numb: 
+[04-Dec-2012 09:46:11] lat:  lng: 
+[04-Dec-2012 09:46:11] list request(): count of records read is 17
+[04-Dec-2012 10:28:06] markerserver.php received 1 elements
+[04-Dec-2012 10:28:06] Key: request Value: list
+[04-Dec-2012 10:28:06] request: list pname:  numb: 
+[04-Dec-2012 10:28:06] lat:  lng: 
+[04-Dec-2012 10:28:06] list request(): count of records read is 17
+[06-Dec-2012 10:31:34] markerserver.php received 1 elements
+[06-Dec-2012 10:31:34] Key: request Value: list
+[06-Dec-2012 10:31:34] request: list pname:  numb: 
+[06-Dec-2012 10:31:34] lat:  lng: 
+[06-Dec-2012 10:31:34] list request(): count of records read is 17
+[06-Dec-2012 10:46:15] markerserver.php received 1 elements
+[06-Dec-2012 10:46:15] Key: request Value: list
+[06-Dec-2012 10:46:15] request: list pname:  numb: 
+[06-Dec-2012 10:46:15] lat:  lng: 
+[06-Dec-2012 10:46:15] list request(): count of records read is 17
+[06-Dec-2012 11:21:54] markerserver.php received 1 elements
+[06-Dec-2012 11:21:54] Key: request Value: list
+[06-Dec-2012 11:21:54] request: list pname:  numb: 
+[06-Dec-2012 11:21:54] lat:  lng: 
+[06-Dec-2012 11:21:54] list request(): count of records read is 17
+[07-Dec-2012 11:12:39] markerserver.php received 1 elements
+[07-Dec-2012 11:12:39] Key: request Value: list
+[07-Dec-2012 11:12:39] request: list pname:  numb: 
+[07-Dec-2012 11:12:39] lat:  lng: 
+[07-Dec-2012 11:12:39] list request(): count of records read is 17
+[07-Dec-2012 14:21:29] markerserver.php received 1 elements
+[07-Dec-2012 14:21:29] Key: request Value: list
+[07-Dec-2012 14:21:29] request: list pname:  numb: 
+[07-Dec-2012 14:21:29] lat:  lng: 
+[07-Dec-2012 14:21:29] list request(): count of records read is 17
+[15-Dec-2012 17:58:46] markerserver.php received 1 elements
+[15-Dec-2012 17:58:46] Key: request Value: list
+[15-Dec-2012 17:58:46] request: list pname:  numb: 
+[15-Dec-2012 17:58:46] lat:  lng: 
+[15-Dec-2012 17:58:46] list request(): count of records read is 17
+[20-Dec-2012 12:51:29] markerserver.php received 1 elements
+[20-Dec-2012 12:51:29] Key: request Value: list
+[20-Dec-2012 12:51:29] request: list pname:  numb: 
+[20-Dec-2012 12:51:29] lat:  lng: 
+[20-Dec-2012 12:51:29] list request(): count of records read is 17
+[20-Dec-2012 12:51:29] markerserver.php received 1 elements
+[20-Dec-2012 12:51:29] Key: request Value: list
+[20-Dec-2012 12:51:29] request: list pname:  numb: 
+[20-Dec-2012 12:51:29] lat:  lng: 
+[20-Dec-2012 12:51:29] list request(): count of records read is 17
+[20-Dec-2012 12:52:55] markerserver.php received 1 elements
+[20-Dec-2012 12:52:55] Key: request Value: list
+[20-Dec-2012 12:52:55] request: list pname:  numb: 
+[20-Dec-2012 12:52:55] lat:  lng: 
+[20-Dec-2012 12:52:55] list request(): count of records read is 17
+[04-Jan-2013 16:51:19] markerserver.php received 1 elements
+[04-Jan-2013 16:51:19] Key: request Value: list
+[04-Jan-2013 16:51:19] request: list pname:  numb: 
+[04-Jan-2013 16:51:19] lat:  lng: 
+[04-Jan-2013 16:51:19] list request(): count of records read is 17
+[08-Jan-2013 12:23:15] markerserver.php received 1 elements
+[08-Jan-2013 12:23:15] Key: request Value: list
+[08-Jan-2013 12:23:15] request: list pname:  numb: 
+[08-Jan-2013 12:23:15] lat:  lng: 
+[08-Jan-2013 12:23:15] list request(): count of records read is 17
+[23-Jan-2013 19:24:17] markerserver.php received 1 elements
+[23-Jan-2013 19:24:17] Key: request Value: list
+[23-Jan-2013 19:24:17] request: list pname:  numb: 
+[23-Jan-2013 19:24:17] lat:  lng: 
+[23-Jan-2013 19:24:17] list request(): count of records read is 17
+[19-Apr-2013 16:03:17] markerserver.php received 1 elements
+[19-Apr-2013 16:03:17] Key: request Value: list
+[19-Apr-2013 16:03:17] request: list pname:  numb: 
+[19-Apr-2013 16:03:17] lat:  lng: 
+[19-Apr-2013 16:03:17] list request(): count of records read is 17
+[19-Apr-2013 16:03:39] markerserver.php received 5 elements
+[19-Apr-2013 16:03:39] Key: request Value: delete
+[19-Apr-2013 16:03:39] Key: pname Value: Miami
+[19-Apr-2013 16:03:39] Key: lat Value: 25.7889689
+[19-Apr-2013 16:03:39] Key: lng Value: -80.22643929999998
+[19-Apr-2013 16:03:39] Key: numb Value: 15
+[19-Apr-2013 16:03:39] request: delete pname: Miami numb: 15
+[19-Apr-2013 16:03:39] lat: 25.7889689 lng: -80.22643929999998
+[19-Apr-2013 16:03:50] markerserver.php received 5 elements
+[19-Apr-2013 16:03:50] Key: request Value: delete
+[19-Apr-2013 16:03:50] Key: pname Value: S F
+[19-Apr-2013 16:03:50] Key: lat Value: 37.7749295
+[19-Apr-2013 16:03:50] Key: lng Value: -122.41941550000001
+[19-Apr-2013 16:03:50] Key: numb Value: 16
+[19-Apr-2013 16:03:50] request: delete pname: S F numb: 16
+[19-Apr-2013 16:03:50] lat: 37.7749295 lng: -122.41941550000001
+[22-Apr-2013 14:14:01] markerserver.php received 1 elements
+[22-Apr-2013 14:14:01] Key: request Value: list
+[22-Apr-2013 14:14:01] request: list pname:  numb: 
+[22-Apr-2013 14:14:01] lat:  lng: 
+[22-Apr-2013 14:14:01] list request(): count of records read is 16
+[23-Apr-2013 15:36:30] markerserver.php received 1 elements
+[23-Apr-2013 15:36:30] Key: request Value: list
+[23-Apr-2013 15:36:30] request: list pname:  numb: 
+[23-Apr-2013 15:36:30] lat:  lng: 
+[23-Apr-2013 15:36:30] list request(): count of records read is 16
+[30-Apr-2013 17:02:35] markerserver.php received 1 elements
+[30-Apr-2013 17:02:35] Key: request Value: list
+[30-Apr-2013 17:02:35] request: list pname:  numb: 
+[30-Apr-2013 17:02:35] lat:  lng: 
+[30-Apr-2013 17:02:35] list request(): count of records read is 16
+[01-May-2013 08:52:33] markerserver.php received 1 elements
+[01-May-2013 08:52:33] Key: request Value: list
+[01-May-2013 08:52:33] request: list pname:  numb: 
+[01-May-2013 08:52:33] lat:  lng: 
+[01-May-2013 08:52:33] list request(): count of records read is 16
+[01-May-2013 09:04:46] markerserver.php received 1 elements
+[01-May-2013 09:04:46] Key: request Value: list
+[01-May-2013 09:04:46] request: list pname:  numb: 
+[01-May-2013 09:04:46] lat:  lng: 
+[01-May-2013 09:04:46] list request(): count of records read is 16
+[15-May-2013 10:23:05] markerserver.php received 1 elements
+[15-May-2013 10:23:05] Key: request Value: list
+[15-May-2013 10:23:05] request: list pname:  numb: 
+[15-May-2013 10:23:05] lat:  lng: 
+[15-May-2013 10:23:05] list request(): count of records read is 16
+[15-May-2013 10:24:18] markerserver.php received 1 elements
+[15-May-2013 10:24:18] Key: request Value: list
+[15-May-2013 10:24:18] request: list pname:  numb: 
+[15-May-2013 10:24:18] lat:  lng: 
+[15-May-2013 10:24:18] list request(): count of records read is 16
+[20-May-2013 12:21:29] markerserver.php received 1 elements
+[20-May-2013 12:21:29] Key: request Value: list
+[20-May-2013 12:21:29] request: list pname:  numb: 
+[20-May-2013 12:21:29] lat:  lng: 
+[20-May-2013 12:21:29] list request(): count of records read is 16
+[21-May-2013 09:33:12] markerserver.php received 1 elements
+[21-May-2013 09:33:12] Key: request Value: list
+[21-May-2013 09:33:12] request: list pname:  numb: 
+[21-May-2013 09:33:12] lat:  lng: 
+[21-May-2013 09:33:13] list request(): count of records read is 16
+[29-May-2013 15:26:27] markerserver.php received 1 elements
+[29-May-2013 15:26:27] Key: request Value: list
+[29-May-2013 15:26:27] request: list pname:  numb: 
+[29-May-2013 15:26:27] lat:  lng: 
+[29-May-2013 15:26:27] list request(): count of records read is 16
+[12-Jun-2013 01:43:11] markerserver.php received 1 elements
+[12-Jun-2013 01:43:11] Key: request Value: list
+[12-Jun-2013 01:43:11] request: list pname:  numb: 
+[12-Jun-2013 01:43:11] lat:  lng: 
+[12-Jun-2013 01:43:11] list request(): count of records read is 16
+[10-Aug-2013 18:25:13] markerserver.php received 1 elements
+[10-Aug-2013 18:25:13] Key: request Value: list
+[10-Aug-2013 18:25:13] request: list pname:  numb: 
+[10-Aug-2013 18:25:13] lat:  lng: 
+[10-Aug-2013 18:25:13] list request(): count of records read is 16
+[19-Aug-2013 15:14:38] markerserver.php received 1 elements
+[19-Aug-2013 15:14:38] Key: request Value: list
+[19-Aug-2013 15:14:38] request: list pname:  numb: 
+[19-Aug-2013 15:14:38] lat:  lng: 
+[19-Aug-2013 15:14:38] list request(): count of records read is 16

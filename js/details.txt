@@ -1,0 +1,75 @@
+
+
+
+
+http://165.225.129.113:8090/api/1.0.0/destinations/SFO/hotels/31503?api_key=546869732069732074686520496e666f53747265746368204b6579&startdate=2012-05-14&enddate=2012-05-16
+
+{
+	"OTA_HotelAvailRS":
+		{
+		"EchoToken":"",
+		"PrimaryLangID":"en",
+		"Target":"Certification",
+		"TimeStamp":"2012-05-03T22:24:20.22Z",
+		"Version":"1.2.2",
+		"xmlns":"http://webservices.travelocity.com/tvlyXML/2003/05",
+		"xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance",
+		"Success":{},
+		"RoomStays":
+		{
+			"RoomStay":
+			{
+				"RoomTypes":{},
+				"RatePlans":{},
+				"GuestCounts":
+				{
+					"GuestCount":
+					{
+						"AgeQualifyingCode":"10",
+						"Count":"1"
+					}
+				},
+				"BasicPropertyInfo":
+				{
+					"ChainCode":"YX",
+					"HotelCityCode":"SFO",
+					"HotelCode":"31503",
+					"HotelName":"Villa Florence Union Square",
+					"PropertyLocationDesc":"San Francisco: Union Square and Nob Hill",
+					"Services":
+					{
+						"Service":[
+							{"CodeDetail":"MEETING_ROOM"},
+							{"CodeDetail":"NON_SMOKING"},
+							{"CodeDetail":"DINING"},
+							{"CodeDetail":"FITNESS_FACILITY"},
+							{"CodeDetail":"WHEEL_CHAIR_ACCESS"},
+							{"CodeDetail":"HIGH_SPEED_INTERNET"},
+							{"CodeDetail":"INTERIOR_CORRIDORS"},
+							{"CodeDetail":"ECO_FRIENDLY"}
+							]
+					},
+					"Address":
+					{
+						"AddressLine":"225 POWELL STREET",
+						"CityName":"San Francisco",
+						"PostalCode":"94102",
+						"StateProv":
+						{
+							"StateCode":"CA"
+						},
+						"CountryName":
+						{
+							"Code":"US"
+						}
+					},
+					"Award":
+					{
+						"Provider":"TVLY",
+						"Rating":"3"
+					}
+				}
+			}
+		}
+	}
+}

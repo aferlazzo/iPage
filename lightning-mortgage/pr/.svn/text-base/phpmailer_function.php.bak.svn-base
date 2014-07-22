@@ -1,0 +1,77 @@
+<?php
+
+function phpmailerxxx($ToEmail, $ToName, $Subject, $TextBody, $HTMLBody, $Attachment, $HTML, $arid)
+{
+	GLOBAL $Installation_Path, $SMTPmailServer, $Display_Name, $EmailAddressFrom, $FromEmailPassword, $Wrap_On, $Length_Of_Wrap;
+
+	if(!ini_set("include_path", "$Installation_Path/phpmailer")) // was 'http://www.lightning-mortgage.com/PerfectResponse/phpmailer'
+		die("phpmailer (".__LINE__.") Could not set include path");
+	else
+	{
+		if ($debugIt == 2)
+		{
+			logMessage("phpmailer (".__LINE__.") set on include_path was successfully set to 'phpmailer'");
+
+			logMessage("\$ToEmail:$ToEmail<br>\$ToName:$ToName<br>\$Subject:$Subject<br>");
+			logMessage("\$TextBody:$TextBody<br>\$HTMLBody:$HTMLBody<br>\$Attachment:$Attachment<br>\$HTML:$HTML<br>");
+
+			logMessage("\$Installation_Path:$Installation_Path<br>\$SMTPmailServer:$SMTPmailServer<br>\$Display_Name:$Display_Name<br>");
+			logMessage("\$EmailAddressFrom:$EmailAddressFrom<br>\$FromEmailPassword:$FromEmailPassword<br>");
+			logMessage("\$Wrap_On:$Wrap_On<br>\$Length_Of_Wrap:$Length_Of_Wrap<br>");
+		}
+	}
+
+	require("phpmailer/class.phpmailer.php");
+
+	$mail = new PHPMailer();
+
+	$mail->IsSMTP();							// send via SMTP
+	$mail->Host			= $SMTPmailServer; 	// SMTP server
+	$mail->SMTPAuth	= true;				// turn on SMTP authentication
+	$mail->Username	= $EmailAddressFrom;	// SMTP username
+	$mail->Password	= $FromEmailPassword; // SMTP password
+	$mail->From     		= "$EmailAddressFrom";
+	$mail->FromName	= "$Display_Name";
+	$mail->AddAddress($ToEmail,"$ToName"); // 'To:' address
+
+	//$mail->AddAddress("badaddress88888888888888888888@yahoo.com");     // optional name, test of bad address
+	//$mail->AddAddress("tferlazzo@comcast.net");     // optional name, test of bad address
+	//$mail->AddReplyTo("info@site.com","Information");
+
+	if ($Wrap_On == 1)
+		$mail->WordWrap = $Length_Of_Wrap;          // set word wrap
+	
+	if ($Attachment != "")
+		$mail->AddAttachment("$Attachment");      // attachment
+	
+	//$mail->AddAttachment("/tmp/image.jpg", "new.jpg"); 
+
+	if ($HTML == 1)
+	{
+		$mail->IsHTML(true);                               // send as HTML
+		$mail->Body     =  "$HTMLBody";
+		$mail->AltBody  =  "$TextBody";		
+	}
+	else
+	{
+		$mail->IsHTML(false);
+		$mail->Body     =  "$TextBody";		
+	}
+	
+	$mail->Subject  =  "$Subject";
+
+	if(!$mail->Send())
+	{
+	   echo "Message was not sent <p>";
+	   echo "Mailer Error: " . $mail->ErrorInfo;
+	   
+		if ($debugIt > 0)
+			logMessage("phpmailer (".__LINE__.") Error: " . $mail->ErrorInfo);
+			
+	   exit;
+	}
+
+	if ($debugIt > 0)
+		logMessage("Message has been sent");
+}
+?>

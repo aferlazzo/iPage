@@ -1,0 +1,417 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+Include("conn.php");
+$WithinScript = "I know the arid";
+include("settings.php");
+
+	$arid	= $_POST[arid];
+	$mid	= $_POST[mid];
+	$curseq	= $_POST[curseq];
+	$cmd	= $_POST[cmd];
+	$Aname	= $_POST[Aname];
+
+	
+//print("editmsg (".__LINE__.") arid: $arid curseq: $curseq cmd: $cmd");
+
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Perfect Response Edit Message</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="../css/niftyCorners.css">
+<script type="text/javascript" src="../js/nifty.js"></script>
+<script type="text/javascript" src="../fckeditor/fckeditor.js"></script>
+<script type="text/javascript">
+<!--//
+function ListStatus(id)
+{
+	
+	var msg = "nodeName: "+currentElement.nodeName+"\n";
+
+	msg += "nodeType: "+currentElement.nodeType+"\n";
+	msg += "nodeValue: "+currentElement.nodeValue+"\n";
+	alert (msg);
+}
+
+function LLogout()
+{
+	if (confirm('Do you really want to logout?'))
+	{
+		top.location.href='logout.php';  //bust out of frames
+		return (false);
+	}
+	
+	return(true);
+}
+function Show()
+{
+//alert(document.getElementById('navBeta').style.display);
+if (document.getElementById('navBeta').style.display == '')
+{
+document.getElementById('navBeta').style.display='block';
+document.getElementById('submit').value='Click to hide hints!';
+document.getElementById('submit').style.borderWidth='2px';
+document.getElementById('submit').style.borderStyle='solid';
+document.getElementById('submit').style.borderColor='#ffffff';
+document.getElementById('submit').style.backgroundColor='#939';
+//document.getElementById('submit').focus();
+}
+else
+{
+document.getElementById('navBeta').style.display='';
+document.getElementById('submit').value='Click for helpful hints!';
+document.getElementById('submit').style.borderWidth='2px';
+document.getElementById('submit').style.borderStyle='solid';
+document.getElementById('submit').style.borderColor='#ffffff';
+document.getElementById('submit').style.backgroundColor='#004a8d';
+//document.getElementById('submit').focus();
+}
+}
+
+
+function deletemsg(arid,id,seq,subject)
+{
+	if(confirm("Are you sure you want to delete message number "+seq+"\nSubject: "+subject+"\n\nfrom email campaign:\n<?php echo $CampaignDescription ?>?"))
+		location.href="deletemsg.php?arid="+arid+"&mid="+id+"&curseq="+seq;
+	else
+		location.href="manmsg.php?arid="+arid;
+}
+
+function Trim(strInput) 
+{
+	if(strInput.length == 0) 
+	{
+		return "";
+	} 
+	else 
+	{
+		strTemp = strInput.substring(strInput.length - 1)
+	}
+
+	while (strTemp == " ") 
+	{
+		strInput = strInput.substring(0, strInput.length - 1)
+
+		if (strInput.length == 0) 
+		{
+			strTemp = "";
+		} 
+		else 
+		{
+			strTemp = strInput.substring(strInput.length - 1)
+		}
+	}
+
+	if (strInput.length == 0) 
+	{
+		strTemp = "";
+	} 
+	else 
+	{
+		strTemp = strInput.substring(0, 1)
+	}
+
+	while (strTemp == " ") 
+	{
+		strInput = strInput.substring(1)
+
+		if (strInput.length == 0) 
+		{
+			strTemp = "";
+		} 
+		else 
+		{
+			strTemp = strInput.substring(0, 1)
+		}
+	}
+
+	return strInput;
+
+}//close Trim Function
+
+function Validate()
+{
+	var objName = document.EditMsg;
+	var xxx;
+
+	if(Trim(objName.subject.value) == "")
+	{
+		alert("Please enter the message's subject")
+		objName.subject.focus();
+		return false;
+	}
+
+	if(Trim(objName.PerfectResponseMessage.value) == "")
+	{
+		alert("Please enter some text in the message body");
+		objName.PerfectResponseMessage.focus();
+		return false;
+	}
+
+	return true;
+}
+
+
+//-------------------------------
+//
+//To do rounded corners on the <div id=' contents':
+//
+//(link rel="stylesheet" type="text/css" href="../css/niftyCorners.css")
+//(script type="text/javascript" src="../js/nifty.js"></script)
+//
+//The function NiftyCheck performs a check for DOM support. If the test has passed,
+//the Rounded function is called, that is now the only one function that you should 
+//call to get nifty corners. It accepts five parameters, that are in order:
+//
+//   1. A CSS selector that indicates on wich elements apply the function
+//   2. A string that indicates which corners to round: all, top, bottom, etc.
+//   3. Outer color of the rounded corners
+//   4. Inner color of the rounded corners
+//   5. An optional fifth parameter, that will contain the options for Nifty Corners
+//
+//-------------------------------
+function GetNifty(){
+if(!NiftyCheck())
+    return;
+Rounded("div.Wrapper","all","#FFE4C4","#48D1CC","border #000080");
+}
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 	//
+//																//
+//	This routine is used with FCKeditor to swap the textarea 	//
+//																//
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 	//
+
+window.onload = function()
+{
+var sBasePath = '/fckeditor/';
+
+var oFCKeditor = new FCKeditor( 'PerfectResponseMessage' ) ;  
+oFCKeditor.BasePath	= sBasePath ;
+oFCKeditor.Height	= '400';
+oFCKeditor.Width	= '100%' ;
+//$output = $oFCKeditor->CreateHtml() ;
+oFCKeditor.Value	= '<p>Edit your message here.</p>';
+oFCKeditor.ReplaceTextarea() ;
+//---------------------------
+GetNifty();
+window.document.EditMsg.subject.focus();
+}
+
+//-->
+</script>
+<?php
+
+$result = mysql_query("SELECT * FROM autoresponders where arid=$arid", $link); 
+mysql_data_seek($result, 0);
+$row = mysql_fetch_object($result);	
+$CampaignDescription = $row->ardescription;
+
+$result = mysql_query("SELECT * FROM messages where mid=$mid and arid=$arid", $link); 
+mysql_data_seek($result, 0);
+$row = mysql_fetch_object($result);	
+
+//print("editmsg (".__LINE__.") arid: $arid curseq: $curseq cmd: $cmd");
+
+switch ($cmd)
+{
+	case '1':	//	Edit
+		break;
+	case '2': 	//	Delete
+		//print ("|$Aname|$CampaignDescription|<br>\n");
+		$Subject = eregi_replace("'","\\'",$row->subject);
+		$Subject = eregi_replace('"','\\"',$Subject);
+		print ("<script language='Javascript'>deletemsg($arid,$mid,$curseq,'$Subject');</script>");		
+		break;
+	case '3':	//	Move Up
+	case '4': 	//	Move Down
+		print ("<form name='MoveMsg' action='movemsg.php' method='post'>");
+		print ("<input type='hidden' name=arid value='$arid'>");
+		print ("<input type='hidden' name=curseq value='$curseq'>");
+		print ("<input type='hidden' name=dir value='$cmd'>");
+		print ("<script language='Javascript'>document.MoveMsg.submit();</script>");
+		print ("</form>");
+		break;
+}
+
+if ($cmd != 1)
+	exit;
+?>
+</HEAD>
+<body>
+<div class="Wrapper"><div class="content" style='height:700px;'>
+<span class="BoxHeading">
+<input type="button" id="submit" name="submit" value="Click for helpful hints!" class="Button" onclick="Show();" onmouseover="document.getElementById('submit').style.fontWeight='bold';" onmouseout="document.getElementById('submit').style.fontWeight='normal';">
+</span>
+<div id="navBeta">
+	<h4>Edit Msg Help</h4>
+	<p>You can personalize both the subject and/or message 
+	bodys by using<br />%FullName% and %EmailAddress% (note case sensitivity).</p>
+	<p>Use %Confirmation% to display the 2-step confirmation string.</p>
+	<p>Example: Hello, %FullName%! How are you? Confirm subscription by clicking on %Confirmation%</p>
+
+	<p>You can also define up to 4 custom personalization
+	fields:<br>%UserDefined1%,<br>%UserDefined2%,<br>%UserDefined3%,
+	and<br>%UserDefined4%.</p>
+	
+	<p>An example of using these fields is if you wanted to request your prospect's address. You
+	could store it in field %UserDefined1%.</p> 
+
+	<p>In the message body: Your home at %UserDefined1% must be big.</p>
+
+	<p align="justified"><i>Perfect Response</i>™ has a built-in character autowrap feature! 
+	Now all messages you send will properly formatted and visible 
+	to every Internet user -- no matter what email program they're 
+	using. Even AOL™ and Netscape Mail™ users will get perfectly 
+	formatted messages every time!</p>
+
+	<p align="justified">It's recommended that your autowrap settings should 
+	be 60 characters by default. This mail campaign's settings page will also 
+	allow you to specify plain text or HTML mailings. If you're sending 
+	HTML messages, copy and paste the code from your HTML or email editor into the message box.</p>
+	
+	<p>If you want to add an image to your message, you must first upload it to the server. After
+	it is uploaded you may use the 'Insert Image' tool withing the message editor.</p>
+</div>
+<div class="title"> 
+<table>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+</div>
+<div>
+		<?php
+			print ("<h3>Edit <i>");
+			if ($curseq == -3)
+				print ("Subscription Confirmation Message");
+			elseif ($curseq == -2)
+				print ("Welcome Message");
+			elseif ($curseq == -1)
+				print ("Unsubscribe Acknowledgement Message");
+			elseif ($curseq == 0)
+				print ("<i>Campaign Messages Signature");
+			else
+				print ("Message $curseq");
+				
+			print(" for<br /><span id='Grow'>$CampaignDescription</span></i></h3>");
+			
+			print("<form name='EditMsg' target='Main' onSubmit='return(Validate());' enctype='multipart/form-data' method='post' action='editmsgaction.php'>");
+			print("<div style='text-align:left;'>");
+
+			print ("<input type='hidden' name='mid' value='$row->mid'>");
+			print ("<input type='hidden' name='arid' value='$arid'>");
+			print ("<input type='hidden' name='MAX_FILE_SIZE' value='300000'>");
+	
+			if ($curseq != 0)
+			{
+				print("<p><label for='subject'>Subject</label></p>");
+
+				$Subject=eregi_replace('"',"&quot",$row->subject);
+				print("<input type='text' name='subject' id='subject' size='60' value=\"$Subject\" ");
+				print("onfocus=\"this.style.border='2px solid #000080'\"  onblur=\"this.style.border='2px solid gray'\">");
+			}
+	
+			//die("died (".__LINE__.") for debugging |$row->body|");
+
+			print("</div><div style='text-align:left;height:430px;padding:0;margin:0;'>\n"); 
+			print("<p><label for='PerfectResponseMessage'>Body</label></p>");
+			print("<textarea name='PerfectResponseMessage' id='PerfectResponseMessage' cols='70' rows='15' style='width:550px;height:400px;'\n");
+			print("onfocus=\"this.style.border='2px solid #000080'\"  onblur=\"this.style.border='2px solid gray'\">");
+			
+			echo $row->body;
+			
+			print("</textarea>");
+			print("</div><div style='text-align:left;'>\n");
+			
+			if ($curseq > 0)
+			{	
+				print("<p>Existing Attachment:&nbsp;");
+
+				if(is_dir("attachments/$arid/$mid"))
+				{
+					$d = dir("attachments/$arid/$mid");
+					$icount = 1;
+					$entry="";
+
+					while (false !== ($entry = $d->read())) 
+					{
+						if (!(($entry == ".") || ($entry == "..")))
+						{
+							echo "".$entry." <a href='RemoveAttachment.php?arid=$arid&mid=$mid&attname=$entry'><b>Remove</b></a>";
+							$icount++;
+							$found=1;
+							break;
+						}
+					}
+
+					$d->close();	
+				}
+
+				if($found!=1)
+				{
+					echo "None";
+				}
+			?>
+			</p>
+		<p style='margin:10px 0;'><label for="ufile">New Attachment</label></p>
+		<?php
+			print ("<p><input type='file' name='ufile' id='ufile' size='60' value='$entry'	onfocus=\"this.style.border='2px solid #000080'\"  onblur=\"this.style.border='2px solid gray'\"></p>\n");
+		?>
+		<p style='margin:10px 0;'><label for="uimage">Upload an Image For Inserting Into A Message</label></p>
+		<p><input type='file' name='uimage' id='ufile' size='60' value=''	onfocus=\"this.style.border='2px solid #000080'\"  onblur=\"this.style.border='2px solid gray'\"></p>
+		<p style='margin:10px 0;'>Uploaded to 'http://www.lightning-mortgage.com/pr/images/'.</p>  
+
+			<p style='margin:10px 0;'><label for="delay">Send this message</label>&nbsp;
+				<select name="delay" id="delay" size="1">
+			<?php 
+				for($num=1;$num<32;$num++)
+				{
+					print ("<option value=$num");
+					
+					if ($row->delay==$num)
+						print (" selected");
+						
+					print (">$num </option>\n");
+				}
+			?>
+				</select>&nbsp;days after previous message</p>
+	
+	<?php
+		}	//end of 'if ($curseq > 0)'
+		else
+			print("<input type='hidden' name='delay' value=0>\n");
+	?>
+		<p style='margin:10px 0;text-align:center;'> 
+			<input class='submit' type="submit" name='OtherT' value="Save" onClick="this.value='Saving'"
+ 			onMouseover="this.className='MouseOver'" onMouseout="this.className='submit'">&nbsp;
+			<input class='cancel' type='button' name='OtherT' value='Cancel' onClick='window.location.href="manmsg.php?arid=<?php echo $arid ?>&cmd=1"' 
+ 			onMouseover="this.className='MouseOver'" onMouseout="this.className='cancel'">
+			<input class='submit' type='button' name='OtherT' value='List Uploaded' style='width:110px;' onClick='top.frames["Monitor"].location.href="ViewImages.php"' 
+ 			onMouseover="this.className='MouseOver'" onMouseout="this.className='submit'">
+		</p>
+</div>
+</form>
+<?php
+	JumpToCampaign($link, $arid); 
+	ReferenceLinks($arid);
+	print("</div>\n"); 
+?>
+</div> <!-- end of Wrapper -->
+</BODY>
+</HTML>

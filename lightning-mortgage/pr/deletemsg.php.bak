@@ -1,0 +1,79 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+Include("conn.php");
+
+$arid=$HTTP_GET_VARS["arid"];
+$curseq=$HTTP_GET_VARS["curseq"];
+$midToDelete=$HTTP_GET_VARS["mid"];
+
+// first list the messages in the campaign. Then delete the message. Then reorder the messages so there are no gaps
+
+$ListQuery = "select * from messages where arid=$arid order by seqno";
+$ResultMsgs = mysql_query($ListQuery) or die("deletemsg (".__LINE__.") error: $msgSQL");	
+$NumberOfExistingMessages = mysql_num_rows($ResultMsgs);
+$DeletedSquenceNumber = $NumberOfExistingMessages + 99; //this keeps msgs from being deleted until the one we want is found
+	
+//print("<p>deletemsg (".__LINE__.") There are $NumberOfExistingMessages Messages in campaign:</p>");
+for ($mcount = 0; $mcount < $NumberOfExistingMessages; $mcount++)
+{
+	mysql_data_seek($ResultMsgs, $mcount);
+	$row	 = mysql_fetch_object($ResultMsgs);
+	$subject = addslashes($row->subject);
+	$mid	 = $row->mid;
+	$seqno	 = $row->seqno;
+	//print("Squence: $seqno mid: $mid Subject: $subject<br />");
+	
+	if($midToDelete == $mid)
+	{
+		$DeletedSquenceNumber = $seqno;
+		// Now delete the msg
+		$DeleteQuery = "delete FROM messages where mid=$midToDelete and arid=$arid limit 1";
+		//print("<p>deletemsg (".__LINE__.") Deleting message using query '$DeleteQuery'</p>"); 
+		$result = mysql_query($DeleteQuery, $link);	
+		if ($result == false)
+			die("<p>deletemsg (".__LINE__.") Error on deleting message ($DelectQuery):<br />".mysql_error($link));
+	}
+	else
+	{	
+		// Then reorder the messages coming after the one you deleted so there are no gaps
+		if ($seqno >= $DeletedSquenceNumber)
+		{	
+			//print("<p>deletemsg (".__LINE__.") message: $mid seqno: $seqno is after DeletedSquenceNumber, so update the seqno</p>"); 
+			$seqno--;
+			$UpdateSQL = "update messages set seqno=$seqno where mid=$mid limit 1";
+			$UpdateResult = mysql_query($UpdateSQL, $link);
+			if($UpdateResult == false)
+				die("<p>deletemsg (".__LINE__.") Error on ($UpdateSQL):<br />".mysql_error($link));
+		}
+	}
+}
+
+//now check messages
+$ListQuery = "select * from messages where arid=$arid order by seqno";
+$ResultMsgs = mysql_query($ListQuery) or die("deletemsg (".__LINE__.") error: $msgSQL");	
+$NumberOfExistingMessages = mysql_num_rows($ResultMsgs);
+
+//print("<p>deletemsg (".__LINE__.") $NumberOfExistingMessages Messages are *now* in campaign:</p>");
+for ($mcount = 0; $mcount < $NumberOfExistingMessages; $mcount++)
+{
+	mysql_data_seek($ResultMsgs, $mcount);
+	$row	 = mysql_fetch_object($ResultMsgs);
+	$subject = addslashes($row->subject);
+	$mid	 = $row->mid;
+	$seqno	 = $row->seqno;
+	//print("Squence: $seqno mid: $mid Subject: $subject<br />");
+}
+
+print("<script type='text/javascript'>");
+print("if(confirm ('Continue') == true)");
+print("  window.location.href='manmsg.php?arid=$arid';");
+print("</script>\n");
+?>

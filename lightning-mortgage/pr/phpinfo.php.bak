@@ -1,0 +1,7 @@
+<?php
+print('<pre>');
+//phpinfo();
+print_r($GLOBALS);
+print('</pre>');
+print("server: ".$GLOBALS[_SERVER][SERVER_NAME]);
+?>

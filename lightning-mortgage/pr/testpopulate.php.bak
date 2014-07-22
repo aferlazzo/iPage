@@ -1,0 +1,45 @@
+<?php
+$user = $_COOKIE["UName"];
+include("check1.php");
+include("conn.php");
+$arid=143;
+$WithinScript = "I know the arid";
+include("settings.php");
+function InsertTest()
+{
+	for ($q=1; $q < 500; $q++)
+	{	
+		$sql  = "INSERT INTO users (uid, arid, fname, lname, email, ip, method, confirmed, senddate, currentmsg, ";
+		$sql .= "confdel, UserDefined1, UserDefined2, UserDefined3, UserDefined4, LockKey, LockExpiryTime) "; 
+		$sql .= "VALUES (NULL, '143', 'test$q', NULL, 'tferlazzo@gmail.com', NULL, 'I', 'Y', '0', '1', 'N', "; 
+		$sql .= "NULL, NULL, NULL, NULL, '0', '0');";
+	
+		$Addresult = mysql_query($selectsql, $link) or die("can't insert");
+		if ($Addresult)
+			print("<p>Added test$q</p>\n");	
+		else
+			die("<p>Died Adding test$q</p>\n");
+	}
+}
+
+function ListTest()
+{
+	$selectsql  = "select * from users where email='tferlazzo@gmail.com' and arid=143 order by fname";
+	$result = mysql_query($selectsql);
+	$i=0;
+	print("<pre>");
+	printf("<p>%6s %6s %10s %40s</p>", 'number', 'UID', 'Name', 'Email'); 
+	while($row = mysql_fetch_array($result, MYSQL_ASSOC))
+	{
+		printf("<p>%06u %06u %10s %40s</p>", $row['uid'], $i++, $row['fname'], $row['email']); 
+	}
+	print("<pre>");
+
+	mysql_free_result($result);
+}
+
+ListTest();
+
+
+
+?>

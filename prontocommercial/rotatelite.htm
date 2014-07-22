@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>rotate with transform.lite.js demo</title>
+<link rel="stylesheet" type='text/css' href="./css/reset.css">
+<style>
+	body{
+		font-family: 'Times New Roman';
+		font-size: 16px;
+	}
+	form{margin-top:50px;height:30px;}
+
+	div#guides{position:absolute;z-index:-100;top:160px;left:0px;width:1000px;height:500px;}
+	div#workspace{position:fixed;height:500px;width:100%;}
+	div#lineWrapper{
+		position:relative;
+		top:80px;
+		left:0;
+		height:20px;
+		background:orange;
+	}
+		div#line{
+			position:absolute; /* needed for transformlite.js */
+			height:20px;
+			left:348px;
+			top:0;
+			width:441px;
+		}
+			div#middleLeft {height:20px;width:200px;float:left;white-space:nowrap;}
+			div#middleRight{height:20px;width:200px;float:left;border-left:1px solid #000;}
+			div#red, div#green{height:20px;width:20px;background-color:red;float:left;}
+			div#green{background-color:green;}
+
+	div#box{
+		margin:0;
+		position:absolute;
+		top:100px;
+		left: 300px;
+		height:300px;
+		width:300px;
+		background-color:blue;
+	}
+	input option{text-align:right;}
+</style>
+
+
+</head>
+<body>
+	<form>
+		Pivot <select onChange='doHinge(this.value)'>
+			<option selected='selected' value='direction'>direction</option>
+			<option value='down'>down</option>
+			<option value='up'>up</option>
+
+		</select>
+	</form>
+	<div id='guides'></div>
+	<div id='workspace'>
+		<div id='lineWrapper'>
+			<div id='line'>
+				<div id='red'></div>
+				<div id='middleLeft'>The line is xxx px wide. The 50% rotate origin should be at objHalfWidth</div>
+				<div id='middleRight'></div>
+				<div id='green'></div>
+			</div>
+		</div>
+		<div id='box'></div>
+	</div>
+<script src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+<script>
+google.load("jquery", "1");
+google.load("jqueryui", "1");
+</script>
+<script src='./js/jquery.transform.lite.js'></script>
+<script>
+	var objLeftWhenVertical, objLeftWhenHorizontal;
+	function doHinge(angle){
+		if (angle == 'down'){
+			var objWidth=parseInt($('#line').css('width'));
+			var objHalfWidth = objWidth / 2;
+			objLeftWhenVertical=parseInt($('#box').css('left')) - 12;	// the pivot point should be here
+			objLeftWhenHorizontal=objLeftWhenVertical - objHalfWidth; 	// the left point for #line when the pivot point is correct
+			$('#middleLeft').text('The line is '+objWidth+' px wide. The 50% rotate origin should be at '+ objHalfWidth);
+			$('#line').animate({'left':objLeftWhenHorizontal}, 2000, 'easeOutQuad', function(){	// move the horizontal line left
+				$('#line').delay(1000).animate({'transform': 'rotate(-90deg)', 'left': objLeftWhenHorizontal},  function(){	// change to vertical line
+					$('#line').animate({'top':200}, 500, 'easeOutBounce');
+				});
+			});
+		}
+
+		if (angle == 'up'){
+			$('#line').animate({'top':0}, 2000, 'easeOutQuad', function(){		// move the vertical line up
+				$('#line').delay(1000).animate({'transform': 'rotate(0deg)', 'left': objLeftWhenHorizontal},  function(){	// change to horizontal line
+					$('#line').delay(1000).animate({'left':248}, 500, 'easeOutBounce');
+				});
+			});
+		}
+	}
+	for (var x = 8; x < 410; x += 10){
+		$('#guides').append('<div style="position:absolute;z-index:-100;top:0;left:'+x+'px;width:500px;height:500px;border-left:1px solid gray;"></div>');
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<OUTPUT>
+	<RESPONSE>
+		<ORDER_DETAIL experian_credit_flag="T" report_id="606" status_code="NOTREADY"/>
+	</RESPONSE>
+</OUTPUT>

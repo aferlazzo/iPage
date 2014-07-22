@@ -1,0 +1,45 @@
+body {
+text-align:center;
+overflow:auto;
+}
+
+#relativeWrapper{
+position:relative;
+height:550px;
+width:900px;
+margin:0 auto;
+background-color:#0f0;
+}
+
+div#absoluteHead, div#word2, div#word3{
+position:absolute;
+top:0;
+left:200px;
+font-size:36px;
+text-align:left;
+height:40px;
+}
+div#absoluteHead{width:560px;}
+div#word2{left:77px;}
+div#word3{left:403px;}
+
+section#absoluteWrapper {
+position:absolute;
+height:450px;
+width:890px;
+text-align:center;
+overflow:visible;
+top:22px;
+left:6px;
+background-color:orange;
+}
+
+#featureContainer {
+clear:left;
+background-color:red;
+position:absolute;
+top:34px;
+left:67px;
+width:760px;
+height:350px;
+}

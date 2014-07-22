@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Sliding Tab Menu</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <style type="text/css" media="screen">
+    body {
+      background:#fff;
+      margin:0;
+      padding:0;
+      color:#000;
+      font:x-small/1.5em Georgia,Serif;
+      voice-family: "\"}\""; voice-family:inherit;
+      font-size:small;
+      } html>body {font-size:small;}
+    
+    #header {
+      float:left;
+      width:100%;
+      background: #004a8d;
+      font-size:93%;
+      line-height:normal;
+      }
+    #header ul {
+      margin:0;
+      padding: 10px 10px 0;
+      list-style:none;
+      }
+    #header li {
+      float:left;
+      background:url("../images/TabsAllLeft.gif") no-repeat left top;
+      margin:0;
+      padding:0 0 0 9px;
+	  border-bottom: 1px solid black;
+      }
+    #header a {
+	  float:left;
+      display:block;
+	  width: 0.1em;
+      background:url("../images/TabsAllRight.gif") no-repeat right top;
+      padding:5px 15px 4px 6px;
+	  text-decoration: none;
+      font-weight:bold;
+     }
+	#header > ul a {width:auto;}
+    /* Commented Backslash Hack hides rule from IE5-Mac \*/
+    #header a {float:none;}
+    /* End IE5-Mac hack */
+    #header a:hover {
+      color:#333;
+      }
+	#IndexTab #IndexTab-nav,			#LoanAppTab #LoanAppTab-nav,
+	#AnswersTab #AnswersTab-nav,		#CreditScoresTab #CreditScoresTab-nav,
+	#LoanTypesTab #LoanTypesTab-nav,	#InterestRatesTab #InterestRatesTab-nav {
+      background-position:0 -150px;	/* stacked tab colors */
+      border-width:0;
+	  }
+	#IndexTab #IndexTab-nav a,			#LoanAppTab #LoanAppTab-nav a,
+	#AnswersTab #AnswersTab-nav a, 		#CreditScoresTab #CreditScoresTab-nav a,
+	#LoanTypesTab #LoanTypesTab-nav a,	#InterestRatesTab #InterestRatesTab-nav a {
+      background-position:100% -150px;	/* stacked tab colors */
+      padding-bottom:5px;
+      }	 
+    #header li:hover, #header li:hover a {
+      background-position:0% -150px;
+      color:#333;
+      }
+    #header li:hover a {
+      background-position:100% -150px;
+      }
+  </style>
+</head>
+
+<body id="CreditScoresTab">
+
+<div id="header">
+  <ul>
+    <li id="IndexTab-nav"><a href="#">Home</a></li>
+    <li id="LoanAppTab-nav"><a href="#">Apply Now</a></li>
+    <li id="AnswersTab-nav"><a href="#">Answers</a></li>
+    <li id="CreditScoresTab-nav"><a href="#">Credit Scores</a></li>
+    <li id="LoanTypesTab-nav"><a href="#">Loan Types</a></li>
+    <li id="InterestRatesTab-nav"><a href="#">Interest Rates</a></li>
+  </ul>
+</div>
+
+<p style="margin:0; padding:1em; clear:both;">We change the images so that they now have transparent corners. Instead of allowing the two images to slide over each other, we add left padding to the list item, equivalent to the width of the left-side image. The visible edges of the two background images now butt up against each other.</p>
+
+</body>
+</html>

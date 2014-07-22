@@ -1,0 +1,53 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+Include("conn.php");
+$arid=$_POST["arid"];
+$Direction=$_POST["dir"];
+$CurrentSequence=$_POST["curseq"];
+$PreviousSequence = $CurrentSequence - 1;
+$NextSequence = $CurrentSequence + 1;
+	if($Direction==3) //up: put previous msg in placeholder seqno -99
+	{
+		$sql="Update messages set seqno=-99 where seqno=$PreviousSequence and arid=$arid";
+		$result = mysql_query($sql, $link); 
+		if ($result == false)
+			die("<p>movemsg (".__LINE__.") Error on ($sql):<br />".mysql_error($link));
+		
+		$sql="Update messages set seqno=$PreviousSequence where seqno=$CurrentSequence and arid=$arid";
+		$result = mysql_query($sql, $link); 
+		if ($result == false)
+			die("<p>movemsg (".__LINE__.") Error on ($sql):<br />".mysql_error($link));
+		
+		$sql="Update messages set seqno=$CurrentSequence where seqno=-99 and arid=$arid";
+		$result = mysql_query($sql, $link); 
+		if ($result == false)
+			die("<p>movemsg (".__LINE__.") Error on ($sql):<br />".mysql_error($link));
+	}
+	
+	if($Direction==4) // down
+	{
+		$sql="Update messages set seqno=-99 where seqno=$NextSequence and arid=$arid";
+		$result = mysql_query($sql, $link); 
+		if ($result == false)
+			die("<p>movemsg (".__LINE__.") Error on ($sql):<br />".mysql_error($link));
+
+		$sql="Update messages set seqno=$NextSequence where seqno=$CurrentSequence and arid=$arid";
+		$result = mysql_query($sql, $link); 
+		if ($result == false)
+			die("<p>movemsg (".__LINE__.") Error on ($sql):<br />".mysql_error($link));
+
+		$sql="Update messages set seqno=$CurrentSequence where seqno=-99 and arid=$arid";
+		$result = mysql_query($sql, $link); 
+		if ($result == false)
+			die("<p>movemsg (".__LINE__.") Error on ($sql):<br />".mysql_error($link));
+	}
+header("Location: manmsg.php?arid=$arid");
+?>

@@ -1,0 +1,24 @@
+open  www.prontocommercial.com
+prontoc2
+1commguru
+cd public_html/lightning-mortgage.com/js
+ascii
+send js\Common.js Common.js
+cd ../css
+send css\AdministrativeStyles.css AdministrativeStyles.css
+send css\AnswersStyles.css AnswersStyles.css
+send css\CreditScoresStyles.css CreditScoresStyles.css
+send css\IndexStyles.css IndexStyles.css
+send css\InterestRatesStyles.css InterestRatesStyles.css
+send css\LoanTypesStyles.css LoanTypesStyles.css
+send css\MortgageApplicationStyles.css MortgageApplicationStyles.css
+send css\AdministrativeStyles.min.css AdministrativeStyles.min.css
+send css\AnswersStyles.min.css AnswersStyles.min.css
+send css\CreditScoresStyles.min.css CreditScoresStyles.min.css
+send css\IndexStyles.min.css IndexStyles.min.css
+send css\InterestRatesStyles.min.css InterestRatesStyles.min.css
+send css\LoanTypesStyles.min.css LoanTypesStyles.min.css
+send css\MortgageApplicationStyles.min.css MortgageApplicationStyles.min.css
+
+close
+quit

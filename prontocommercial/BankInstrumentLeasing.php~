@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta name="generator" content="HTML Tidy for Windows (vers 14 February 2006), see www.w3.org" />
+	<title>
+		Bank Instrument Leasing
+	</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+	<meta name="copyright" content="Copyright 2007, Anthony Ferlazzo, Pronto Commercial Funding" />
+	<meta name="rating" content="General" />
+	<meta name="robots" content="Index, ALL, follow" />
+	<meta name="Description" content="SBLC, SBLC leasing, BG, BG leasing, bank guarantee lease, Stand by Letter of Credit lease, BG, SBLC" />
+	<meta name="Keywords" content="SBLC, SBLC leasing, BG, BG leasing, bank guarantee lease, Stand by Letter of Credit lease, BG, SBLC" />
+	<meta name="OWNER" content="Pronto Commercial Funding" />
+	<link rel="SHORTCUT ICON" href="http://www.prontocommercial.com/favicon.ico" /><?php include("include/Head.php"); ?>
+</head>
+<body>
+<?php include("include/top.php"); ?>
+<h1>Bank Instrument Leasing</h1>
+<div class='featurette nonFeedback'>
+	<div class='panel nonFeedback'>
+		<h3 title='Limited Time Special Offers' style=''></h3>
+		<div class='panelContent nonFeedback'>
+				<p>Lease a Stand-by Letter of Credit(SBLC) for 1 year and a day from a A-rated or better bank.
+				 Your bank receives a MT-760.</p>
+				<p style='text-align:center;font-size:30px;'>8.5%</p>
+
+				<h2><span class='Highlight'>For a instruments from 10 Million USD or greater<span class='Highlight'> ONLY</span></h2>
+				<ul><li>Pricing good until <u>December 8, 2010</u></li></ul>
+
+				<p>
+				See our <a href='./BankInstrumentFinancing.php'>Lease/loan special</a> for information about
+				obtaining a loan on the instrument you lease from us.
+				</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Your Changing Needs'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>
+				In today's financial environment it is difficult to obtain financing no matter what your credit history.
+				The <span class='Highlight'>ONLY</span> way that makes sense during these tough financial times is to
+				use cash-backed bank instruments like a Standby Letter of Credit (SBLC), Bank Guarantee (BG), or
+				Certificates of Deposit (CDs) as collateral.
+			</p>
+			<p>
+				We also can <span class='Highlight'>optionally</span> monetize or provide <a href='./BankInstrumentFinancing.php'>loans</a> against
+				these type of instruments. Some of these loans are non-recourse, and require no collateral other than the
+				instrument itself. For those who want to own them, we also offer SBLCs, BGs, and fresh-cut MTNs for
+				purchase.
+			</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Why Lease Instruments?'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>
+				When you obtain a bank instrument at a discounted percentage, below the actual face value, it is called a
+				Leased Instrument. Rather than reselling the Leased Instrument for a yield-spread profit, the instrument is
+				leased by the investor, at a rate of well below the face value. This is repeated continuously and within a
+				short period, the original cost is recovered and profits are realized from the Instrument.
+			</p>
+			<p>
+				Leased Instruments are utilized for various reasons like Credit Enhancement, Trade Programs, and
+				Collateralization for a Loan or to have the Instrument Monetized to Cash for a myriad of projects. It is
+				good that you found us because we lease instruments at a competitive price and can provide, deliver and
+				offer programs that are of value for your projects.
+			</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Leasing Procedures'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>Our standard, and <em>preferred</em> method of transacting business is to use a third-party
+			escrow escrow using a license and bonded attorney for both yours and our protection.
+			<span class='Highlight'>We will now lease using escrow (preferred) or MT103/23 procedures.</span> However, even if we do a MT103/23 we will still require $100,000 to be put into escrow to cover sending a MT-760.</p>
+			<ol>
+				<li><span class='normal'>
+					Complete a <a href='./CISform.doc'>Client Information Sheet</a>
+					and submit it along with the listed documents.</span></li>
+				<li><span class='normal'>A service agreement outlining the contractual term is issued.</span></li>
+				<li><span class='normal'>Sign and return the service and escrow agreement.</span></li>
+				<li><span class='normal'>Wire escrow lease fees to the third-party escrow company.</span></li>
+				<li><span class='normal'>The instrument is sent by SWIFT to your nominated bank.</span></li>
+				<li><span class='normal'>Once instrument is received and verified by your bank, instruct escrow agent to release the fees from escrow.</span></li>
+			</ol>
+		</div>
+	</div>
+</div>
+<?php include("./include/bottom.php"); ?>
+	<script type='text/javascript'>
+//<![CDATA[
+		var biGuide =
+		"<p class='eyeText'>1. Right-click our <a href='./CISform.doc'>Client Information Sheet<\/a> " +
+		"and save it on your computer<\/p>" +
+		"<p class='eyeText'>2. Complete and return it along with a color copy of passport, a bank statement " +
+		"showing capacity to pay the lease " +
+		"fees, and a corporate resolution if applicable.<\/p>" +
+		"<p class='eyeText'>3. We then issue a service agreement outlining the contractual term for both parties.<\/p>" +
+		"<p class='eyeText'>4. You sign and return the service agreement and escrow sgreements.<\/p>" +
+		"<p class='eyeText'>5. You wire escrow lease fees to the third-party escrow company.<\/p>" +
+		"<p class='eyeText'>6. Instrument is then sent by SWIFT to your nominated bank.<\/p>" +
+		"<p class='eyeText'>7. Once instrument is received and verified by your bank, you instruct escrow agent " +
+		"to release the fees. For your protection no fees are released until the instrument is verified.<\/p>" +
+		"<p class='eyeText'>Total process can take approximately 5 - 10 business days once escrow is funded.<\/p>";
+		var maxSize = 520;
+		var biTop = "Our Step-By-Step Leasing Process";
+
+	$(document).ready(function(){
+		$('#windowContent').html(biGuide).addClass('Resizable').addClass('rounded');
+		$('#windowTopContent').html(biTop);
+
+		$('.pageCatcher')
+				.css('display', 'block')
+				//.css('height', maxSize+'px')
+				.addClass('rounded-corners')
+				.addClass('Shadow')
+				.resizable({ alsoResize: '.Resizable', maxHeight: maxSize, minHeight: 30, minWidth: 250})
+				.draggable()
+				.fadeTo("fast", 0.85)
+				.animate({top: '5px', left: '65%'}, 500, 'linear');
+	});
+//]]>
+</script>
+</body>
+</html>

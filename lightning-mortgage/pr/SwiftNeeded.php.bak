@@ -1,0 +1,215 @@
+<?php
+
+include('SwiftTestAction.php');
+
+
+// Swift Mailer is located within the 'pr' directory
+//print($_SERVER['SERVER_NAME']);
+ //print("URI: ".$_SERVER['REQUEST_URI']." URL: ".$_SERVER['REQUEST_URL']);
+if(define("DEFAULT_LIBRARY_PATH", "/home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-3.3.1-php4/lib") == false)
+ 	die("DEFAULT_LIBRARY_PATH define failed");
+
+$sName = $GLOBALS[_SERVER][SERVER_NAME];
+/*
+if ($sName == "www.lightning-mortgage.com")
+{
+ if(define("DEFAULT_LIBRARY_PATH", "/home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-3.3.1-php4/lib") == false)
+ 	die("DEFAULT_LIBRARY_PATH define failed");
+}
+else
+if ($sName == "www.prontocommercial.com")
+{
+	if (define("DEFAULT_LIBRARY_PATH", "/home/prontoc2/public_html/pr/Swift-3.3.1-php4/lib") == false)
+	 	die("DEFAULT_LIBRARY_PATH define failed");
+}
+else
+	die("SwiftNeeded (".__LINE__.") No match for Server Name: |$sName|");
+*/
+
+    /**
+     * Changes every end of line from CR or LF to CRLF.  
+     * return string
+     */
+if (!function_exists(FixEOL))
+{    function FixEOL($str) 
+	{
+		$LE = "\n";
+
+        $str = str_replace("\r\n", "\n", $str);
+        $str = str_replace("\r", "\n", $str);
+        $str = str_replace("\n", $LE, $str);
+        return $str;
+    }
+}
+
+
+if (!function_exists(WrapText))
+{
+	/**
+     * Wraps message for use with mailers that do not
+     * automatically perform wrapping and for quoted-printable.
+     * return string
+     */
+    function WrapText($TextMessage, $MaxLineLength, $qp_mode = false) 
+	{
+		$LE = "\n";
+        $soft_break = ($qp_mode) ? sprintf(" =%s", $LE) : $LE;
+
+        $TextMessage = FixEOL($TextMessage);
+        if (substr($TextMessage, -1) == $LE)
+            $TextMessage = substr($TextMessage, 0, -1);
+
+        $Line = explode($LE, $TextMessage); //separate file by new line characters
+        $TextMessage = "";
+        for ($i=0 ;$i < count($Line); $i++)  //for each line
+        {
+          $LineArray = explode(" ", $Line[$i]); //separate into words
+          $LineBuffer = "";
+          for ($e = 0; $e<count($LineArray); $e++)  //for each word
+          {
+              $Word = $LineArray[$e];  
+              if ($qp_mode and (strlen($Word) > $MaxLineLength))
+              {
+                $space_left = $MaxLineLength - strlen($LineBuffer) - 1;
+                if ($e != 0)  //if not on 1st line
+                {
+                    if ($space_left > 20)
+                    {
+                        $len = $space_left;
+                        if (substr($Word, $len - 1, 1) == "=")
+                          $len--;
+                        elseif (substr($Word, $len - 2, 1) == "=")
+                          $len -= 2;
+                        $part = substr($Word, 0, $len);
+                        $Word = substr($Word, $len);
+                        $LineBuffer .= " " . $part;
+                        $TextMessage .= $LineBuffer . sprintf("=%s", $LE);
+                    }
+                    else
+                    {
+                        $TextMessage .= $LineBuffer . $soft_break;
+                    }
+                    $LineBuffer = "";
+                }
+				
+                while (strlen($Word) > 0)
+                {
+                    $len = $MaxLineLength;
+                    if (substr($Word, $len - 1, 1) == "=")
+                        $len--;
+                    elseif (substr($Word, $len - 2, 1) == "=")
+                        $len -= 2;
+                    $part = substr($Word, 0, $len);
+                    $Word = substr($Word, $len);
+
+                    if (strlen($Word) > 0)
+                        $TextMessage .= $part . sprintf("=%s", $LE);
+                    else
+                        $LineBuffer = $part;
+                }
+              }
+              else
+              {
+                $buf_o = $LineBuffer;
+                $LineBuffer .= ($e == 0) ? $Word : (" " . $Word); 
+
+                if (strlen($LineBuffer) > $MaxLineLength and $buf_o != "")
+                {
+                    $TextMessage .= $buf_o . $soft_break;
+                    $LineBuffer = $Word;
+                }
+              }
+          }
+          $TextMessage .= $LineBuffer . $LE;
+        }
+
+        return $TextMessage;
+    }
+}
+if (!function_exists(WrapTest))
+{
+function WrapTest()
+{
+	$MessageText  = "A few weeks ago we sent our Glazer-Kennedy Insider's Circle? Members a letter giving them ONE OF THE MOST GENEROUS AND EXCITING FREE OFFERS that we've ever extended, including a FREE Sales Strategies Seminar, this September.\n";
+	$MessageText .= "The event was sold out BUT ...\n";
+	$MessageText .= "The Good News is that we've had some cancellations!  Boy are those poor souls going to miss out.\n";
+	$MessageText .= "The Bad News is that we've only got 5 seats available.\n";
+	$MessageText .= "This is your ONLY CHANCE and you'll need to hurry to secure your seat.  To find out all the details click onto the link below:\n";
+	$MessageText .= "http://www.dankennedy.com/strategyseminar/\n";
+	$MessageText .= "You don't want to miss this one-of-a-kind-event.  As you know, it's increasingly rare to get me personally presenting new or advanced material in a relatively small group setting. This is a Seminar you get to BE A PART OF AND PARTICIPATE IN, not \"just attend.\"\n";
+	$MessageText .= "Don't miss out twice!";
+	$Formatted = WrapText($MessageText, 75);
+	print("<pre>$Formatted</pre");
+}
+}
+
+// - - - - - - - - - - - - - - // - - - - - - - - - - - //
+//														//
+//	SwiftMailer: This is where all email is sent out	//
+//										 				//
+//  - - - - - - - - - - - - // - - - - - - - - - - - - -//
+
+if (!function_exists(SwiftMailer))
+{
+	function SwiftMailer($ToEmail, $ToName, $Subject, $TextBody, $HTMLBody, $Attachment, $HTML, $arid, $SMTPDebugging, $SMTPTimeout)
+	{
+		GLOBAL $EmailAddressReplyTo, $debugIt, $Installation_Path, $Display_Name, $SMTPport, $EmailAddressFrom;
+		GLOBAL $SMTPmailServer, $SMTPmailbox, $SMTPpassword, $Wrap_On, $Length_Of_Wrap; //read from the system configuration
+
+		if($debugIt == 2)
+		{
+			logMessage("SwiftNeeded (".__LINE__.") SwiftMailer setup check: SMTPDebugging |$SMTPDebugging| SMTPTimeout |$SMTPTimeout|");
+			logMessage("SwiftNeeded (".__LINE__.") Name |$ToName| Subject |$Subject|");
+		}
+		
+		//die("$HTMLBody");	
+		
+		if(($TextBody == "") && ($HTMLBody == ""))
+		{
+			logMessage("SwiftNeeded (".__LINE__.") message is empty");
+			die("<h1>SwiftNeeded (".__LINE__.") message is empty</h1>");
+		}
+	
+		$Sent = false;
+		
+		// in addition to mailout.php, 6 other scripts send out email
+		if (($_SESSION['LockKey'] != "InstantTestAction.php") //if not a one-off email request then honor the kill switch
+		 && ($_SESSION['LockKey'] != "AddAction.php") 
+		 && ($_SESSION['LockKey'] != "BroadcastAllAction.php") 
+		 && ($_SESSION['LockKey'] != "optin.php") 
+	 	 && ($_SESSION['LockKey'] != "RemoveAction.php.php") 
+		 && ($_SESSION['LockKey'] != "RetrievePassword.php") 
+		 && ($_SESSION['LockKey'] != "us.php"))
+		{
+	  		if((file_exists("mailout.stop")))  // If this file exists, the script will end. This is a kill switch.
+				die(logMessage ("SwiftNeeded (".__LINE__.") KILL SWITCH: A file named mailout.stop exists. Script halted."));
+		}
+
+		//print("SwiftNeeded (".__LINE__.") subject |$Subject|<br/>ToName |$ToName|<br/>ToEmail |$ToEmail|<br/>Display_Name |$Display_Name|<br/>EmailAddressFrom |$EmailAddressFrom|<br/>ReplytoName |$ReplytoName|<br/>EmailAddressReplyTo |$EmailAddressReplyTo|<br/>");
+		//print("debugIt |$debugIt|<br/> SMTPmailServer |$SMTPmailServer|<br/> SMTPport |$SMTPport|<br/>ssl 'ssl'<br/>SMTPmailbox |$SMTPmailbox|<br/>SMTPpassword |$SMTPpassword|<br/><br/>");
+		//die("SwiftNeeded (".__LINE__.") TextBody |$TextBody|<br/>HTMLBody |$HTMLBody|<br/>");
+		if ($HTML == 1)
+			$msg = CreateMessage($debugIt, $Subject, $ToName, $ToEmail, $Display_Name, $EmailAddressFrom, $ReplytoName, $EmailAddressReplyTo, "", $HTMLBody);
+		else
+			$msg = CreateMessage($debugIt, $Subject, $ToName, $ToEmail, $Display_Name, $EmailAddressFrom, $ReplytoName, $EmailAddressReplyTo, $TextBody, "");
+		$Sent = SendMessage($msg, $debugIt, $SMTPmailServer, $SMTPport, "ssl", $SMTPmailbox, $SMTPpassword, "SwiftNeeded.php");
+
+		sleep(2);				// at least 1 second between send attempts
+		if ($Sent==false)
+		{
+			if ($debugIt > 0)
+				logMessage("SwiftNeeded (".__LINE__.") * Error * NOT SENT, Message:'$ErrorInfo' &lt;$ToEmail&gt; '$Subject'");
+
+			sleep(1); // 1 second between retries
+		}
+		else
+		{
+			if ($debugIt > 1)
+				logMessage ("SwiftNeeded (".__LINE__.") Session |".$_SESSION['LockKey']."| sending to: $ToName &lt;$ToEmail&gt; Subject: |$Subject| SwiftMailer ".SWIFT_VERSION);
+		}
+			
+		return(true);
+	}
+}	
+
+?>

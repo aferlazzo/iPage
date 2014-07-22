@@ -1,0 +1,315 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Message Test - Perfect Response</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="../css/niftyCorners.css">
+<script type="text/javascript" src="../js/PerfectResponse.js"></script>
+<script type="text/javascript" src="../js/nifty.js"></script>
+<script type="text/javascript">
+<!--
+function Trim(strInput) 
+{
+	if(strInput.length == 0) 
+	{
+		return "";
+	} 
+	else 
+	{
+		strTemp = strInput.substring(strInput.length - 1)
+	}
+
+	while (strTemp == " ") 
+	{
+		strInput = strInput.substring(0, strInput.length - 1)
+
+		if (strInput.length == 0) 
+		{
+			strTemp = "";
+		} 
+		else 
+		{
+			strTemp = strInput.substring(strInput.length - 1)
+		}
+	}
+
+	if (strInput.length == 0) 
+	{
+		strTemp = "";
+	} 
+	else 
+	{
+		strTemp = strInput.substring(0, 1)
+	}
+
+	while (strTemp == " ") 
+	{
+		strInput = strInput.substring(1)
+
+		if (strInput.length == 0) 
+		{
+			strTemp = "";
+		} 
+		else 
+		{
+			strTemp = strInput.substring(0, 1)
+		}
+	}
+
+	return strInput;
+
+}//close Trim Function
+
+
+
+function checkEmail(strEmail)
+{
+	emailflag="";
+
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(strEmail))
+	{
+		//submit = 0;
+
+		emailflag="true";
+	}
+	else
+	{
+		emailflag="false";
+	}
+
+	return emailflag;
+
+}//Ending check mail function
+
+function checkMsgNo(strMsgNo)
+{
+	MsgNoflag="";
+
+	if (/[0-9Bb]/.test(strMsgNo))
+		MsgNoflag="true";
+	else
+		MsgNoflag="false";
+
+	return MsgNoflag;
+
+}//Ending check MsgNo function
+
+
+
+
+/* replace "'" with "`" ---- we do this for PHP because it uses the apostrophe character */
+
+function ConvertApostrophe(Comments)
+{
+	// alert("length of comments is " + Comments.value.length);
+
+	for(var i=0; i<Comments.value.length; i++)
+	{
+		if(Comments.value.charAt(i)=="'")
+		{
+			// alert("Converting |" + Comments.value.charAt(i) + "|");
+			Comments.value.charAt(i).value="´";
+			// alert("Converted to |" + Comments.value.charAt(i) + "|");
+		 }
+	}
+
+	return(Comments.value);
+}
+
+
+function Validate()
+{
+	var objName = document.Instant;
+	var xxx;
+
+	if(Trim(objName.MsgNo.value) != "")
+		if(checkMsgNo(objName.MsgNo.value) == "false")
+		{
+			alert("Please enter a number (leave blank for all messages)")
+			objName.MsgNo.focus();
+			return false;
+		}
+
+	if(Trim(objName.InstantTestFullName.value) == "")
+	{
+		alert("Please enter your name")
+		objName.InstantTestFullName.focus();
+		return false;
+	}
+
+	if(Trim(objName.InstantTestEmailAddress.value) == "")
+	{
+		alert("Please enter the E-mail address to receive the messages");
+		objName.InstantTestEmailAddress.focus();
+		return false;
+	}
+
+	if(checkEmail(objName.InstantTestEmailAddress.value) == "false")
+	{
+		alert("Please enter a valid E-mail address");
+		objName.InstantTestEmailAddress.focus();
+		return false;
+	}
+	return true;
+}
+
+//-->
+</script>
+</HEAD>
+<body>
+
+<div id="Wrapper"><div id="content">
+<span class="BoxHeading">
+<input type="button" id="submit" name="submit" value="Click for helpful hints!" class="Button" onclick="Show();" onmouseover="document.getElementById('submit').style.fontWeight='bold';" onmouseout="document.getElementById('submit').style.fontWeight='normal';">
+</span>
+<div id="navBeta">
+	<h2>A Suggestion</h2>
+	<p>It is a good idea to send the mail campaign to yourself before activating the campaign. 
+	Edit and spell-check the messages the messages. Does your campaign message flow? </p>
+	<p>Are	you reminding the subscriber to act now? Is your contact information included in each message?</p>
+	<p>Message '0' to send a test of the Welcome Message.</p>
+
+	<p>Message 'B' to send a test of the Broadcast Message.</p>
+	
+</div>
+
+<form name="Instant" onSubmit="return(Validate());" method="post" action="InstantTestAction.php">
+<input type="hidden" name="arid" value=143>
+<TABLE width='95%' BORDER='0' CELLPADDING='4' CELLSPACING=0 align="center">
+	<TR>
+		<td align='center' colspan='2'> 
+			<h2>Message Test for
+	<br /><span id='Grow'><i>A html test campaign</i></span></h2>
+		</td>
+
+	</tr>
+	<tr> 
+	
+			<td align="right" width="40%"><label for="MsgNo">Message Number to Send</label></td>
+			<td	align="left">
+
+				<select name="MsgNo" id="MsgNo" size="1" style='width:220px;'>
+			<option  style='width:220px;' value=''>Send All Messages</option>
+<option  style='width:220px;' value='-4'>Broadcast - Broadcast Message Test</option>
+<option  style='width:220px;' value='0'>Welcome - 0 - Fast. Easy. Approved.</option>
+
+<option  style='width:220px;' value='1'>1 - 1- Fast. Easy. Approved.</option>
+<option  style='width:220px;' value='2'>2 - 2 - Avoid Red Tape With Pronto Commercial Funding!</option>
+<option  style='width:220px;' value='3'>3 - Singing and Dancing Not Required</option>
+<option selected style='width:220px;' value='4'>4 - Fast Forward To The End Of Escrow</option>
+<option  style='width:220px;' value='5'>5 - Get Pumped On This Financing Solution!</option>
+<option  style='width:220px;' value='6'>6 - Have Clients Looking For Fast Commercial Funding?</option>
+<option  style='width:220px;' value='7'>7 - Yes, we provide fast apartment funding!</option>
+<option  style='width:220px;' value='8'>8 - FCKeditor Test - Apartment.jpg inserted</option>
+<option  style='width:220px;' value='9'>9 - Msg 9 add</option>
+
+<option  style='width:220px;' value='10'>10 - Msg 10 Add</option>
+<option  style='width:220px;' value='11'>11 - Speed Through Escrow</option>
+<option  style='width:220px;' value='12'>12 - Newsletter Template</option>
+<option  style='width:220px;' value='13'>13 - naked</option>
+				</select></td></tr>
+				
+	<tr> 
+		<td align="right" width="40%"><label for="InstantTestFullName">Send To Name</label></td>
+		<td	align="left">
+			<input type="text" name="InstantTestFullName" id="InstantTestFullName" size="33"
+				title="Enter the recipient's Full Name you want to send email campaign messages"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+
+		</td>
+	</tr>
+	<tr>
+		<td align="right" width="40%"><label for="InstantTestEmailAddress" >Send To Email Address</label</b></td>
+		<td	align="left">	
+			<input type="text" name="InstantTestEmailAddress" id="InstantTestEmailAddress" size="33"
+				title="Enter the recipient's email address"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+		</td>
+	</tr>
+	<tr> 
+		<td	align="right"><label for="InstantTestUserDefined1">(Optional) User Defined1</label></td>
+
+		<td	align="left">	
+			<input type="text" name="InstantTestUserDefined1" id="InstantTestUserDefined1" size="33"
+				title="if you request the subscriber to provide you with an optional user variable (address, phone number, shoe size, etc) enter the answer here"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+		</td>
+	</tr>
+	<tr> 
+		<td	align="right"><label for="InstantTestUserDefined2">(Optional) User Defined2</label></td>
+		<td	align="left">	
+			<input type="text" name="InstantTestUserDefined2" id="InstantTestUserDefined2" size="33"
+				title="if you request the subscriber to provide you with an optional user variable (address, phone number, shoe size, etc) enter the answer here"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+		</td>
+	</tr>
+
+	<tr> 
+		<td	align="right"><label for="InstantTestUserDefined3">(Optional) User Defined3</label></td>
+		<td	align="left">	
+			<input type="text" name="InstantTestUserDefined3" id="InstantTestUserDefined3" size="33"
+				title="if you request the subscriber to provide you with an optional user variable (address, phone number, shoe size, etc) enter the answer here"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+		</td>
+	</tr>
+	<tr> 
+		<td	align="right"><label for="InstantTestUserDefined4">(Optional) User Defined4</label></td>
+		<td	align="left">	
+			<input type="text" name="InstantTestUserDefined4" id="InstantTestUserDefined4" size="33"
+				title="if you request the subscriber to provide you with an optional user variable (address, phone number, shoe size, etc) enter the answer here"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+
+		</td>
+	</tr>
+	<tr> 
+		<td colspan="2" align="center"> 
+			<br><input class='submit' type="submit" name="Submit2" value="Send Test" onClick="this.value='Sending'"
+ 			onMouseover="this.className='MouseOver'" onMouseout="this.className='submit'">&nbsp;
+			<input class='cancel' type='button' value='Cancel' onClick='history.back()'
+ 			onMouseover="this.className='MouseOver'" onMouseout="this.className='cancel'"><br>&nbsp;
+		 </td>
+	</tr>
+</TABLE>
+</form>
+<hr><div style='height:23px;width:400px;margin:20px auto;'><div style='float:left;'>
+
+<form name='formJump' action='/pr/InstantTest.php' method='get'>
+<input type='hidden' name='NewArid' value='143'>
+<input type='hidden' name='cmd' value=1>
+<select style='color:#800000;font-weight:bold;font-size:12px;width:230px;' size='1' name='arid' onChange='submit();'>
+<option selected value='0'>Select Another Email Campaign</option>
+<option value='185'>185 A test text  campaign</option>
+<option value='211'>211 Clone: campaign</option>
+<option value='184'>184 Commercial</option>
+<option value='1'>001 Lightning Mortgage ebook</option>
+<option value='176'>176 Mortgage Insider Secrets</option>
+<option value='147'>147 Our Past Success Stories</option>
+
+<option value='174'>174 Stop Renting Report</option>
+<option value='146'>146 Zero Down Report</option>
+</select></form>
+</div>
+<div style='float:left;'>&nbsp;:: <a href='ManageCampaigns.php' title=''>View All Campaigns</a>
+</div></div>
+<div id='navKappa'>
+<div id='navKappaPadlock' onMouseOver='this.style.backgroundColor="silver"' onMouseOut='this.style.backgroundColor="transparent"'>
+<a href='unlock.php' target='Monitor' title='If you stopped all campaigns, restart them here.' onMouseOver='this.style.backgroundColor="transparent"'>
+<img src='./images/unlocked.png' alt='If you stopped all campaigns, restart them here.' style='border:none;'></a></div>
+<div id='navKappaLinks'>
+<a href='DisplayLog.php' title='View the Activity Log' target='LogFile'>Refresh Log</a> ::
+
+<a href='home.php'>Home</a> :: 
+<a href='DisplaySchedule.php?arid=143' title="View this campaign's schedule email delivery" target='Monitor'>View Schedule</a> ::
+<a href='/pr/home.php?arid=143&amp;cmd=1' onclick='return(LLogout());'>Logout</a>
+<br/><br/><a href='mailout.php' target='Monitor'>Send All Past Due</a> :: 
+<a href='Monitor.php?arid=143' title="View this campaign's pending email delivery" target='Monitor'>Monitor Pending</a></div>
+<div id='navKappaStop' onMouseOver='this.style.backgroundColor="silver"' onMouseOut='this.style.backgroundColor="transparent"'>
+<a href='lock.php' target='Monitor' title='Made a mistake? Immediately stop the email Send process.' onMouseOver='this.style.backgroundColor="transparent"'>
+<img src='./images/locked.png' alt='Made a mistake? Immediately stop the email Send process.' style='border:none;'></a></div><br style='clear:left;'></div>
+</div>
+
+</div> <!-- end of Wrapper -->
+</BODY>
+</HTML>

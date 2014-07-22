@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>Raffle to benefit 2008 POZ AIDS Walk in NYC</title>
+
+<style type="text/css">
+<!--
+body {margin:0;padding:0;font-family:sans-serif;}
+form, img, table, tr {margin:0;padding:0;border:none;vertical-align:bottom;}
+p {margin:6pt 10pt;font-size:medium;}
+
+input {width:250px;height:20px;}
+tr.order, td.order {height:24px;margin:2px 0;}
+p.order {height:20px;vertical-align:bottom;background:red;margin:0;padding:0;}
+-->
+</style>
+
+<script type="text/javascript">
+<!--
+function Trim(strInput) 
+{
+    if(strInput.length == 0) {
+        return "";
+    } else {
+        strTemp = strInput.substring(strInput.length - 1)
+    }
+
+    while (strTemp == " ") {
+        strInput = strInput.substring(0, strInput.length - 1)
+        if (strInput.length == 0) {
+            strTemp = "";
+        } else {
+            strTemp = strInput.substring(strInput.length - 1)
+        }
+    }
+
+    if (strInput.length == 0) {
+        strTemp = "";
+    } else {
+        strTemp = strInput.substring(0, 1)
+    }
+    while (strTemp == " ") {
+        strInput = strInput.substring(1)
+
+        if (strInput.length == 0) {
+            strTemp = "";
+        } else {
+            strTemp = strInput.substring(0, 1)
+        }
+    }
+
+    return strInput;
+}//close Trim Function
+
+
+function checkEmail(strEmail)
+{
+emailflag="";
+   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(strEmail))
+        {        //submit = 0;
+               emailflag="Valid";
+        }
+        else
+        {
+                emailflag="Not Valid";
+        }
+        return emailflag;
+}//Ending check mail function
+
+
+
+function Validate()
+{
+	var objName = document.contactform;
+	var xxx;
+//alert("cost "+objName.cost.value);
+	if(Trim(objName.qty.value) == "")
+	{
+		alert("Please enter the quantity")
+		objName.Submit.value="Send";
+		objName.qty.focus();
+		return false;
+	}
+
+	if(Trim(objName.name.value)=="")
+	{
+		alert("Please enter your name");
+		objName.Submit.value="Send";
+		objName.name.focus();
+		return false;
+	}
+
+	if(Trim(objName.address.value) == "")
+	{
+		alert("Please enter a valid address");
+		objName.Submit.value="Send";
+		objName.address.focus();
+		return false;
+	}
+	
+	if(Trim(objName.csz.value) == "")
+	{
+		alert("Please enter a valid city, state zipcode");
+		objName.Submit.value="Send";
+		objName.csz.focus();
+		return false;
+	}
+	
+	if(Trim(objName.phone.value) == "")
+	{
+		alert("Please enter your Telephone number");
+		objName.phone.focus();
+		return false;
+	}
+
+	if(checkEmail(objName.email.value) == "Not Valid")
+	{
+		alert("Please enter your E-mail address");
+		objName.Submit.value="Send";
+		objName.email.focus();
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+//-->
+</script>
+</head>
+
+<body>
+
+	<table summary='' cellspacing=0 cellpadding=0 width="1175px">
+		<tr>
+			<td>
+				<img alt='' style='width:292px;height:154px;' src="./images/eb/frametl.gif">
+			</td>
+			<td style='width:100%;height:154px;'>
+				<img alt='' style='width:100%;min-width:600px;height:154px;' src="./images/eb/framet.gif">
+			</td>
+			<td>
+				<img alt='' style='width:283px;height:154px;' src="./images/eb/frametr.gif">
+			</td>
+		</tr>
+	</table>
+	<table cellspacing=0 cellpadding=0 summary='frame matting' style='background:#FCFCF0;' width="1175px">
+		<tr>
+			<td valign=top style='background:#FCFCF0;'>
+				<img alt='' style='width:154px;height:2200px;' src="./images/eb/frameleft.gif">
+			</td>
+
+			<td valign=top style='background:transparent;height:1600px;padding:0;'>
+
+				<table cellspacing=0 cellpadding=0 summary="inside the matting" style='background:transparent;min-width:600px;'>
+					<tr>
+						<td>
+							<p style='text-align:center;font-size:72.0pt;font-style:italic;font-family:Lucida Handwriting;color:navy'>At Last!</p>
+							<p style='text-align:center;font-size:24.0pt;color:navy'>Raffle to
+							benefit <br>2008 POZ AIDS Walk in NYC</p>
+							<p style='text-align:center;font-weight:bold;font-size:24.0pt;color:navy'>Autographed
+							by Alicia Minshew and Thorsten Kaye<br/>
+							Cross Stitched Portrait of <br/>
+							Zach and Kendall Slater <br/>
+							of All My Children</p>
+							
+							<p style='font-size:14pt;'>Each $25 payment is for one ticket in the raffle for a chance to win the
+							autographed custom framed cross stitched portrait of Kendall Hart
+							Slater (Alicia Minshew) and Zach Slater (Thorsten Kaye) of All My
+							Children. The portrait will be similar to the picture displayed
+							below and will be custom framed upon completion. Check back often
+							for updated photos of the cross stitch portrait as it progresses.
+							Raffle ticket sales will continue through May 13th.</p>
+							
+							<p style='font-size:14pt;'><b>As of April 28th we have sold 60 raffle tickets towards our goal of
+							500 raffle tickets.</b></p>
+							
+							<p style='font-size:14pt;'>The raffle will take place at Prohibition located at 503 Columbus Avenue, NYC on May 14, 2008 between the hours of 6 PM and 8 PM (EDT). 100% of
+							the proceeds from the raffle ticket sales will be going to the NYC
+							POZ AIDS Walk 2008. A check for the total amount of tickets sold
+							will be presented at the time of the raffle.</p>
+							<p style='font-size:14pt;'>The winner does not need to be present in order to win. The portrait
+							will be shipped directly to the winner at no additional cost to the winner.</p>
+							<p style='font-size:14pt;'>Please make sure to include your physical address and phone number for
+							shipping purposes.</p>
+							<hr size=2 width="100%" align=center>
+						</td>
+					</tr>
+
+					<tr>
+						<td style='text-align:center;'>
+							<img alt='' src="http://i36.photobucket.com/albums/e3/osabet/AtLast-Sample.jpg" style='width:770px;background-color:blue;margin:0 0 0 -26px;'>
+						</td>
+					</tr>
+					<tr>
+						<td style='text-align:center;'>
+							<img alt='' src="http://i36.photobucket.com/albums/e3/osabet/102_0184-1.jpg" style='background-color:blue;margin:40px 0 0 -26px;'>
+						</td>
+					</tr>
+					<tr><td>
+					<table summary='' style='margin:30px auto 0;background:transparent;text-align:center;'>
+					<tr style='line-height:15px;'><td><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Other Pictures</p></td></tr>
+					<tr><td><p><a href='http://i36.photobucket.com/albums/e3/osabet/AtLastProject.jpg' target='_blank'>Photo 1</a></p></td>
+					<td><p><a href='http://i36.photobucket.com/albums/e3/osabet/AtLast3.jpg' target='_blank'>Photo 2</a></p></td></tr>
+					<tr><td><p><a href='http://i36.photobucket.com/albums/e3/osabet/AtLast4.jpg' target='_blank'>Photo 3</a></p></td>
+					<td><p><a href='http://i36.photobucket.com/albums/e3/osabet/AtLast5.jpg' target='_blank'>Photo 4</a></p></td></tr>
+					<tr><td><p><a href='http://i36.photobucket.com/albums/e3/osabet/AtLast7.jpg' target='_blank'>Photo 5</a></p></td>
+					<td><p><a href='http://i36.photobucket.com/albums/e3/osabet/AtLast8.jpg' target='_blank'>Photo 6</a></p></td></tr>
+
+					<tr><td><p><a href='http://i36.photobucket.com/albums/e3/osabet/AtLast11.jpg' target='_blank'>Photo 7</a></p></td>
+					<td><p><a href='http://i36.photobucket.com/albums/e3/osabet/AtLastFinal.jpg' target='_blank'>Photo 8</a></p></td></tr>
+					<tr><td><p><a href='http://i36.photobucket.com/albums/e3/osabet/Lishsignature.jpg' target='_blank'>Photo 9</a></p></td>
+					<td><p><a href='http://i36.photobucket.com/albums/e3/osabet/IMG00003.jpg' target='_blank'>Photo 10</a></p></td></tr>
+
+
+					</tr></table>
+				</table>
+						<!-- end level 2.1 -->
+			</td>
+			<td style='height:2200px;'>
+				<img alt='' style='width:153px;height:100%;' src="./images/eb/frameright.gif">
+			</td>
+		</tr>
+	</table>
+			<!-- end level 1 -->
+	
+
+	<table summary='' cellspacing=0 cellpadding=0 width="1175px">
+		<tr>
+			<td>
+				<img alt='' style='border:none;width:292px;height:165px;' src="./images/eb/framebl.gif">
+			</td>
+			<td style='width:100%;min-width:600px;height:164px;'>
+				<img alt='' style='border:none;width:100%;min-width:600px;height:165px' src="./images/eb/frameb.gif">
+			</td>
+			<td>
+				<img alt='' style='border:none;width:283px;height:165px' src="./images/eb/framebr.gif">
+			</td>
+		</tr>
+	</table>
+
+
+	<table summary='' cellspacing=0 cellpadding=0 style='margin:20px auto 0;width:500px;background:skyblue;border:1px solid black;'>
+		<tr>
+			<td style='padding:0;'>
+				<p><b>Payment method</b></p>
+			</td>
+			<td>
+				<p>Preferred/Accepted</p>
+			</td>
+			<td>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img border=0 width=240 height=74 src="./images/eb/paypal.gif" alt="Credit or debit card through PayPal"><br><br>
+			</td>
+			<td>
+				<p>Accepted<br/><br/>&nbsp;</p>
+			</td>
+		</tr>
+	</table>
+	<form name='contactform' method="post" onsubmit='return(Validate());' action="./AtlastAction.php">
+	<table summary='' cellspacing=0 cellpadding=0 style='margin:0 auto 30px;width:500px;background:skyblue;border:1px solid black;'>
+		<tr>
+			<td class='order' style='text-align:right;width:190px;'>
+				<p>Quantity</p>
+			</td>
+			<td class='order' >
+				<input type="text" name='qty' style='width:28px;' onblur='cost.value= this.value * 25'> 
+				<b>* $25 ea.</b> $<input type="text" taborder=99 name='cost' style='width:28px;color:black;'
+				onblur='cost.value= qty.value * 25'> Cost
+			</td>
+		</tr>
+		<tr>
+			<td class='order' style='text-align:right;'>
+				<p>Name (as on card)</p>
+			</td>
+			<td class='order' >
+				<input type="text" name='name'>
+			</td>
+		</tr>
+		<tr>
+			<td class='order' style='text-align:right;'>
+				<p>Address</p>
+			</td>
+			<td class='order'>
+				<input type="text" name='address'>
+			</td>
+		</tr>
+		<tr>
+			<td class='order' style='text-align:right;'>
+				<p>City, State Zip</p>
+			</td>
+			<td class='order'>
+				<input type="text" name='csz'>
+			</td>
+		</tr>
+		<tr>
+			<td class='order' style='text-align:right;'>
+				<p>Phone Number</p>
+			</td>
+			<td class='order'>
+				<input type="text" name='phone'>
+			</td>
+		</tr>
+		<tr>
+			<td class='order' style='text-align:right;'>
+				<p>Email Address</p>
+			</td>
+			<td class='order'>
+				<input type="text" name='email'>
+			</td>
+		</tr>
+		<tr style='text-align:center;'><td><br /><input type='button' value='Cancel' style='width:90px;background:navy;color:#fff;font-size:14pt;height:26pt;'><br />&nbsp;</td>
+		<td><input type='submit' name='Submit' value='Order' style='width:90px;background:navy;color:#fff;font-size:14pt;height:26pt;'><br />&nbsp;</td></tr>
+	</table>
+	</form>
+<!-- Start of SimpleHitCounter Code -->
+<div align="center"><a href="http://www.simplehitcounter.com" target="_blank"><img src="http://simplehitcounter.com/hit.asp?uid=180831&f=0&b=16777215" border="0" height="18" width="83" alt="free hit counters"></a><br><a href="http://www.simplehitcounter.com" target="_blank"><font size="-3">free hit counters</font></a></div>
+<!-- End of SimpleHitCounter Code -->
+</body>
+</html>

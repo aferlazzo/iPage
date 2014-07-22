@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8>
+<title>trigonometry demo</title>
+<style>
+	form{margin-top:50px;height:30px;}
+	div#workspace{position:fixed;height: 500px; width:100%;}
+	div#line{position:absolute;z-index:10;top:250px;left:100px;height:10px;width:200px;background-color:black}
+	div#middle{height:10px;width:180px;background-color:black;float:left;}
+	div#red, div#green{height:10px;width:10px;background-color:red;float:left;}
+	div#green{background-color:green;}
+	input option{text-align:right;}
+</style>
+	<script>
+
+	function slowlyPivotWrapper(angle){
+		var degrees=0, intervalID,
+			theLine = document.getElementById('line');
+		console.log('angle to move to: '+angle);
+
+		// I use this function with no arguments as the first argument in setInterval()
+		// so that the variables above are contained within the wrapper function while appearing
+		// to be global variables to the inner function
+
+		function slowlyPivotInner(){
+			theLine.style['-moz-transform'] = 'rotate('+degrees+'deg)';			// for firefox
+			theLine.style['-webkit-transform'] = 'rotate('+degrees+'deg)';		// for chrome
+
+			theLine.style.filter = 'progid:DXImageTransform.Microsoft.Matrix()'; // for IE
+			var oObj = theLine;
+/*
+			// The following snippet was taken from the documentation:
+			// http://msdn.microsoft.com/en-us/library/ms533014%28VS.85%29.aspx
+
+			// start of snippet
+
+			// oObj - input requires a matrix filter applied.
+			// degrees - input defines the requested angle of rotation.
+
+			var deg2radians = Math.PI * 2 / 360,
+				rad = degrees * deg2radians,
+				costheta = Math.cos(rad),
+				sintheta = Math.sin(rad);
+
+			oObj.filters.item(0).M11 = costheta;
+			oObj.filters.item(0).M12 = -sintheta;
+			oObj.filters.item(0).M21 = sintheta;
+			oObj.filters.item(0).M22 = costheta;
+
+			// end of snippet
+*/
+
+
+			//console.log('angle: '+degrees+' theLine.style["-webkit-transform"]: '+ theLine.style["-webkit-transform"]);
+			if (degrees >= angle){
+				clearInterval(intervalID);
+			}else{
+				degrees++;
+			}
+		}
+
+		intervalID = setInterval(slowlyPivotInner, 15);		// execute the slowlyPivotInner function every 15 mSeconds
+	}
+	</script>
+</head>
+<body>
+	<form>
+		Pivot <select id='angle' onChange='slowlyPivotWrapper(this.value);'>
+			<option selected=selected value=0>0</option>
+			<option value=45>45</option>
+			<option value=90>90</option>
+			<option value=135>135</option>
+			<option value=180>180</option>
+			<option value=225>225</option>
+			<option value=270>270</option>
+			<option value=315>315</option>
+			<option value=360>360</option>
+		</select> Degrees
+	</form>
+	<div id='workspace'>
+		<div id='line'>
+			<div id='red'></div><div id='middle'></div><div id='green'></div>
+		</div>
+	</div>
+
+</body>
+</html>

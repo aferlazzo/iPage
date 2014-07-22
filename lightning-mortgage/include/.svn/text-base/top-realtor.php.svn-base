@@ -1,0 +1,90 @@
+<!--
+// ./include/top-root.php is a copy of the contents ./include/top.php. It is the
+// web page top border that is inserted in all appropriate .php pages located at
+// the root level of the website. //
+-->
+<div class="Top">
+<div style="float:left;width:48%;text-align:right;">
+<div style="float:right;width:14em;height:8em;margin:1px 0 -5px 0;padding:0 1em 0 1em;">
+<a class="Logo"  href="http://www.lightning-mortgage.com/">
+<img src="../images/Lightning-Mortgage-logo.gif" style="margin-top:2px;padding-top:6px;border:none;"
+alt="Lightning Mortgage - Mortgages, even with Bad Credit" 
+title="Lightning Mortgage - Mortgages, even with Bad Credit"></a>
+
+</div>
+<div style="float:right;width:8em;height:8em;margin:8px 0 -5px 0;padding:0 1em 0 1em;">
+<a href="http://www.lightning-mortgage.com/Administrative/AboutUs.php" class="Top"><img style="border-color: #e5e5e5" border="1"
+src="../images/Tony-Fran.jpg" width="90" height="80"
+alt="Anthony &amp; Fran Ferlazzo of Lightning Mortgage"
+align="top"><br /><span style="font-size: xx-small;">Anthony &amp; Fran Ferlazzo</span></a>
+</div>
+</div>
+<div style="float:left;width:48%;text-align:left;">
+<?php
+if ($_SERVER['REQUEST_METHOD']=="GET")
+{
+	$RealtorL=$_GET['RealtorL'];
+	$RealtorF=$_GET['RealtorF'];
+	$RealtorA=$_GET['RealtorA']; //AboutUs page to associate with realtor picture
+	$RealtorH=$_GET['RealtorH']; //web page to associate with realtor logo
+	$RealtorPic=$RealtorL."Pic.jpg";
+	$RealtorLogo=$RealtorL."Logo.gif";
+	//print("Realtor: $RealtorL $RealtorLogo $RealtorPic<br />");
+
+print("<div style='float:left;width:12em;height:8em;margin:2px 1em -5px 0;padding:.5em 1em 0 1em;'>");
+print("<img src='../images/Realtors/$RealtorLogo' ");
+print("alt='' style='width:200px;height:90px;margin:1px 0 2px 0;padding:0 0 2px 0;'></div>");
+	print("<div style='float:left;width:8em;height:8em;margin:9px 1em -5px 1em;padding:0 1em 0 1em;'>");
+	print("<a  href='$RealtorA' class='Top'>");
+	print("<img style='border-color: #e5e5e5' border='1' src='../images/Realtors/$RealtorPic' width='75' height='80'");
+	print("alt='$RealtorF $RealtorL' align='top'><br /><span style='font-size: xx-small;'>$RealtorF $RealtorL</span></a></div>");
+}
+?>
+</div>
+<noscript>
+<p style="text-align: center; border-width: 5px; border-style: dotted; border-color: #ffffff; font-size: large; color: #ffffff;">
+<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+</noscript>
+<br style="clear:both;">
+<div style="position:absolute;top:122px;left:0;text-align:center;width:100%;height:34px;">
+<div id="TabHeader">
+<script language="JavaScript" type="text/javascript">
+<!--
+if (window.location.href.indexOf("\/Index\/")==-1) 
+document.write('<ul><li id="IndexTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/index.php">Home<\/a><\/li>');
+else
+document.write('<ul><li id="IndexTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/index.php">To Home<\/a><\/li>');
+
+document.write('<li id="LoanAppTab-nav"><a href="https:\/\/host373.ipowerweb.com\/~lightnin\/MortgageApplication\/LoanAppShort.php">Apply Now<\/a><\/li>');
+
+if (window.location.href.indexOf("\/Answers\/")==-1) 
+document.write('<li id="AnswersTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/Answers.php">Our Loan Process<\/a><\/li>')
+else
+document.write('<li id="AnswersTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/Answers.php">More on Our Loan Process<\/a><\/li>')
+
+if (window.location.href.indexOf("\/CreditScores\/")==-1)
+document.write('<li id="CreditScoresTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/CreditScores.php">Credit Scores<\/a><\/li>');
+else
+document.write('<li id="CreditScoresTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/CreditScores.php">More on Credit Scores<\/a><\/li>');
+
+if (window.location.href.indexOf("\/LoanTypes\/")==-1)
+document.write('<li id="LoanTypesTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/LoanTypes.php">Loan Types<\/a><\/li>');
+else
+document.write('<li id="LoanTypesTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/LoanTypes.php">More on Loan Types<\/a><\/li>');
+
+if (window.location.href.indexOf("\/InterestRates\/")==-1)
+document.write('<li id="InterestRatesTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/InterestRates.php">Interest Rates<\/a><\/li>');
+else
+document.write('<li id="InterestRatesTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/InterestRates.php">More on Interest Rates<\/a><\/li><\/ul>');
+//-->
+</SCRIPT>
+</div>
+</div><!-- Top -->
+</div>  <!-- ContactDIV -->
+<div class="TopFrame">
+<div class="TFR">
+</div>
+<div class="TFL">
+</div>
+<br style="clear:both;"></div>

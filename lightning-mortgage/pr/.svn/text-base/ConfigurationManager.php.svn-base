@@ -1,0 +1,260 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+
+This page edits the system configuration.
+*/
+?>
+<?php
+include("check1.php");
+include("conn.php");
+
+$AdminName = $_COOKIE["UName"];
+
+$result = mysql_query("SELECT * FROM admin where adminname='$AdminName'", $link); 
+$num_rows = mysql_num_rows($result); 	
+mysql_data_seek($result, 0);
+$row = mysql_fetch_object($result);
+
+
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Configuration Manager</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="../css/niftyCorners.css">
+<script type="text/javascript" src="../js/PerfectResponse.js"></script>
+<script type="text/javascript" src="../js/nifty.js"></script>
+<style type="text/css" media="screen">
+tr {height:24px;}
+table {margin:0 auto;width:95%;BORDER:none;text-align:center;}
+</style>
+</HEAD>
+<body>
+<div id="Wrapper"><div id="content">
+<span class="BoxHeading">
+<input type="button" id="submit" name="submit" value="Click for helpful hints!" class="Button" onclick="Show();" onmouseover="document.getElementById('submit').style.fontWeight='bold';" onmouseout="document.getElementById('submit').style.fontWeight='normal';">
+</span>
+<div id="navBeta">
+	<h2>Tips</h2>
+	<p>Although your email address is not required, it is the address that <i>Perfect Response</i> will send
+	its password if ever you should lose it.</p>
+	<p>When you set SMTP debugging on, you will be able  to view the dialog with the SMTP server when you click on 'Send Now'.
+	Typically you want this setting turned off. The SMTP timeout should be increased if the Activity Log shows messages are not being sent,
+	or you notice 'Data Not Accepted' messages from the SMTP server.</p>
+	<p>The level of activity logging should typically be set to 'Activity Logging.' Set to 'no logging' only if you do not 
+	care to have a record of <i>Perfect	Respone's</i> activity. Otherwise, leave it set to log the system's activity. Activity logging should be set to 
+	debug only in rare cases, such as system diagnostic situations.</p>
+</div>
+<div class="title"> 
+<table>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+</div>
+<TABLE>
+	  <form action="dbconfig.php" name="edar" method="post">
+<input type="hidden" name="AdminName"  id="AdminName" value="<?php echo $AdminName; ?>"	  
+	<tr> 
+		<td colspan='2'align='center'>
+			<h2><i>Perfect Response</i> - Email Marketing at its best!</h2>
+		</td>
+	</tr>
+	<tr>
+		<td colspan='2' align='center'>
+			<h2>System Configuration</h2>
+		</td>
+	</tr>
+	<tr>
+		<td align='right'>
+			<label for="adminemail">Your Name</label>
+		</td>
+		<td width="50%" align='left'>
+			<input type="text" name="ConsultantName" id="ConsultantName" size="35" value="<?php echo $row->ConsultantName; ?>"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+		</td>
+	</tr>
+	<tr>
+		<td align='right'>
+			<label for="adminemail">Your Email Address</label>
+		</td>
+		<td width="50%" align='left'>
+			<input name="adminemail" type="text" id="adminemail" size="35" value="<?php echo $row->adminemail; ?>"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+		</td>
+	</tr>
+	<tr><td colspan="2"><hr></td></tr>
+<?php
+if ($AdminName=="admin")
+{
+?>
+	<tr>
+		<td align='right'>
+			<label for="SMTPDebugging">SMTP Debugging</label> 
+		</td>
+		<td width="50%" align='left'>
+		<?php
+			print ("<select name='SMTPDebugging' id='SMTPDebugging' style='width:50px;'>");
+					
+			switch ($row->SMTPDebugging)
+			{
+				case 1:
+				print ("<option value='0'>Off</option>");
+				print ("<option selected value='1'>On</option>");
+				break;
+
+				default:
+				case 0:
+				print ("<option selected value='0'>Off</option>");
+				print ("<option value='1'>On</option>");
+				break;
+			}
+		?>
+			</select>
+		</td></tr>
+	<tr>
+		<td align='right'>
+			<label for="SMTPTimeout">SMTP Timeout</label> 
+		</td>
+		<td width="50%" align='left'>
+		<?php
+			print ("<select name='SMTPTimeout' id='SMTPTimeout' style='width:50px;text-align:center;'>");
+					
+			for($num=1;$num<61;$num++)
+			{
+				print ("<option value=$num");
+					
+				if ($row->SMTPTimeout==$num)
+					print (" selected");
+						
+				print (">$num </option>\n");
+			}
+		?>
+			</select> Seconds
+		</td></tr>
+<?php
+}
+?>
+	<tr>
+		<td align='right'>
+			<label for="LoggingLevel">Activity Logging Level</label>
+		</td>
+		<td width="50%" align='left'>
+		<?php
+			print ("<select name='ActivityLogging' id='ActivityLogging' size='1'>");
+					
+			switch ($row->ActivityLogging)
+			{
+				case 2:
+				print ("<option value='0'>No logging</option>");
+				print ("<option value='1'>Activity Logging</option>");
+				print ("<option selected value='2'>Debugging</option>");
+				break;
+
+				case 1:
+				print ("<option value='0'>No logging</option>");
+				print ("<option selected value='1'>Activity Logging</option>");
+				print ("<option value='2'>Debugging</option>");
+				break;
+
+				default:
+				case 0:
+				print ("<option selected value='0'>No logging</option>");
+				print ("<option value='1'>Activity Logging</option>");
+				print ("<option value='2'>Debugging</option>");
+				break;
+			}
+		?>
+			</select>
+		</td>
+	</tr>
+	<tr><td colspan="2"><hr></td></tr>
+	<tr>
+		<td align='right'>
+			<label for="dbhname">Database Host Name</label>
+		</td>
+		<td width="50%" align='left'>
+			<input name="dbhost" type="text" id="dbhname" size="35" value="<?php echo $dbhostname; ?>"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+			
+		</td>
+	</tr>
+	<tr>
+		<td align='right'>
+			<label for="dbname">Database Name</b>
+		</td>
+		<td width="50%" align='left'> 
+			<input name="dbname" type="text" id="dbname" size="35" value="<?php echo $dbname; ?>"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+		</td>
+	</tr>
+	<tr>
+		<td align='right'>
+			<label for="dbuname">Database Username</label>
+		</td>
+		<td width="50%" align='left'>
+			<input name="dbuser" type="text" id="dbuname" size="35" value="<?php echo $dbuname; ?>"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">			
+		</td>
+	</tr>
+	<tr>
+		<td align='right'>
+			<label for="dbupwd">Database Password</label>
+		</td>
+		<td width="50%" align='left'>
+			<input name="dbpd" type="password" id="dbupwd" size="35" value="<?php echo $dbpwd; ?>"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+		</td>
+	</tr>
+	<tr>
+		<td align='right'>
+			<label for="dburl">Installation Path</label>
+		</td>
+		<td width="50%" align='left'>
+			<input name="arpath" type="text" id="dburl" size="35" value="<?php echo $row->arurl; ?>"
+					onfocus="this.style.border='2px solid #000080'"  onblur="this.style.border='2px solid gray'">
+		</td>
+	</tr>
+	<tr  style='text-align:center;'> 
+		<td colspan='2'>
+		<?php
+
+			$directory=dirname(__FILE__);
+
+			if (stristr($directory, "demo"))
+			{
+				print ("<input class='submit' type='button' name='Submit2' value='Save' style='margin:20px 0 10px;' "); 
+				print ("onClick='alert(\"Sorry, but configuration changes prohibited when testing\");location='home.php';' ");
+				print ("onMouseover=\"this.className='MouseOver'\" onMouseout=\"this.className='submit'\">");
+			}
+			else
+			{
+				print ("<input class='submit' type='submit' name='Submit' value='Save' style='margin:20px 0 10px;' ");
+				print ("onMouseover=\"this.className='MouseOver'\" onMouseout=\"this.className='submit'\">");
+			}
+		?>
+
+			<input class='cancel' name="Cancel" type="button" id="Cancel" value="Cancel" style='margin:20px 0 10px;' 
+ 			onClick="location='home.php';" onMouseover="this.className='MouseOver'" onMouseout="this.className='cancel'"><br />&nbsp;
+		</td>
+	</tr>
+</form></table>
+<?php
+	//xxxJumpToCampaign($link, 0); 
+	xxxReferenceLinks();
+?>
+</div></div>
+</BODY>
+</HTML>

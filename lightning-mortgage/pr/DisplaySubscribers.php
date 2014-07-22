@@ -1,0 +1,137 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+?>
+<HTML>
+<HEAD>
+<TITLE>Show Subscribers - Perfect Response Mail</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="./css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="./css/niftyCorners.css">
+<script type="text/javascript" src="./js/PerfectResponse.js"></script>
+<script type="text/javascript" src="./js/nifty.js"></script>
+<style type="text/css" media="screen">
+th, td {font-family:Verdana, Arial, Helvetica;color:#000080;font-size:8pt;padding:2px 4px;white-space:nowrap;}
+</style>
+</HEAD>
+<body>
+<div id="Wrapper"><div id="xxx">
+<?
+
+include ("conn.php");
+$arid=$_GET['arid'];
+$WithinScript = "I know the arid";
+include("settings.php");
+include("removesettings.php");
+
+$arSQL = "select arid, ardescription from autoresponders where arid=$arid";
+$result_ar = mysql_query($arSQL) or die("DisplaySubscribers (".__LINE__.") $arSQL");
+$num_rows_ar = mysql_num_rows($result_ar);
+
+mysql_data_seek($result_ar, $count);
+$arrow = mysql_fetch_array($result_ar);
+$ardescription = $arrow[ardescription];
+
+if ($num_rows_ar == 0)
+{
+	print ("<font face='Verdana' size='2' color='#000080'>");
+	print "<i>Perfect Response</i> Autoresponder '$ardescription' Subscriber List is empty\n";
+}
+else
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+//
+//	ReadSubscribers
+//	
+// - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{
+	//print ("Exporting Subscribers for \$arid $arid<br>");
+	set_time_limit(0);
+
+	$Mail_Error_Flag = 1;
+	
+	$WallclockTime = mktime(date("H")+2,date("i"),date("s"),date("m"),date("d"),date("Y"));
+	
+	$SQL_Statement = "select * from users where arid=$arid and currentmsg<253 order by fname";
+	
+	$Query_Result = mysql_query($SQL_Statement,$link) or die ("DisplaySubscribers (".__LINE__.") $SQL_Statement:<br />".mysql_error($link));
+	$num_rows_usr = mysql_num_rows($Query_Result);
+	if ($num_rows_usr > 0)
+	{
+		print("<table id='content' style='text-align:left;'>");
+		print("<tr><th colspan='6'><h2 style='text-align:center;'>Subscribers In '$ardescription'</h2></th></tr>\n");
+		print("<tr><th colspan='6' style='text-align:center;font-size:8pt;'>");
+		print(number_format($num_rows_usr)." Subscribers As Of ".date('l F j, Y g:i A')."</th></tr><tr>\n");		
+		print("<th>Del Edit</th><th style='width:430px;text-align:left;'>Name &lt;Email Address&gt;</th>\n");
+		print("<th style='width:50px;'>User<br />Defined1</th>\n");
+		print("<th style='width:50px;'>User<br />Defined2</th>\n");
+		print("<th style='width:50px;'>User<br />Defined3</th>\n");
+		print("<th style='width:50px;'>User<br />Defined4</th></tr>\n");
+	}
+	else
+	{
+		print ("No Subscribers are stored for Autoresponder '$ardescription'<br>");
+	}
+	
+	//
+	// for each user record...
+	//	
+	for($ucount=0;$ucount<$num_rows_usr;$ucount++)
+	{
+		mysql_data_seek($Query_Result, $ucount);
+		$rowusr 					= mysql_fetch_object($Query_Result);
+		$Email_Address 				= $rowusr->email;
+		$MessageNumberInSequence 	= $rowusr->currentmsg;
+		$TimeToSendMsg 				= $rowusr->senddate;
+		$Full_Name 					= trim($rowusr->fname." ".$rowusr->lname);
+		$UserDefined1				= trim($rowusr->UserDefined1);
+		$UserDefined2				= trim($rowusr->UserDefined2);
+		$UserDefined3				= trim($rowusr->UserDefined3);
+		$UserDefined4				= trim($rowusr->UserDefined4);
+		$MsgNumber					= $rowusr->currentmsg;
+		$uid						= $rowusr->uid;
+		
+		if ($UserDefined1 == "")
+			$UserDefined1 = "&nbsp;";
+
+		if ($UserDefined2 == "")
+			$UserDefined2 = "&nbsp;";
+			
+		if ($UserDefined3 == "")
+			$UserDefined3 = "&nbsp;";
+			
+		if ($UserDefined4 == "")
+			$UserDefined4 = "&nbsp;";
+
+		$ThisTR = $arid."Row".$ucount;
+		print ("<tr id='$ThisTR' onMouseover='this.style.backgroundColor=\"#fff\"' onMouseout='this.style.backgroundColor=\"transparent\"'>\n");
+			print("<form name='MyForm$ThisTR' method='post' target='Main' action='EditSubscriberAction.php'>\n");
+			print("<td><input id='chk$ThisTR' class='radiogroup' type='checkbox' style='height:16px;margin:0 5px 0 5px;padding:0;vertical-align:bottom;' onclick='DeleteRow(\"$Email_Address\", $arid, $ucount);'>\n");
+
+			print("<input type='hidden' name='Returned' value='false'>\n");
+			print("<input type='hidden' name='arid'  value='$arid'>\n");
+			print("<input type='hidden' name='Email' value='$Email_Address'>\n");
+			print("<input type='hidden' name='uid'   value='$uid'>\n");
+			print("<input type='hidden' name='vtype' value='email'>\n");
+			print("<input id='Editchk$ThisTR' class='radiogroup' type='checkbox' style='height:16px;margin:0;padding:0;vertical-align:bottom;' onclick='this.form.submit();'></form></td>\n");
+
+		print("<td>$Full_Name &lt;$Email_Address&gt;</td>\n");
+		print ("<td>$UserDefined1</td>\n");
+		print ("<td>$UserDefined2</td>\n");
+		print ("<td>$UserDefined3</td>\n");
+		print ("<td>$UserDefined4</td></tr>\n");
+	}
+	
+	print("</table>\n");	
+}
+?>
+</div></div>
+</body>
+</html>

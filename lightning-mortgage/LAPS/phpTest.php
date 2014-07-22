@@ -1,0 +1,115 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>php Test page</title>
+<meta name="Microsoft Border" content="tb, default">
+<script language="JavaScript1.2">
+function doClock(){ // By Paul Davis - www.kaosweaver.com
+  var t=new Date(),a=doClock.arguments,str="",i,a1,lang="1";
+  var month=new Array('January','Jan', 'February','Feb', 'March','Mar', 'April','Apr', 'May','May', 'June','Jun', 'July','Jul', 'August','Aug', 'September','Sep', 'October','Oct', 'November','Nov', 'December','Dec');
+  var tday= new Array('Sunday','Sun','Monday','Mon', 'Tuesday','Tue', 'Wednesday','Wed','Thursday','Thr','Friday','Fri','Saturday','Sat');
+  for(i=0;i<a.length;i++) {a1=a[i].charAt(1);switch (a[i].charAt(0)) {
+  case "M":if  ((Number(a1)==3) && ((t.getMonth()+1)<10)) str+="0";
+  str+=(Number(a1)>1)?t.getMonth()+1:month[t.getMonth()*2+Number(a1)];break;
+  case "D": if ((Number(a1)==1) && (t.getDate()<10)) str+="0";str+=t.getDate();break;
+  case "Y": str+=(a1=='0')?t.getFullYear():t.getFullYear().toString().substring(2);break;
+  case "W":str+=tday[t.getDay()*2+Number(a1)];break; default: str+=unescape(a[i]);}}return str;
+}
+</script>
+
+</head>
+
+<body>
+<!--
+If you're using Microsoft FrontPage for creating PHP-enabled web pages, keep the following in mind:
+
+FP _will_ screw up some PHP code, especially when mixing PHP and HTML (as you often will in echo statements),
+because of it's built-in HTML error correcting routine. The way to avoid this is putting webbot tags around your PHP code:
+
+<!--webbot bot="HTMLMarkup" startspan -->
+<!--
+<?php
+  echo "<img src='$image' width='$width' height='height'>\n";
+?>
+<!--webbot bot="HTMLMarkup" endspan -->
+<!--
+This forces FrontPagfe to skip the error checking for the enclosed section, and your PHP will show up in the WYSIWYG editing mode
+as a little yellow box with a question mark in it.
+-->
+
+
+ <?php echo "<p>Hello World</p>"; ?>
+
+ <?php phpinfo(); ?>
+
+ <?php
+ if (strstr($_SERVER["HTTP_USER_AGENT"], "MSIE")) {
+ 	echo "You are using Internet Explorer<br />"; } ?>
+
+<!-- get the data just posted -->
+
+<p>URL and Variable string sent:
+<script language=php">
+echo $_POST["redirect"]; ?>
+
+            <p>Applicant Name: <?php echo $_POST["realname"]; ?></p>
+         <p>Social Security <?php echo $_POST["SSN"]; ?></p>
+            <p>E-mail Address: <?php echo $_POST["email"]; ?></p>
+
+          <p>CoApplicant Name: <?php echo $_POST["Co_ApplicantName"]; ?></p>
+         <p>Social Security <?php echo $_POST["Co_SSN"]; ?></p>
+
+                   <p>Address: <?php echo $_POST["subject"]; ?></p>
+                      <p>City: <?php echo $_POST["PropertyCity"]; ?></p>
+                     <p>State: <?php echo $_POST["PropertyState"]; ?></p>
+                       <p>Zip: <?php echo $_POST["PropertyZipcode"]; ?></p>
+
+                    <p>County: <?php echo $_POST["PropertyCounty"]; ?></p>
+
+                <p>Work Phone: <?php echo $_POST["WorkPhone"]; ?></p>
+                <p>Home Phone: <?php echo $_POST["HomePhone"]; ?></p>
+         <p>Best Time To Call: <?php echo $_POST["Best_Call_Time"]; ?></p>
+       <p>Best Number to Call: <?php echo $_POST["Best_Calling_Place"]; ?></p>
+
+      <p>Applicant's Employer: <?php echo $_POST["Your_Employer"]; ?></p>
+            <p>Monthly Income: <?php echo $_POST["MonthlyIncome"]; ?></p>
+               <p>2002 Income: <?php echo $_POST["B_2002Income"]; ?></p>
+      <p>Length of Employment: <?php echo $_POST["EmployerTime"]; ?></p>
+             <p>Your Position: <?php echo $_POST["Your_Position"]; ?></p>
+             <p>Date of Birth: <?php echo $_POST["B_DOB"]; ?></p>
+
+    <p>CoApplicant's Employer: <?php echo $_POST["Co_Employer"]; ?></p>
+
+
+<?php echo $_POST["Co_MonthlyIncome"]; ?>
+<?php echo $_POST["Co_2002Income"]; ?>
+<?php echo $_POST["Co_EmployerTime"]; ?>
+<?php echo $_POST["Co_Position,Co_DOB"]; ?>
+
+<?php echo $_POST["Est_CreditRating"]; ?>
+<?php echo $_POST["Monthly_Credit_Card_Debt"]; ?>
+<?php echo $_POST["Monthly_Other_Debt"]; ?>
+<?php echo $_POST["Loan_Amount,PropertyType"]; ?>
+<?php echo $_POST["PurchasePrice"]; ?>
+<?php echo $_POST["EstimatedValue"]; ?>
+
+<?php echo $_POST["Current_Lender"]; ?>
+<?php echo $_POST["Interest_Rate_on_1st"]; ?>
+<?php echo $_POST["LoanBalanceOn1st"]; ?>
+<?php echo $_POST["Monthly_Payment_on_1st"]; ?>
+
+<?php echo $_POST["Second_Mortgage"]; ?>
+<?php echo $_POST["InterestRate_on_2nd"]; ?>
+<?php echo $_POST["LoanBalanceOn2nd"]; ?>
+<?php echo $_POST["Monthly_Payment_on_2nd"]; ?>
+
+<?php echo $_POST["HowReferred"]; ?>
+<?php echo $_POST["Situation"]; ?>
+
+ </body>
+</html>
+
+

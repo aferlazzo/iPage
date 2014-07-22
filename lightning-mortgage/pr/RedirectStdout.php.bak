@@ -1,0 +1,12 @@
+<?php
+print("pre-testing");
+ob_start();
+//do stuff
+print("testing");
+
+$c=ob_get_contents();
+ob_end_clean();
+$fp=fopen("RedirectStdout.txt", "wb");
+fwrite($fp, $c);
+fclose($fp);
+?>

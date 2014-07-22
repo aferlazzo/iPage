@@ -1,0 +1,76 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+include("conn.php");
+$arid	= $_POST["arid"];
+$subject= $_POST["subject"];
+$body	= $_POST["PerfectResponseMessage"];
+$delay	= $_POST["delay"];
+$NewAR	= $_POST["NewAR"];
+
+die ("body: |$body|<br>");
+
+//die ("\$arid: $arid<br>\$subject: $subject<br>\$body: $body<br>\$delay: $delay<br>\$NewAR: '$NewAR'<br>");
+$WithinScript = "I know the arid";
+include("settings.php");
+
+$result = mysql_query("select max(seqno) maxseqno from messages where arid=$arid", $link);
+mysql_data_seek($result, 0);
+$row = mysql_fetch_object($result);
+$maxseq=$row->maxseqno;
+
+
+//	Every campaign will have the following common messages:
+//	squno	subject
+//	-------	---------
+//	-3			Subscription Confirmation Message, in a 2-step opt-in
+//	-2			Welcome Message
+//	-1			Unsubscribe Acknowledgement Message
+//	0			Campaign Signature
+//
+// When adding a new autoresponder, these empty messages will need to be created. 
+// This is accomplished by having addar.php pass the $NewAR variable
+
+if ($NewAR == true)
+{
+	$result = mysql_query("INSERT INTO messages (arid, subject, body, delay, seqno) VALUES ($arid, 'Subscription Confirmation Message', '', 0, -3)", $link) or die("addmsgaction: error -3");
+	$result = mysql_query("INSERT INTO messages (arid, subject, body, delay, seqno) VALUES ($arid, 'Welcome Message', '', 0, -2)", $link) or die("addmsgaction: error -2");
+	$result = mysql_query("INSERT INTO messages (arid, subject, body, delay, seqno) VALUES ($arid, 'Unsubscribe Acknowledgement Message', '', 0, -1)", $link) or die("addmsgaction: error -1");
+	$result = mysql_query("INSERT INTO messages (arid, subject, body, delay, seqno) VALUES ($arid, 'Campaign Signature', '', 0, 0)", $link) or die("addmsgaction: error 0");
+}
+else
+{
+	$result = mysql_query("INSERT INTO messages (arid, subject, body, delay, seqno) VALUES ($arid, '$subject', '$body', $delay, $maxseq+1)", $link);
+
+	$mid=mysql_insert_id();
+
+	if (is_uploaded_file($ufile))
+	{
+		$tempUmask = umask();
+		umask(0000);
+
+		if (!file_exists("attachments/$arid"))
+			@mkdir("attachments/$arid", 0777);
+	
+		if (!file_exists("attachments/$arid$mid"))
+			@mkdir("attachments/$arid/$mid", 0777);
+	
+		$fname = $_FILES['ufile']['name'];
+		$Destination = "attachments/$arid/$mid/$fname";
+	
+		move_uploaded_file($ufile, $Destination);
+	
+		if ($debugIt == 2)
+			print ("addmsgaction (".__LINE__.") copied '$fname' to '$Destination'");
+	}
+}
+
+Header("Location: manmsg.php?arid=$arid"); 
+?>

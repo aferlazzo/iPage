@@ -1,0 +1,196 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+Include("conn.php");
+$arid=$_GET["arid"];
+Include("settings.php");
+$result = mysql_query("SELECT * FROM users where arid=$arid and confirmed='Y'", $link);
+$num_rows = mysql_num_rows($result);
+$numusers=0;
+if($num_rows>0)
+{
+	$numusers=$num_rows;
+}
+?>
+<HTML>
+<HEAD>
+<TITLE>Perfect Response</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<script>
+function manar(id)
+{
+	location.href="EditCampaign.php?arid="+id;
+}
+
+</script>
+</HEAD>
+<BODY BGCOLOR=#FFFFFF leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE BORDER=0 CELLPADDING=0 CELLSPACING=0 align="center">
+  <TR>
+    <TD> <IMG SRC="images/op01_01.gif" WIDTH=194 HEIGHT=13></TD>
+    <TD> <IMG SRC="images/op01_02.gif" WIDTH=428 HEIGHT=13></TD>
+  </TR>
+  <TR>
+    <TD background="images/head.gif" align='center' valign="bottom" WIDTH=194 HEIGHT=67>
+	<font style="color: #000080; font-family: helvetica; font-size: 14px; font-weight: bolder;">
+    Email Go-Getter System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></font>
+    <font style="color: #000080; font-family: helvetica; font-size: 10px; font-weight: bolder;">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version 4.0</font>
+    </TD>
+    <TD> <IMG SRC="images/op01_04.gif" WIDTH=428 HEIGHT=67></TD>
+  </TR>
+  <TR>
+    <TD> <IMG SRC="images/cpanel_05.gif" WIDTH=194 HEIGHT=89></TD>
+    <TD> <IMG SRC="images/op01_06.gif" WIDTH=428 HEIGHT=89></TD>
+  </TR>
+  <TR>
+    <TD ROWSPAN=2 bgcolor="#99CCFF" valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="24"><a href="home.php"><img src="images/buttons/bt_home.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="manar.php"><img src="images/buttons/bt_manage_auto.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="manmsg.php?arid=<?php echo $arid; ?>"><img src="images/buttons/bt_manage_msgs.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="import.php?arid=<?php echo $arid; ?>"><img src="images/buttons/bt_import_pros.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="export.php?arid=<?php echo $arid; ?>"><img src="images/buttons/bt_export_pros.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="spam.php?arid=<?php echo $arid; ?>"><img src="images/buttons/bt_spam_tracker.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="manbroadcast.php?arid=<?php echo $arid;?>"><img src="images/buttons/bt_mail_manually.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="htmlcode.php?arid=<?php echo $arid; ?>"><img src="images/buttons/bt_html_code.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="remsubscriber.php?arid=<?php echo $arid;?>"><img src="images/buttons/bt_del_pros.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="resetar.php?arid=<?php echo $arid; ?>"><img src="images/buttons/bt_restart_auto.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="EditCampaign.php?arid=<?php echo $arid; ?>"><img src="images/buttons/bt_edit_pref.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="editear.php?arid=<?php echo $arid; ?>"><img src="images/buttons/bt_edit_sys_msgs.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="logout.php"><img src="images/buttons/bt_logout.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href=""><img src="images/buttons/bt_faq.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="#"><img src="images/buttons/bt_help.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+        <tr>
+          <td><a href="#"><img src="images/buttons/bt_contact.gif" width="186" height="36" border="0"></a></td>
+        </tr>
+      </table>
+    </TD>
+    <TD background="images/op01_08.gif" height="131" valign="bottom"> <b><font face="Verdana, Arial, Helvetica, sans-serif" size="4"><br>
+      <br>
+      </font></b>&nbsp;<b>Selected Campaign:</b><br>
+      &nbsp;<font size="2" color="#003399"><b><?php echo $Display_Name; ?></b></font><br>&nbsp;<b><?php echo $numusers ?></b> confirmed subscribers</TD>
+  </TR>
+  <TR>
+    <TD valign="top">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <table width="350" border="1" cellspacing="0" cellpadding="0" align="center">
+              <tr>
+                <td colspan="2" align="center" valign="middle">
+                  <h3>Pick a Task</h3>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><a href="manmsg.php?arid=<?php echo $arid; ?>">Manage
+                  Messages</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><a href="import.php?arid=<?php echo $arid; ?>">Import
+                  Prospects</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><a href="export.php?arid=<?php echo $arid; ?>">Export
+                  Prospects</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><a href="spam.php?arid=<?php echo $arid; ?>">Spam
+                  Tracker</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><a href="manbroadcast.php?arid=<?php echo $arid;?>">Send
+                  Mail to All Manually</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center" height="12"><a href="htmlcode.php?arid=<?php echo $arid; ?>">Generate
+                  HTML Code</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><a href="remsubscriber.php?arid=<?php echo $arid;?>">Delete
+                  Prospects</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><a href="resetar.php?arid=<?php echo $arid; ?>">Restart
+                  Autoresponder</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><a href="EditCampaign.php?arid=<?php echo $arid; ?>">Edit
+                  Preferences</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center"><a href="editear.php?arid=<?php echo $arid; ?>">Edit
+                  System Messages</a></td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center">&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="2" align="center">&nbsp;<a href="home.php">Return
+                  to main menu</a></td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p><br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </p>
+            <p>&nbsp;</p>
+          </td>
+          <td bgcolor="#003399" width="4">&nbsp;</td>
+        </tr>
+      </table>
+    </TD>
+  </TR>
+  <TR>
+    <TD COLSPAN=2> <IMG SRC="images/op01a_10.gif" WIDTH=614 HEIGHT=31></TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>

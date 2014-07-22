@@ -1,0 +1,213 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+?>
+<HTML>
+<HEAD>
+<TITLE>Perfect Response Demonstration Subscription Page</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css" media="screen">
+@import "PerfectResponse.css";
+</style>
+<script language="JavaScript1.2"  type="text/javascript">
+<!--
+function Trim(strInput) 
+{
+    if(strInput.length == 0) 
+    {
+        return "";
+    } 
+    else 
+    {
+        strTemp = strInput.substring(strInput.length - 1)
+    }
+
+    while (strTemp == " ") 
+    {
+        strInput = strInput.substring(0, strInput.length - 1)
+
+        if (strInput.length == 0)
+        {
+            strTemp = "";
+        } 
+        else 
+        {
+            strTemp = strInput.substring(strInput.length - 1)
+        }
+    }
+
+
+    if (strInput.length == 0) 
+    {
+        strTemp = "";
+    } 
+    else 
+    {
+
+        strTemp = strInput.substring(0, 1)
+    }
+
+    while (strTemp == " ") 
+    {
+        strInput = strInput.substring(1)
+
+        if (strInput.length == 0) 
+        {
+            strTemp = "";
+        } 
+        else 
+        {
+            strTemp = strInput.substring(0, 1)
+        }
+    }
+
+    return strInput;
+
+}//close Trim Function
+
+
+
+function checkEmail(strEmail)
+{
+		emailflag="";
+
+   		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(strEmail))
+        {        //submit = 0;
+               emailflag="Valid";
+        }
+        else
+        {
+            emailflag="Not Valid";
+        }
+
+        return emailflag;
+
+}//Ending check mail function
+
+
+
+
+function Validate()
+{
+
+	var objName = document.Name;
+
+
+	if(Trim(objName.Full_Name.value)=="")
+	{
+		alert("Please enter your name");
+		objName.Full_Name.focus();
+		return false;
+	}
+
+
+	if(Trim(objName.Email_Address.value) == "")
+	{
+		alert("Please enter your E-mail address");
+		objName.Email_Address.focus();
+		return false;
+	}
+
+
+	if(checkEmail(objName.Email_Address.value) == "Not Valid")
+	{
+		alert("Please enter a valid E-mail address");
+		objName.Email_Address.focus();
+		return false;
+	}
+
+	else
+
+	{
+		return true;
+	}
+}
+//-->
+</SCRIPT>
+</HEAD>
+<body>
+<div class="content">
+<div class="title"> 
+<table>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+</div>
+		<TABLE BORDER=0 CELLPADDING='8' CELLSPACING='0' align="center" onload="window.document.Name.Full_Name.focus();">
+			<tr>
+				<td colspan='2'> 
+					<h3 style="text-align: center">Sign up to receive a demonstration of Perfect Response</h3>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p align="justify"><i>Perfect Response</i> is an advanced Email Marketing System. Any series of messages, lessons, or reports
+					can make up an email campaign. Those messages can be sent out to people who sign up to receive them. </p>
+
+					<p align="justify">Unlike sending a newsletter to a list of subscribers that all subscribers will
+					receive at the same time, this system acts as an autoresponder. It automatically responds to subscription 
+					requests given to it from your web page. Alternatively, you can manually import one or more subscribers 
+					from an existing list of names and email adresses.</p>
+
+					<p align="justify">As people sign up to receive your messages, lessons, or sales letters, they each 
+					start receiving	the predefined messages in sequence. There is virtually no limit to the number of 
+					different email campaigns or messages in a campaign that you may have.</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<Form name="Name" onSubmit="Exit=false; return(Validate());" Action="http://www.lightning-mortgage.com/pr/optin.php" Method="post">
+						<input type="hidden" name="arid" value="5">
+						<input type="Hidden" name="redirect" value="http://www.lightning-mortgage.com/pr/thankyou.php">
+						<p style="text-align: right"><label for="Full_Name">Your First Name</label></p>
+				</td>
+				<td>
+						<p style="text-align: left">
+						<Input Type="Text" name="Full_Name" id="Full_Name" Maxlength="50" size="30"
+						onfocus="this.style.border='2px solid #004a8d'"  onblur="this.style.border='2px solid silver'"></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+						<p style="text-align: right"><label for="Email_Address">Email</label></p>
+				</td>
+				<td>
+					<p style="text-align: left">
+					<Input Type="Text" Name="Email_Address" id="Email_Address" Maxlength="50" size="30"
+					onfocus="this.style.border='2px solid #004a8d'"  onblur="this.style.border='2px solid silver'"></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					&nbsp;
+				</td>
+				<td style="text-align: left">
+					<Input style="color: #ffffff; 	background-color: #004a8d;	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; width: 200px;" 
+					Type="Submit" Value="Sign Up!">
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td  colspan="2">
+					<pstyle="text-align: left">Rest
+					assured, we respect your privacy and will
+					not abuse the privilege of your subscription
+					or give your email address to anyone under any
+					circumstance. You may remove yourself at any
+					time.
+					</p>
+				</td>
+			</tr>
+</TABLE>
+</BODY>
+</HTML>

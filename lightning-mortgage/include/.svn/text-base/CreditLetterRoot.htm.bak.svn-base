@@ -1,0 +1,155 @@
+<div id='OverAll'>
+<div class='WebIntro WebCreditIntro' id='Intro'>
+function ShowPop()
+{
+var UUU=GetMyValue("creditletter");
+alert("on load the cookie 'creditletter' is set to '"+UUU+"'");
+if (UUU != 'no')
+{
+document.getElementById('OverAll').style.display = 'block';
+document.getElementById('Intro').style.display = 'block';
+}
+}
+// Show Pop-Up after a few seconds after page loads
+// setTimeout('ShowPop();',secs);
+setTimeout('ShowPop();',1000);
+</script>
+
+<h1>Now You Can Learn How To Improve Your Credit Score and Save Thousands On Your Mortgage!</h1>
+
+<p style='font-style:italic;font-size:150%;text-align:left;'>I'll show you step-by-step exactly
+what to do  and what to not do so your credit score will skyrocket--especially if you've made
+some mistakes in judgment on debt repayment.</p>
+
+<div class='Letter CreditLetter'>
+<img src='http://www.lightning-mortgage.com/images/Bolt/Bolt.gif' style='float:right;margin:-40px -40px 0 0; alt='''>
+<p>Pleasanton, California<br />
+<script type="text/javascript">
+<!--
+PrintDate()
+//-->
+</script>
+</p>
+<p>Dear Friend,</p>
+<p>Of course, you want to improve your credit score. It will enable you to qualify for lower 
+interest loans. It will boost your borrowing power.</p>
+<p>But you've got a less than stellar credit history. Money got tight and you made some
+conflicting, confusing advice, and you made some repayment decisions that you now regret. Now
+you want a low interest mortgage and pay the least amount for closing, and you should!</p>
+<p>That's where I come in. I have helped my clients see their score jump 100 points after
+following my advice. My lifelong goal has been to improve my clients financial standing.</p>
+
+<p>In the past 20 years the way money is borrowed has changed dramatically as more and more
+companies who extend credit to their customers have begun using standardized credit reports.
+As the years have passed I've discovered exactly what works and what doesn't work when it
+comes to raising credit scores the highest amount in the least amount of time.</p>
+
+<p>Keep reading, and I'll show you exactly what works and what
+does not work when it comes to improving your credit score.</p>
+
+<p>The first thing we need to do is get you to understand what you're up against. Credit
+scores will improve on their own over time as you establish good repayment history and resist
+obtaining additional loans. But who has the time? We live in a society that requires using credit.
+How many people can afford to buy a new car using cash? How many homes are bought in your
+neighborhood for cash? Very few.</p>
+
+<p>You depend on your credit score for many, many purchases. Like it or not, many people have
+more plastic in their wallets than anything else.</p>
+
+<p>Part of the problem is our own addiction to strategies that
+never work...</p>
+<div style='margin:30px auto 0 auto;width:560px;'>
+<b class="Ltop"></b><b class="Lb1"></b><b class="Lb2"></b><b class="Lb3"></b><b class="Lb4"></b>
+<h2 style='width:558px;'>Four strategies for saving money that never work<br /><br />...Yet people
+always try</h2>
+<b class="Lbottom"></b><b class="Lb4"></b><b class="Lb3"></b><b class="Lb2"></b><b class="Lb1"></b></div>
+<ol start=1 type=1>
+ <li><strong>The first strategy is to do nothing.</strong> Most people go into a state of denial,
+ figuring things will be better next year. Deleting the voice messages from the mortgage and credit
+ card companies, waiting, and hoping things will get better doesn't work. Then they get a notice
+ posted on their door announcing the house is being auctioned. Or the car gets repossessed.</li>
+ 
+<li><strong>The second is to open up one or more new credit card accounts to pay off the old one.</strong>
+Shuffling debt from one creditor to another is a shell game that you can never win. Your score will
+never go up using this method. It just keeps the wolf from your door a little longer, perhaps, by
+lowering, or eliminating interest payments for some time period.</li>
+<li><strong>The third strategy is to declare bankruptcy.</strong> Some people think that debt is
+eliminated. Oh what a relief it is! Or was. Bad news. The debt isn't automatically eliminated. Today's
+bankruptcy laws are much more restrictive, and expensive, to file. It may have gotten angry phone calls
+from creditors to stop, but it doesn't improve your credit score.</li>
+<li><strong>The fourth strategy is to ask friends and family for help.</strong> Using others good credit
+to make purchases by co-signing on loans may get you a new car, or a house, but it will do nothing to
+improve your scores.</li>
+</ol>
+
+<p>My strategy is to examine your credit report and tell you what to do that will have the greatest
+impact on improving the scores. I do not run a consumer credit counseling or repair service, even
+though the information packed reports I'll send you will achieve the same result.</p>
+
+<p>Many people take a pessimistic view. They figure they have too much to learn. They just want to
+move into a home of their dreams, and be done with it. Spending a few dollars more each month is no
+big deal. Well, they are wrong.</p>
+
+<p>Would you needlessly spend $50,000 to $200,000 more for a home than you need to pay? Probably
+not. But if you have a mortgage that is a point or two higher than it would to if you had great
+credit then you could wind up over-paying even more for the same house.</p>
+
+<div style='margin:30px auto;width:560px;'>
+<b class="Ltop"></b><b class="Lb1"></b><b class="Lb2"></b><b class="Lb3"></b><b class="Lb4"></b>
+<h2 style='width:558px;'>What you Can Do Right Away to Turn The Tide in Your Favor</h2>
+<b class="Lbottom"></b><b class="Lb4"></b><b class="Lb3"></b><b class="Lb2"></b><b class="Lb1"></b></div>
+
+<p>For most people like you, improving your credit score is about as interesting as doing your
+income taxes. But if you spend some time on it, you will be able to qualify for a better home
+mortgage. Here's three things that can make a difference:</p>
+<ol>
+ <li>Arming yourself with knowledge about how credit scores work is the best defense against
+ paying more than you need to pay when buying and owning a home.</li>
+ <li>Having a clear overall financial picture, and how your mortgage fits into that picture.</li>
+ <li>Working with and obtaining advice from a trusted source, a down-to-earth, level headed expert.</li>
+</ol>
+
+<p>I am available to help you lower your credit scores so you can obtain the lowest interest rate
+mortgage. One that will meet your needs. Sign-up to receive strategies that will save you money,
+big money. I discuss many of them in my free Credit Score Secrets series of messages. This 
+information will be emailed to you over at regular intervals.</p>
+
+<p>Sincerely,</p>
+<p><img src='http://www.lightning-mortgage.com/images/Anthony.gif' alt='' style='vertical-align:bottom;'></p>
+<p>Anthony Ferlazzo<br />Mortgage Consultant</p>
+
+<div style='margin:0;padding:0;width:602px;'>
+<b class="Ltop"></b><b class="Lb1"></b><b class="Lb2"></b><b class="Lb3"></b><b class="Lb4"></b>
+<div id='LetterOptIn'>
+
+<div style='float:left;width:188px;margin-left:6px;'>
+<p style='text-align:left;font-size:120%;'>Sign up to receive our FREE
+multi-part email course 'Credit Score Secrets' and
+<span class="Highlight">improve your score by up to 100 points.</span></p>
+</div>
+
+<div style='float:left;width:205px;margin-left:12px;'><form name="Main2" onSubmit="if(Validate(document.Main2) == false) {Main2.Submit.value='Sign Up!'; return(false);} else return(true);"
+action="http://www.lightning-mortgage.com/pr/optin.php" Method="post" style='margin:0;position:relative;top:0;'>
+<p style="line-height:80%;">
+<input type="hidden" name="arid" value="143">
+<input type="Hidden" name="redirect" value="http://www.lightning-mortgage.com/CreditScores/CreditSecretsSuccess.htm">
+<input type="Text" name="Full_Name" maxlength="50" style="width:200px;background:#DFEBEB;" title='Enter Your First Name Here'
+onfocus="this.style.border='2px solid #3F7551'; if (this.value=='Enter Your First Name Here') this.value='';" value="Enter Your First Name Here"
+onblur="this.style.border='2px solid silver'; if (this.value=='') this.value='Enter Your First Name Here';"><br /><br />
+
+<input type="Text" name="Email_Address" maxlength="50" style="width:200px;background:#DFEBEB;" title='Enter Your Email Address Here'
+onfocus="this.style.border='2px solid #3F7551'; if(this.value=='Enter Your Email Address Here') this.value='';" value="Enter Your Email Address Here"
+onblur="this.style.border='2px solid silver';if(this.value=='') this.value='Enter Your Email Address Here';"><br /><br />
+<input style="width:206px;font-size:medium;margin:0;" type="submit" class="Button" value="Free Info and Web Access" name='Submit'
+onclick="this.value='One moment...'" onMouseover="this.className='MouseOver'" onMouseout="this.className='Button'" onfocus='if(this.blur) this.blur();'></p></form>
+</div>
+<div style='float:left;width:158px;margin-left:12px;'>
+<p style='text-align:left;font-size:120%;'>Rest assured, we respect your
+privacy and will not give your email address to anyone under any circumstance.</p>
+</div>
+<br style="clear:both;"></div>
+<b class="Lbottom"></b><b class="Lb4"></b><b class="Lb3"></b><b class="Lb2"></b><b class="Lb1"></b></div>
+<h1>Sign Up and You'll Enter Our Web Site, Too!</h1>
+</div><!-- end of letter -->
+</div><!-- end of division -->
+</div>

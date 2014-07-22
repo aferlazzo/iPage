@@ -1,0 +1,101 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+?>
+<?php
+include("check1.php");
+include("conn.php");
+$ID=$_GET["arid"];
+$arid=$_GET["arid"];
+$WithinScript = "I know the arid";
+include("settings.php");
+$result = mysql_query("SELECT * FROM users where arid=$ID and email='$spamemail' and confirmed='Y'", $link);
+$num_rows = mysql_num_rows($result);
+if($num_rows>0)
+{
+	mysql_data_seek($result, 0);
+	$row = mysql_fetch_object($result);
+	$email=1;
+	$method=$row->method;
+	$ip=$row->ip;
+}
+else
+{
+	$email=0;
+}
+
+?>
+<HTML>
+<HEAD>
+<TITLE>Spam Tracker Action</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="./css/PerfectResponse.css">
+<script>
+function manar(id)
+{
+	location.href="EditCampaign.php?arid="+id;
+}
+
+</script>
+</HEAD>
+<BODY BGCOLOR=#FFFFFF leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<TABLE width='540' BORDER=0 CELLPADDING='4' CELLSPACING=0 align="center">
+	<TR>
+		<td align='center'>
+			<h3><br>Checking for Spam in Email Campaign <i><?php echo $Display_Name; ?></i></h3>
+		</td>
+	</TR>
+	<TR>
+		<TD valign="top">
+
+			<?php
+				if($email==0)
+				{
+				?>
+				<tr>
+				<td align="center">
+					<p style="size: small;">Email Address '<?php echo $spamemail;?>'
+					<b>is not</b> that of a confirmed subscriber</p></td>
+				</tr>
+				<?php
+				}
+				else
+				{
+				?>
+				<tr>
+				<td align="center" valign="middle">
+					<p style="size: small;">Email Address <b>'<?php echo $spamemail;?>'</b>
+					is a confirmed subscriber.<br><br>Subscribed using the<b>&nbsp;<?php
+					switch ($method){
+					case 1:
+						echo "Import";
+							break;
+					case 2: echo "Online Subscription";
+							break;
+					case 3: echo "Email Subscription";
+							break;
+						}
+					?></b>
+					method using IP address <b><?php echo $ip;?></b></p></td>
+				</tr>
+				<?php
+		}
+				?>
+				<tr>
+				<td colspan="2" align="center" valign="middle">
+			<?php
+			print ("<br><form action='CampaignManager.php'>");
+			print ("<input type='hidden' name='arid' value='$arid'>");
+			print ("<input type='submit' name='OtherT' value='Continue'>");
+			print ("</form></td>");
+			?>
+				</tr>
+			</table>
+</BODY>
+</HTML>

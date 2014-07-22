@@ -1,0 +1,100 @@
+<!doctype html>
+<head lang='en'>
+<title>boxes</title>
+<!-- by Anthony Ferlazzo -->
+<style>
+.clearfix:after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+
+div#boxes9{ margin:150px; width:120px; height:120px;}
+div.boxes3{width:120px; height:40px;}
+div.box{
+    height:30px;
+    width:30px;
+    border:1px dashed gray;
+    float:left;
+    margin:0 0 10px;
+    text-align:center;
+    line-height:30px;
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+}
+div.mid{margin:0 10px 10px}
+</style>
+</head>
+<body>
+        <div id='boxes9'>
+            <div class='boxes3 clearfix'>
+                <div class='box'>1</div>
+                <div class='box mid'>2</div>
+                <div class='box'>3</div>
+            </div>
+            <div class='boxes3 clearfix'>
+                <div class='box'>4</div>
+                <div class='box mid'>5</div>
+                <div class='box'>6</div>
+            </div>
+            <div class='boxes3 clearfix'>
+                <div class='box'>7</div>
+                <div class='box mid'>8</div>
+                <div class='box'>9</div>
+            </div>
+        </div>
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+
+<script>
+	$('document').ready(function(){
+
+		var nineBoxes = new function() {
+			var i= 0, bk1 = '#f00', bk2 = '#ff0', x = 0, speed = 5, timeoutId = 0;
+
+			fIt = function () {
+				$('.box:even').css('backgroundColor', bk1);
+				$('.box:odd').css('backgroundColor', bk2);
+				bk1 = (bk1 == '#f00' ? '#ff0' : '#f00');
+				bk2 = (bk2 == '#f00' ? '#ff0' : '#f00');
+				if (++x < 10) setTimeout(fIt, 1000);
+			}
+			this.flip = function () {
+				fIt();
+			}
+
+
+
+			rIt = function () {
+				clearTimeout(timeoutId);
+				i += speed;
+				var x = i%360;
+
+				$('#boxes9').css({'-webkit-transform': 'rotate('+x+'deg)', '-moz-transform'   : 'rotate('+x+'deg)'});
+				if(i>999999) {i=0;}
+				if (i === 72000)
+					$('#spoke'+(i%7 + 1)).html('<p>A winner!</p>');
+				if(i < 359)
+					timeoutId = setTimeout(rIt, speed);
+			}
+
+			this.rotateIt = function () {
+				rIt();
+			}
+
+		}
+		nineBoxes.flip();
+		nineBoxes.rotateIt();
+	});
+</script>
+</body>
+</head>

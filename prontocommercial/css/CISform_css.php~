@@ -1,0 +1,75 @@
+<?php
+		 ob_start ("ob_gzhandler");
+		 header ("content-type: text/css; charset: UTF-8");
+		 header ("cache-control: must-revalidate");
+		 $offset = 60 * 60;
+		 $expire = "expires: " . gmdate ("D, d M Y H:i:s", time() + $offset) . " GMT";
+		 header ($expire);
+?>
+#directions{
+margin:15px 15px 0;
+width:320px !important;
+height:330px;
+}
+#directions p{font-size:large;line-height:inherit;text-align:justify;}
+#directions h1{margin-bottom:0;line-height:42px;}
+#carouselControls{position:absolute;top:368px;left:105px;width:200px;}
+#backwardOne, #pause, #forwardOne, .pauseResume{display:none;}
+form {text-align:left; width:460px;font-size:12px;height:340px;}
+#controlTablet{
+position: absolute;
+top:0;left:-999px;
+margin:20px;
+width:460px;
+height:320px;
+}
+cisTabs{width:452px;}
+
+label, .bType {font-size:14px;font-weight:900;width:200px;text-align:right;margin-right:5px;display:inline-block;}
+.bType{display:inline;margin:0;}
+input {text-align:left;border:1px dotted silver;line-height:16px;font-size:13px;}
+#cStructure, #Request{width:173px;}
+textarea
+{
+border: 1px dotted silver;
+width: 410px;
+height: 275px;
+margin: 5px;
+overflow: auto;
+}
+
+#cisContact, #cisCompany, #cisBank, #cisService, #cisUse {
+text-align:right;
+width:395px;
+height:315px;
+border:1px solid gray;
+padding:10px 45px 5px 10px;
+background-color: #3acff8;
+}
+#cisUse{text-align:center;padding:5px;width:440px;}
+div#cisService input, div#cisCompany input, div#cisBank input, div#cisContact input  {margin:2px 0;}
+#cisSendRequestButton {
+background-color:#068cb1;
+color:#fff;
+font-weight:900;
+cursor:pointer;
+border:1px solid #000;
+margin:0 auto;
+padding:3px 5px;
+}
+#cisSendRequestButton:hover{background-color:#3acff8;color:#068cb1;}
+#it, #pof  {display:none;text-align:center;}
+
+div#cisService select, div#cisCompany select, div#cisContact select {margin:2px 0;}
+
+/*#cisUse {margin:5px 0 0 20px;width:780px;height:334px;padding-top:2px;}*/
+
+div#tt{width:95px;text-align:left;margin:3px auto;display:inline-block;}
+div#tt label, div#tt span {width:20px;cursor:pointer;white-space:nowrap;text-align:left;margin-left:4px;}
+div#tt span {margin-left:-283px;margin-right: 45px;}
+div#messageType{width:220px;text-align:left;margin:10px 0 0 220px;}
+
+div#messageType label, div#messageType span {width:50px;cursor:pointer;white-space:nowrap;text-align:left;margin-left:4px;}
+div#messageType span{margin-left:-10px;}
+div#messageType input {margin-left:30px;}
+.countryRightMargin{margin-left:-200px;}

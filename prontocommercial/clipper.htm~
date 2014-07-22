@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset=utf-8>
+<title>Clipper - CSS Sprite & Clip Utility</title>
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+<link rel="stylesheet" type='text/css' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+<link rel="stylesheet" type='text/css' href="css/clipper.css">
+<script type='text/javascript' src='js/clipper.js'></script>
+</head>
+<body>
+	<h1>Clipper: Sprite or Clip Selection</h1>
+		<div id='theImageWrapper'>
+			<div id='theImageContainer'></div>
+			<div id='theClippedContainer'></div>
+			<div id='theRectangle'></div>
+		</div>
+
+	<form id='clipForm' action='#'>
+		<fieldset id='fullImageFields'>
+			<legend>Full Image Parameters</legend>
+			<!-- for each input, the name argument is for form processing, the id is for jquery processing -->
+			<label for='eFile'>Image File Pathname</label> <input type='text' name='eFile' id='eFile'>&nbsp;&nbsp;<button id='btn'>Show It</button>
+			<div class='hh hd'>
+				<label for='eWidth'>Width</label><input disabled type='text' name='eWidth' id='eWidth' class='amt'> px
+				<div id='backgroundColor'></div><div id='colorLegend'>Selection<br>Background Color</div>
+			</div>
+			<div class='hh hd'>
+				<label for='eHeight'>Height</label><input disabled type='text' name='eHeight' id='eHeight' class='amt'> px
+				<div id='zoomFactor'></div><div id='zoomLegend'><span>100%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;300%</span><br>Image Zoom</div>
+			</div>
+		</fieldset>
+
+		<fieldset id='theRectangleFields'>
+			<legend>The Selection Rectangle</legend>
+			<div class='hh amtw'><label for='theRectangleFieldsWidth'>Width</label><input type='text' value=0 name='theRectangleFieldsWidth' id='theRectangleFieldsWidth' class='amt'> px</div>
+			<div class='hh amth'><label for='theRectangleFieldsHeight'>Height</label><input type='text' value=0 name='theRectangleFieldsHeight' id='theRectangleFieldsHeight' class='amt'> px</div>
+			<div class='hh amtw'><label for='theRectangleFieldsLeft'>Left Offset</label><input type='text' value=0 name='theRectangleFieldsLeft' id='theRectangleFieldsLeft' class='amt'> px</div>
+			<div class='hh amth'><label for='theRectangleFieldsTop'>Top Offset</label><input type='text' value=0 name='theRectangleFieldsTop' id='theRectangleFieldsTop' class='amt'> px</div>
+			<div class='hh amtw'><label for='theRectangleFieldsRight'>Right Limit</label><input type='text'  value=0 name='theRectangleFieldsRight' id='theRectangleFieldsRight' class='amt'> px</div>
+			<div class='hh amth'><label for='theRectangleFieldsBottom'>Bottom Limit</label><input type='text' value=0 name='theRectangleFieldsBottom' id='theRectangleFieldsBottom' class='amt'> px</div>
+
+		</fieldset>
+		<fieldset id='cssFields'>
+			<legend>CSS For Selection</legend>
+			<div id='cssDisplayed'></div>
+		</fieldset>
+		<fieldset id='referenceFields'>
+			<legend>For Reference</legend>
+			<div class='rel'>
+				<div id='refOriginalElement'>
+					<div id='refDescription'>Entire<br>Image<br>File</div>
+					<div id='refClippedArea'>Clipped<br>Area</div>
+					<div id='refTopLine'>top</div><div id='topArrow'></div>
+					<div id='refRightLine'>right</div><div id='rightArrow'></div>
+					<div id='refBottomLine'>bottom</div><div id='bottomArrow'></div>
+					<div id='refLeftLine'>left</div><div id='leftArrow'></div>
+					<div id='refClippedWidth'>width</div><div id='refClippedHeight'>height</div>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

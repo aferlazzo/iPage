@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<!--
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+include("check1.php");//cookie exists?
+-->
+
+<TITLE>Manage Campaign - Perfect Response</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css" media="screen">
+@import "PerfectResponse.css";
+#Menu {padding:8px;line-height:24px;text-align:left;height:400px;}
+.Action {float:left;width:230px;text-align:right;font-size:small;}
+.Action a {color:#800000;}
+.Description {float:left;text-align:left;font-size:small}
+</style>
+<script type="text/javascript">
+function LLogout()
+{
+	if (confirm('Do you really want to logout?'))
+	{
+		location.href='logout.php';
+		return (false);
+	}
+	
+	return(true);
+}
+function Show()
+{
+//alert(document.getElementById('navBeta').style.display);
+if (document.getElementById('navBeta').style.display == '')
+{
+document.getElementById('navBeta').style.display='block';
+document.getElementById('submit').value='Click to hide hints!';
+document.getElementById('submit').style.borderWidth='2px';
+document.getElementById('submit').style.borderStyle='solid';
+document.getElementById('submit').style.borderColor='#ffffff';
+document.getElementById('submit').style.backgroundColor='#939';
+//document.getElementById('submit').focus();
+}
+else
+{
+document.getElementById('navBeta').style.display='';
+document.getElementById('submit').value='Click for helpful hints!';
+document.getElementById('submit').style.borderWidth='2px';
+document.getElementById('submit').style.borderStyle='solid';
+document.getElementById('submit').style.borderColor='#ffffff';
+document.getElementById('submit').style.backgroundColor='#004a8d';
+//document.getElementById('submit').focus();
+}
+}
+
+function manar(id)
+{
+	location.href="editar.php?arid="+id;
+}
+
+function deletear(id, Aname)
+{
+	if(confirm("Deleting this autoresponder email campaign '"+Aname+"' will also delete all users and messages in it.\nAre you sure you want to delete this autoresponder?"))
+		location.href="deletear.php?arid="+id;
+	else
+		location.href="manar.php";
+}
+
+function CloneAR(id, Aname)
+{
+	if(confirm("Cloning this autoresponder email campaign '"+Aname+"' will clone both users and messages in it.\nAre you sure you want to clone this autoresponder?"))
+		location.href='CloneAR.php?arid='+id+'&NewArid=&CloneUsers=1&CloneMessages=1';
+	else
+		location.href="manar.php";
+}
+
+function CopyMessagesFrom(id, Aname)
+{
+	if(confirm("Copying messages from email campaign '"+Aname+"' will also delete existing messages (if any).\nAre you sure you want to copy messages?"))
+		return true;
+	else
+		return false;
+}
+
+function VerifyMessageCopy()
+{
+	/*Aname=document.form1.NextAridName.value;*/
+	
+	if (confirm("Are you sure you want to import the messages into this campaign?"))
+		return(true);
+	else
+		return(false);
+}
+
+function VerifySubscriberCopy()
+{
+	/* Aname=document.form1.NextAridName.value;*/
+	
+	if (confirm("Are you sure you want to import the subscribers into this campaign?"))
+		return(true);
+	else
+		return(false);
+}
+var Size=125;
+function GrowIt()
+{
+Size=Size+10;
+var I=Size+'%';
+document.getElementById('Grow').style.fontSize=I;
+if(Size>=200)
+ clearInterval(timer);
+}
+function SSS()
+{
+//timer=setInterval('GrowIt()', 20);
+}
+//-->
+</script>
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =//
+//																					//
+// DoAutoresponder.php: This script displays the menu of tasks for an Autoresponder	//
+//																					//
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =//
+
+$cmd  = $_GET['cmd'];
+$arid = $_GET["arid"];
+include("check1.php");//cookie exists?
+include("conn.php"); 
+$user = $_COOKIE["UName"];
+include("settings.php");
+
+if ($cmd == 3)	// request could be a manage or delete of autoresponder, if a delete
+{
+	//die ("arid $arid Display_Name '$CampaignDescription'");
+	print ("<script javascript>void(deletear($arid, '$CampaignDescription'));</script>\n");
+}
+
+if ($cmd == 2) //clone?
+{
+	print ("<script javascript>void(CloneAR($arid, '$CampaignDescription'));</script>\n");
+}
+
+	
+
+$result = mysql_query("SELECT * FROM autoresponders where arid=$arid", $link); 
+$num_rows = mysql_num_rows($result);
+//mysql_data_seek($result, 0) or die(logMessage("DoAutoresponder (".__LINE__.") Could not move pointer to autoresponder row"));
+$arrow = mysql_fetch_object($result) or die(logMessage("DoAutoresponder (".__LINE__.") Could not read next autoresponder row"));
+$CampaignState = $arrow->CampaignState;
+
+$result = mysql_query("SELECT * FROM users where arid=$arid and confirmed='Y'", $link); 
+$num_rows = mysql_num_rows($result);
+$numusers=0;
+if($num_rows>0)
+{
+	$NumberOfUsers=$num_rows;
+}
+?>
+</HEAD>
+<body onload="SSS();">
+<div class="content">
+<span class="BoxHeading">
+<input type="button" id="submit" name="submit" value="Click for helpful hints!" class="Button" onclick="Show();" onmouseover="document.getElementById('submit').style.fontWeight='bold';" onmouseout="document.getElementById('submit').style.fontWeight='normal';">
+</span>
+<div id="navBeta">
+	<h2>Campaign Tips</h2>
+
+	<p>	It is quite easy to create and edit <i>Perfect Response</i>&#153; campaign messages. Yet you may find the
+	features on your word processing or email programs to be much more robust in terms of editing and spell-checking.</p>
+	<p>Just copy and paste message text from those systems right into <i>Perfect Response</i>, including HTML codes
+	if you're sending messages formatted with HTML.</p>
+
+	<p>We have found that people like to receive HTML formatted message because of the sometimes dazzling effects. Yet
+	they don't like the bulky overhead that these messages carry. You might be better served by sending plain text messages
+	that are clear, concise, and makes use of white space.</p>
+
+	<p>Use the <i>Message Test</i> function to send yourself the messages. Make sure your messages don't appear to be
+	crunched into one big paragraph.</p>
+</div>
+
+<center><h2>
+	<?php 
+
+			if ($CampaignState == "Suspended")
+				print ("Campaign is <span style='background:#DC143C;color:#fff;font-weight:bold;'>Suspended</span>");
+			else	
+				print ("Campaign is <span style='background:#004a8d;color:#fff;font-weight:bold;'>Active</span>");					 	
+			print("<br /><span id='Grow'><i>$CampaignDescription</i></span></h2></td></tr><tr><td colspan='2' align='center'><h3>");
+	?>
+<div id="Menu">
+<?php
+//---Settings -------------------------------
+			print("<div class='Action'><a href='editar.php?arid=$arid '>"); 
+			print("	Settings</a></div><div class='Description'>&nbsp;- Edit configuration</div><br style='clear:left;'>\n");
+
+//---Manage Messages ------------------------
+			$result = mysql_query("SELECT * FROM messages where arid=$arid", $link); 
+			$NumberOfMessages = mysql_num_rows($result);  
+			$NumberOfMessages--;	//don't count the footer as a message
+			$NumberOfMessages = $NumberOfMessages - 3; //to account for the subscribe/signature messages
+			
+			print ("<div class='Action'><a href='manmsg.php?arid=$arid'> ");
+			
+			if ($NumberOfMessages == 0)
+				print ("Messages</a></div><div class='Description'>&nbsp;- Add messages</div><br style='clear:left;'>\n");
+			else
+				print ("Messages</a></div><div class='Description'>&nbsp;- Edit 1 of the <b>$NumberOfMessages</b> messages</div><br style='clear:left;'>\n");
+
+//---Message Test ----------------------------
+			print("<div class='Action'><a href='InstantTest.php?arid=$arid'>"); 
+			print("Message Test</a></div><div class='Description'>&nbsp;- Send all messages</div><br style='clear:left;'>\n");
+
+			print("<hr style='color: #003399'>");
+			
+//---Add Subscribers -------------------------
+			print("<div class='Action'><a href='import.php?arid=$arid'>"); 
+			print("Add Subscribers</a></div><div class='Description'>&nbsp;- Manually import subscribers</div><br style='clear:left;'>\n");
+
+//---Display Subscribers ------------------------
+			if ($NumberOfUsers >0)
+			{
+				print("<div class='Action'><a href='export.php?arid=$arid'>\n");
+				print("Display or Export Subscribers</a></div><div class='Description'>&nbsp;- There are <b>$NumberOfUsers</b> subscribers</div><br style='clear:left;'>\n");
+			}
+			else
+				print("<div class='Action'>There are currently no subscribers to export</div><br style='clear:left;'>\n");
+
+//---Delete Subscribers -------------------------
+			print("<div class='Action'><a href='remsubscriber.php?arid=$arid'>");
+			print("Delete Subscribers</a></div><div class='Description'>&nbsp;- Manually delete subscribers</div><br style='clear:left;'>\n");
+					
+//---Edit Subscribers ---------------------------	
+			print("<div class='Action'><a href='edituser.php?arid=$arid'>");
+			print("Edit Subscribers</a></div><div class='Description'>&nbsp;- Emails, Names, dates, msg no</div><br style='clear:left;'>\n");
+					
+			print("<hr style='color: #003399'>");
+
+//---Verify Subscriber email/ip address ---- 			
+			print("<div class='Action'><a href='spam.php?arid=$arid'>");
+			print("Spam Tracking</a></div><div class='Description'>&nbsp;- Verify by email or IP address</div>\n");
+
+//---Check for Duplicate Subscribers ------------	
+			print("<div class='Action'><a href='DuplicateCheck.php?arid=$arid'>");
+			print("Check Subscribers</a></div><div class='Description'>&nbsp;- Deletes duplicate subscribers</div><br style='clear:left;'>\n");
+	
+			print("<hr style='color: #003399'>");
+
+//---Clone Messages -------------------------
+			$AutoresponderResult 	= mysql_query("SELECT * FROM autoresponders", $link); 
+			$NumberOfAutoresponders = mysql_num_rows($AutoresponderResult); 		
+
+			if($NumberOfAutoresponders > 0) //autoresponder=mail campaign
+			{
+				print ("<form name='form1' action='CloneAR.php' method='get'>\n");
+				print ("<input type='hidden' name='NewArid' value='$arid'>\n");
+				print ("<input type='hidden' name='CloneMessages' value=1>\n");
+				print ("<input type='hidden' name='CloneUsers' value=0>\n");
+				print ("<div class='Action'>Copy messages from</div><div class='Description'>&nbsp;\n");
+				print ("<select style='color:#800000;font-weight:bold;font-size:12px;' size='1' name='arid' onChange='if(VerifyMessageCopy()==true) submit();'>\n");
+				print ("<option selected value='0'>Select Existing Mail Campaign</option>\n");
+
+				for($count=0; $count < $NumberOfAutoresponders; $count++) 
+				{		
+					mysql_data_seek($AutoresponderResult, $count); //set db pointer to next autoresponder
+					$AutoresponderRow = mysql_fetch_object($AutoresponderResult);
+					$NextArid 			= $AutoresponderRow->arid;
+					$NextAridName	= $AutoresponderRow->ardescription;
+
+					if ($arid != $NextArid) //can clone from the current autoresponder
+						print ("<option value='$NextArid'>$NextAridName </option>\n");
+				}
+
+				print ("</select></div><br style='clear:left'>\n");
+				print ("</form>\n");
+			}
+
+//---Copy Subscribers ------------------------
+			$AutoresponderResult 	= mysql_query("SELECT * FROM autoresponders", $link); 
+			$NumberOfAutoresponders = mysql_num_rows($AutoresponderResult); 		
+
+			if($NumberOfAutoresponders > 0) //autoresponder=mail campaign
+			{
+				print ("<form name='form$count' action='CloneAR.php' method='get'>\n");
+				print ("<input type='hidden' name='NewArid' value='$arid'>\n");
+				print ("<input type='hidden' name='CloneMessages' value=0>\n");
+				print ("<input type='hidden' name='CloneUsers' value=1>\n");
+				print ("<div class='Action'>Copy subscribers from</div><div class='Description'>&nbsp;\n");
+				print ("<select style='color:#800000;font-weight:bold;font-size:12px;' size='1' name='arid' onChange='if(VerifySubscriberCopy()==true) submit();'>\n");
+				print ("<option selected value='0'>Select Existing Mail Campaign</option>\n");
+
+				for($count=0; $count < $NumberOfAutoresponders; $count++) 
+				{
+					mysql_data_seek($AutoresponderResult, $count); //set db pointer to next autoresponder
+					$AutoresponderRow = mysql_fetch_object($AutoresponderResult);
+					$NextArid			= $AutoresponderRow->arid;
+					$NextAridName	= $AutoresponderRow->ardescription;
+
+					if ($arid != $NextArid) //can clone from the current autoresponder
+						print ("<option value='$NextArid'>$NextAridName</option>\n");
+				}
+
+				print ("</select></div><br style='clear:left'>\n");
+				print ("</form>\n");
+			}
+
+//---Broadcast -------------------------------
+			print("<div class='Action'><a href='manbroadcast.php?arid=$arid'>");
+			print("Broadcast</a></div><div class='Description'>&nbsp;- Send a message to all subscribers</div><br style='clear:left;'>\n");
+
+//---Restart Campaign ------------------------
+			print("<div class='Action'><a href='resetar.php?arid=$arid'>");
+			print("Restart Campaign</a></div><div class='Description'>&nbsp;- To all or some subscribers</div><br style='clear:left;'>\n");
+
+//---Check for Subscriber/unsubscribe code ----				
+			print("<div class='Action'><a href='htmlcode.php?arid=$arid'>"); 
+			print("		Subscribe/Unsubscribe Code</a></div><div class='Description'>&nbsp;- Copy HTML code for these pages</div><br style='clear:left;'>\n");
+	
+?>
+</div><br style='clear:left'>
+</center>
+	<p style="text-align: center"><a href="manar.php" title="Work with another Campaign">
+	Work with another Email Campaign</a>&nbsp;::&nbsp; 
+	<a href="home.php" title="Perfect Response Home...">Return Home</a>&nbsp;::&nbsp; 
+	<a href='<?php echo "$PHP_SELF?arid=$arid" ?>' onclick="return(LLogout());">Logout</a>
+	</center></p>
+</div>
+
+<div id="navAlpha">
+<h4><u>For Reference</u></h4>
+	<p>
+		<a href="Schedule.php?arid=<?php echo $arid; ?>" target="_blank">Show Schedule</a><br>
+		<br><a href="DisplaySubscribers.php?arid=<?php echo $arid; ?>" target="_blank">Show Subscribers</a><br>
+		<br><a href="import.php?arid=<?php echo $arid; ?>" target="_blank">Import Subscribers</a><br>
+		<br><a href="export.php?arid=<?php echo $arid; ?>" target="_blank">Export Subscribers</a><br>
+		<br><a href="remsubscriber.php?arid=<?php echo $arid; ?>" target="_blank">Delete Subscribers</a><br>
+		<br><a href="DisplayLog.php" target="_blank">Log File</a><br>
+		<br><a href="manar.php" target="_blank">Pick Campaign</a>
+	</p>
+</div>
+
+</BODY>
+</HTML>

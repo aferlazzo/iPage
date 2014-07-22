@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<title>Feedback Sent</title>
+<meta name="Microsoft Border" content="tb, default">
+<link rel="stylesheet" href="bad-credit-mortgage-styles.css" type="text/css">
+<base target="_self">
+<script language="JavaScript1.2" src="http://lightning-mortgage.com/js/Common.js">
+</script>
+</head>
+
+
+
+<!--	This PHP (Personal Home Page) is called from Feedback.htm (the feedback form page).
+		Using PHP code to retrieve the forms arguments (they were passed using method="post"
+		so they don't show up on the URL line like a method="get" would).
+		We're going to e-mail them from the server.
+-->
+
+
+<body  bgcolor="#F4F4F4" topmargin="0" leftmargin="0">
+<!-- - - - - - - - - - - - - Beginning Of Common Header - - - - - - - - - - - - - - - - -->
+
+
+<div style="text-align: center; width: 720; background-color: #004a8d; height: 168">
+
+ <center>
+
+ <table cellspacing="0" width="720" cellpadding="0" border="0">
+
+
+
+</left><!-- end of Top header -->
+
+  <td>
+
+<div align="center">
+
+ <table border="0" cellpadding="0" cellspacing="0" bordercolor="#004A8D" width="100%" bgcolor="#004A8D" height="42">
+
+  <tr>
+
+   <td height="40">
+
+<div align="center">
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="716" height="84">
+
+	<tr>
+
+		<td align="center" width="120" valign="middle" height="84" rowspan="2">                 
+
+                   <p class="White" style="font-size:xx-small"> 
+                   <a href="../AboutUs.htm"> 
+                   <img style="border-color: #e5e5e5;" border="1" src="images/Tony-Fran.jpg" width="83" height="74"
+                    alt="Tony &quot;Thunder&quot; &amp; Fran Ferlazzo of Lightning Mortgage"
+                    align="top"></a><br>
+                    Tony &amp; Fran Ferlazzo</p>
+       </td>
+
+		<td class="Top" align="left" height="29" width="463" valign="middle">
+            <a onclick="Exit=false" href="http://www.lightning-mortgage.com/Feedback.htm" class="Top">Help</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/AboutUs.htm" class="Top">About</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/ContactUs.htm" class="Top">Contact</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/Calculators.htm" class="Top">Calculators</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://host79.ipowerweb.com/~lightnin/MyLoanStatus.php" class="Top">My Loan Status</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/PrivacyPolicy.htm" class="Top">Privacy</a>
+            &nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/Legal.htm" class="Top">Legal</a>
+		</td>
+
+							<td class="Top" align="left" width="127" valign="middle" height="84" rowspan="3">
+								<br />&nbsp;<br />
+								<a href="../MortgageInsiderSecrets.htm" class="Top">
+								<IMG style="border-color: #e5e5e5;" border="1" SRC="../images/SecretsSignUp.png" ALT="Lightning Mortgage Insider Secrets"><br />Sign up!</A>								
+<!--
+<script language="JavaScript" type="text/javascript">
+	if (window.location.href.substring(0,5)!="https")  /* if not https secure protocol, display sign-up box */
+	{
+		document.write('<IMG BORDER="0"');
+		document.write('SRC="http://www.lightning-mortgage.com/images/SecretsSignUp.png" ALT="Lightning Mortgage Insider Secrets"><br />Sign up!</A>');
+	}
+</script>
+-->
+							
+							</td>
+
+		</tr>
+
+
+
+		<tr>
+
+
+
+		<td height="55" align="center" width="463">
+
+            <a class="Logo" onclick="Exit=false" href="http://www.lightning-mortgage.com/index.htm">
+
+                 <img border="0"
+
+                  src="images/Lightning-Mortgage-logo.gif" align="center" alt="Lightning Mortgage - Mortgages, even with Bad Credit" width="279" height="45">
+
+            </a>
+
+		</td>
+
+		</tr>
+
+
+
+   </table>
+
+
+
+</div>
+
+   </td>
+
+  </tr>
+
+ </table>
+
+</div>
+
+
+
+
+
+
+
+<!-- Start of Tab Header -->
+
+
+
+<table width=720 border="0" cellpadding="0" cellspacing="0" height="28">
+
+
+
+	<tr>
+	    	<!--<h2><a onclick="Exit=false" class=Index href="index2.htm">Bad Credit Home Loans</a></h2>-->
+		<td align="center" width="120" height="28" background="images/Home_tab.gif">
+		<a class="IndexMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/index.htm">
+        Home</a></td>
+
+		<td align="center" width="120" height="28" background="images/ApplyNow_tab.gif">
+		<a class="ApplyMM" onclick="Exit=false" href="http://host79.ipowerweb.com/~lightnin/LoanAppShort.htm">
+		Apply Now</a></td>
+
+		<td align="center" width="120" height="28" background="images/Answers_tab.gif">
+		<a class="AnswersMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/Answers.htm">
+		Answers</span></a></td>
+
+		<td align="center" width="120" height="28" background="images/SiteMap_tab.gif">
+		<a class="SiteMapMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/CreditScores.htm">
+		Credit Scores</a></td>
+				
+		<td align="center" width="120" height="28" background="images/LoanTypes_tab.gif">
+		<a class="LoanTypesMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/LoanTypes.htm">
+        Loan Types</a></td>	
+
+		<td align="center" width="120" height="28" background="images/InterestRates_tab.gif">
+		<a class="RatesMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/InterestRates.htm">
+		Interest Rates</a></td>								
+	</tr>	
+</table>
+
+
+
+</table>
+
+ </div>
+
+
+<!-- - - - - - - - - - - -
+
+
+
+
+
+<!-- End of common header. Start of main body: Solid color cell acting as top border -->
+<center>
+<table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#004A8D">
+ <td valign="top" align="right">
+ <p align="right">.</table>
+
+
+   <table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+     <td valign="bottom" width="664" height="30">
+          <h1 align="center"><i><font colspan="2" color="#000080" face="Verdana">Feedback Sent</font></i></h1>
+    </tr>
+
+
+<?php
+//---------------
+//
+// Get the visitor's IP Address
+//
+//---------------
+function GetIP()
+{
+  if ($_SERVER)
+  {
+    if ( $_SERVER[HTTP_X_FORWARDED_FOR] )
+    {
+      $realip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+    }
+    elseif ( $_SERVER["HTTP_CLIENT_IP"] )
+    {
+      $realip = $_SERVER["HTTP_CLIENT_IP"];
+    }
+    else
+    {
+      $realip = $_SERVER["REMOTE_ADDR"];
+    }
+  }
+  else
+  {
+    if ( getenv( 'HTTP_X_FORWARDED_FOR' ) )
+    {
+      $realip = getenv( 'HTTP_X_FORWARDED_FOR' );
+    }
+    elseif ( getenv( 'HTTP_CLIENT_IP' ) )
+    {
+      $realip = getenv( 'HTTP_CLIENT_IP' );
+    }
+    else
+    {
+      $realip = getenv( 'REMOTE_ADDR' );
+    }
+  }
+
+  return $realip;
+}
+
+
+
+//---------------
+//
+// Create a valid mail header for an HTML formatted message
+//
+//---------------
+function CreateHeader($sender_name, $sender_email, $Recipient, $cc)
+{
+	$header    = "From: \"".addslashes($sender_name)."\" <".$sender_email.">\r\n";
+	$header   .= "Reply-To: ".$sender_email."\r\n";
+	$header   .= "MIME-Version: 1.0\r\n";
+	$header   .= "Content-Type: text/html; charset=iso-8859-1\r\n";
+	$header   .= "X-Priority: 1\r\n";
+	$header   .= "X-Mailer: PHP / ".phpversion()."\r\n";
+
+	$header   .= "Cc: ".$cc."\r\n";
+
+
+//	$header   .= "Bcc: ".$another_email."\r\n";
+    return $header;
+}
+
+
+
+//---------------
+//
+// This handles leading zeroes correctly, by using the "%s" instead of "%d" argument to sscanf().
+// This function assumes that the input has been stripped of all non-integer values.
+//
+//---------------
+
+
+function formatPhone($phone)
+{
+       if (empty($phone)) return "";
+       if (strlen($phone) == 7)
+               sscanf($phone, "%3s%4s", $prefix, $exchange);
+       else if (strlen($phone) == 10)
+             sscanf($phone, "%3s%3s%4s", $area, $prefix, $exchange);
+      else if (strlen($phone) > 10)
+               sscanf($phone, "%3s%3s%4s%s", $area, $prefix, $exchange, $extension);
+      else
+               return "unknown phone format: $phone";
+       $out = "";
+       $out .= isset($area) ? '(' . $area . ') ' : "";
+       $out .= $prefix . '-' . $exchange;
+       $out .= isset($extension) ? ' x' . $extension : "";
+       return $out;
+}
+
+//---------------
+//
+// This is where the actual PHP begins.
+// The calling page could have been a method  of Post of Get
+//
+//---------------
+
+if(empty($_GET))
+{
+//  print "variables from POST:\n<p>";
+  $realname  = $_POST['realname'];
+  $email     = $_POST['email'];
+  $Category  = $_POST['Category'];
+  $Comments  = $_POST['Comments'];
+  $Phone     = $_POST['Phone'];
+  $subject   = $_POST['subject'];
+  $recipient = $_POST['recipient'];
+  $cc        = $_POST['cc'];
+  $IPaddress = $_POST['IPaddress'];
+  $redirect  = $_POST['redirect'];
+  $title     = $_POST['title'];
+}
+
+if(empty($_POST))
+{
+  //print "variables from GET:\n<p>";
+  $realname  = $_GET['realname'];
+  $email     = $_GET['email'];
+  $Category  = $_GET['Category'];
+  $Comments  = $_GET['Comments'];
+  $Phone     = $_GET['Phone'];
+  $subject   = $_GET['subject'];
+  $recipient = $_GET['recipient'];
+  $cc        = $_GET['cc'];
+  $IPaddress = $_GET['IPaddress'];
+  $redirect  = $_GET['redirect'];
+  $title     = $_GET['title'];
+}
+
+// Replace a 'regular expression' syntax:
+// Scan $Phone for anything that matches $Pattern.
+// Replace it with "" (remove it)
+
+$Pattern="[^[:digit:]]";
+
+$out = ereg_replace($Pattern, "", $Phone);
+
+// Regular expression metacharacter explanantion:    [[:digit:]] is any character that's a digit
+// Regular expression metacharacter explanantion:    [^[:digit:]] is any character that's NOT a digit
+
+// print "unformatted phone number|$out|\n";
+$Phone=formatPhone($out);
+// print "formatted phone number|$Phone|\n";
+
+
+
+$Pattern="[\]";
+
+$out = ereg_replace($Pattern, "", $Comments);
+
+// print "<p>unformatted Comments|$Comments|</p>";
+$Comments=$out;
+//print "<p>formatted Comments|$Comments|</p>";
+
+
+
+
+
+
+ $IPaddress = GetIP();
+
+// print "Visitor's IP Address: $IPaddress\n<p>";
+// print "               Title: $title\n<p>";
+// print "      E-mail Subject: $subject\n<p>";
+// print "           Recipient: $recipient\n<p>";
+// print "                  cc: $cc\n<p>";
+// print "     Redirect String: $redirect\n<p>";
+?>
+
+<!-- now that we've obtained the calling page's form variables, display them to the visitor -->
+  <tr>
+    <td valign="top" width="664" height="306">
+<div align="center">
+ <center>
+ <table border="0" cellpadding="0" cellspacing="1" width="694">
+  <tr>
+   <td align="right" width="150" height="20"><font face='Verdana' color='#000066' size='2'><b>Name:</b></font></td>
+   <td width=451 height='20' align='left'>
+   <font face='Verdana' color='#000066' size='2'><?php print "$realname"; ?></font></td></tr>
+
+  <tr>
+   <td align="right" width="150" height="20"><font face='Verdana' color='#000066' size='2'><b>E-mail:</b></font></td>
+   <td width=451 height='20' align='left'>
+   <font face='Verdana' color='#000066' size='2'><?php print "$email"; ?></font></td></tr>
+
+  <tr>
+   <td align="right" width="150" height="20"><font face='Verdana' color='#000066' size='2'><b>Category:</b></font></td>
+   <td width=451 height='20' align='left'>
+   <font face='Verdana' color='#000066' size='2'><?php print "$Category"; ?></font></td></tr>
+
+  <tr>
+   <td align="right" width="150" height="20"><font face='Verdana' color='#000066' size='2'><b>Phone:</b></font></td>
+   <td width=451 height='20' align='left'>
+   <font face='Verdana' color='#000066' size='2'><?php print "$Phone"; ?></font></td></tr>
+
+  <tr>
+   <td align="right" width="150" height="69" valign="top"><font face='Verdana' color='#000066' size='2'><b>Comments:</b></font></td>
+   <td width=451 height='60' valign='top' align='left'>
+   <font face='Verdana' color='#000066' size='2'><?php print "$Comments"; ?></font></td></tr>
+
+ </table>
+ </center>
+</div>
+<!-- Now use PHP to create the mail header and body. Then send the message -->
+<?php
+	$headers = CreateHeader($realname, $email, $recipient, $cc);
+//	print "Headers:\n$headers";
+	$message  = "<p><font face='Verdana' color='#000066' size='2'><b>Date Sent:</b> ".date ("l dS of F Y h:i:s A")."</p>";
+	$message .= "<p><font face='Verdana' color='#000066' size='2'><b>IP Address: </b>".$IPaddress."</p>";
+	$message .= "<p><font face='Verdana' color='#000066' size='2'><b>Name: </b>".$realname."</p>";
+	$message .= "<p><font face='Verdana' color='#000066' size='2'><b>Email: </b>".$email."</p>";
+	$message .= "<p><font face='Verdana' color='#000066' size='2'><b>Comment: </b>".$Comments."</p>";
+	$message .= "<p><font face='Verdana' color='#000066' size='2'><b>Category: </b>".$Category."</p>";
+	$message .= "<p><font face='Verdana' color='#000066' size='2'><b>Phone: </b>".$Phone."</p>";
+//	print "Message Body:\n$message";
+	mail($recipient, $subject, $message, $headers);
+?>
+
+</font></p>
+    <p align="left"><font face="Verdana" size="2" color="#000066">If you've
+    left your contact information, and it is appropriate, someone will
+    respond to your request shortly.</font></p>
+    <p style="text-align: center">
+<img align="center" border="0" src="images/Bullseye.gif" alt="Feedback Received" width="187" height="140">
+  </tr>
+
+</table>
+ </center>
+ </div>
+</center>
+<!-- end of main body, start of coomon footer -->
+<!-- - - - - - - - - - - - - Beginning Of Common Footer - - - - - - - - - - - - - - - - -->
+
+<div style="text-align: center; width: 100%; background-color: #004A8D">
+
+	<form method="get" onsubmit="Exit=false" action="http://search.atomz.com/search/">
+	<table border="0" cellpadding="2" bordercolor="#004A8D" width="720" cellspacing="0">
+	<tr>
+		<td style="text-align: right; vertical-align: middle; background-color: #004a8d" width="165" height="37" valign="middle">
+			<input type=hidden name="sp-a" value="sp1002b74c"> 
+			<input style="background-color: #e5e5e5; color: #000080; font-family: Verdana, Arial, Helvetica, sans-serif; size:" 
+			value=" Your search word(s)" onfocus="this.value=''" size=19 name="sp-q">
+			<br />
+
+			<input type=hidden name="sp-p" value="all">
+			<input type=hidden name="sp-f" value="ISO-8859-1">
+		</td>
+
+		<td style="text-align: left; vertical-align: middle; background-color: #004a8d" width="337">
+			<input style="background-color: #004a8d; color: #ffffff; font-family: Verdana, Arial, Helvetica, sans-serif; size: xx-small" 
+				type="submit" value="Search Site" onclick="Exit=false">
+	 	</td>
+		<td style="text-align: right; vertical-align: middle; background-color: #004a8d" width="200" height="37">
+			<font style="font-family: Verdana, Arial, Helvetica, sans-serif; 	color: #ffffff; font-size: small; font-weight: normal;">
+
+<script language="JavaScript1.2"> 
+document.write(doClock("M0","%20","D1",",%20","Y0"));
+</script>	
+			&nbsp;	
+			</font>
+		</td>
+	</tr>
+	</table>
+	</div>
+
+	</form>
+
+
+	<div align="center">
+		<table cellspacing="0" cellpadding="4" width="720" height="84">
+			<tr>
+				<td valign="middle" align="center" rowspan="3" width="85" height="69">
+					<a onclick="Exit=false" href="../Guarantee.htm">
+					<img border="0" src="../images/guarantee.gif" width="81"
+					height="85" alt="Lightning Mortgage Financing Guarantee"></a>
+				</td>
+				<td valign="middle" align="center" width="553" height="21">
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/index.htm">Home</a>&nbsp;| 
+					<a class="Bottom" onclick="Exit=false" href="../LoanAppShort.htm">Apply Now</a>&nbsp;| 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/OrderCreditDirect.htm">Order Credit</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/LoanTypes.htm">Loan Types</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Documentation.htm">Documents</a>&nbsp;| 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/MortgageInsiderSecrets.htm">Mortgage
+                    Insider Secrets</a>
+				</td>
+
+				<td valign="middle" align="center" width="68" rowspan="3" height="69">
+					<a onclick="Exit=false" href="./UpfrontMortgageBroker.htm"><img border="0"
+					src="./images/UMB1.gif" alt="I am an Upfront Mortgage Broker" width="68" height="85"></a>
+				</td>
+			</tr>
+
+			<tr>
+				<td valign="middle" align="center" width="553" height="4">
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/SiteMap.htm">Site Map</a> | 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Calculators.htm">Calculators</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Glossary.htm">Glossary</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/CreditScores.htm">Credit Scores</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Legal.htm">Legal</a> | 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/AffiliateLinks.htm">Affiliates</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="center" height="22">
+					<p class="CenterSmall">Click on <a class="Bottom" onclick="Exit=false" 
+					href="../Feedback.htm">feedback</a> or call (866) 822-8500 for assistance
+					- Last Updated: <!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%B %Y" startspan -->April 2004<!--webbot bot="Timestamp" endspan i-checksum="13833" -->
+					</p>
+				</td>
+			</tr>
+		</table>
+		<hr class="Administrative" style="width: 720px;">	
+		<table cellspacing="0" cellpadding="0" width="712">
+			<tr>
+				<td align="center" width="100%" colspan="3" height="15">
+					<p class="CenterSmall">This Website is NOT intended as a solicitation to customers in any
+					jurisdiction in which we are not authorized to operate.</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="center" width="100%" colspan="3" height="15">
+					<font face="Arial, Helvetica, sans-serif" size="1">©
+					Lightning Mortgage 2002-2004 All Rights Reserved. No part
+					of this website may be reused commercially without
+					the expressed written consent of Lightning Mortgage.<br />
+					&nbsp;This site is directed at, and made available
+					to, persons in the continental U.S., Alaska and
+					Hawaii only.</font>
+				</td>
+			</tr>
+		</table>
+
+		<hr class="Administrative" style="width: 720px;">	
+		<img src="./pr/imagecron.php" width="1" height="1" border="0" alt="">
+	</div>
+</body>
+ </html>
+ 

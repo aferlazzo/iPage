@@ -1,0 +1,3 @@
+; this php.ini file is needed by CISdocuments.php to point to the right temp directory
+upload_tmp_dir = /home/prontoc2/public_html/tmp
+auto_prepend_file = /home/prontoc2/public_html/gzip-enable.php

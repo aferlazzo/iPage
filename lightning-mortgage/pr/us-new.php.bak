@@ -1,0 +1,255 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+?>
+<?php
+include("conn.php");
+/*
+$ID=$_GET["arid"];
+$arid=$_GET["arid"];
+*/
+$arid=1;
+$user="";
+$WithinScript = "I know the arid";
+include("settings.php");
+include("removesettings.php");
+
+
+	$RE=$_GET["RE"];
+
+	if ($RE=="") 
+	{
+		echo "<b>Invalid email.<BR>Please go <a href ='void(history.back())'>back</a> and try again";
+		if ($debugIt > 0)
+			logMessage ("us: Unable to find a subscription record. Email address not received.");
+		
+		exit;
+	}
+
+	// get the user record requesting deletion
+	
+	$result = mysql_query("SELECT * FROM users where email='$RE'", $link);
+
+	$num_rows = mysql_num_rows($result);
+	if ($debugIt == 2)
+	  logMessage ("us: (".__LINE__.") There are $num_rows subscriptions matching email address $RE");
+	
+	if ($num_rows<=0) 
+	{
+		echo "<b>Unable to delete the subscription record $RE from autoresponder $ID.<BR>Please go <a href ='void(history.back())'>back</a> and try again";
+		if ($debugIt > 0)
+			logMessage ("us: Unable to delete the subscription record from ".$RE." in responder ".$ID);		
+		
+		exit;
+	}
+	
+	mysql_data_seek($result, 0);
+	$row =  mysql_fetch_object($result);//$row is record from users db
+	$arid=$row->arid;
+	$ID=$row->arid;
+	$MessageToBeSent = $row->currentmsg;
+	if ($debugIt == 2)
+	  logMessage ("us: (".__LINE__.") selecting all subscriptions for $RE");
+	$result_ar = mysql_query("SELECT * FROM autoresponders where arid=$ID", $link); 
+	mysql_data_seek($result_ar, 0);
+	$row_ar = mysql_fetch_object($result_ar);	
+
+	if ($row_ar->armode==99)  	// armode (used to signal 1-step or 2-step opt-in) of 99 is invalid on purpose. 
+	{							// This won't get executed since we do not *ever* request a deletion confirmation.
+		Header("Location:remove2.php?arid=$ID&RE=$RE&ra=$ra");
+		exit;
+	}
+	else
+	{
+		if($Mail_Format == 1)
+		{
+			$Mail_Header="Content-type: text/html; charset=iso-8859-1";
+			$Mail_Footer=$Remove_HTML;
+		}
+		else
+		{
+			$Mail_Header="Content-Type: text/plain; charset=us-ascii";
+			$Mail_Footer=$Remove_Text;
+		}
+		
+	//	If armode != 2 then execute this PHP and HTML code:
+	
+		$Full_Name = trim($row->fname." ".$row->lname);
+		$Full_Name = ucwords($Full_Name);
+
+		$SQL_Statement = "select * from autoresponders where arid=$arid";
+		$arResult = mysql_query($SQL_Statement);
+		$ar_row = mysql_fetch_object($arResult); //record from autoresponders db
+		mysql_data_seek($arResult, 0);
+		$Email_Address 			= $RE;
+		$EmailAddressFrom 		= $ar_row->arfromemail;
+		$EmailAddressReplyTo	= $ar_row->arreplytoemail;
+		$Display_Name 			= $ar_row->arname;
+		$CampaignDescription	= $ar_row->ardescription;
+		$EmailAddressReturn 	= $ar_row->arbademail;
+
+		$msgSQL = "select * from messages where (arid=$arid) and (seqno=0)"; //signature
+		$result_msg = mysql_query($msgSQL) or die(logMessage("us (".__LINE__.") Error: $msgSQL"));
+		mysql_data_seek($result_msg, 0);  // signature message
+		$row_msg = mysql_fetch_object($result_msg);
+			
+		if ($row_msg->seqno != 0) 
+			die(logMessage("us (".__LINE__.") sequence error"));
+				
+		$Signature = $row_msg->body;
+
+		$msgSQL = "select * from messages where (arid=$arid) and (seqno=-1)"; //unsubscribe message
+		$result_msg = mysql_query($msgSQL) or die(logMessage("us (".__LINE__.") Error: $msgSQL"));
+		mysql_data_seek($result_msg, 0);  
+		$row_msg = mysql_fetch_object($result_msg);
+			
+		if ($row_msg->seqno != -1) 
+			die(logMessage("us (".__LINE__.") sequence error"));		
+
+		$Remove_Email_Subject = $row_msg->subject;
+		$Remove_Email_Body = $row_msg->body.$Signature;	
+		
+		// insert message personalization
+
+		$Remove_Email_Body 		= eregi_replace("%EmailAddress%",$Email_Address,$Remove_Email_Body);
+		$Remove_Email_Subject 	= eregi_replace("%EmailAddress%",$Email_Address,$Remove_Email_Subject);
+		$Remove_Email_Body 		= eregi_replace("%FullName%",$Full_Name,$Remove_Email_Body);
+		$Remove_Email_Subject 	= eregi_replace("%FullName%",$Full_Name,$Remove_Email_Subject);
+		$Remove_Email_Body 		= eregi_replace("%UserDefined1%",$UserDefined1,$Remove_Email_Body);
+		$Remove_Email_Subject 	= eregi_replace("%UserDefined1%",$UserDefined1,$Remove_Email_Subject);
+		$Remove_Email_Body 		= eregi_replace("%UserDefined2%",$UserDefined2,$Remove_Email_Body);
+		$Remove_Email_Subject 	= eregi_replace("%UserDefined2%",$UserDefined2,$Remove_Email_Subject);
+		$Remove_Email_Body 		= eregi_replace("%UserDefined3%",$UserDefined3,$Remove_Email_Body);
+		$Remove_Email_Subject 	= eregi_replace("%UserDefined3%",$UserDefined3,$Remove_Email_Subject);
+		$Remove_Email_Body 		= eregi_replace("%UserDefined4%",$UserDefined4,$Remove_Email_Body);
+		$Remove_Email_Subject 	= eregi_replace("%UserDefined4%",$UserDefined4,$Remove_Email_Subject);
+
+		// now adjust the message body
+		
+		$Wrap_On = $ar_row->arwordwrap;
+		$Length_Of_Wrap = $ar_row->arwraplen;
+
+		if (($Wrap_On == 1) && ($Mail_Format == 0))
+		{ 
+			$Remove_Email_Body = wordwrap($Remove_Email_Body, $Length_Of_Wrap);
+		}
+
+		// clean up any message 'artifacts' that may exist so message will display properly in the email
+		
+		$Remove_Email_Body	= eregi_replace("\r\n","\n",$Remove_Email_Body);	
+		$txtMessage_Send	= $Remove_Email_Body;
+		$txtMessage_Text	= $txtMessage_Send;
+		$txtMessage_Text	= stripslashes($txtMessage_Text);
+		$txtMessage_Subject = stripslashes($Remove_Email_Subject);
+		$Final_Body			= $txtMessage_Text;
+		//Append the removal instructions and the removal instructions lines to *every* message body
+/*
+		if($Mail_Format == 1)
+		{
+			if ($Ad != 45)
+				$Final_Body.=$PoweredbyHTML;
+		}
+		else
+		{
+			if ($Ad != 45)
+				$Final_Body.=$PoweredbyText;
+		}
+
+		if (!isset($Removal_Link_Text))
+			die (logMessage ("us (".__LINE__.") no remove link found"));
+*/
+		$Sent = phpmailer($Email_Address, $Full_Name, $txtMessage_Subject,  "$Final_Body",  "$Final_Body", "", $Mail_Format, $arid);
+		
+		if ($Sent == true)
+		{
+			UnsubscriptionNotification("$Full_Name", "$Email_Address", $arid, "$CampaignDescription", $MessageToBeSent);
+	
+			if ($debugIt == 2)
+			{
+				logMessage ("us (".__LINE__.") Wrap_On: ".$Wrap_On." Length_Of_Wrap: ".$Length_Of_Wrap);
+				logMessage ("us Final_Body (wrapped): ".$Final_Body);
+			}
+		
+			// Update the record from the users database. We do not delete unsubscriptions so that those addresses won't 
+			// be erroneously added a second time.
+		
+			//$result = mysql_query("UPDATE users set currentmsg='255' where arid=$ID AND email='$RE'", $link) or die(logMessage("us (".__LINE__.") Could not move pointer to next update user record")); 
+			//delete user from all auto responder mailing lists
+			$result = mysql_query("UPDATE users set currentmsg='255' where email='$RE'", $link) or die(logMessage("us (".__LINE__.") Could not move pointer to next update user record")); 
+		
+			$num_rows = mysql_affected_rows();
+			if ($debugIt == 2)
+			  logMessage ("us: (".__LINE__.") $RE has been unsubscribed from $num_rows campaigns.");
+			
+			//die("\$debugIt $debugIt unsubscribed $Full_Name <$Email_Address> from Autoresponder $ID<br />");
+			if ($debugIt > 0)
+				logMessage ("us (".__LINE__.") unsubscribed $Full_Name <$Email_Address> from Autoresponder $ID and sent confirmation message");
+			else
+			{
+			if ($ID == 146) // if zero down report also unsubscribe user from past success stories (arid 147) 
+				$result = mysql_query("UPDATE users set currentmsg='255' where arid=147 AND email='$RE'", $link) or die(logMessage("us (".__LINE__.") Could not move pointer to next update user record")); 
+			if ($ID == 147) // if past success storiesalso unsubscribe user from zero down report (arid 146) 
+				$result = mysql_query("UPDATE users set currentmsg='255' where arid=146 AND email='$RE'", $link) or die(logMessage("us (".__LINE__.") Could not move pointer to next update user record")); 
+			}
+			
+			// note: closing brace is at end of html code
+		}
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Perfect Response Unsubscribe</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css" media="screen">
+@import "PerfectResponse.css";
+p {text-align:left;}
+</style>
+</HEAD>
+<body>
+
+
+<div class="content">
+<div class="title"> 
+<table>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+</div>
+<TABLE BORDER=0 CELLPADDING=4 CELLSPACING=4 align="center">
+	<TR>
+		<TD>
+			<?php	
+				if ($num_rows==1)
+				{
+					//success
+					echo "<p>We are sorry to see you leave.</p><p>Your email address '$RE' has been unsubscribed from the mailing list '$row_ar->ardescription.'<BR>Please come back and visit us again. We will be more than happy to welcome you to our list again.</p>";
+					echo "<p>You will receive a removal confirmation email from us.</p><p>Please contact us if you continue to receive unwanted communication from us and we will fix the problem.</p>";
+				}
+				else
+				{
+					// not found
+					echo "We could not remove you from our mailing list '$row_ar->ardescription.'<BR>Please make sure you have the correct email address.<BR>If you continue to encounter problems unsubscribing from our list, please contact the list <a href='mailto:$row_ar->aradminemail'>Administrator</a>.";
+				}
+			?> 
+		</td>
+	</tr>
+</TABLE>
+</BODY>
+</HTML>
+<?php 
+
+} //closing brace
+
+
+?>

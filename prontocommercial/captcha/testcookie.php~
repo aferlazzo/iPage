@@ -1,0 +1,14 @@
+<?php
+$value = 'something from somewhere';
+
+setcookie("TestCookie", $value,"",'/');
+//setcookie("TestCookie", $value, time()+3600,'/');  /* expire in 1 hour */
+//setcookie("TestCookie", $value, time()+3600, "/", ".example.com", 1);
+
+// Print an individual cookie
+echo $_COOKIE["TestCookie"]."<br>";
+echo $HTTP_COOKIE_VARS["TestCookie"]."<br>";
+
+// Another way to debug/test is to view all cookies
+print_r($_COOKIE);
+?>

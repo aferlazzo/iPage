@@ -1,0 +1,121 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+<head>
+    <title>CSS Matrix Rotation Calculator (IE, Gecko, WebKit, Opera)</title>
+</head>
+<style type="text/css">
+blockquote {
+	width: 80%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	background-color: #eed;
+	border: 1px dotted black;
+	font-size: 90%;
+	padding: 0.5em;
+}
+</style>
+<body>
+<SCRIPT><!-- //fnSetRotation function -->
+//oObj input requires that a matrix filter be applied.
+//deg input defines the requested angle of rotation.
+var deg2radians = Math.PI * 2 / 360;
+var that;
+function fnSetRotation(oObj, deg)
+{
+    rad = deg * deg2radians ;
+    costheta = Math.cos(rad);
+    sintheta = Math.sin(rad);
+
+    a = parseFloat(costheta).toFixed(8);
+    c = parseFloat(-sintheta).toFixed(8);
+    b = parseFloat(sintheta).toFixed(8);
+    d = parseFloat(costheta).toFixed(8);
+
+    document.getElementById("fM11").value = a;
+    document.getElementById("fM12").value = c;
+    document.getElementById("fM21").value = b;
+    document.getElementById("fM22").value = d;
+
+    if (oObj.filters) {
+	oObj.filters.item(0).M11 = costheta;
+	oObj.filters.item(0).M12 = -sintheta;
+	oObj.filters.item(0).M21 = sintheta;
+	oObj.filters.item(0).M22 = costheta;
+    } else {
+	    oObj.setAttribute("style", "position:absolute; -moz-transform:  matrix(" + a + ", " + b + ", " + c + ", " + d + ", 0, 0); -webkit-transform:  matrix(" + a + ", " + b + ", " + c + ", " + d + ", 0, 0); -o-transform:  matrix(" + a + ", " + b + ", " + c + ", " + d + ", 0, 0);");
+    }
+
+}
+
+<!-- //fnResize function -->
+//oObj input requires that a matrix filter be applied.
+//flMultiplier input defines the amount by which the oObj is resized.
+function fnResize(oObj, flMultiplier)
+{    oObj.filters.item(0).M11 *= flMultiplier;
+    oObj.filters.item(0).M12 *= flMultiplier;
+    oObj.filters.item(0).M21 *= flMultiplier;
+    oObj.filters.item(0).M22 *= flMultiplier;
+}
+
+
+var iCount = 400;
+<!-- //fnSpin function -->
+function fnSpin(oObj)
+{
+
+<!-- //The function chosen for flMultiple defines size changes in the animation. -->
+	var flMultiple = iCount/720;
+	iCount += 4;
+
+<!-- //The number of 360-degree rotations is three. -->
+	if (iCount>=360*3)     {
+	oObj.onfilterchange = null;
+	}
+    window.setTimeout(function() {fnSetRotation(oObj, iCount);fnResize(oObj, flMultiple);}, 10)
+	//fnSetRotation(oObj, iCount);
+	//fnResize(oObj, flMultiple);
+}
+function writeCSSValues(a,b,c,d) {
+    document.getElementById('iecss').innerHTML = '-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=' + a + ', M12=' + b + ', M21=' + c + ', M22=' + d + ',sizingMethod=\'auto expand\')";<br>filter: progid:DXImageTransform.Microsoft.Matrix(M11=' + a + ', M12=' + b + ', M21=' + c + ', M22=' + d + ',sizingMethod=\'auto expand\');';
+    document.getElementById('ffcss').innerHTML = "-moz-transform:  matrix(" + a + ", " + c + ", " + b + ", " + d + ", 0, 0);";
+    document.getElementById('wkcss').innerHTML = "-webkit-transform:  matrix(" + a + ", " + c + ", " + b + ", " + d + ", 0, 0);";
+    document.getElementById('ocss').innerHTML = "-o-transform:  matrix(" + a + ", " + c + ", " + b + ", " + d + ", 0, 0);";
+}
+</SCRIPT>
+<noscript>
+<h3>This page requires Javascript<h3>
+</noscript>
+<!-- When loaded, the onfilterchange event is fired as the filter makes
+its initial settings.  This starts the animation.-->
+<DIV ID="oDiv" STYLE="position:absolute;
+	filter:progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')">
+	<DIV STYLE=" background-color: lightblue; padding:5px;">
+	    SOME TEXT<BR/>
+	    SOME TEXT<BR/>
+	    SOME TEXT<BR/>
+	    SOME TEXT<BR/>
+	</DIV>
+</DIV>
+<div style="position:absolute; margin-left: 250px;">
+    <p>Read the blog post: <a href="http://www.boogdesign.com/b2evo/index.php/2009/09/04/element-rotation-ie-matrix-filter?blog=2">Arbitrary Element Rotation in IE - the Matrix Filter</a></p>
+    <p>M11 <input id="fM11" type="text"><br>
+    M12 <input id="fM12" type="text"><br>
+    M21 <input id="fM21" type="text"><br>
+    M22 <input id="fM22" type="text"><br></p>
+    <form onsubmit="fnSetRotation(document.getElementById('oDiv'),document.getElementById('degrees').value);writeCSSValues(document.getElementById('fM11').value,document.getElementById('fM12').value,document.getElementById('fM21').value,document.getElementById('fM22').value);return false;">
+    <p><input type="submit" value="Set">
+    <input id="degrees" type="text"> degrees</p>
+    </form>
+    <p>To achieve this rotation, use the following CSS:</p>
+    <blockquote>
+    <pre id="iecss"></pre>
+    <pre id="ffcss"></pre>
+    <pre id="wkcss"></pre>
+    <pre id="ocss"></pre>
+    </blockquote>
+    <p>You will need to translate the rotated object in Firefox, Safari/Chrome and Opera to match the exact behaviour in IE</p>
+    <p style="font-size: 75%"><a rel="license" href="http://creativecommons.org/licenses/by/2.0/uk/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/2.0/uk/80x15.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dc:title" rel="dc:type">CSS Matrix Rotation Calculator</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.boogdesign.com/examples/transforms/matrix-calculator.html" property="cc:attributionName" rel="cc:attributionURL">Rob Crowther</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.0/uk/">Creative Commons Attribution 2.0 UK: England &amp; Wales License</a>.<br />Based on a work at <a xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://msdn.microsoft.com/en-us/library/ms533014%28VS.85%29.aspx" rel="dc:source">msdn.microsoft.com</a>.<br />Permissions beyond the scope of this license may be available at <a xmlns:cc="http://creativecommons.org/ns#" href="http://msdn.microsoft.com/en-gb/cc300389.aspx" rel="cc:morePermissions">http://msdn.microsoft.com/en-gb/cc300389.aspx</a>.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>untitled</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="description" content="blank">
+<meta name="keywords" content="blank">
+<meta name="copyright" content="Copyright 2006, Tony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<script language="JavaScript" src="./js/Common.js" type="text/javascript"></script>
+<link rel="stylesheet" href="blank.css" type="text/css">
+<script language="javascript" type="text/javascript">
+/* 
+Create a new XMLHttpRequest object upon page load.
+
+What's it for?
+Ajax essentially puts JavaScript technology and the XMLHttpRequest object between
+your Web form and the server. When users fill out forms, that data is sent to 
+some JavaScript code and not directly to the server. Instead, the JavaScript 
+code grabs the form data and sends a request to the server. 
+*/
+/* Create a new XMLHttpRequest object to talk to the Web server */
+var xmlHttp = false;
+
+function createRequest() {
+  try {
+    xmlHttp = new XMLHttpRequest();
+  } catch (trymicrosoft) {
+    try {
+      xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (othermicrosoft) {
+      try {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (failed) {
+        xmlHttp = false;
+      }
+    }
+  }
+
+  if (!xmlHttp)
+    alert("Error initializing XMLHttpRequest!");
+}
+
+/*
+Making a request with AJAX
+
+You have your shiny new XMLHttpRequest object; now take it for a spin. First, you need a JavaScript method that your Web page can call (like when a user types in text or selects an option from a menu). Then, you'll follow the same basic outline in almost all of your Ajax applications:
+
+   1. Get whatever data you need from the Web form.
+   2. Build the URL to connect to.
+   3. Open a connection to the server.
+   4. Set up a function for the server to run when it's done.
+   5. Send the request.
+*/
+
+
+function callServer() {
+/*
+  // Get the city and state from the web form
+  var city = document.getElementById("city").value;
+  var state = document.getElementById("state").value;
+  // Only go on if there are values for both fields
+  if ((city == null) || (city == "")) return;
+  if ((state == null) || (state == "")) return;
+*/
+  // Build the URL to connect to
+  var url = "/scripts/getZipCode.php?city=" + escape(city) + "&state=" + escape(state);
+alert("url: "+url);
+
+
+  /* Open a connection to the server
+Next, a connection is opened; 
+here's the first place you see XMLHttpRequest in action again. 
+The method of connection is indicated (GET), as well as the URL to connect to. 
+The final parameter, when set to true, requests an asynchronous connection 
+(thus making this Ajax). If you used false, the code would wait around on the 
+server when the request was made and not continue until a response was received. 
+By setting this to true, your users can still use the form (and even call other 
+JavaScript methods) while the server is processing this request in the 
+background.  
+*/
+  xmlHttp.open("GET", url, true);
+
+  // Setup a function for the server to run when it's done
+  /*
+The onreadystatechange property of xmlHttp (remember, that's your instance of 
+the XMLHttpRequest object) allows you to tell the server what to do when it 
+does finish running (which could be in five minutes or five hours). Since the 
+code isn't going to wait around for the server, you'll need to let the server 
+know what to do so you can respond to it. In this case, a specific method -- 
+called updatePage() -- will be triggered when the server is finished 
+processing your request.
+  */
+  xmlHttp.onreadystatechange = updatePage;
+
+  // Send the request
+  /*
+Finally, send() is called with a value of null. Since you've added the data to 
+send to the server (the city and state) in the request URL, you don't need to 
+send anything in the request. So this fires off your request and the server 
+can do what you asked it to do.
+  */
+  xmlHttp.send(null);
+}
+
+
+/*
+Handle the server's response. Remember:
+- Don't do anything until the xmlHttp.readyState property is equal to 4.
+- The server will stuff it's response into the xmlHttp.responseText property.
+*/
+
+function updatePage() {
+  if (xmlHttp.readyState == 4) {
+    var response = xmlHttp.responseText;
+    document.getElementById("zipCode").value = response;
+  }
+}
+
+
+function getCustomerInfo() {
+  var phone = document.getElementById("phone").value;
+  var url = "/cgi-local/lookupCustomer.php?phone=" + escape(phone);
+  xmlHttp.open("POST", url, true);
+     xmlHttp.onreadystatechange = updatePage;
+     xmlHttp.send(null);
+}
+
+
+//------------------------
+var sRequest  = "<INPUT>"
+	sRequest = sRequest + "<USER_INFO login='yourLogin' password='yourPassword'/>"
+	sRequest = sRequest + "<REQUEST request_type='NEW' async='T'>"
+	sRequest = sRequest + "<ORDER_DETAIL reference_number='Case #12' experian_credit_flag='T' transunion_credit_flag='T' equifax_credit_flag='T' experian_score_flag='T' transunion_score_flag='T' equifax_score_flag='T' />"
+	sRequest = sRequest + "<APPLICANT firstname='BILL' surname='STEINER' ssn='216965192'/>"
+	sRequest = sRequest + "<CURRENT_ADDRESS streetnumber='563' streetname='68TH' aptnumber='B' city='ARVERNE' state='NY' zip='11692'/>"
+	sRequest = sRequest + "<OUTPUT_FORMAT format_type='XML'/>"
+	sRequest = sRequest + "</REQUEST>"
+	sRequest = sRequest + "</INPUT>";
+	oDoc.loadXML(sRequest);
+
+
+  
+createRequest(); // Create a new XMLHttpRequest
+
+</script>
+</head>
+<body>
+  <form action="POST">
+   <p>Enter your phone number:
+    <input type="text" size="14" name="phone" id="phone" 
+           onChange="getCustomerInfo();" />
+		   
+           <!--onChange="callServer();" />-->
+   </p>
+   <p>Your order will be delivered to:</p>
+   <div id="address"></div>
+   <p>Type your order in here:</p>
+   <p><textarea name="order" rows="6" cols="50" id="order"></textarea></p>
+   <p><input type="submit" value="Order Pizza" id="submit" /></p>
+  </form>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<?php
+// - - - - - - - - - - - - - - // - - - - - - - - - //
+//													//
+//	phpmailer: This is where all email is sent out	//
+//													//
+//  - - - - - - - - - - - - // - - - - - - - - - -	//
+
+function phpmailer($Debug, $LoopDelay, $ToName1, $ToEmail1, $ToName2, $ToEmail2, $SMTPmailServer, $SMTPport, $SMTPmailbox, $SMTPpassword)
+{
+	$LoopDelaySeconds = $LoopDelay * 60;
+	$EmailAddressReplyTo = "anthony@prontocommercial.com";
+	$DisplayName = "Test Script";
+	$EmailAddressFrom = "anthony@prontocommercial.com";
+	/*
+	
+	doesn't work because the ipowerweb web server (which is running 
+	$SMTPport = 465;
+	$SMTPmailServer = "smtp.att.yahoo.com";
+	$SMTPmailbox = "tferlazzo@sbcglobal.net";
+	$SMTPpassword ="unicycl1";
+	*/
+	
+	require_once("phpmailer/class.phpmailer.php");
+		
+/*
+$SendDate = mktime($hh, $mm, 0, $MM, $DD, $YY);
+
+$WallclockTime = mktime(date("H")+2,date("i"),date("s"),date("m"),date("d"),date("Y"));
+print("<p>WallclockTime: $WallclockTime</p>");
+*/
+
+	print("<pre><h1>Start of Looping</h1>");
+	
+	while(1 == 1) //endless loop
+	{
+		$WallclockTime = date("m")."/".date("d")."/".date("Y")." ".date("H").":".date("i");
+		$Subject = "$WallclockTime message sent. Send again in $LoopDelay minutes.";
+		$HTMLBody = "<p>This is a lightning-mortgage.com test message sent at $WallclockTime. Will send again in $LoopDelay minutes unless the script is halted.</p>";
+		
+		$Sent = false;
+		$RetryCount = 0;
+		while (($Sent==false) && ($RetryCount < 4))
+		{
+			print("<p>Start of loop</p>");
+			if((file_exists("mailout.stop")))
+			{
+			    die("<h1>Died. Kill Switch exists</h1>");
+			}
+		
+			if((file_exists("mailout.stop")))  // If this file exists, the script will end. This is a kill switch.
+		    	die("<p>edittestaction (".__LINE__.") died KILL SWITCH</p>");
+		  
+		  	$mail = new PHPMailer();
+		  
+			// setting this variable display dialog to the smtp server:
+			if ($Debug != "")
+				$mail->SMTPDebug = $Debug;
+
+			$mail->IsSMTP();                     // send via SMTP 
+			$mail->Host	= $SMTPmailServer; 		 // SMTP server
+		  
+			if ($mail->SetLanguage("en", "./phpmailer/") == false)
+				die("edittestaction (".__LINE__.") error on setting language file Error: " . $mail->ErrorInfo);		   
+
+			if ($SMTPmailbox == "")
+			{
+		 	 $mail->SMTPAuth	= false;	// turn off SMTP authentication
+			 $mail->Username	= "";		// SMTP username
+			 $mail->Password	= "";		// SMTP password
+			 $SMTPauth = "false";
+			}
+			else
+			{
+		 	 $mail->SMTPAuth	= true;			// turn on SMTP authentication
+			 $mail->Username	= $SMTPmailbox;	// SMTP username
+			 $mail->Password	= $SMTPpassword; // SMTP password
+			 $SMTPauth = "true";
+			}
+		  
+			$mail->SMTP_PORT	= $SMTPport; 		// SMTP port
+			$mail->From = $EmailAddressFrom;
+			$mail->FromName	= "$DisplayName";
+			$mail->AddAddress($ToEmail1,"$ToName1"); // 'To:' address
+			$mail->AddAddress($ToEmail2,"$ToName2"); // 'To:' address
+			$mail->IsHTML(true);					// send as HTML
+			$mail->Subject	=  $Subject;
+			$mail->Body		= $HTMLBody;
+		  
+			$Sent = $mail->Send();
+			$ErrorInfo = $mail->ErrorInfo; //record the error message
+			$RetryCount++;
+			
+			if ($Sent == false)
+			{
+				print("Retrying $RetryCount</p>");
+				sleep(2); // 2 seconds between sends
+			}  
+		}  //end while $Sent==false
+		
+		if(!$Sent)
+		{
+			print("<p>Retry Count was exceeded. Message to '$ToName1' and '$ToName2' was not sent.</p>");
+			print("<p>phpmailer error: " . $mail->ErrorInfo."</p>");
+			print("<p>smtp UserName: $mail->Username smtp Password: $mail->Password smtp Authentication: $SMTPauth</p>");
+			print("<p>smtp server: $SMTPmailServer,  smtp port: $SMTPport</p>");
+			print("<p>From: $mail->FromName To: $ToName1($ToEmail1) and $ToName2($ToEmail2) Subject: $mail->Subject</p>");
+			print("<p>Body: $mail->Body</p>");
+			die("<p>Error Detail: " . $mail->ErrorInfo."</p>");		   
+		}
+		else
+			print("<p>Message sent to '$ToName1' &lt;$ToEmail1&gt; and '$ToName2' &lt;$ToEmail2&gt; smtp server: |$SMTPmailServer|  smtp port: |$SMTPport| smtp mailbox: |$mail->Username| smtp Password: |$mail->Password| Authentication: |$SMTPauth|<br />From: |$mail->FromName| &lt;$mail->From&gt; Subject: |$mail->Subject| </p>");
+		
+		print("<p>Sleeping for $LoopDelay minutes</p>");
+		ob_flush();
+		flush();  // needed ob_flush
+		sleep($LoopDelaySeconds); // $LoopDelaySeconds between sends
+	} //END ENDLESS LOOP
+}
+
+$FullName1		= $_POST["FullName1"];
+$EmailAddress1	= $_POST["EmailAddress1"];
+$FullName2		= $_POST["FullName2"];
+$EmailAddress2	= $_POST["EmailAddress2"];
+$SMTPmailServer	= $_POST["SMTPmailServer"];
+$SMTPport		= $_POST["SMTPport"];
+$SMTPmailbox	= $_POST["SMTPmailbox"];
+$SMTPpassword	= $_POST["SMTPpassword"];
+$LoopDelay		= $_POST["LoopDelay"];
+$DebugSW		= $_POST["DebugSW"];
+
+	//print_r($_POST);
+	//die("<p>$DebugSW, $LoopDelay, $FullName1, $EmailAddress1, $FullName2, $EmailAddress2, $SMTPmailServer, $SMTPport, $SMTPmailbox, $SMTPpassword</p>");
+
+	$Sent = phpmailer($DebugSW, $LoopDelay, $FullName1, $EmailAddress1, $FullName2, $EmailAddress2, $SMTPmailServer, $SMTPport, $SMTPmailbox, $SMTPpassword);
+	if ($Sent == false)
+		print("Error on Send attempt<br/>");
+?>

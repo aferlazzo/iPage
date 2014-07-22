@@ -1,0 +1,7 @@
+<?php
+	print("yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy\n");
+	print("<script type='text/javascript'>\n");
+	print("alert('security code saved: '+$_SESSION['security_code']);\n");
+	print("</script>\n");	
+
+?>

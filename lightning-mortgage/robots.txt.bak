@@ -1,0 +1,34 @@
+# Robots.txt file created by http://www.webtoolcentral.com
+# For domain: http://www.lightning-mortgage.com
+
+# All robots will spider the domain
+User-agent: *
+Disallow:
+
+User-agent: *
+Disallow: /Archive/     # Disallow directory /Archive/
+Disallow: /Beggs/       # Disallow directory /Beggs/ for autoresponder testing
+Disallow: /cgi-bin/     # Disallow directory /cgi-bin/
+Disallow: /images/      # Disallow directory /images/
+Disallow: /include/     # Disallow directory /include/
+Disallow: /js/          # Disallow directory /js/
+Disallow: /LAPS/        # Disallow directory /LAPS/
+Disallow: /pr/          # Disallow directory /pr/ for autoresponder
+Disallow: /feed/ 		# Disallow directory /feed/ for rss feeds
+Disallow: /pseudo-cron/ # Disallow directory /pseudo-cron/ - no longer used
+
+Disallow: /LoanTypes/7.5
+Disallow: /Administrative/xxx.xxx.xxx.xxx
+Disallow: /InterestRates/lightning-mortgage.com
+Disallow: /Administrative/699.21
+Disallow: /Administrative/7.5
+Disallow: /Administrative/lightning-mortgage.com
+Disallow: /Administrative/5.75
+Disallow: /Administrative/zd~g%7BX6umjg/014N/%5EG8,/016
+Disallow: /Administrative/zd~g%7BX6umjg/014N/%5EG8,/016
+
+User-agent: Mediapartners-Google*
+Disallow:
+
+User-agent: SBIder
+Disallow: /

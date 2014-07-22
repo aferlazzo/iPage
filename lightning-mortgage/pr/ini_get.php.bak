@@ -1,0 +1,15 @@
+
+//<pre>
+<?php
+
+//$inis = ini_get_all();
+
+//print_r($inis);
+
+//</pre>
+
+if (ini_set("sendmail_from", "tony@lightning-mortgage.com")==false)
+	print("counldn't reset sendmail_from<br>");
+else
+	print("sendmail_from: ini_get('sendmail_from')<br>");
+?> 

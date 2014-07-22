@@ -1,0 +1,133 @@
+<?php
+require('pr/phpmailer/class.phpmailer.php');
+
+if (isset($_POST[msg]))
+{
+	$MyMsg=$_POST[msg];
+	$recips=$_POST[recips];
+	$FromName=$_POST[FromName];
+	$FromEmail=$_POST[FromEmail];
+	$ReplyName=$_POST[ReplyName];
+	$ReplyEmail=$_POST[ReplyEmail];
+	$MySubject=$_POST[Subject];
+	
+/*
+$msg = "line 1\n"
+. "line 2\n"
+. "line 3\n";
+$FromName="Tony Ferlazzo";
+$FromEmail="tony.ferlazzo@westernthrift.net";
+$Subject="New Test";
+*/
+
+function SendTo($name, $email, $Count, $msg, $Subject)
+{
+	global $FromName;
+	global $FromEmail;
+	global $ReplyName;
+	global $ReplyEmail;
+
+	$mail=new PHPMailer();
+	$mail->IsSendMail();
+	$mail->From=$FromEmail;
+	$mail->FromName=$FromName;
+	$mail->AddReplyTo($ReplyEmail,$ReplyName);
+	$mail->AddAddress($email,$name);
+	$mail->Subject=$Subject;
+	$mail->Body=stripslashes($msg);
+	$mail->WordWrap=70;
+	if ($mail->Send()) 
+		echo "Message $Count sent to $name ($email).<br />";
+	else
+		echo "Error Message $Count was not sent to $name ($email).<br />";
+}
+
+
+	$Emails_For_Action = trim($recips);
+	$lstSplitTareaRemove = split("\n", $Emails_For_Action); //split the text area elements (delimited by \n) and put into a table
+	
+	$Count = 0;
+	$Emails_For_Action_Count = 0;
+	$Mail_Error_Flag = 0;
+	$Mail_Dump = 0;
+	
+	reset ($lstSplitTareaRemove);
+	while (list(, $temp) = each ($lstSplitTareaRemove))  
+	{
+		$Count++;
+		trim($temp);
+
+		if (!ereg("\|",$temp)) // if just an email address (no name) put 'Friend' in the FullName field
+		{
+			$RecipName = "AE";
+			$RecipEmail = $temp;
+		} 
+		else 
+		{		// import the subscriber list in the format 'full name|email address|user defined1|user defined2|user defined3|unser defined4'
+			list ($RecipName, $RecipEmail) = split("\|", $temp, 2); // if both name and email were passed
+			
+			$RecipName = trim($RecipName);
+			$RecipName = ucwords(strtolower($RecipName));
+		}
+				
+		$RecipEmail = trim($RecipEmail);
+		$RecipEmail = strtolower($RecipEmail);	
+
+		$msg = eregi_replace("%FullName%",$RecipName,$MyMsg);
+		$Subject = eregi_replace("%FullName%",$RecipName,$MySubject);
+		
+		SendTo($RecipName, $RecipEmail, $Count, $msg, $Subject);
+		//print("Emailed $RecipName<br />");
+		ob_flush();
+		flush();
+		sleep(4); // 4 seconds between sends
+	}
+/*
+SendTo("Tony", 'tferlazzo@gmail.com');
+SendTo("Tony Ferlazzo", "tferlazzo@sbcglobal.net");
+SendTo("Tony Ferlazzo", "tony@lightning-mortgage.com");
+*/
+}
+else
+{
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Fran Send</title>
+<style type="text/css">
+.Label {float:left;width:110px;text-align:right;margin:0 5px 12px 0;}
+.RLabel {float:left;width:170px;text-align:right;margin:0 5px 12px 0;}
+.Value {float:left;width:300px;text-align:left;margin:0 0 12px 0;}
+.Mvalue {float:left;width:600px;text-align:left;margin:0 0 12px 0;}
+input.Text {width:300px;}
+</style>
+</head>
+<body>
+<form id='mailerForm' name='mailerForm' method="post" action='#'>
+<div class='Label'>Reply To Name</div><div class='Value'><input type="text" class="Text" name='ReplyName' value='Fran Ferlazzo'></div>
+<div class='RLabel'>From Name</div><div class='Value'><input type="text" class="Text" name='FromName' value='Fran Ferlazzo'></div><br style='clear:left;'>
+<div class='Label'>Reply To Email</div><div class='Value'><input type="text" class="Text" name='ReplyEmail' value='fran.ferlazzo@westernthrift.net'></div>
+<div class='RLabel'>From Email</div><div class='Value'><input type="text" class="Text" name='FromEmail' value='fran.ferlazzo@westernthrift.net'></div><br style='clear:left;'>
+<div class='Label'>Subject</div><div class='Value'><input type="text" class="Text" name='Subject' value='Loan Scenario'></div><br style='clear:left;'>
+<div class='Label'>Recipients</div><div class='Value'><textarea name='recips' cols='34' wrap='off' rows='20'>Fran Ferlazzo|fferlazzo@sbcglobal.net
+Fran Ferlazzo|fran@lightning-mortgage.com
+</textarea></div>
+<div style='float:left;'>Message</div><div class='Mvalue'><textarea name='msg' cols='70' wrap='off' rows='20'>Hi %Fullname%,
+
+Best Regards,
+
+Fran Ferlazzo
+Marketing Associate
+
+Western Thrift & Loan
+Ph: (866) 822-8500 x102
+Fax: (866) 822-8500
+</textarea></div><br style='clear:left;'>
+<input type='submit' name='submit' value='Send'>
+
+</body>
+</html>
+<?php
+}
+?>

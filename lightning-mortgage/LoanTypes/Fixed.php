@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Fixed Rate Mortgages</title>
+<meta http-equiv="Content-Type"
+content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="description" content="Explore the world of fixed rate mortgage options with Lightning Mortgage">
+<meta name="keywords" content="fixed rate mortgage, 15 year mortgage, 40-year mortgage, 30-year loan">
+<base target="_self">
+<link rel="stylesheet" href="../css/LoanTypesStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+
+</head>
+<body>
+
+<?php include('../include/top.php'); ?>
+<div id="Heading" style="width:100%;">
+<div class="Title"><h1 id="Small">10-Year to<br /><span class='strike'>30</span> 40-Year</h1></div>
+<div class="Title">
+<div id="Big"><h1>Fixed Rate Mortgages</h1></div>
+<div id="BigShadow"><h1>Fixed Rate Mortgages</h1></div></div>
+</div>
+<div class="QuickHits">
+<ul style="font-size:x-small;margin-bottom:0;">
+	<li style="padding-bottom:1em;"><a
+	href="../InterestRates/EducationTaxes.php">How much can you afford?</a></li>
+	<li style="padding-bottom:1em;"><a href="#" title="opens a new window"
+	onclick="if (window.secondwindow) window.secondwindow.close();secondwindow=open('../Administrative/PaymentCalculator.php',
+	'pcalculator','height=360,width=280,top=0,left=0,alwaysRaised=yes,resizable=yes,scrollbars=yes,menubar=no,titlebar=yes,toolbar=no, scroll=yes');">
+	Monthly Payment Calculator</a><img src="../images/NewWindow.gif" ALT=""></li>
+	<li style="padding-bottom:0;"><a href="#" title="opens a new window"
+	onclick="if (window.thirdwindow) window.thirdwindow.close();thirdwindow=open('../Administrative/MinimumSalaryCalculator.php',
+	'scalculator','height=600,width=300,top=0,left=0,alwaysRaised=yes,resizable=yes,scrollbars=yes,menubar=no,titlebar=yes,toolbar=no, scroll=yes');">
+	Minimum Salary Calculator</a><img src="../images/NewWindow.gif" ALT=""></li>
+</ul>
+</div>
+	<p>And now, without further ado, is <span class="Highlight">the classic home loan,</span> the fixed-rate mortgage.
+	Both the interest rate and payment remain the
+	same over the term (the length) of the loan. Loans can be amortized over a period of
+	10 to 40 years.	For lower monthly payments, you can request to have a 40 year loan! Up to 125% loan-to-value loan amounts are available for refinances!</p>
+
+	<p>A fixed rate mortgage may be just what you are looking for if you like the
+	idea of	stability. It can be a lot	easier to budget your money	when you know your mortgage
+	interest rate isn't going to change every year.</p>
+
+	<ul>
+		<li>Need the biggest tax break available? Stick with a <span class='strike'>30</span> 40 year term.</li>
+		<li>Kids headed for college in the next decade or so? Perhaps a
+			15 year term would suit you	better?</li>
+		<li>Offers a fixed rate over the life of	the loan with fixed payments
+			of principal and interest</li>
+		<li>No payment shock, as with an ARM</li>
+		<li>No prepayment penalty</li>
+		<!--
+		<li>Maximum financing to <a	class="LoanTypes"
+			href="http://www.lightning-mortgage.com/LoanTypes/ZeroDown.php">100%</a> for purchases</li>
+		-->
+		<li>Second homes with only 5% down (95% LTV refinance)</li>
+		<li>Investment properties with only 10% down (95% LTV refinance)</li>
+	</ul>
+	<p>Alternatively, you may be interested in paying your
+	loan off early, but as painlessly as possible. If you want to ease into
+	homeownership check into our temporary <a
+	href="http://www.lightning-mortgage.com/LoanTypes/Buydown.php">buy
+	down</a> or <a href="http://www.lightning-mortgage.com/LoanTypes/ARM.php">ARM</a>
+	options.&nbsp;</p>
+	<hr><br />
+<div style='width:120px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+	<ul>
+		<li><a
+		href="CompareFixedArm.php">Compare a fixed mortgage to an ARM</a></li>
+		<li><a
+		href="../Answers/HomeBuyingMistakes.php">Find Out About the 8 Deadly Home Buying Mistakes</a></li>
+		<li><a
+		href="LoanTypeDescriptions.php">Explore other Loan Types</a></li>
+		<li><a
+		href="../CreditScores.php">Learn about Credit Scores</a></li>
+		<li><a
+		href="../Answers/PreAnswers.php">Determine if you want to be pre-qualified or pre-approved</a></li>
+		<li><a
+		href="../InterestRates/EducationTaxes.php">Learn about the Tax Advantages of Home Ownership</a></li>
+		<li><a
+    	href="../MortgageApplication/LoanAppShort.php">Submit a Loan Application</a></li>
+	</ul>
+<?php include('../include/bottom.php'); ?>
+
+</body>
+</html>

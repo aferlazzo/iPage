@@ -1,0 +1,287 @@
+<?php
+
+$auth = false; // Assume user is not authenticated
+
+
+if (isset($PHP_AUTH_USER) && isset($PHP_AUTH_PW))
+{
+	//print ("PHP_AUTH_USER |$PHP_AUTH_USER|<br>\n");
+	//print ("PHP_AUTH_PW |$PHP_AUTH_PW|<br>\n");
+	$PHP_AUTH_USER = "None"; // unset these variables so user is prompted at the start of this program for a user ID
+	$PHP_AUTH_PW = "None";
+
+}
+
+
+
+    header( 'WWW-Authenticate: Basic realm="Private"' );
+    header( 'HTTP/1.0 401 Unauthorized' );
+    //echo 'Authorization failed! You must be an Administrator or Guest to access the console.';
+    print ("<H1>Logged Out</H1>");
+	print ("<HR>");
+
+	print ("<ADDRESS>Tony Security at www.lightning-mortgage.com Port 80</ADDRESS>");
+    exit;
+
+
+?>
+<html>
+
+<head>
+
+<title>Logout</title>
+<script language="JavaScript" src="https://host373.ipowerweb.com/~lightnin/js/Common.js">
+</script>
+
+<meta name="Microsoft Border" content="tb, default">
+</head>
+
+<body topmargin="0" leftmargin="0"><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+<script>
+  if (window.location.href.substring(0,5)!="https"){ window.location.replace('https://host373.ipowerweb.com/~lightnin/LAPS/ApplicantMaster.php') }
+</script>
+<div align="center">
+ <center>
+ <table cellspacing="0" width="720" cellpadding="0">
+
+
+</left><!-- end of Top header -->
+
+  <td>
+
+<div align="center">
+ <table border="1" cellpadding="4" cellspacing="0" bordercolor="#000099"
+ width="720" bgcolor="#EBF5F5">
+  <tr>
+   <td>
+
+<div align="center">
+
+<table width=697 border="0" cellpadding="0" cellspacing="0">
+
+				<tr>
+					<td height="101" align="center" width="97" rowspan="2">
+
+<p align="center"><b><font face="Arial" size="2" color="#000099">
+<script language="JavaScript">
+document.write(doClock("M0","%20","D1",",%20","Y0"));
+</script>
+</font></b>
+
+
+                    </td>
+
+
+		<td class="defaultLevel" align="center" height="12" valign="bottom" width="485">
+            <font face="Verdana" size="1">
+            <a href="http://www.lightning-mortgage.com/Feedback.php"
+            style="text-decoration:none;">Help</a>&nbsp;|&nbsp;
+            <a href="http://www.lightning-mortgage.com/AboutUs.php"
+            style="text-decoration:none;">About</a>&nbsp;|&nbsp; <a
+            href="http://www.lightning-mortgage.com/ContactUs.php"
+            style="text-decoration:none;">Contact</a>&nbsp;|&nbsp; <a
+            href="http://www.lightning-mortgage.com/Calculators.php"
+            style="text-decoration:none;">Calculators</a>&nbsp;|&nbsp; <a
+            href="http://www.lightning-mortgage.com/MyLoanStatus.php"
+            style="text-decoration:none;">My Loan Status</a>&nbsp;|&nbsp; <a
+            href="http://www.lightning-mortgage.com/PrivacyPolicy.php"
+            style="text-decoration:none;">Privacy</a>&nbsp;|&nbsp; <a
+            href="http://www.lightning-mortgage.com/Legal.php"
+            style="text-decoration:none;">Legal</a></font>
+		</td>
+
+
+					<td height="101" align="center" width="109" rowspan="2" valign="middle">
+                     <a
+                     href="http://www.lightning-mortgage.com/UpfrontMortgageBroker.php"><img border="1"
+                     src="../images/UMB.gif" width="78" height="102" alt="I am an Upfront Mortgage Broker &reg;"></a>
+                    </td>
+
+
+				</tr>
+
+				<tr>
+
+
+					<td height="66" align="center" width="485">
+                     <a href="http://www.lightning-mortgage.com/index.php">
+                     <img border="0"
+                     src="../images/WebLogo.gif" align="center" alt="Lightning Mortgage - Mortgage Finance and Refinance" width="354" height="58">
+                     </a>
+                    </td>
+
+
+				</tr>
+
+</table>
+
+
+</div>
+
+
+   </td>
+  </tr>
+ </table>
+</div>
+
+<!-- Start of Tab Header -->
+<table width=720 border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td bgcolor="#000099" align="center" width="144" height="14"><a
+         href="http://www.lightning-mortgage.com/index.php"><img border="0" src="../images/Home_tab.gif" alt="Mortgages that Make Sense" width="121" height="28"></a></td>
+		<td bgcolor="#000099" align="center" width="144" height="14"><a
+         href="LoanAppShort.php"><img border="0" src="../images/ApplyNow_tab.gif" alt="Get started on a new mortgage. Fill out this application." width="120" height="28"></a></td>
+		<td bgcolor="#000099" align="center" width="144" height="14"><a
+         href="http://www.lightning-mortgage.com/Answers.php"><img src="../images/Answers_tab.gif"
+		                                              alt="Get answers to home financing questions here" border="0" width="120" height="28"></a></td>
+		<td bgcolor="#000099" align="center" width="144" height="14"><a
+         href="http://www.lightning-mortgage.com/LoanTypes.php"><img src="../images/LoanTypes_tab.gif"
+		                                              alt="Learn about the types of loans available" border="0" width="121" height="28"></a></td>
+		<td align="center" bgcolor="#000099" width="144" height="14"><a
+         href="http://www.lightning-mortgage.com/Rates.php"><img src="../images/InterestRates_tab.gif"
+		                                              alt="Your question is probably, &quot;What's your best rate?&quot;" border="0" What width="121" height="28"></a></td>
+	</tr>
+</table>
+
+
+  </table>
+ </center>
+ </div>
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+<!--  * * * * * * * * * * * * * * * * * * * End of COMMON HEADER * * * * * * * * * * * * * * * * * * -->
+
+
+
+<?php
+
+print ("PHP_AUTH_USER |$PHP_AUTH_USER|<br>\n");
+print ("PHP_AUTH_PW |$PHP_AUTH_PW|<br>\n");
+?>
+
+<div align="center">
+
+ <table border="1" cellpadding="0" cellspacing="0" bordercolor="#000099"
+ width="720" height="215">
+  <tr>
+   <td height="213">
+    <div align="center">
+     <table border="0" cellpadding="4" cellspacing="0" width="100%" height="247">
+
+      <tr>
+       <td height="28" colspan= '4' bgcolor="#000099">
+        <h1 style="margin-top: 0; margin-bottom: 0" align="center"><font color="#FFFFFF" face="Verdana"><i>Logged Out</i></font></h1>
+       </td>
+      </tr>
+
+          <tr>
+           <td height="18" width="199" align="right"></td>
+           <td height="18" width="480"></td>
+          </tr>
+         </table>
+        </div>
+       </td>
+      </tr>
+     </table>
+    </div>
+   </td>
+  </tr>
+ </table>
+</div>
+<p style="position: absolute; top: 115; left: 142; width: 756; height: 18"></p>
+
+
+
+
+<!--  * * * * * * * * * * * * * * * * COMMON FOOTER  * * * * * * * * * * * * * * * -->
+<!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+  <div align="center">
+   <center>
+   <table border="1" cellpadding="2" bordercolor="#000099" width="720"
+   cellspacing="0" height="100" bgcolor="#FFFFFF">
+    <tr>
+     <td bgcolor="#000099" align='right' height="1"><font face="Verdana" color="#FFFFFF" Size='2'>Version: 1.0&nbsp;
+
+     </td>
+    </tr>
+    <tr>
+     <td height="97">
+
+  <div align="center">
+
+  <table cellspacing="0" cellpadding="0" height="126">
+  <tr>
+
+    <td height="97" valign="middle" align="center" rowspan="4" width="1">
+<a href="Guarantee.php"><img border="0" src="../images/guarantee.jpg" width="69"
+height="79" alt="Lightning Mortgage Financing Guarantee"></a>
+
+</td>
+
+		<td height="24" valign="top" align="center" width="1104"><p align="center"><font
+         face="Verdana" size="1">
+        <a href="http://www.lightning-mortgage.com/index.php">Home</a>&nbsp;|
+		<a href="LoanAppShort.php">Apply Now</a>&nbsp;| <a
+        href="http://www.lightning-mortgage.com/OrderCreditDirect.php">Order Credit</a>&nbsp;|
+        <a href="http://www.lightning-mortgage.com/LoanTypes.php">Loan Types</a>&nbsp;|
+        <a href="http://www.lightning-mortgage.com/Rates.php">Interest Rates</a>&nbsp;|
+         <a href="http://www.lightning-mortgage.com/Documentation.php"> Documentation</a>&nbsp;| <a
+        href="http://www.lightning-mortgage.com/FAQ.php">FAQ</a></font>
+	</td>
+
+  </tr>
+  <tr>
+
+   <td height="24" valign="top" align="center" width="1104">
+        <font face="Verdana" size="1">
+        <a href="http://www.lightning-mortgage.com/Calculators.php">Calculators</a>&nbsp;|
+        <a href="http://www.lightning-mortgage.com/Glossary.php">Glossary</a>&nbsp;|
+        <a href="http://www.lightning-mortgage.com/RebateRequest.php">Instant Cash</a>&nbsp;|
+        <a href="http://www.lightning-mortgage.com/credit.php">Credit Scores</a>&nbsp;|
+        <a href="http://www.lightning-mortgage.com/PrivacyPolicy.php">Privacy Policy</a>&nbsp;|
+        <a href="http://www.lightning-mortgage.com/Legal.php">Legal</a> | <a href="http://www.lightning-mortgage.com/AboutUs.php">About</a>&nbsp;|
+        <a href="http://www.lightning-mortgage.com/ContactUs.php">Contact</a></font>
+	</td>
+
+  </tr>
+  <tr>
+
+    <td height="24" valign="top" align="center" width="1104">
+      <p align="center"><font size="1" color="#000099">© 2003 Lightning Mortgage&nbsp;&nbsp;
+      -&nbsp;&nbsp; Last Updated: June, 2003</font></p>
+</td>
+
+  </tr>
+  <tr>
+
+    <td height="25" valign="top" align="left" style="color: #000099" width="1104">
+       <p align="center"><font size="2">Click on <a href="Feedback.php">feedback</a> or call (866) 822-8500
+       for assistance</font></p>
+</td>
+
+  </tr>
+  <tr>
+
+    <td height="29" valign="middle" align="center" width="1105" colspan="2">
+
+       <p align="center"><font color="#000099" face="Verdana" size="1">This
+       Website is NOT intended as a solicitation to customers in any
+       jurisdiction in which we are not authorized to operate.</font>
+
+</td>
+
+  </tr>
+</table>
+
+  </div>
+
+     </td>
+    </tr>
+   </table>
+   </center>
+  </div>
+
+</td></tr><!--msnavigation--></table></body>
+
+</html>

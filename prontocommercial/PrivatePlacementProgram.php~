@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Private Placement Program - Pronto Commercial Funding</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+	<meta name="copyright" content=
+	"Copyright 2007, Anthony Ferlazzo, Pronto Commercial Funding"/>
+	<meta name="rating" content="General"/>
+	<meta name="robots" content="Index, ALL, follow"/>
+	<meta name="Description" content=
+	"PPP - Private Placement Program that has wonderful returns with no up front fee."/>
+	<meta name="Keywords" content=
+	"No up front fee, PPP, Private Placement Program, import financing, export financing, line of credit,international trade"/>
+	<meta name="OWNER" content="Pronto Commercial Funding"/>
+	<link rel="SHORTCUT ICON" href=
+	"http://www.prontocommercial.com/favicon.ico"/>
+	<?php include("include/Head.php"); ?>
+		<style type='text/css'>
+	/*<![CDATA[*/
+		.panelContent ul {margin:10px 0 0 0;}
+		.panelContent p, span.normal{font:18px sans-serif normal;}
+	/*]]>*/
+	</style>
+</head>
+<body>
+<?php include("./include/top.php"); ?>
+<h1>Private Placement Programs</h1>
+<div class='featurette nonFeedback'>
+	<div class='panel nonFeedback'>
+		<h3 title='Our Role'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>We facilitate secured Private Placements Programs in direct
+			cooperation with a private platform trader, platform program
+			manager and provider. Your investment remains under your
+			control and account name, guaranteed, safeguarded during the
+			contract period.</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Your Job'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>If you want to place funds into a Private Placement Program
+			(PPP) we can certainly help you, although you must be invited to join.
+			We'll introduce you to trade platform facilitators. We'll help you
+			qualify, and in a short time have you into trade, typically just 72 hours
+			after verification of received documents and the due diligence
+			process is complete.</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Your Responsibility'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<p>Applicants are expected to be experienced investors who are
+			familiar with how these investments. We DO NOT educate or
+			provide any advice as to how one can incorporate this PPP
+			strategy into your financial plan.</p>
+
+			<p>Unlike some intermediaries who off one or two private
+			placement programs, we have a complete menu of programs. One is
+			sure to meet your needs. Please send in a detailed <a href=
+			'./FundingRequest.php'>Funding Request</a> so your scenario may
+			be evaluated for which program is best suited to meet your
+			needs.</p>
+		</div>
+	</div>
+	<div class='panel nonFeedback'>
+		<h3 title='Private Placement Program Details'><a href='#'></a></h3>
+		<div class='panelContent nonFeedback'>
+			<ul>
+				<li><span class='normal'>Bank instruments (CD, MTN, BG, Bonds, etc.) or liquid
+				funds are used as well as SKRs and other hard assets.</span></li>
+
+				<li><span class='normal'>Historical returns can be discussed directly with the
+				Platform Trader</span></li>
+			</ul>
+
+			<p>Get started today with a <a href=
+			'./FundingRequest.php'>Funding Request</a>.</p>
+		</div>
+	</div>
+</div>
+<?php include("./include/bottom.php"); ?>
+<script type='text/javascript'>
+//<![CDATA[
+$(document).ready(function(){
+
+// for accordion headings----------------------
+startingPanel=13;
+endingPanel=17;
+rotateAccordion();
+});
+//]]>
+</script>
+</body>
+</html>

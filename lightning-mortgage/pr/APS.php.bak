@@ -1,0 +1,160 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+/*																				*/
+/*	Repopulate APS: This script queries the autoresponder db.					*/
+/*	For each of user admin's autoresponders found, it reads messages waiting on the server.	*/
+/*				user admin only 												*/
+/*				user admin only 												*/
+/*				user admin only 												*/
+/*				user admin only 												*/
+/*				user admin only 												*/
+/*				user admin only 												*/
+/*																				*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+include("conn.php");
+//print ("Repopulate APS (".__LINE__.") start program<br />");	
+$arSQL = "select * from autoresponders where user='admin'";
+$result_ar = mysql_query($arSQL) or die("$arSQL");
+$num_rows_ar = mysql_num_rows($result_ar);
+//print ("Repopulate APS (".__LINE__.") found $num_rows_ar email campaigns<br />");
+$maildelete=1;
+if ($num_rows_ar < 1)
+{
+	exit;
+}
+
+$WithinScript = "I am embedded in another script";
+include("settings.php");
+include("removesettings.php");
+require("pop3.php");
+
+//print ("Repopulate APS (".__LINE__.") prior to loop<br />");	
+
+	$pop3=new pop3_class;
+	$pop3->hostname="mail.lightning-mortgage.com";/* POP 3 server host name                 */
+	$pop3->port=110;                         /* POP 3 server host port                      */
+
+	$user="APS@lightning-mortgage.com";  /* Authentication user name             */
+	$password="aps";                          /* Authentication password                     */
+
+	$pop3->realm="";                         /* Authentication realm or domain              */
+	$pop3->workstation="";                   /* Workstation for NTLM authentication         */
+	$apop=0;                                 /* Use APOP authentication                     */
+	$pop3->authentication_mechanism="USER";  /* SASL authentication mechanism               */
+	$pop3->debug=0;                          /* If = 1, output debug information            */
+	$pop3->html_debug=1;                     /* Debug information is in HTML                */
+	$pop3->join_continuation_header_lines=1; /* Concatenate headers split in multiple lines */
+
+	
+if(($error=$pop3->Open())=="")
+{
+	if ($debugIt>0)
+		logMessage("Repopulate APS (".__LINE__.") Processing arid: $arid - $ArDescription - Connected to the POP3 server '$server'");
+
+	if(($error=$pop3->Login($user,$password,$apop))=="")
+	{
+		if ($debugIt>1)
+			logMessage("Repopulate APS (".__LINE__.") User '$user' logged in.");
+		if(($error=$pop3->Statistics($messages,$size))=="")
+		{
+			echo "<PRE>There are $messages messages in the mail box.</PRE>\n";
+			$result=$pop3->ListMessages("",0);
+			if(GetType($result)=="array")
+			{
+				if($messages>0)
+				{
+					for($MsgNo=1;$MsgNo<=$messages;$MsgNo++)
+					{
+						if(($error=$pop3->RetrieveMessage($MsgNo,$headers,$body,-1))=="")// -1 = entire messages
+						{	
+							//print("<p>Reading message $MsgNo</p>");
+							DetermineName($pop3, $MsgNo, $body);
+							$pop3->must_update = 1;
+						}
+					}
+				}
+				
+				if($error==""
+				&& ($error=$pop3->Close())=="")
+					if ($debugIt>1)
+						logMessage("Repopulate APS (".__LINE__.") Disconnected from the POP3 server ".$pop3->hostname);
+			}
+			else
+				$error=$result;
+		}
+	}
+
+
+	if($error!="")
+	{
+		echo "<H2>Error: ",HtmlSpecialChars($error),"</H2>";
+		break;
+	}
+}
+
+function DetermineName($pop3, $MsgNo, $body)
+{
+	GLOBAL $debugIt;
+	for($line=0;$line<count($body);$line++)
+	{
+		if(substr($body[$line],0,5) == "Name:")
+		{
+			$Name = trim($body[$line]);
+			$Name = substr($Name,6,30);
+		}	
+
+		if(substr($body[$line],0,6) == "Email:")
+		{
+			$Email = trim($body[$line]);
+			$Email = substr($Email,7,40);
+			print("<p>Name: $Name Email: $Email</p>");
+			UpdateDB($Name, $Email);
+			if(($error=$pop3->DeleteMessage($MsgNo))=="")
+				print("<p>Marked message $MsgNo for deletion.</p>");
+		}
+	}
+}
+
+function UpdateDB ($GoodName, $Email)
+{
+	GLOBAL $debugIt;
+	
+	//print("Repopulate APS (".__LINE__.") Bad Recipient Notice for $BadRecipient<br />\n");
+	$SQL_Statement = "select * from users where email = '$Email'";
+	$Query_Result = mysql_query($SQL_Statement);
+	$NumberOfCampaigns = mysql_num_rows($Query_Result);
+
+	print("<p>Email: $Email found $NumberOfCampaigns times. |$SQL_Statement|</p>");
+	if($NumberOfCampaigns>0)
+	{
+		//$UserRow = mysql_fetch_object($Query_Result);
+		//mysql_data_seek($Query_Result, 0);
+	
+		$BadNameUser = mysql_fetch_object($Query_Result); //now we have the user record for delivery failures
+
+		$Query_Update_Message = "update users set fname='$GoodName' where email='$Email'";
+
+		if ($debugIt==2)
+		{
+			logMessage("Repopulate APS (".__LINE__.") Bad recipient found. User update to occur: $Query_Update_Message");
+		}
+		else
+			mysql_query($Query_Update_Message) or die(logMessage("Repopulate APS (".__LINE__.") Could not update user record: '$Query_Update_Message'"));
+				
+		if ($debugIt > 0)
+			logMessage("Repopulate APS (".__LINE__.") Bad recipient found. $msgid/mailbox $username/password $password Update to occur: $Query_Update_Message<br>");
+		
+		print("<p>Updated Name: $GoodName Email: $Email</p>\n");
+	}
+}
+
+?>

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>MediaScooper test</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css" media="screen">@import "PerfectResponse.css";</style>
+</head>
+<body>
+<?
+ $ip = $REMOTE_ADDR;$refer_url = urlencode($HTTP_REFERER);$user_agent = urlencode($HTTP_USER_AGENT);
+$url = "http://www.mediascooper.com/cgi-bin/mscoop-cgi/mediascooper.cgi?url=http://my.abcnews.go.com/rsspublic/2020_rss093.xml&heading=&blank=1&desc=1&dates=1&text=BLACK&background=%23CCCCCC&ebackground=%23FFFFFF&elink=BLACK&border=BLUE&email=1&showborder=1&align=LEFT&halign=CENTER&max_articles=20&max_articles_pf=10&desc_length=0&show_author=1&width=350&font=Verdana,+Arial,+Sans-serif&username=&ip=$ip&refer_url=$refer_url&user_agent=$user_agent";
+ $lines_array = file($url);
+ $lines_string = implode('', $lines_array);
+ echo $lines_string;
+
+ ?>
+</body>
+</html>

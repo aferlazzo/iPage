@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Loan Modification - Lightning Mortgage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="description" content="Loan Modification service now available.">
+<meta name="keywords" content="loan modification, mortgage modification, mortgage help">
+<base target="_self">
+<link rel="stylesheet" href="../css/LoanTypesStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+
+</head>
+<body>
+
+<!--ih:includeHTML file="../include/top.php"--><!-- ./include/top-root.php is a copy of the contents ./include/top.php with the directory levels changed-->
+<div class="Top">
+	<div id='MS'>
+		<a href="http://www.lightning-mortgage.com/Answers/MortgageInsiderSecrets.php" class="Top" onfocus="if(this.blur) this.blur();">
+		<img src="../images/SignUp.jpg" onMouseover='this.src="../images/SignUpHover.jpg"' onMouseout='this.src="../images/SignUp.jpg"' 
+		style='border:none;' alt='sign-up'></a>
+	</div><!--MS-->
+	<div id='TipTop'>
+		<a class="Logo" onfocus="if(this.blur) this.blur();" href="http://www.lightning-mortgage.com/index.php">
+		<img src="../images/Lightning-Mortgage.jpg" style="border:none;"
+		alt="Lightning Mortgage - Mortgages, even with Bad Credit" title="Lucio is in the house!"></a>
+	</div><!--TipTop-->
+	<noscript>
+	<!--
+	<p style="text-align:center;border:5px dotted #fff;font-size:large;color:#fff;">
+	<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+	This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+	//-->
+	</noscript>
+	<br style="clear:both;"> <!-- tabs here -->
+	<div id="TabDiv">
+		<div id="navTab">
+			<script language="JavaScript" type="text/javascript">
+			<!--
+			ShowNewTabs(Directory);
+			//-->
+			</SCRIPT>
+		</div><!--navTab-->
+	</div><!-- TabDiv-->
+</div><!--Top-->
+
+<div class="TopFrame">
+	<div class="TFL"></div>
+	<div id='BelowTabs'>
+		<a href="http://www.lightning-mortgage.com/Survey.php" title="Take our Satisfaction Survey"
+		class="Top">Survey</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/Feedback.php" title="Ask questions and give us feedback"
+		class="Top">Questions?</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/AboutUs.php" title="About Us"
+		class="Top">About</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/ContactUs.php" title="How to contact us"
+		class="Top">Contact</a>&nbsp;|
+		<a href="#" title="opens a new window" onclick="if (window.MapWindow) window.MapWindow.close();MapWindow=open('../Administrative/WhereWeLend.php',
+			'pcalculator','height=520,width=600,top=0,left=0,alwaysRaised=yes,resizable=no,scrollbars=no,menubar=no,titlebar=yes,toolbar=no, scroll=yes');"
+		class="Top">Where We Lend</a><img src="../images/NewWindow.gif" alt="opens new window">
+	</div> <!-- BelowTabs -->
+	<div class="TFR">
+		<script language="JavaScript" type="text/javascript">
+		<!--
+		ShowSearchButton();
+		//d.getElementById('ContentDIV').style.visibility = 'visible';
+		-->
+		</script>
+	</div><!--TFR-->
+</div>
+
+<div class="Main">
+	<div id="ContentBackground">
+		<div id='TopLeftCorner'></div><div id='TopFrame'></div><div id='TopRightCorner'></div>
+		<div style='clear:left;'></div>
+
+		<div id='LeftFrame'></div>
+		<div id="ContentDIV">
+<!-- TopFrame -->
+<!--/ih:includeHTML-->
+<div id="Heading" style="width:80%;">
+<div class="Title"><h1 id="Small">Time For<br />A Change</h1></div>
+<div class="Title">
+<div id="Big"><h1>Loan Modification</h1></div>
+<div id="BigShadow"><h1>Loan Modification</h1></div></div>
+</div>
+
+	<p>Loan Modification has been used by lenders for years, however due to
+market conditions and the subprime crunch, loan modification has
+become the best solution for the problems facing the industry today. Homeowners
+are finding their mortgages working against them, brokers are
+unable to qualify the homeowner for a new loan, and bankers have no
+option but to foreclose in record numbers. While some steps have been
+taken by government agencies and the largest lenders/servicers to help
+borrowers who are already delinquent, there is no national solution that
+helps homeowners at risk of foreclosure before it’s too late.</p>
+<p>In this environment, principal reductions that
+restore some equity for the homeowner
+may be a relatively more effective means
+of avoiding delinquency and foreclosure.</p>
+<p>When you are facing delinquency or foreclose you need to get help quickly. Once you provide us with a comprehensive 
+list of your bills we can have an answer for you within 48 hours. If we think we can help you, we'll become your advocate 
+and work with your lender to modify your mortgage to make it manageable.</p>
+<p><a
+    	href="https://lightning-mortgage.ipower.com/MortgageApplication/LoanAppShort.php">Submit a Loan Application</a> (to 
+		give us basic information about your situation) with us today and take the first step to a long-term solution.</p>
+
+<br style="clear:left;">
+<hr><br />
+<div style='width:120px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+	<ul>
+		<li><a
+		href="LoanTypeDescriptions.php">Explore other Loan Types</a></li>
+		<li><a
+		href="../CreditScores.php">Learn about Credit Scores</a></li>
+		<li><a
+		href="../Answers/PreAnswers.php">Determine if you want to be pre-qualified or pre-approved</a></li>
+		<li><a
+		href="../InterestRates/EducationTaxes.php">Learn about the Tax Advantages of Home Ownership</a></li>
+		<li><a
+    	href="https://lightning-mortgage.ipower.com/MortgageApplication/LoanAppShort.php">Submit a Loan Application</a></li>
+	</ul>
+</div>
+<!--ih:includeHTML file="../include/bottom.php"-->
+		<!--
+		// http://www.lightning-mortgage.com/include/bottom-root.php is a copy of the contents ../include/bottom.php. It is the
+		// web page bottom border that is inserted in all appropriate .php pages located at
+		// the root level of the website.
+		-->
+		<div id='RightFrame'></div><div style='clear:left;'></div>
+		<div id='LeftFrame' style='height:102px;'></div>
+		<div class="Bottom2">
+			<div style="float:right;height:90px;width:70px;">
+				<img border='0' src='../images/equalhouse.gif' alt='Equal housing lender' style="">
+			</div>
+			<a href="http://www.lightning-mortgage.com/Administrative/SiteMap.php">Site Map</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Calculators.php">Calculators</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Answers/GlossaryAD.php">Glossary</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/PrivacyPolicy.php">Privacy Policy</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Legal.php">Legal</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/AffiliateLinks.php">Affiliates</a><br />
+
+			<p class="CenterSmall" style='text-align:center;'>Click on <a href="http://www.lightning-mortgage.com/Administrative/Feedback.php">feedback</a> 
+			or call (866) 822-8500 for assistance - Last Updated:
+			<script language="JavaScript1.2" type="text/javascript">
+			<!--
+				var lastMod = new Date(document.lastModified);
+				var MM = lastMod.getMonth() + 1;
+				var DD = lastMod.getDate();
+				document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+			//-->
+			</script>
+			</p>
+
+			<p class="CenterSmall" style="margin:0;">This Website is NOT intended as a solicitation to customers in any jurisdiction in which we
+			are not authorized to operate. 
+
+			<script type="text/javascript">
+				var Today 	= new Date();
+				var ThisYear 	= Today.getFullYear();
+				var DayName = Today.getDate();
+				document.write("&copy; Lightning Mortgage 2002-" + ThisYear + " All Rights Reserved. No part of this website may be ");
+			</script>
+
+			reused commercially without the expressed written consent of Lightning Mortgage.
+			This site is directed at, and made available to, persons in the continental U.S., Alaska and Hawaii only.</p>
+		</div><!-- Bottom2 silver -->
+		<div id='RightFrame' style='height:102px;'></div><div style='clear:left;'></div>
+		<div id='BottomLeftCorner'></div><div id='BottomFrame'></div><div id='BottomRightCorner'></div>	
+	</div> <!-- ContentBackground yellow -->	
+</div> <!-- Main -->
+
+<SCRIPT language="JavaScript" type="text/javascript"> 
+<!--
+BType();
+SetContentHeight();
+//-->
+</SCRIPT>
+<!--/ih:includeHTML-->
+<!--ih:includeHTML file="../include/top.php-new"-->
+<!--/ih:includeHTML-->
+</body>
+</html>

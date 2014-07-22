@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>
+      Swift Mailer Test
+    </title>
+	<style type='text/css'>
+/*<![CDATA[*/
+    label{display:block; float:left; width:200px; text-align:right; margin-right:10px;}
+	input[type=text]{width:250px;}
+    fieldset{width:600px;}
+/*]]>
+    </style>
+  </head>
+  <body>
+    <form id='testForm' action="SwiftTestAction.php" method='get'>
+		<input name='Referrer' type='hidden' value='SwiftTest.htm' />
+      <fieldset>
+        <legend>Swift Mailer Test</legend> 
+	  	       <label for='SenderName'>From Name</label><input type='text' name='SenderName'		value='Lightning Mortgage Mailer' /><br />
+             <label for='SenderEmail'>From Email</label><input type='text' name='SenderEmail'		value='noreply@lightning-mortgage.com' /><br />
+          <label for='ReplytoName'>Reply-to Name</label><input type='text' name='ReplytoName'		value='Anthony Ferlazzo' /><br />
+        <label for='ReplytoEmail'>Reply-to Email</label><input type='text' name='ReplytoEmail'		value='anthony@lightning-mortgage.com' /><br />
+					 <label for='UserId'>User Id</label><input type='text' name='UserId' 			value='noreply+lightning-mortgage.com' /><br />
+			 <label for='Password'>SMTP Password</label><input type='text' name='Password'			value='1commguru' /><br />
+			  <label for='RecipientName'>To Name</label><input type='text' name='RecipientName'		value='Anthony Ferlazzo' /><br />
+			<label for='RecipientEmail'>To Email</label><input type='text' name='RecipientEmail'	value='aferlazzo@gmail.com' /><br />
+					<label for='Subject'>Subject</label><input type='text' name='Subject' 			value='Test SwiftMailer 4.0.6' /><br />
+				 <label for='SMTPhost'>SMTP host</label><input type='text' name='SMTPhost' 			value='mail.lightning-mortgage.com' /><br />
+				 <label for='SMTPport'>SMTP port</label><input type='text' name='SMTPport' 			value='465' /><br />
+			  <label for='Encryption'>Encryption</label><input type='text' name='Encryption'		value='ssl' /><br />
+						<label for='Debug'>Debug</label><input type='checkbox' name='Debug' 	 /><br />
+		<input type='submit' />
+      </fieldset>
+    </form>
+  </body>
+</html>

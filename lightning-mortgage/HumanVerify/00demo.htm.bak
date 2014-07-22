@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Verification Code</title>
+</head>
+
+<body>
+
+<form method="POST" action="verify.php">
+  <table width="80%" border="0" cellspacing="1" cellpadding="1">
+    <tr bgcolor="#999999"> 
+      <th colspan="2"> <h3><font color="#FFFFFF" face="Tahoma, Verdana, Arial">HumanVerify 
+          Demo</font></h3></th>
+    </tr>
+    <tr> 
+      <td align="right"><font size="2" face="Tahoma, Verdana, Arial"><br>
+        HumanVerify Code :<br>
+        </font></td>
+      <td><font face="Tahoma, Verdana, Arial"><img src="http://www.humanverify.com/a2zverify/a2zimage.asp?id=YOUR_HUMANVERIFY_ID" alt="Please enter this HumanVerify code exactly as seen here in the verification box below"></font></td>
+    </tr>
+    <tr> 
+      <td align="right"><font size="2" face="Tahoma, Verdana, Arial">Enter HumanVerify 
+        Code :</font></td>
+      <td><font face="Tahoma, Verdana, Arial"> 
+        <input type="text" name="HumanVerifyID" size="20">
+        </font></td>
+    </tr>
+    <tr align="center"> 
+      <td colspan="2"> <font face="Tahoma, Verdana, Arial"> 
+        <input type="submit" value="Submit" name="B1">
+        <input type="reset" value="Reset" name="B2">
+        </font></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</center><p align="left"><font face="Tahoma" size="2"><b>INSTRUCTIONS:</b><br>
+1. This demo consists of two pages 00demo.htm and verify.php<br>
+2. Open both the files in any text editor (notepad etc), and replace
+YOUR_HUMANVERIFY_ID by your actual human verify id that you create when you
+register from FREE at HumanVerify</font><font face="Tahoma, Verdana, Arial" size="2"><sup>®</sup></font><font face="Tahoma" size="2">,
+from BOTH the files.<br>
+3. After that, upload both the files on the server that you mentioned in the
+website URL at the time of creating a free account at HumanVerify.com. Till that
+time, you will keep getting &quot;2:BAD DOMAIN&quot; error.<br>
+4. That's it. Now you are ready to test the HumanVerify</font><font face="Tahoma, Verdana, Arial" size="2"><sup>®</sup></font><font face="Tahoma" size="2">
+system.<br>
+5. This sample code is provided as is and is meant to help you understand the usage of
+  HumanVerify</font><font face="Tahoma, Verdana, Arial" size="2"><sup>®</sup></font><font face="Tahoma" size="2">.
+No support or warranty is provided for this code.</font></p>
+
+</body>
+
+</html>

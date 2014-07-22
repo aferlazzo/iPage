@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset=utf-8>
+	<title>test of transform</title>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+	<link rel="stylesheet" type='text/css' href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css">
+<style>
+	body{
+	font-family:sans-serif;
+	font-size:16px;
+	}
+	div#wrapper{
+	position:absolute;
+	top:10px;
+	left:287px;
+	width:540px;
+	height:550px;
+	/*background-color:yellow;*/
+	-moz-transform: rotate(0deg);
+	-webkit-transform: rotate(0deg);
+	}
+	div#base{
+	position:absolute;
+	text-align:center;
+	top:223px;
+	left:220px;
+	width:100px;
+	height:100px;
+	border-radius:50%;
+	border:1px solid #fff;
+	}
+	div#base p{margin-top: 38px;}
+
+	div#bar1, div#bar2, div#bar3, div#bar4, div#bar5, div#bar6, div#bar7, div#bar8{
+	height:50px;
+	width:200px;
+	font-size:47px;
+	color:#000;
+	text-align:center;
+	border:1px solid #000;
+	padding-bottom:5px;
+	position: absolute;
+}
+	div#bar1{
+	color:#fff;
+	top: 245px;
+	left: 336px;
+	background-color:#000;
+	}
+	div#bar2{
+	top: 126px;
+	left: 287px;
+	background-color:#00f;
+	-moz-transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+	}
+	div#bar3{
+	top: 77px;
+	left: 168px;
+	background-color:#0f0;
+	-moz-transform: rotate(-90deg);
+	-webkit-transform: rotate(-90deg);
+	}
+	div#bar4{
+	top: 126px;
+	left: 49px;
+	background-color:#0ff;
+	-moz-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+	}
+	div#bar5{
+	top: 245px;
+	left: 0px;
+	background-color:#f00;
+	-moz-transform: rotate(-180deg);
+	-webkit-transform: rotate(-180deg);
+	}
+	div#bar6{
+	top: 364px;
+	left: 49px;
+	background-color:#f0f;
+	-moz-transform: rotate(-225deg);
+	-webkit-transform: rotate(-225deg);
+	}
+	div#bar7{
+	top: 413px;
+	left: 168px;
+	background-color:#ff0;
+	-moz-transform: rotate(-270deg);
+	-webkit-transform: rotate(-270deg);
+	}
+	div#bar8{
+	top: 364px;
+	left: 287px;
+	background-color:#fff;
+	-moz-transform: rotate(-315deg);
+	-webkit-transform: rotate(-315deg);
+	}
+</style>
+</head>
+<body>
+	<div id='wrapper'>
+		<div id='base'>
+		</div>
+		<div id='bar1'>One</div>
+		<div id='bar2'>Two</div>
+		<div id='bar3'>Three</div>
+		<div id='bar4'>Four</div>
+		<div id='bar5'>Five</div>
+		<div id='bar6'>Six</div>
+		<div id='bar7'>Seven</div>
+		<div id='bar8'>Eight</div>
+	</div>
+
+	<script  type='text/javascript' src="http://www.google.com/jsapi?key=ABQIAAAAFhI-zWC1OHnIWn-NgpM59RQEvnDN41A_YXsu9RDCiPeB95ezzhRg9hvePm9aPDvoXLeCm7abWSWrHws"></script>
+	<script type='text/javascript'>
+	google.load("jquery", "1");
+	google.load("jqueryui", "1");
+	</script>
+	<script>
+	$(document).ready(function(){
+		var i=0,intId = setInterval(rot,10);
+		function rot(){
+			$('#wrapper').css({'-webkit-transform': 'rotate('+i+'deg)', '-moz-transform'   : 'rotate('+i+'deg)'});
+			i++;
+			if (i>360)
+				clearInterval(intId);
+		}
+});
+</script>
+</body>
+</html>

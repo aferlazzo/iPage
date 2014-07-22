@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>The Art of Appraisals</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta name="keywords"
+content="home appraisals, mortgage appraisals, money saving strategies">
+<meta name="description"
+content="What to expect during the appraisal of your home.">
+<script language="JavaScript" src="../js/Common.js" type="text/javascript"> </script>
+<link rel="stylesheet" href="../css/AnswersStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<!--[if IE 6]>
+<style type="text/css">
+html
+{
+scrollbar-base-color: #f5f2fe;
+scrollbar-arrow-color: #FFF;
+scrollbar-track-color: #6701A4;
+scrollbar-face-color: #9933CC;
+scrollbar-3dlight-color: #93c;
+}
+</style>
+<![endif]-->
+</head>
+
+<body>
+<!--ih:includeHTML file="../include/top.php"--><!-- ./include/top-root.php is a copy of the contents ./include/top.htm with the directory levels changed-->
+<div class="Top">
+	<div id='MS'>
+		<a href="http://www.lightning-mortgage.com/Answers/MortgageInsiderSecrets.htm" 
+		class="Top" style="display:block;">
+		<img src="../images/SignUp.jpg" width="90" height="50" border="0" 
+		onMouseover="this.src='../images/SignUpHover.jpg'" 
+		onMouseout="this.src='../images/SignUp.jpg'" alt="Mortgage Secrets sign-up" /></a>
+	</div><!--MS-->
+	<div id='TipTop'>
+		<a class="Logo" onfocus="if(this.blur) this.blur();" href="http://www.lightning-mortgage.com/index.htm">
+		<img src="../images/Lightning-Mortgage.jpg" style="border:none;"
+		alt="Lightning Mortgage - Mortgages, even with Bad Credit" title="Lucio is in the house!"></a>
+	</div><!--TipTop-->
+	<noscript>
+	<!--
+	<p style="text-align:center;border:5px dotted #fff;font-size:large;color:#fff;">
+	<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+	This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+	//-->
+	</noscript>
+	<br style="clear:both;"> <!-- tabs here -->
+	<div id="TabDiv">
+		<div id="navTab">
+			<script language="JavaScript" type="text/javascript">
+			<!--
+			ShowNewTabs(Directory);
+			//-->
+			</SCRIPT>
+		</div><!--navTab-->
+	</div><!-- TabDiv-->
+</div><!--Top-->
+
+<div class="TopFrame">
+	<div class="TFL"></div>
+	<div id='BelowTabs'>
+		<a href="http://www.lightning-mortgage.com/Survey.php" title="Take our Satisfaction Survey"
+		class="Top">Survey</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/Feedback.htm" title="Ask questions and give us feedback"
+		class="Top">Questions?</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/AboutUs.htm" title="About Us"
+		class="Top">About</a>&nbsp;|
+		<a href="http://www.lightning-mortgage.com/Administrative/ContactUs.htm" title="How to contact us"
+		class="Top">Contact</a>&nbsp;|
+		<a href="#" title="opens a new window" onclick="if (window.MapWindow) window.MapWindow.close();MapWindow=open('../Administrative/WhereWeLend.htm',
+			'pcalculator','height=520,width=600,top=0,left=0,alwaysRaised=yes,resizable=no,scrollbars=no,menubar=no,titlebar=yes,toolbar=no, scroll=yes');"
+		class="Top">Where We Lend</a><img src="../images/NewWindow.gif" alt="opens new window">
+	</div> <!-- BelowTabs -->
+	<div class="TFR">
+		<form style="margin:0;" action="http://www.google.com/cse" id="cse-search-box">
+			<input type="hidden" name="cx" value="004479662315342353177:6xh8ho2tt9s" />
+			<input type="hidden" name="ie" value="utf-8" />
+			<input type="text" name="q" style="font-size:x-small;width:100px;height:14px;margin-top:1px;border:silver;" />
+			<input type="submit" class="Submit" name="sa" value="Search" style="margin-top:1px;"
+				onMouseover="this.style.cursor='pointer';this.style.color='#009';this.style.background='#fff';"
+				onMouseout="this.style.color='#fff';this.style.background='transparent';">
+		</form>
+	</div><!--TFR-->
+</div>
+
+<div class="Main">
+	<div id="ContentBackground">
+		<div id='TopLeftCorner'></div><div id='TopFrame'></div><div id='TopRightCorner'></div>
+		<div style='clear:left;'></div>
+
+		<div id='LeftFrame'></div>
+		<div id="ContentDIV">
+<!-- TopFrame -->
+<!--/ih:includeHTML-->
+			<div id='PageHead'>
+				<h1>Appraisal Report</h1>
+				<p>What is an appraisal report and why is it necessary?</p>
+			</div>
+
+<blockquote class="PullQuote" style="margin:0 0 0 1em;">
+An appraisal report is one of the many checks and balances used by lenders to protect themselves,
+and you, from being snookered.</blockquote>
+<p>You are making or have made your best offer on the home you'd like to purchase. The sellers
+set a price. The realtor liked the price. You accepted the price. Enough said, right? Not so fast,
+cowboy. How do you know you didn't get snookered on the price? Or maybe you are in the process of
+refinancing. Has the value of your property gone up or down since you bought?</p>
+<p>Lenders want to know the answers to these questions, too. After all, they aren't about to lend
+you hundreds of thousands of dollars just because you asked. They have a fiduciary responsibility
+to their stockholders to have collateral of equal or greater value before making a loan. Besides,
+they don't want to get snookered either. An appraisal is one of the checks and balances used by
+lenders to protect themselves.</p>
+<p>So who makes sure the value of the property is in line with the amount being paid? There are too
+many people exposed in the real estate process to let such a transaction proceed without first ensuring
+that the value of the property is <i><u>at least</u></i> equal to the amount being paid.</p>
+
+<p>This is where the appraisal comes in. An appraisal is an unbiased estimate of what a buyer might
+expect to pay - or a seller receive - for a parcel of real estate, where both buyer and seller are
+informed parties. To be an informed party, most people turn to a licensed, certified, professional
+appraiser to provide them with the most accurate estimate of the true value of their property.</p>
+
+<div style='margin:0 auto;width:160px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:158px;'>The Inspection</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+
+<p>So what goes into a real estate appraisal? The part you see is the inspection. An appraiser's duty
+is to inspect the property being appraised to ascertain the true status of that property. The appraiser
+must actually see features, such as the number of bedrooms, bathrooms, the location, and so on, to
+ensure that they really exist and are in the condition a reasonable buyer would expect them to be. The
+inspection often includes a sketch of the property, ensuring the proper square footage and conveying
+the layout of the property. Most importantly, the appraiser looks for any obvious features - or defects
+- that would affect the value of the house.</p>
+
+<p>Once the site has been inspected, an appraiser uses one of three approaches to determining the value
+of real property:</p><ol>
+<li>The cost approach</li>
+<li>The sales comparison</li>
+<li>The income approach</li></ol>
+
+<div style='margin:0 auto;width:188px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:186px;'>The Cost Approach</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+<p>The cost approach is the easiest to understand. The appraiser uses information on local building
+costs, labor rates and other factors to determine how much it would cost to construct a property similar
+to the one being appraised. This value often sets the upper limit on what a property would sell for. Why
+would you pay more for an existing property if you could spend less and build a brand new home instead?
+While there may be mitigating factors, such as location and amenities, these are usually not reflected
+in the cost approach.</p>
+
+<div style='margin:0 auto;width:210px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:208px;'>The Sales Comparison</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+<p>With this approach, appraisers rely on the sales comparison approach to value these types of items.
+Appraisers get to know the neighborhoods in which they work. They understand the value of certain
+features to the residents of that area. They know the traffic patterns, the school zones, the busy
+throughways; and they use this information to determine which attributes of a property will make a
+difference in the value. Then, the appraiser researches recent sales in the vicinity and finds
+properties that are "comparable" to the subject being appraised. The sales prices of these properties
+are used as a basis to begin the sales comparison approach.</p>
+
+<p>Using knowledge of the value of certain items such as square footage, extra bathrooms, hardwood
+floors, pool or view lots (just to name a few), the appraiser adjusts the comparable properties
+to more accurately portray the subject property. For example, if the comparable property has a jacuzzi
+and the subject does not, the appraiser may deduct the value of a jacuzzi from the sales price of the
+comparable home. If the subject property has an extra bathroom and the comparable does not, the
+appraiser will add a certain amount to the comparable property.</p>
+
+<div style='margin:0 auto;width:210px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:208px;'>The Income Approach</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+<p>In the case of income producing properties like homes acting as rentals, the appraiser may use a
+third approach to valuing the property. In this case, the amount of income the property produces is
+used to arrive at the current value of those revenues over the foreseeable future.</p>
+
+<div style='margin:0 auto;width:140px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:138px;'>Reconciliation</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+<p>Combining information gathered from any of these approaches, the appraiser is then ready to stipulate
+an estimated market value for the subject property. It is important to note that while this amount is
+probably the best indication of what a property is worth, it may not be the final sales price. There
+are always mitigating factors such as seller motivation, urgency or "bidding wars" that may adjust
+the final price up or down. But the appraised value is often used as a guideline for lenders who don't
+want to loan a buyer more money that the property is actually worth. The bottom line is: an appraiser
+will help you get the most accurate property value, so you can make the most informed real estate
+decisions.</p>
+
+<div style='margin:0 auto;width:280px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:278px;'>Onsite Inspection Preparation</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+<p>Once your appraiser has arrived, you do not need to accompany him or her along on the entire site
+inspection, but you should be available to answer questions about your property and be willing to point
+out any home improvements.</p>
+
+<div style='margin:0 auto;width:220px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:218px;'>Additional Suggestions</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+<p>Accessibility: Make sure that all areas of the home are accessible, especially to the attic and
+crawl space</p>
+<p>Housekeeping: Appraisers see hundreds of homes a year and will look past most clutter, but they're
+human beings too! A good impression can translate into a higher home value</p>
+<p>Maintenance: Repair minor things like leaky faucets, missing door handles and trim</p>
+<p>Lastly, you should:</p><ul>
+<li>Install smoke detectors on all levels (especially near bedrooms)</li>
+<li>Install hand rails on all stairways</li>
+<li>Remove peeling paint and repaint the effected area</li></ul>
+<p>One of the most misunderstood issues about appraisals is who owns the report. The borrower pays for
+the report, yet technically the mortgage company "owns" the report. As a matter of custom, we make sure 
+the borrower receives a copy at or near closing. Sometimes modification are made to an appraisal report 
+based on a lender requesting more detailed information, thus we do not release the first appraisal 
+report, but the "final" completed report to our clients. It is your right to receive the appraisal 
+report, you paid for it after all.</p>
+
+	<hr>
+<div style='width:120px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:118px;'>Next Steps</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div>
+	<ul>
+		<li><a
+		href="../Answers.php">Explore the rest of the Loan Process</a></li>
+		<li><a
+		href="../CreditScores.htm">Explore Credit Score Topics</a></li>		<li><a
+		href="../LoanTypes.php">Learn about Loan Types</a></li>
+		<li><a
+		href="../Answers/PreAnswers.htm">Determine if you want to be pre-qualified or pre-approved</a></li>
+		<li><a
+		href="../InterestRates/EducationTaxes.htm">Learn about the Tax Advantages of Home Ownership</a></li>
+		<li><a
+    	href="https://lightning-mortgage.ipower.com/MortgageApplication/LoanAppShort.htm">Submit A Loan Application</a></li>
+	</ul>
+</div>
+<!--ih:includeHTML file="../include/bottom.php"-->
+		<!--
+		// http://www.lightning-mortgage.com/include/bottom-root.php is a copy of the contents ../include/bottom.htm. It is the
+		// web page bottom border that is inserted in all appropriate .htm pages located at
+		// the root level of the website.
+		-->
+		<div id='RightFrame'></div><div style='clear:left;'></div>
+		<div id='LeftFrame' style='height:102px;'></div>
+		<div class="Bottom2">
+			<div style="float:right;height:90px;width:70px;">
+				<img border='0' src='../images/equalhouse.gif' alt='Equal housing lender' style="">
+			</div>
+			<a href="http://www.lightning-mortgage.com/Administrative/SiteMap.htm">Site Map</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Calculators.htm">Calculators</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Answers/GlossaryAD.htm">Glossary</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/Legal.htm">Legal</a>&nbsp;|
+			<a href="http://www.lightning-mortgage.com/Administrative/AffiliateLinks.htm">Affiliates</a><br />
+
+			<p class="CenterSmall" style='text-align:center;'>Click on <a href="http://www.lightning-mortgage.com/Administrative/Feedback.htm">feedback</a> 
+			or call (866) 822-8500 for assistance - Last Updated:
+			<script language="JavaScript1.2" type="text/javascript">
+			<!--
+				var lastMod = new Date(document.lastModified);
+				var MM = lastMod.getMonth() + 1;
+				var DD = lastMod.getDate();
+				document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+			//-->
+			</script>
+			</p>
+
+			<p class="CenterSmall" style="margin:0;">This Website is NOT intended as a solicitation to customers in any jurisdiction in which we
+			are not authorized to operate. 
+
+			<script type="text/javascript">
+				var Today 	= new Date();
+				var ThisYear 	= Today.getFullYear();
+				var DayName = Today.getDate();
+				document.write("&copy; Lightning Mortgage 2002-" + ThisYear + " All Rights Reserved. No part of this website may be ");
+			</script>
+
+			reused commercially without the expressed written consent of Lightning Mortgage.
+			This site is directed at, and made available to, persons in the continental U.S., Alaska and Hawaii only.</p>
+		</div><!-- Bottom2 silver -->
+		<div id='RightFrame' style='height:102px;'></div><div style='clear:left;'></div>
+		<div id='BottomLeftCorner'></div><div id='BottomFrame'></div><div id='BottomRightCorner'></div>	
+	</div> <!-- ContentBackground yellow -->	
+</div> <!-- Main -->
+
+<SCRIPT language="JavaScript" type="text/javascript"> 
+<!--
+BType();
+SetContentHeight();
+//-->
+</SCRIPT>
+<!--/ih:includeHTML-->
+</body>
+</html>

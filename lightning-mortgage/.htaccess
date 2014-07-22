@@ -1,0 +1,6 @@
+Header append P3P: 'CP="CAO DSP COR ADM DEV PSA IVA OUR IND STA"' 
+ErrorDocument 404  /404.php
+#ErrorDocument 403 /lightning-mortgage.com/403.php
+# For security reasons, Option all cannot be overridden.
+#Options All -Indexes
+Options ExecCGI Includes IncludesNOEXEC SymLinksIfOwnerMatch -Indexes

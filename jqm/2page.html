@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="ui-mobile">
+<head>
+    <base href="http://www.anthonyferlazzo.com/jqm/">
+    <meta charset="utf-8">
+    <title>Two-page jQ Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <script src='js/hideaddrbar.js'></script>
+</head>
+<body>
+<!-- First Page -->
+<div data-role="page" id="home" data-title="Home" data-fullscreen="true">
+    <div data-role="header" data-theme="b">
+        <h1>Welcome Home</h1>
+    </div>
+
+    <div data-role="content">
+        <a href="#contact" data-role="button" data-theme="b">Contact Us</a>
+        <p><a href="listprocessing.html" data-role="button" data-theme="b">Go to list processing</a></p>
+    </div>
+</div>
+<!-- Second Page -->
+<div data-role="page" id="contact" data-title="Contact">
+    <div data-role="header">
+        <h1>Contact Us</h1>
+    </div>
+    <div data-role="content">
+        Contact information...
+    </div>
+</div>
+
+<div class="ui-loader ui-body-a ui-corner-all" style="top: 334.5px;">
+    <span class="ui-icon ui-icon-loading spin"></span>
+    <h1>loading</h1>
+</div>
+</body>
+</html>

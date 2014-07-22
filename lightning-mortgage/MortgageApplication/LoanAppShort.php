@@ -1,0 +1,986 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Easy Loan Application</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="description" content="Loan App">
+<meta name="keywords" content="Loan App">
+<meta name="rating" content="General">
+<meta name="robots" content="NoIndex, NoFollow">
+<!--<base target="_self">-->
+<LINK REL="SHORTCUT ICON" HREF="../favicon.ico">
+<script src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en" type="text/javascript"></script>
+<script language="javascript" src="../js/LoanAppValidation.js" type="text/javascript"></script>
+<script language="javascript" src="../js/LoanApp.js" type="text/javascript"></script>
+<link rel="stylesheet" href="../css/MortgageApplicationStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<style type="text/css">
+p.SigLabel,p.SigLabel:first-letter{
+text-align:center;
+margin:0;
+color:#009;
+font-size:small;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+font-weight:bolder;
+}
+#Lucio {
+position:absolute;
+z-index:90;
+left:700px;
+top:290px;
+width:150px;
+height:120px;
+visibility:visible;
+background: url("../images/Bolt/LoanApplication.gif") no-repeat;
+}
+</style>
+</head>
+<body onload="window.document.main.ApplicantName.focus();">
+<?php include('../include/top.php'); ?>
+<div id="Lucio" onMouseover="this.style.visibility='hidden';"></div>
+	<!-- Embedded Page Body -->
+	<div id='PageHead'>
+		<h1>Loan Application</h1>
+		<p>Get Your Loan Approved Before Rates Go Higher!</p>
+	</div>
+
+	<p>If you're ready to apply for a loan <span class="Highlight">today</span>, please proceed with
+	this Loan Application.</p>
+<!--
+	By the way, the second part of the application process is to request a
+	credit report, which requires you to make a $15 charge on a major credit or debit card.
+	If you aren't ready to make that small commitment to moving forward right now,
+	please continue exploring the site to have your questions answered. There are lots of answers to
+	your questions contained in this website.</p>
+	
+	<p>Did you neglect to fill out the credit report request page when you originally submitted your application?
+	If so, click on <a href="OrderCreditPlus.php">Order a Credit Report</a>.</p>
+-->
+
+	<p><img src='../images/IconRequired.gif' alt=''> denotes required fields</p>
+
+	<form name="main" onsubmit="return(validate());" action="./LoanAppShortAction.php" method="post">
+	<input type="hidden" name="recipient" value="anthony@lightning-mortgage.com">
+	<input type="hidden" name="cc" value="fran@lightning-mortgage.com">
+	<input type="hidden" name="redirect"
+		value="../MortgageApplication/LoanAppShort.php">
+	<input type="hidden" name="title" value="Short Application Form Results">
+
+
+<div class="ApplicationFrame">
+	<h2 style="background:#099; padding:4px 0; margin:0;width:100%;border:none;">Borrower/Co-Borrower Information</h2>
+
+<!-- ////////////Line 1 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="ApplicantName"><img src='../images/IconRequired.gif' alt=''> Borrower's Full Name</label></p>
+</div>
+
+<div class="LCIO">
+	<p class="AppField"><input maxlength="100" size="20" title="Enter your name (e.g. John Smart)"
+	name="ApplicantName" id="ApplicantName" tabindex="1"
+	onfocus="this.style.border='2px solid #099'"	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="Employer"><img src='../images/IconRequired.gif' alt=''> Borrower's Employer Name</label></p>
+</div>
+
+<div class="RCIO">
+	<p class="AppField"><input size="22" title="Enter the name of your employer (e.g. Acme Tool Co.)"
+	name="Employer" id="Employer" tabindex="35" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<br clear="all">
+
+<!-- ////////////Line 2 /////////////-->
+
+<div class="LCLE" style='padding:0 4px;height:67px;'>
+ 	<p class="AppLabel"><label for="Street"><img src='../images/IconRequired.gif' alt=''> Property<br />Address<br />
+ 	<span style="font-size: xx-small; text-align: right;font-weight: normal;">(Use your
+ 	present address<br />if still shopping for a home)</span></label></p>
+</div>
+
+<div class="LCIE" style="height:65px;">
+	<p class="AppField"><input maxlength="500" size="20" name="Street"
+	id="Street" title="Enter the address (e.g.: 123 Any St)"
+	tabindex="3" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLE" style="height:51px;">
+	<p class="AppLabel"><label for="MonthlyIncome"><img src='../images/IconRequired.gif' alt=''> Monthly<br />Income</label></p>
+</div>
+
+<div class="RCIE" style="height:65px;">
+	<p class="AppField"><input type="text" name="MonthlyIncome" id="MonthlyIncome"
+	size="15" title="Enter your monthly pay before taxes in whole dollars (e.g. 1,000)"
+	tabindex="36" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 3 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="PropertyCity"><img src='../images/IconRequired.gif' alt=''> Property<br />City</label></p>
+</div>
+
+<div class="LCIO">
+	<p class="AppField"><input maxlength="100" size="20" name="PropertyCity"
+	id="PropertyCity" title="Enter the city name (e.g. Miami)"
+	tabindex="4" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+<div class="RCLO">
+	<p class="AppLabel"><label for="B_2002Income">Borrower's<br/>
+				<script type="text/javascript">
+				var Today 	= new Date();
+				var ThisYear 	= Today.getFullYear();
+				var DayName = Today.getDate();
+				var LastYear = ThisYear - 1;
+				document.write(LastYear);
+			</script>
+		Total Income</label>
+	</p>
+</div>
+
+<div class="RCIO">
+	<p class="AppField"><input type="text" name="B_2002Income" id="B_2002Income"
+	size="15" title="Enter the total amount you earned last year in whole dollars"
+	tabindex="36" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<br clear="all">
+
+<!-- ////////////Line 4 /////////////-->
+
+<div class="LCLE">
+	<p class="AppLabel"><label for="PropertyState"><img src='../images/IconRequired.gif' alt=''> State
+		<span style="font-size: xx-small; text-align: right;font-weight: normal;">(Names<br />
+		listed are where we lend)</span></label></p>
+</div>
+
+<div class="LCIE">
+	<span class="AppField" style="height:24px;"><select size="1" style="color:#009;" name="PropertyState" id="PropertyState" tabindex="5">
+	<option selected value="XX">Please Select</option>
+	<option value="AL">Alabama</option>
+	<option value="AK">Alaska</option>
+	<option value="AZ">Arizona</option>
+	<option value="AR">Arkansas</option>
+	<option value="CA">California</option>
+	<option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DE">Delaware</option>
+	<option value="DC">District of Columbia</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="IN">Indiana</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+	<option value="OK">Oklahoma</option>
+	<option value="OR">Oregon</option>
+	<option value="PA">Pennsylvania</option>
+	<option value="RI">Rhode Island</option>
+	<option value="SC">South Carolina</option>
+	<option value="SD">South Dakota</option>
+	<option value="TN">Tennessee</option>
+	<option value="TX">Texas</option>
+	<option value="UT">Utah</option>
+	<option value="VT">Vermont</option>
+	<option value="VA">Virginia</option>
+	<option value="WA">Washington</option>
+	<option value="WV">West Virginia</option>
+	<option value="WI">Wisconsin</option>
+	<option value="WY">Wyoming</option>
+</select></span>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="EmployerTime"><img src='../images/IconRequired.gif' alt=''> Years<br />on Job</label></p>
+</div>
+
+<div class="RCIE">
+	<span class="AppField" style="height: 24px;"><select size="1" style="color:#009;" name="EmployerTime" id="EmployerTime" tabindex="37">
+		<option selected value="Null">Please Select</option>
+		<option value="&lt; 1 Year">&lt; 1 Year</option>
+		<option value="1 Year">1 Year</option>
+		<option value="2 Years">2 Years</option>
+		<option value="3 Years">3 Years</option>
+		<option value="4 Years">4 Years</option>
+		<option value="5 Years">5 Years</option>
+		<option value="6 Years">6 Years</option>
+		<option value="7 Years">7 Years</option>
+		<option value="8 Years">8 Years</option>
+		<option value="9 Years">9 Years</option>
+		<option value="10 or More">10 or More</option>
+		</select></span>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 5 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="PropertyZipcode"><img src='../images/IconRequired.gif' alt=''> Zip<br />Code</label></p>
+</div>
+
+<div class="LCIO">
+	<p class="AppField"><input maxlength="10" size="9"
+	name="PropertyZipcode" id="PropertyZipcode" title="Enter the 5 digit zipcode (e.g. 12345)" tabindex="6"
+	onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="Position"><img src='../images/IconRequired.gif' alt=''> Position<br/>or Title</label></p>
+</div>
+
+<div class="RCIO">
+	<p class="AppField"><input size="22" name="Position" id="Position"
+	title="Enter your title or function (e.g. Salesman)"
+	tabindex="38" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<br clear="all">
+
+<!-- ////////////Line 6 /////////////-->
+
+<div class="LCLE">
+	<p class="AppLabel"><label for="PropertyCounty"><img src='../images/IconRequired.gif' alt=''> Property<br />County</label></p>
+
+</div>
+
+<div class="LCIE">
+	<p class="AppField"><input maxlength="100" size="20"
+	name="PropertyCounty" id="PropertyCounty" title="Enter the county name (e.g. Collier)"
+	tabindex="7" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="DOB"><img src='../images/IconRequired.gif' alt=''> Date of Birth<br /><span
+		style="font-size: xx-small; text-align: right; font-weight: normal;">(mm-dd-yyyy)</span></label></p>
+</div>
+
+<div class="RCIE">
+	<p class="AppField"><input size="10" name="DOB" id="DOB"
+	title="Enter your date of birth (e.g.: 11/29/1960)"
+	tabindex="39" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 7 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="HomePhone"><img src='../images/IconRequired.gif' alt=''> Home<br />Phone</label></p>
+</div>
+
+<div class="LCIO">
+	<p class="AppField"><input maxlength="50" size="12" name="HomePhone" id="HomePhone"
+	title="Include the area code (e.g.: 212-555-1234)" tabindex="9"
+	onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="WorkPhone">Work<br />Phone</label></p>
+</div>
+
+<div class="RCIO">
+	<p class="AppField"><input maxlength="50" size="12"	name="WorkPhone" id="WorkPhone"
+	title="Include the area code (e.g. 212-555-1234)" tabindex="40"
+	onfocus="this.style.border='2px solid #099'"	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<br clear="all">
+
+<!-- ////////////Line 8 /////////////-->
+
+<div class="LCLE">
+	<p class="AppLabel"><label for="BestCallTime">Best Time<br />to Call</label></p>
+</div>
+
+<div class="LCIE">
+	<span class="AppField" style="height: 24px;"><select size="1" style="color:#009;" name="BestCallTime" id="BestCallTime" tabindex="10">
+	<option value="Anytime" selected>Anytime</option>
+	<option value="8 am - 10 am">8 am - 10 am</option>
+	<option value="10 am - 12 pm">10 am - 12 pm</option>
+	<option value="12 pm - 2 pm">12 pm - 2 pm</option>
+	<option value="2 pm - 4 pm">2 pm - 4 pm</option>
+	<option value="4 pm - 6 pm">4 pm - 6 pm</option>
+	<option value="6 pm - 8 pm">6 pm - 8 pm</option>
+</select></span>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="Co_ApplicantName">Co-Borrower's<br />Name
+	<span style="font-size: xx-small; text-align: right; font-weight: normal;">(if applicable)</span></label></p>
+</div>
+
+<div class="RCIE">
+	<p class="AppField"><input maxlength="100" size="20" name="Co_ApplicantName" id="Co_ApplicantName"
+		title="Enter name of anyone else on title to the property (e.g. Jane Smart)" tabindex="41"
+		onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 9 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="BestPhoneToCall">Best Phone<br />to Call</label></p>
+</div>
+
+<div class="LCIO">
+	<span class="AppField" style="height: 24px;"><select size="1" style="color:#009;" name="BestPhoneToCall" id="BestPhoneToCall" tabindex="11">
+		<option value="Either Phone" selected>Either Phone</option>
+		<option value="Work Phone">Work Phone</option>
+		<option value="Home Phone">Home Phone</option>
+		</select></span>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="Co_SSN">Co-Borrower's<br />Social Security #</label></p>
+</div>
+
+<div class="RCIO">
+	<p class="AppField"><input size="11" name="Co_SSN" id="Co_SSN"
+		title="Enter the Co-Borrower's Social Security Number (e.g. 333-22-4444)"
+		tabindex="42" onfocus="this.style.border='2px solid #099'"
+		onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<br clear="all">
+
+<!-- ////////////Line 10 /////////////-->
+
+<div class="LCLE">
+	<p class="AppLabel"><label for="SSN"><img src='../images/IconRequired.gif' alt=''> Borrower's<br />Social Security #</label></p>
+</div>
+
+<div class="LCIE">
+	<p class="AppField"><input maxlength="11" size="11" name="SSN" id="SSN"
+		title="Enter your Social Security Number (e.g. 333-22-4444)" tabindex="12"
+		onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="Co_Employer">Co-Borrower's Employer Name</label></p>
+</div>
+
+<div class="RCIE">
+	<p class="AppField"><input size="22" title="Enter the name of the co-borrower's employer (e.g. Acme Tool Co.)"
+	name="Co_Employer" id="Co_Employer" tabindex="43" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 11 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="email"><img src='../images/IconRequired.gif' alt=''> E-Mail<br />Address</label></p>
+</div>
+
+<div class="LCIO">
+	<p class="AppField"><input maxlength="100" size="20" name="email" id="email" tabindex="14"
+	onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="Co_MonthlyIncome">Co-Borrower's Monthly Income</label></p>
+</div>
+
+<div class="RCIO">
+	<p class="AppField"><input type="text" name="Co_MonthlyIncome" id="Co_MonthlyIncome" tabindex="44"
+	title="Enter your co-applicant's monthly pay before taxes in whole dollars (e.g 1000)"
+	size="15" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<br clear="all">
+
+<!-- ////////////Line 12 /////////////-->
+
+<div class="LCLE">
+	<p class="AppLabel"><label for="EstCreditRating"><img src='../images/IconRequired.gif' alt=''> Rate Your<br />Credit</label></p>
+
+</div>
+
+<div class="LCIE">
+	<span class="AppField" style="height: 24px;"><select style="color:#009;" size="1" name="EstCreditRating" id="EstCreditRating" tabindex="15">
+	<option value="Null" selected>Please Select</option>
+	<option value="Excellent (A)">Excellent</option>
+	<option value="Good (B)">Good</option>
+	<option value="Fair (C)">Fair</option>
+	<option value="Poor (D)">Poor</option>
+</select></span>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="Co_2002Income">Co-Borrower's
+				<script type="text/javascript">
+				document.write(LastYear);
+			</script>
+	Total Income</label></p>
+ </div>
+
+<div class="RCIE">
+	<p class="AppField"><input type="text" name="Co_2002Income" id="Co_2002Income" tabindex="45"
+	title="Enter the total amount your co-applicant earned last year in whole dollars"
+	size="15" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 13 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="MonthlyCreditCardDebt"><img src='../images/IconRequired.gif' alt=''> Monthly Credit Card Payments</label></p>
+</div>
+
+<div class="LCIO">
+	<p class="AppField"><input maxlength="100" size="15" name="MonthlyCreditCardDebt"
+	id="MonthlyCreditCardDebt"
+	title="Enter the monthly minimum (required) payment, if any (e.g. 45)"
+	tabindex="16" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="Co_EmployerTime">Co-Borrower's<br>Years on Job</label></p>
+</div>
+
+<div class="RCIO">
+	<span class="AppField" style="height: 24px;"><select size="1" style="color:#009;" name="Co_EmployerTime" id="Co_EmployerTime" tabindex="46">
+	<option selected value="-">Please Select</option>
+	<option value="&lt; 1 Year">&lt; 1 Year</option>
+	<option value="1 Year">1 Year</option>
+	<option value="2 Years">2 Years</option>
+	<option value="3 Years">3 Years</option>
+	<option value="4 Years">4 Years</option>
+	<option value="5 Years">5 Years</option>
+	<option value="6 Years">6 Years</option>
+	<option value="7 Years">7 Years</option>
+	<option value="8 Years">8 Years</option>
+	<option value="9 Years">9 Years</option>
+	<option value="10 or More">10 or More</option>
+	</select></span>
+</div>
+
+<br clear="all">
+
+<!-- ////////////Line 14 /////////////-->
+
+<div class="LCLE">
+	<p class="AppLabel"><label for="MonthlyOtherDebt">All Other Debt (Monthly)</label></p>
+</div>
+
+<div class="LCIE">
+	<p class="AppField"><input maxlength="100" size="15" name="MonthlyOtherDebt" id="MonthlyOtherDebt"
+	title="Enter the total of any other payments, (e.g. for a car or boat)"
+	tabindex="17" onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="Co_Position">Co-Borrower's<br>Position</label></p>
+</div>
+
+<div class="RCIE">
+	<p class="AppField"><input size="22" name="Co_Position" id="Co_Position"
+	title="Enter a title or function (e.g. Auto Mechanic)" tabindex="47"
+	onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 15 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel">&nbsp;</p>
+</div>
+
+<div class="LCIO">
+	<p class="AppLabel" style="height: 24px;">&nbsp;</p>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="Co_DOB">Date of Birth<br />
+	<span style="font-size: xx-small; text-align: right; font-weight: normal;">(mm-dd-yyyy)</span></label></p>
+</div>
+
+<div class="RCIO">
+	<p class="AppField"><input size="10" title="Enter your co-applicant's date of birth (e.g. 11/29/1960)"
+	tabindex="48" onfocus="this.style.border='2px solid #099'" name="Co_DOB" id="Co_DOB"
+	onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<br clear="all">
+
+<h2 style="background:#099; padding:4px 0; margin:0;width:100%;border:none;">Property Information</H2>
+
+<!-- ////////////Line 17 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="PropertyType"><img src='../images/IconRequired.gif' alt=''> Property<br />Type</label></p>
+</div>
+
+<div class="LCIO">
+	<span class="AppField" style="height: 24px;"><select size="1" style="color:#009;" name="PropertyType" id="PropertyType" tabindex="20">
+	<option selected value="Null">Please Select</option>
+	<option value="Single Family">Single Family</option>
+	<option value="Town House">Town House</option>
+	<option value="Condo 1-4">Condo (1-4 stories)</option>
+	<option value="Condo 5+">Condo (5+ stories)</option>
+	<option value="Manufactured Home">Manufactured Home</option>
+	<option value="Multi-Family (2-4 units)">Multi-Family (2-4 units)</option>
+	<option value="Commercial">Commercial</option>
+	<option value="Other">Other</option>
+</select></span>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="FinanceRequest"><img src='../images/IconRequired.gif' alt=''> Finance<br />Request Type</label></p>
+</div>
+
+<div class="RCIO">
+	<span class="AppField"  style="height: 24px;"><select size="1" style="color:#009;" name="FinanceRequest" id="FinanceRequest" tabindex="51">
+	<option selected value="Null">Please Select</option>
+	<option value="New Purchase">New Purchase</option>
+	<option value="Refinance">Straight Refinance</option>
+	<option value="Refinance &amp; Payoff Other Bills">Refinance &amp; Payoff Other Bills</option>	
+</select></span>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 18 /////////////-->
+
+<div class="LCLE">
+	<p class="AppLabel"><label for="PurchasePrice"><img src='../images/IconRequired.gif' alt=''> Targeted or<br />Purchase Price</label></p>
+</div>
+
+<div class="LCIE">
+	<p class="AppField"><input maxlength="100" size="20" name="PurchasePrice" id="PurchasePrice" tabindex="21"
+	title="If refinancing, how much did the house cost? If purchasing, enter the expected cost (at least $50,000)"
+	onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver';"></p>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="LoanType"><img src='../images/IconRequired.gif' alt=''> Loan Type</label></p>
+</div>
+
+<div class="RCIE">
+	<span class="AppField"  style="height: 24px;"><select size="1" style="color:#009;"  name="LoanType" id="LoanType" tabindex="52">
+	<option selected value="Null">Please Select</option>
+	<option value="Conventional">Conventional</option>	
+	<option value="FHA">FHA</option>
+	<option value="VA">VA</option>
+	<option value="JUMBO">Jumbo</option>
+	<option value="Rural">Rural</option>
+</select></span>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 19 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="EstimatedValue"><img src='../images/IconRequired.gif' alt=''> Estimated<br />Value</label></p>
+</div>
+
+<div class="LCIO">
+	<p class="AppField"><input title="For refinances, enter how much you could sell the home for. For purchases, enter the estimated price"
+	maxlength="100" size="20" name="EstimatedValue" id="EstimatedValue" tabindex="22"
+	onfocus="this.style.border='2px solid #099'" onblur="CheckEstimatedValue(this);this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="LoanAmount"><img src='../images/IconRequired.gif' alt=''> Loan Amount<br />
+	<span style="font-size: xx-small; text-align: right; font-weight: normal;">($50,000
+	and more only)</span></label></p>
+</div>
+
+<div class="RCIO">
+	<p class="AppField"><input maxlength="100" size="15" name="LoanAmount" id="LoanAmount"
+	title="Enter the loan amount you are requesting, at least $50,000" tabindex="52"
+	onfocus="this.style.border='2px solid #099'" onblur="CheckLoanSize(this);this.style.border='2px solid silver'"></p>
+</div>
+<br clear="all">
+
+<!-- ///////// line 20 ///////////// -->
+
+<div class="LCLE">
+	<p class="AppLabel"><label for="LenderNameOn1st">Current Lender's Name</label></p>
+
+</div>
+
+<div class="LCIE">
+	<p class="AppField"><input maxlength="100" size="23" name="LenderNameOn1st" id="LenderNameOn1st"
+	title="Enter the lender's name (e.g. National Mortgage Company)" tabindex="23" value="Leave blank if purchasing"
+	onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="LenderNameOn2nd">Second Mortgage<br />Company
+	<span style="font-size: xx-small; font-weight: normal;">(if any)</span></label></p>
+</div>
+
+<div class="RCIE">
+	<p class="AppField"><input maxlength="100" size="20" tabindex="53" name="LenderNameOn2nd" id="LenderNameOn2nd"
+	title="Enter the second mortgage lender's name (e.g. Second Mortgages 'R' Us Company)"
+	onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 21 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="InterestRateOn1st"><img src='../images/IconRequired.gif' alt=''> <span style="text-decoration: underline;">Current</span><br />Interest Rate</label></p>
+</div>
+
+<div class="LCIO">
+	<span class="AppField" style="height: 24px;">
+	<select name="InterestRateOn1st" id="InterestRateOn1st" style="color:#009;" size="1" tabindex="24">
+	<option value="Null">Please Select</option>
+	<option value="0.00" selected>Blank if Purchasing</option>
+	<option value="0.03">3.00%</option>
+	<option value="0.03125">3.125%</option>
+	<option value="0.0325">3.25%</option>
+	<option value="0.03375">3.375%</option>
+	<option value="0.035">3.50%</option>
+	<option value="0.03625">3.625%</option>
+	<option value="0.0375">3.75%</option>
+	<option value="0.03875">3.875%</option>
+	<option value="0.04">4.00%</option>
+	<option value="0.04125">4.125%</option>
+	<option value="0.0425">4.25%</option>
+	<option value="0.04375">4.375%</option>
+	<option value="0.045">4.50%</option>
+	<option value="0.04625">4.625%</option>
+	<option value="0.0475">4.75%</option>
+	<option value="0.04875">4.875%</option>
+	<option value="0.05">5.00%</option>
+	<option value="0.05125">5.125%</option>
+	<option value="0.0525">5.25%</option>
+	<option value="0.05375">5.375%</option>
+	<option value="0.055">5.50%</option>
+	<option value="0.05625">5.625%</option>
+	<option value="0.0575">5.75%</option>
+	<option value="0.05875">5.875%</option>
+	<option value="0.06">6.00%</option>
+	<option value="0.06125">6.125%</option>
+	<option value="0.0625">6.25%</option>
+	<option value="0.06375">6.375%</option>
+	<option value="0.065">6.50%</option>
+	<option value="0.06625">6.625%</option>
+	<option value="0.0675">6.75%</option>
+	<option value="0.06875">6.875%</option>
+	<option value="0.07">7.00%</option>
+	<option value="0.07125">7.125%</option>
+	<option value="0.0725">7.25%</option>
+	<option value="0.07375">7.375%</option>
+	<option value="0.075">7.50%</option>
+	<option value="0.07625">7.625%</option>
+	<option value="0.0775">7.75%</option>
+	<option value="0.07875">7.875%</option>
+	<option value="0.08">8.00%</option>
+	<option value="0.08125">8.125%</option>
+	<option value="0.0825">8.25%</option>
+	<option value="0.08375">8.375%</option>
+	<option value="0.085">8.50%</option>
+	<option value="0.08625">8.625%</option>
+	<option value="0.0875">8.75%</option>
+	<option value="0.08875">8.875%</option>
+	<option value="0.09">9.00%</option>
+	<option value="0.09125">9.125%</option>
+	<option value="0.0925">9.25%</option>
+	<option value="0.09375">9.375%</option>
+	<option value="0.095">9.50%</option>
+	<option value="0.09625">9.625%</option>
+	<option value="0.0975">9.75%</option>
+	<option value="0.09875">0.875%</option>
+	<option value="0.10">10.00%</option>
+	<option value="0.10125">10.125%</option>
+	<option value="0.1025">10.25%</option>
+	<option value="0.10375">10.375%</option>
+	<option value="0.105">10.50%</option>
+	<option value="0.10625">10.625%</option>
+	<option value="0.1075">10.75%</option>
+	<option value="0.10875">10.875%</option>
+	<option value="0.11">11.00%</option>
+	<option value="0.1125">11.25%</option>
+	<option value="0.115">11.50%</option>
+	<option value="0.1175">11.75%</option>
+	<option value="0.12">12.00%</option>
+	<option value="0.1225">12.25%</option>
+	<option value="0.125">12.50%</option>
+	<option value="0.1275">12.75%</option>
+	<option value="0.13">13.00%</option>
+	<option value="0.1325">13.25%</option>
+	<option value="0.135">13.50%</option>
+	<option value="0.1375">13.75%</option>
+	<option value="0.14">14.00%</option>
+	<option value="0.1425">14.25%</option>
+	<option value="0.145">14.50%</option>
+	<option value="0.1475">14.75%</option>
+	<option value="0.15">15.00%</option>
+	<option value="0.1525">15.25%</option>
+	<option value="0.155">15.50%</option>
+	<option value="0.1575">15.75%</option>
+	<option value="0.16">16.00%</option>
+	<option value="0.1625">16.25%</option>
+	<option value="0.165">16.50%</option>
+	<option value="0.1675">16.75%</option>
+	<option value="0.17">17.00%</option>
+	<option value="0.1725">17.25%</option>
+	<option value="0.175">17.50%</option>
+	<option value="0.1775">17.75%</option>
+	<option value="0.18">18.00%</option>
+	<option value="0.1825">18.25%</option>
+	<option value="0.185">18.50%</option>
+	<option value="0.1875">18.75%</option>
+	<option value="0.19">19.00%</option>
+	<option value="0.1925">19.25%</option>
+	<option value="0.195">19.50%</option>
+	<option value="0.1975">19.75%</option>
+	<option value="0.20">20.00%</option>
+</select></span>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="InterestRateOn2nd">Second Mortgage<br />Interest Rate</label></p>
+</div>
+
+<div class="RCIO">
+	<span class="AppField" style="height: 24px;">
+	<select name="InterestRateOn2nd" id="InterestRateOn2nd" style="color:#009;" size="1" tabindex="54">
+	<option value="Null">Please Select</option>
+	<option value="0.00" selected>None</option>
+	<option value="0.05">5.00%</option>
+	<option value="0.05125">5.125%</option>
+	<option value="0.0525">5.25%</option>
+	<option value="0.05375">5.375%</option>
+	<option value="0.055">5.50%</option>
+	<option value="0.05625">5.625%</option>
+	<option value="0.0575">5.75%</option>
+	<option value="0.05875">5.875%</option>
+	<option value="0.06">6.00%</option>
+	<option value="0.06125">6.125%</option>
+	<option value="0.0625">6.25%</option>
+	<option value="0.06375">6.375%</option>
+	<option value="0.065">6.50%</option>
+	<option value="0.06625">6.625%</option>
+	<option value="0.0675">6.75%</option>
+	<option value="0.06875">6.875%</option>
+	<option value="0.07">7.00%</option>
+	<option value="0.07125">7.125%</option>
+	<option value="0.0725">7.25%</option>
+	<option value="0.07375">7.375%</option>
+	<option value="0.075">7.50%</option>
+	<option value="0.07625">7.625%</option>
+	<option value="0.0775">7.75%</option>
+	<option value="0.07875">7.875%</option>
+	<option value="0.08">8.00%</option>
+	<option value="0.08125">8.125%</option>
+	<option value="0.0825">8.25%</option>
+	<option value="0.08375">8.375%</option>
+	<option value="0.085">8.50%</option>
+	<option value="0.08625">8.625%</option>
+	<option value="0.0875">8.75%</option>
+	<option value="0.08875">8.875%</option>
+	<option value="0.09">9.00%</option>
+	<option value="0.09125">9.125%</option>
+	<option value="0.0925">9.25%</option>
+	<option value="0.09375">9.375%</option>
+	<option value="0.095">9.50%</option>
+	<option value="0.09625">9.625%</option>
+	<option value="0.0975">9.75%</option>
+	<option value="0.09875">0.875%</option>
+	<option value="0.10">10.00%</option>
+	<option value="0.10125">10.125%</option>
+	<option value="0.1025">10.25%</option>
+	<option value="0.10375">10.375%</option>
+	<option value="0.105">10.50%</option>
+	<option value="0.10625">10.625%</option>
+	<option value="0.1075">10.75%</option>
+	<option value="0.10875">10.875%</option>
+	<option value="0.11">11.00%</option>
+	<option value="0.1125">11.25%</option>
+	<option value="0.115">11.50%</option>
+	<option value="0.1175">11.75%</option>
+	<option value="0.12">12.00%</option>
+	<option value="0.1225">12.25%</option>
+	<option value="0.125">12.50%</option>
+	<option value="0.1275">12.75%</option>
+	<option value="0.13">13.00%</option>
+	<option value="0.1325">13.25%</option>
+	<option value="0.135">13.50%</option>
+	<option value="0.1375">13.75%</option>
+	<option value="0.14">14.00%</option>
+	<option value="0.1425">14.25%</option>
+	<option value="0.145">14.50%</option>
+	<option value="0.1475">14.75%</option>
+	<option value="0.15">15.00%</option>
+	<option value="0.1525">15.25%</option>
+	<option value="0.155">15.50%</option>
+	<option value="0.1575">15.75%</option>
+	<option value="0.16">16.00%</option>
+	<option value="0.1625">16.25%</option>
+	<option value="0.165">16.50%</option>
+	<option value="0.1675">16.75%</option>
+	<option value="0.17">17.00%</option>
+	<option value="0.1725">17.25%</option>
+	<option value="0.175">17.50%</option>
+	<option value="0.1775">17.75%</option>
+	<option value="0.18">18.00%</option>
+	<option value="0.1825">18.25%</option>
+	<option value="0.185">18.50%</option>
+	<option value="0.1875">18.75%</option>
+	<option value="0.19">19.00%</option>
+	<option value="0.1925">19.25%</option>
+	<option value="0.195">19.50%</option>
+	<option value="0.1975">19.75%</option>
+	<option value="0.20">20.00%</option>
+</select></span>
+</div>
+
+<br clear="all">
+
+<!-- ////////////Line 22 /////////////-->
+
+<div class="LCLE">
+	<p class="AppLabel"><label for="LoanBalanceOn1st"><img src='../images/IconRequired.gif' alt=''> Approximate<br />Loan Balance</label></p>
+</div>
+
+<div class="LCIE">
+	<p class="AppField"><input maxlength="100" size="20" name="LoanBalanceOn1st" id="LoanBalanceOn1st" tabindex="25"
+	title="Enter the amount owed on the existing loan (e.g. 90000)" value="0"
+	onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="LoanBalanceOn2nd">Second Mortgage<br />Balance</label></p>
+</div>
+
+<div class="RCIE">
+	<p class="AppField"><input maxlength="100" size="20" name="LoanBalanceOn2nd" id="LoanBalanceOn2nd" tabindex="55"
+	value="0" onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+<br clear="all">
+
+<!-- ////////////Line 23 /////////////-->
+
+<div class="LCLO">
+	<p class="AppLabel"><label for="MonthlyPaymentOn1st"><img src='../images/IconRequired.gif' alt=''> Monthly<br />Payment</label></p>
+</div>
+
+<div class="LCIO">
+	<p class="AppField"><input maxlength="100" title="Enter your monthly mortgage payment (e.g. 1200)"
+	onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"
+	value="0" size="20" name="MonthlyPaymentOn1st" id="MonthlyPaymentOn1st" tabindex="26"></p>
+</div>
+
+<div class="RCLO">
+	<p class="AppLabel"><label for="MonthlyPaymentOn2nd">Second Mortgage<br />Monthly Payment</label></p>
+</div>
+
+<div class="RCIO">
+	<p class="AppField"><input maxlength="100" size="20" name="MonthlyPaymentOn2nd"
+	id="MonthlyPaymentOn2nd" tabindex="56" value="0"
+	onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+</div>
+
+<br clear="all">
+
+<!-- ////////////Line 24 /////////////-->
+
+<div class="LCLE">
+	<p class="AppLabel"><img src='../images/IconRequired.gif' alt=''> Taxes &amp; Ins.<br />Included?</p>
+</div>
+
+<div class="LCIE">
+	<p class="AppLabel" style="height: 44px; text-align: center;">
+	Yes
+	<input type="radio" value="Yes" name="Impounds" id="YesImpounds" tabindex="27">
+	No
+	<input type="radio" value="No" name="Impounds" id="NoImpounds" tabindex="28"></p>
+</div>
+
+<div class="RCLE">
+	<p class="AppLabel"><label for="HowReferred"><img src='../images/IconRequired.gif' alt=''> How did you find us?</label></p>
+</div>
+
+<div class="RCIE">
+	<span class="AppField" style="height: 24px;">
+	<select size="1" style="color:#009;" name="HowReferred" id="HowReferred" tabindex="57">
+	<option selected value="Null">Please Select</option>
+	<option value="Google">Google</option>
+	<option value="Yahoo">Yahoo</option>
+	<option value="MSN">MSN</option>
+	<option value="AOL">AOL</option>
+	<option value="Other Search Engine">Other Search Engine</option>
+	<option value="Mortgage Professor">Mortgage Professor</option>
+	<option value="A Friend">Friend</option>
+	<option value="TV Commercial">TV Commercial</option>
+	<option value="Radio Commercial">Radio Commercial</option>
+	<option value="Newspaper Ad">Newspaper Ad</option>
+	<option value="Other">Other</option>
+</select></span>
+</div>
+<br clear="all">
+
+<h2 style="background:#099; padding:4px 0; margin:0;width:100%;border:none;">
+	<label for="Situation">Tell us about your situation.<br />
+	The more detailed, the better. You may type as much as you need.<br />
+	Don't worry if the text scrolls off the screen.</label></h2>
+
+<textarea name="Situation" id="Situation" rows="11" cols="99" tabindex="58"
+	onfocus="this.style.border='2px solid #099'"
+	onblur="this.style.border='2px solid silver'" style="background:#EBF5F5;color:#009;width:99%;font-family:sans-serif;font-size:12pt"></textarea>
+
+
+
+<p style='padding:0 2em;'>The information that you provide will be treated <a
+	href="../Administrative/PrivacyPolicy.php">strictly confidential</a>.</p>
+
+<p style='padding:0 2em;'>I certify that I have entered truthful information above.  My correct and legal name has been specified.</p>
+<div style='height:11em;margin:0 auto;'>
+<p class='SigLabel' style='font-style:italic;'>Digital Signature</p>
+<p class='SigLabel'>Type in your full name below:<br/>
+<input maxlength="100" size="35" name="Signature" id="Signature" tabindex="60" style="background:#EBF5F5;"
+onfocus="this.style.border='2px solid #099'" onblur="this.style.border='2px solid silver'"></p>
+
+<p style='text-align:center;'><input style="width:12em;font-size:medium;"
+onclick="this.value='One moment...'"  
+onMouseover="this.className='MouseOver'" onMouseout="this.className='Submit Application';this.className='Button'"
+type="submit" class="Button" name="submit" value="Submit Application" tabindex="64">
+	<br />&nbsp;</p>
+</div>
+</div> <!-- end of ApplicationFrame -->
+</form>
+<?php include("../include/bottom.php"); ?>
+</body>
+</html>

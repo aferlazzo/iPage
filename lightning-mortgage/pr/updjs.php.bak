@@ -1,0 +1,85 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+?>
+<?php
+include("check1.php");
+include("conn.php");
+$arid=$HTTP_GET_VARS["arid"];
+
+mysql_query("update autoresponders set jsmsg='$JS_Msg' where arid=$arid", $link);
+
+?>
+<HTML>
+<HEAD>
+<TITLE>Perfect Response Update Javascript</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css" media="screen">@import "PerfectResponse.css";</style>
+<script language="JavaScript1.2">
+function LLogout()
+{
+	if (confirm('Do you really want to logout?'))
+	{
+		top.location.href='logout.php';  //bust out of frames
+		return (false);
+	}
+
+	return(true);
+}
+</script>
+</HEAD>
+<body>
+
+<div class="content">
+<div class="title">
+<table>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+</div>
+<TABLE width='540' BORDER=0 CELLPADDING='4' CELLSPACING='0' align="center">
+	<TR>
+		<TD WIDTH=194 HEIGHT=13></TD>
+		<TD WIDTH=428 HEIGHT=13></TD>
+	</TR>
+
+	<tr>
+		<td>
+			<h3>Update Javascript</h3>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><br>
+			<p>Javascript message updated successfully!</p>
+		</td>
+	</tr>
+	<tr>
+	<?php
+		print ("<td align='center'><form action='CampaignManager.php'>");
+		print ("<input type='hidden' name='arid' value='$arid'>");
+		print ("<br><input type='submit' name='OtherT' value='Continue'>");
+		print ("</form></td>");
+	?>
+	</tr>
+</TABLE>
+</div>
+
+
+<?php
+	JumpToCampaign($link, $arid);
+	print("</div>\n");
+	ReferenceLinks($arid);
+?>
+</BODY>
+</HTML>

@@ -1,0 +1,129 @@
+10
+
+dir
+4
+file:///C:/SVN/MyNewRepository/lightning/trunk/pr/Swift-4.0.6/tests/unit/Swift
+file:///C:/SVN/MyNewRepository
+
+
+
+2010-07-26T15:09:55.281250Z
+4
+Tony
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f21a7c5c-9853-1c47-9e55-7e801b53e4e1
+
+ByteStream
+dir
+
+CharacterReader
+dir
+
+Encoder
+dir
+
+MailerTest.php
+file
+
+
+
+
+2010-01-20T08:13:56.000000Z
+7ce6c2bfe9f96f73adab2bd3fe147add
+2010-07-26T15:09:55.281250Z
+4
+Tony
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+9863
+
+Plugins
+dir
+
+Events
+dir
+
+StreamFilters
+dir
+
+DependencyContainerTest.php
+file
+
+
+
+
+2010-01-20T08:13:56.000000Z
+7d414dd2e70a2be4c46acb1103b303ee
+2010-07-26T15:09:55.281250Z
+4
+Tony
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5745
+
+Mime
+dir
+
+CharacterStream
+dir
+
+Mailer
+dir
+
+KeyCache
+dir
+
+Transport
+dir
+

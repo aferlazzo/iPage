@@ -1,0 +1,987 @@
+[21-Jul-2010 19:10:45] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 10
+[21-Jul-2010 19:10:45] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:10) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 10
+[21-Jul-2010 19:10:45] PHP Warning:  Unknown: open(/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[21-Jul-2010 19:10:45] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp) in Unknown on line 0
+[21-Jul-2010 19:13:29] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 10
+[21-Jul-2010 19:13:29] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:10) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 10
+[21-Jul-2010 19:13:29] PHP Warning:  Unknown: open(/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[21-Jul-2010 19:13:29] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp) in Unknown on line 0
+[21-Jul-2010 19:13:36] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 10
+[21-Jul-2010 19:13:36] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:10) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 10
+[21-Jul-2010 19:13:36] PHP Warning:  Unknown: open(/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[21-Jul-2010 19:13:36] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp) in Unknown on line 0
+[21-Jul-2010 19:14:00] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 10
+[21-Jul-2010 19:14:00] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:10) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 10
+[21-Jul-2010 19:14:00] PHP Warning:  Unknown: open(/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[21-Jul-2010 19:14:00] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp) in Unknown on line 0
+[21-Jul-2010 19:15:10] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Unknown MySQL server host 'lightning-mortgage.ipowermysql.com' (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 132
+[21-Jul-2010 20:37:32] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Unknown MySQL server host 'lightning-mortgage.ipowermysql.com' (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 132
+[21-Jul-2010 20:38:47] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Unknown MySQL server host 'lightning-mortgage.ipowermysql.com' (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 132
+[21-Jul-2010 20:38:47] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[21-Jul-2010 20:55:35] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Unknown MySQL server host 'lightning-mortgage.ipowermysql.com' (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 132
+[21-Jul-2010 20:55:35] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[21-Jul-2010 20:55:57] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Unknown MySQL server host 'lightning-mortgage.ipowermysql.com' (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 132
+[21-Jul-2010 20:55:57] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[21-Jul-2010 21:01:00] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/users/web/b668/ipw.lightning-mortgage/public_html/pr/Swift-3.3.1-php4/lib/Swift.php' (include_path='.:/usr/lib/php:/usr/local/lib/php:/home/lightnin/public_html/pr/phpmailer:/home/lightnin/public_html/pr/phpmailer/language') in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php on line 20
+[21-Jul-2010 21:04:05] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/users/web/b668/ipw.lightning-mortgage/public_html/pr/Swift-3.3.1-php4/lib/Swift.php' (include_path='.:/usr/lib/php:/usr/local/lib/php:/home/lightnin/public_html/pr/phpmailer:/home/lightnin/public_html/pr/phpmailer/language') in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php on line 20
+[21-Jul-2010 21:05:39] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/users/web/b668/ipw.lightning-mortgage/public_html/pr/Swift-3.3.1-php4/lib/Swift.php' (include_path='.:/usr/lib/php:/usr/local/lib/php:/home/lightnin/public_html/pr/phpmailer:/home/lightnin/public_html/pr/phpmailer/language') in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php on line 20
+[21-Jul-2010 21:05:49] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/users/web/b668/ipw.lightning-mortgage/public_html/pr/Swift-3.3.1-php4/lib/Swift.php' (include_path='.:/usr/lib/php:/usr/local/lib/php:/home/lightnin/public_html/pr/phpmailer:/home/lightnin/public_html/pr/phpmailer/language') in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php on line 20
+[21-Jul-2010 21:07:43] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/users/web/b668/ipw.lightning-mortgage/public_html/pr/Swift-3.3.1-php4/lib/Swift.php' (include_path='.:/usr/lib/php:/usr/local/lib/php:/home/lightnin/public_html/pr/phpmailer:/home/lightnin/public_html/pr/phpmailer/language') in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php on line 20
+[21-Jul-2010 21:07:50] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/users/web/b668/ipw.lightning-mortgage/public_html/pr/Swift-3.3.1-php4/lib/Swift.php' (include_path='.:/usr/lib/php:/usr/local/lib/php:/home/lightnin/public_html/pr/phpmailer:/home/lightnin/public_html/pr/phpmailer/language') in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php on line 20
+[21-Jul-2010 21:20:57] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/prontoc2/lightning-mortgage.com/pr/Swift-3.3.1-php4/lib/Swift.php' (include_path='.:/usr/lib/php:/usr/local/lib/php:/home/lightnin/public_html/pr/phpmailer:/home/lightnin/public_html/pr/phpmailer/language') in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php on line 20
+[22-Jul-2010 00:24:27] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/lightning-mortgage.com/pr/sess_da1223688b7986836949c9256575d4c6, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[22-Jul-2010 00:24:27] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[22-Jul-2010 00:24:27] PHP Warning:  Unknown: open(/home/prontoc2/lightning-mortgage.com/pr/sess_da1223688b7986836949c9256575d4c6, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[22-Jul-2010 00:24:27] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/prontoc2/lightning-mortgage.com/pr) in Unknown on line 0
+[22-Jul-2010 16:57:37] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/users/web/b668/ipw.lightning-mortgage/public_html/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 16:57:37] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:27) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:02:56] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/public_html/lightning-mortgage.com/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:02:56] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:27) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:30:34] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/public_html/lightning-mortgage.com/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:30:34] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:27) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:35:19] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/public_html/lightning-mortgage.com/lightning-mortgage.com/pr/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:35:19] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:27) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:35:46] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/public_html/lightning-mortgage.com/lightning-mortgage.com/pr/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:35:46] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:27) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:36:31] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/public_html/lightning-mortgage.com/pr/cgi-bin/tmp/sess_e0a5e261a2cdc4da67e83f7329097aa9, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[22-Jul-2010 17:36:31] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:27) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 27
+[24-Jul-2010 11:26:26] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php on line 98
+[24-Jul-2010 11:27:07] PHP Parse error:  syntax error, unexpected T_ECHO, expecting ',' or ';' in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php on line 99
+[24-Jul-2010 12:12:47] PHP Parse error:  syntax error, unexpected T_STRING, expecting ')' in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php on line 85
+[24-Jul-2010 12:14:23] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php on line 126
+[24-Jul-2010 12:14:23] PHP Parse error:  syntax error, unexpected T_STRING in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php on line 126
+[24-Jul-2010 12:14:58] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [noreply@lightning-mortgage.com => Lightning Mortgage Mailer] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('noreply@lightni...')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_Ma in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[24-Jul-2010 12:16:04] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:16:04] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to smtp.lightning-mortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:16:04] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php(125): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftT in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[24-Jul-2010 12:19:57] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:19:57] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to smtp.lightning-mortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:19:57] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php(125): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftT in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[24-Jul-2010 12:22:26] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:22:26] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to smtp.lightning-mortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:22:26] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php(120): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftT in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[24-Jul-2010 12:22:27] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:22:27] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to smtp.lightning-mortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:22:27] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php(120): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftT in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[24-Jul-2010 12:22:29] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:22:29] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to smtp.lightning-mortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:22:29] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php(120): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftT in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[24-Jul-2010 12:27:50] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:27:50] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to smtp.lightning-mortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:27:50] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php(120): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftT in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[24-Jul-2010 12:33:03] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:33:03] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://smtp.lightning-mortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:33:03] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php(120): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftT in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[24-Jul-2010 12:36:33] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:36:33] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://smtp.lightning-mortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:36:33] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTest.php(123): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftT in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[24-Jul-2010 12:40:57] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:40:57] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://smtp.lightning-mortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[24-Jul-2010 12:40:57] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]
+Log data:
+++ Starting Swift_SmtpTransport
+!! Connection could not be established with host smtp.lightning-mortgage.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php:157
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(170): Swift_Plugins_LoggerPlugin->exceptionThrown(Object(Swift_Events_TransportExceptionEvent))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(145): Swift_Events_SimpleEventDispatcher->_bubble(Object(Swift_Events_TransportExceptionEvent), 'exceptionThrown')
+#2 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php on line 157
+[24-Jul-2010 14:53:48] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[24-Jul-2010 14:59:50] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[24-Jul-2010 15:49:03] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[24-Jul-2010 16:25:19] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[24-Jul-2010 16:37:27] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[24-Jul-2010 16:42:19] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[24-Jul-2010 16:43:29] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[24-Jul-2010 16:52:35] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "noreply+lightning-mortgage.com" using 2 possible authenticators' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(146): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestA in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php on line 179
+[24-Jul-2010 16:53:09] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "noreply+lightning-mortgage.com" using 2 possible authenticators' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(146): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestA in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php on line 179
+[24-Jul-2010 16:55:32] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "prontocommercial.com" using 2 possible authenticators' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(146): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php( in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php on line 179
+[25-Jul-2010 03:32:21] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/lightning-mortgage.com/pr/sess_db51a4e509c19539b1ec88a4d910245c, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[25-Jul-2010 03:32:21] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent by (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[25-Jul-2010 03:32:21] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[25-Jul-2010 03:32:21] PHP Warning:  Unknown: open(/home/prontoc2/lightning-mortgage.com/pr/sess_db51a4e509c19539b1ec88a4d910245c, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[25-Jul-2010 03:32:21] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/prontoc2/lightning-mortgage.com/pr) in Unknown on line 0
+[26-Jul-2010 16:26:57] PHP Parse error:  syntax error, unexpected ')' in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php on line 8
+[26-Jul-2010 17:26:47] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:26:50] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:27:35] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:27:45] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:29:31] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:29:53] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:30:05] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:30:55] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:31:32] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:45:36] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:45:39] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:45:46] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:46:01] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:46:46] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 17:51:53] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 21:25:49] PHP Fatal error:  Call to undefined function  sendusingpopb4smtpauthentication() in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php on line 184
+[26-Jul-2010 21:37:32] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 21:43:27] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 21:46:54] PHP Parse error:  syntax error, unexpected ',' in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php on line 130
+[26-Jul-2010 21:47:25] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 21:47:58] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 21:49:17] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[26-Jul-2010 21:50:47] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[27-Jul-2010 10:20:30] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[27-Jul-2010 10:22:43] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[27-Jul-2010 10:24:33] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleHeaderFactory.php(64): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightni in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[27-Jul-2010 10:39:28] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [ #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(158): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(184): SendMessage(Object(Swift_Message), '1', 'mail.lig in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[27-Jul-2010 10:39:47] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [ #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(158): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(184): SendMessage(Object(Swift_Message), '1', 'mail.lig in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[27-Jul-2010 10:50:36] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [ #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(158): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(184): SendMessage(Object(Swift_Message), '1', 'mail.lig in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[27-Jul-2010 10:51:35] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [ #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(158): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(184): SendMessage(Object(Swift_Message), '1', 'mail.lig in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[27-Jul-2010 10:53:31] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: SSL operation failed with code 1. OpenSSL Error messages:
+error:140770FC:SSL routines:SSL23_GET_SERVER_HELLO:unknown protocol in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[27-Jul-2010 10:53:31] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: Failed to enable crypto in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[27-Jul-2010 10:53:31] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://mail.lightning-mortgage.com:2626 (Unknown error) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[27-Jul-2010 10:53:31] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [ #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(158): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(191): SendMessage()
+#5 {main}
+  thrown in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[27-Jul-2010 10:54:15] PHP Fatal error:  Class 'Swift_LogContainer' not found in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php on line 199
+[27-Jul-2010 12:22:08] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/lightning-mortgage.com/pr/sess_8286618bd4b5508136286ef558eab9d6, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[27-Jul-2010 12:22:08] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent by (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[27-Jul-2010 12:22:08] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[27-Jul-2010 12:22:08] PHP Warning:  Unknown: open(/home/prontoc2/lightning-mortgage.com/pr/sess_8286618bd4b5508136286ef558eab9d6, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[27-Jul-2010 12:22:08] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/prontoc2/lightning-mortgage.com/pr) in Unknown on line 0
+[27-Jul-2010 17:24:06] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/lightning-mortgage.com/pr/sess_ab699bb62c68961722e453fb2ee6334d, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[27-Jul-2010 17:24:06] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[27-Jul-2010 17:24:06] PHP Warning:  Unknown: open(/home/prontoc2/lightning-mortgage.com/pr/sess_ab699bb62c68961722e453fb2ee6334d, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[27-Jul-2010 17:24:06] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/prontoc2/lightning-mortgage.com/pr) in Unknown on line 0
+[28-Jul-2010 09:38:31] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [Connection refused #111]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(156): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(184): SendMessage(Object(Swift_Mess in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[28-Jul-2010 17:25:06] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [Failed to parse address "mail.lightning-mortgage.com" #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(156): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(18 in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[28-Jul-2010 17:26:12] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [Failed to parse address "mail.lightning-mortgage.com" #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(156): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(18 in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[28-Jul-2010 17:33:08] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [Failed to parse address "mail.lightning-mortgage.com" #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(156): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(18 in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[28-Jul-2010 17:33:19] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [Failed to parse address "mail.lightning-mortgage.com" #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(156): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(18 in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[28-Jul-2010 17:42:54] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host mail.lightning-mortgage.com [Failed to parse address "mail.lightning-mortgage.com" #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(156): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftNeeded.php(18 in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[29-Jul-2010 11:19:29] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(161): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(361): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 11:34:00] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(361): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 11:34:35] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:34:35] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/dbconfig.php on line 104
+[29-Jul-2010 11:35:19] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:35:19] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 18
+[29-Jul-2010 11:35:19] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 19
+[29-Jul-2010 11:35:19] PHP Warning:  mysql_data_seek(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 20
+[29-Jul-2010 11:35:19] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 21
+[29-Jul-2010 11:35:51] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:35:51] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 18
+[29-Jul-2010 11:35:51] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 19
+[29-Jul-2010 11:35:51] PHP Warning:  mysql_data_seek(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 20
+[29-Jul-2010 11:35:51] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 21
+[29-Jul-2010 11:42:25] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:43:05] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:43:05] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ManageCampaigns.php on line 61
+[29-Jul-2010 11:43:05] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ManageCampaigns.php on line 62
+[29-Jul-2010 11:46:26] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:46:26] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[29-Jul-2010 11:47:05] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:47:05] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[29-Jul-2010 11:47:11] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:47:11] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[29-Jul-2010 11:49:02] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:49:02] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[29-Jul-2010 11:49:07] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:49:07] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[29-Jul-2010 11:52:29] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:52:29] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[29-Jul-2010 11:55:17] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:55:17] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/loginaction.php on line 35
+[29-Jul-2010 11:58:44] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:58:44] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/dbconfig.php on line 104
+[29-Jul-2010 11:58:58] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(361): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 11:59:01] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 11:59:01] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 18
+[29-Jul-2010 11:59:01] PHP Warning:  mysql_num_rows(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 19
+[29-Jul-2010 11:59:01] PHP Warning:  mysql_data_seek(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 20
+[29-Jul-2010 11:59:01] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/ConfigurationManager.php on line 21
+[29-Jul-2010 12:21:54] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'prontoc2'@'localhost' (using password: NO) in /home/prontoc2/public_html/lightning-mortgage.com/pr/conn.php on line 136
+[29-Jul-2010 12:21:54] PHP Warning:  mysql_query(): supplied argument is not a valid MySQL-Link resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/dbconfig.php on line 104
+[29-Jul-2010 12:36:28] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(361): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 15:23:13] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(361): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 15:26:02] PHP Fatal error:  Cannot redeclare createmessage() (previously declared in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php:84) in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php on line 129
+[29-Jul-2010 15:55:29] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(361): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 15:57:55] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(361): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 16:02:24] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(361): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 16:12:01] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(372): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 16:13:53] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(372): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 19:57:39] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(164): Swift_Mailer->send(Object(Swift_Message))
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php(365): SendMessage(Object(Swift_Message), in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[29-Jul-2010 20:39:48] PHP Fatal error:  Call to undefined function show variables() in /home/prontoc2/public_html/lightning-mortgage.com/pr/show-mysql-vars.php on line 17
+[29-Jul-2010 20:42:01] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home/prontoc2/public_html/lightning-mortgage.com/pr/show-mysql-vars.php on line 17
+[29-Jul-2010 20:42:23] PHP Warning:  mysql_fetch_array(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/show-mysql-vars.php on line 22
+[29-Jul-2010 20:42:23] PHP Warning:  mysql_free_result(): supplied argument is not a valid MySQL result resource in /home/prontoc2/public_html/lightning-mortgage.com/pr/show-mysql-vars.php on line 32
+[29-Jul-2010 20:52:58] PHP Parse error:  syntax error, unexpected ';' in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php on line 31
+[30-Jul-2010 10:06:54] PHP Fatal error:  Call to undefined function  phpmailer() in /home/prontoc2/public_html/lightning-mortgage.com/pr/settings.php on line 81
+[30-Jul-2010 10:53:44] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/lightning-mortgage.com/pr/sess_3435410f53fc32b646809ab53557ec56, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[30-Jul-2010 10:53:44] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent by (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[30-Jul-2010 10:53:44] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[30-Jul-2010 10:53:44] PHP Warning:  Unknown: open(/home/prontoc2/lightning-mortgage.com/pr/sess_3435410f53fc32b646809ab53557ec56, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[30-Jul-2010 10:53:44] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/prontoc2/lightning-mortgage.com/pr) in Unknown on line 0
+[30-Jul-2010 13:49:13] PHP Parse error:  syntax error, unexpected '}' in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddAction.php on line 328
+[30-Jul-2010 14:52:56] PHP Fatal error:  Call to undefined method Swift_Message::setPart() in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php on line 97
+[31-Jul-2010 10:25:46] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Expected response code 220 but got code "", with message ""' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php:406
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(299): Swift_Transport_AbstractSmtpTransport->_assertResponseCode('', Array)
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(107): Swift_Transport_AbstractSmtpTransport->_readGreeting()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/swiftsend.php(11): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 {main}
+  thrown in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php on line 406
+[31-Jul-2010 10:25:48] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to localhost:24 (Connection refused) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[31-Jul-2010 10:25:48] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host localhost [Connection refused #111]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/swiftsend.php(11): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 {main}
+  thrown in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[31-Jul-2010 10:25:56] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to localhost:24 (Connection refused) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[31-Jul-2010 10:25:56] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host localhost [Connection refused #111]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/swiftsend.php(11): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 {main}
+  thrown in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[31-Jul-2010 10:26:12] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to localhost:24 (Connection refused) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[31-Jul-2010 10:26:12] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host localhost [Connection refused #111]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/swiftsend.php(11): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 {main}
+  thrown in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[31-Jul-2010 16:14:24] PHP Warning:  opendir(uploadedimages) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory in /home/prontoc2/public_html/lightning-mortgage.com/pr/ViewImages.php on line 16
+[05-Aug-2010 12:57:01] PHP Fatal error:  Call to undefined function  logmessage() in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 16
+[05-Aug-2010 12:58:01] PHP Fatal error:  Call to undefined function  logmessage() in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 16
+[05-Aug-2010 12:59:01] PHP Fatal error:  Call to undefined function  logmessage() in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 16
+[05-Aug-2010 13:00:02] PHP Fatal error:  Call to undefined function  logmessage() in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 16
+[05-Aug-2010 14:23:18] PHP Fatal error:  Cannot use [] for reading in /home/prontoc2/public_html/lightning-mortgage.com/pr/phpinfo.php on line 4
+[05-Aug-2010 17:22:56] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/lightning-mortgage.com/pr/sess_28be52e89937a3e90620e5289eb1cf8a, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[05-Aug-2010 17:22:56] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent by (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[05-Aug-2010 17:22:56] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[05-Aug-2010 17:22:56] PHP Warning:  Unknown: open(/home/prontoc2/lightning-mortgage.com/pr/sess_28be52e89937a3e90620e5289eb1cf8a, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[05-Aug-2010 17:22:56] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/prontoc2/lightning-mortgage.com/pr) in Unknown on line 0
+[05-Aug-2010 17:22:57] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/lightning-mortgage.com/pr/sess_7fa73ea3304d676fbbe675181a9408a3, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[05-Aug-2010 17:22:57] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent by (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[05-Aug-2010 17:22:57] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[05-Aug-2010 17:22:57] PHP Warning:  Unknown: open(/home/prontoc2/lightning-mortgage.com/pr/sess_7fa73ea3304d676fbbe675181a9408a3, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[05-Aug-2010 17:22:57] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/prontoc2/lightning-mortgage.com/pr) in Unknown on line 0
+[06-Aug-2010 00:00:02] PHP Fatal error:  Call to undefined function  logmessage() in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 16
+[06-Aug-2010 17:42:56] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: open(/home/prontoc2/lightning-mortgage.com/pr/sess_e5b7d368c4f6357175b78a12f0ebe21a, O_RDWR) failed: No such file or directory (2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[06-Aug-2010 17:42:56] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php:13) in /home/prontoc2/public_html/lightning-mortgage.com/pr/optin.php on line 13
+[06-Aug-2010 17:42:56] PHP Warning:  Unknown: open(/home/prontoc2/lightning-mortgage.com/pr/sess_e5b7d368c4f6357175b78a12f0ebe21a, O_RDWR) failed: No such file or directory (2) in Unknown on line 0
+[06-Aug-2010 17:42:56] PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/home/prontoc2/lightning-mortgage.com/pr) in Unknown on line 0
+[06-Aug-2010 18:54:29] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host lightning-mortgage.ipower.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]
+Log data:
+++ Starting Swift_SmtpTransport
+!! Connection could not be established with host lightning-mortgage.ipower.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php:157
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(170): Swift_Plugins_LoggerPlugin->exceptionThrown(Object(Swift_Events_TransportExceptionEvent))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(145): Swift_Events_SimpleEventDispatcher->_bubble(Object(Swift_Events_TransportExceptionEvent), 'exceptionThrown')
+#2 /home/prontoc2/public_html/light in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php on line 157
+[06-Aug-2010 20:29:01] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host lightning-mortgage.ipower.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]
+Log data:
+++ Starting Swift_SmtpTransport
+!! Connection could not be established with host lightning-mortgage.ipower.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php:157
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(170): Swift_Plugins_LoggerPlugin->exceptionThrown(Object(Swift_Events_TransportExceptionEvent))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(145): Swift_Events_SimpleEventDispatcher->_bubble(Object(Swift_Events_TransportExceptionEvent), 'exceptionThrown')
+#2 /home/prontoc2/public_html/light in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php on line 157
+[06-Aug-2010 20:39:24] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host lightning-mortgage.ipower.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]
+Log data:
+++ Starting Swift_SmtpTransport
+!! Connection could not be established with host lightning-mortgage.ipower.com [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php:157
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(170): Swift_Plugins_LoggerPlugin->exceptionThrown(Object(Swift_Events_TransportExceptionEvent))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(145): Swift_Events_SimpleEventDispatcher->_bubble(Object(Swift_Events_TransportExceptionEvent), 'exceptionThrown')
+#2 /home/prontoc2/public_html/light in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php on line 157
+[06-Aug-2010 20:43:05] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "fran@lightning-mortgage.com" using 2 possible authenticators' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(163): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftN in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php on line 179
+[06-Aug-2010 20:46:33] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Failed to authenticate on SMTP server with username "fran@lightning-mortgage.com" using 2 possible authenticators' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php:179
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/EsmtpTransport.php(252): Swift_Transport_Esmtp_AuthHandler->afterEhlo(Object(Swift_SmtpTransport))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(108): Swift_Transport_EsmtpTransport->_doHeloCommand()
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(163): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftN in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/Esmtp/AuthHandler.php on line 179
+[06-Aug-2010 20:51:43] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host  [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]
+Log data:
+++ Starting Swift_SmtpTransport
+!! Connection could not be established with host  [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php:157
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(170): Swift_Plugins_LoggerPlugin->exceptionThrown(Object(Swift_Events_TransportExceptionEvent))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(145): Swift_Events_SimpleEventDispatcher->_bubble(Object(Swift_Events_TransportExceptionEvent), 'exceptionThrown')
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transpo in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php on line 157
+[06-Aug-2010 20:59:09] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host  [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]
+Log data:
+++ Starting Swift_SmtpTransport
+!! Connection could not be established with host  [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php:157
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(170): Swift_Plugins_LoggerPlugin->exceptionThrown(Object(Swift_Events_TransportExceptionEvent))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(145): Swift_Events_SimpleEventDispatcher->_bubble(Object(Swift_Events_TransportExceptionEvent), 'exceptionThrown')
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transpo in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php on line 157
+[07-Aug-2010 00:00:03] PHP Fatal error:  Call to undefined function  logmessage() in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 16
+[07-Aug-2010 09:44:01] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Filename cannot be empty in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 3
+[07-Aug-2010 09:44:01] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Filename cannot be empty in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 3
+[07-Aug-2010 09:44:02] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 3
+[07-Aug-2010 09:44:15] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Filename cannot be empty in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 3
+[07-Aug-2010 09:44:15] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Filename cannot be empty in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 3
+[07-Aug-2010 09:44:15] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening '' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 3
+[07-Aug-2010 13:02:02] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host localhost [ #0]
+Log data:
+++ Starting Swift_SmtpTransport
+!! Connection could not be established with host localhost [ #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php:157
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(170): Swift_Plugins_LoggerPlugin->exceptionThrown(Object(Swift_Events_TransportExceptionEvent))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(145): Swift_Events_SimpleEventDispatcher->_bubble(Object(Swift_Events_TransportExceptionEvent), 'exceptionThrown')
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(379): Swift_Events_SimpleEventDispatcher->dispatchEvent(Object(Swift_Events_TransportExceptionE in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php on line 157
+[07-Aug-2010 13:58:30] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host localhost [ #0]
+Log data:
+++ Starting Swift_SmtpTransport
+!! Connection could not be established with host localhost [ #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php:157
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(170): Swift_Plugins_LoggerPlugin->exceptionThrown(Object(Swift_Events_TransportExceptionEvent))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(145): Swift_Events_SimpleEventDispatcher->_bubble(Object(Swift_Events_TransportExceptionEvent), 'exceptionThrown')
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(379): Swift_Events_SimpleEventDispatcher->dispatchEvent(Object(Swift_Events_TransportExceptionE in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php on line 157
+[07-Aug-2010 13:58:47] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host localhost [ #0]
+Log data:
+++ Starting Swift_SmtpTransport
+!! Connection could not be established with host localhost [ #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php:157
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(170): Swift_Plugins_LoggerPlugin->exceptionThrown(Object(Swift_Events_TransportExceptionEvent))
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Events/SimpleEventDispatcher.php(145): Swift_Events_SimpleEventDispatcher->_bubble(Object(Swift_Events_TransportExceptionEvent), 'exceptionThrown')
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(379): Swift_Events_SimpleEventDispatcher->dispatchEvent(Object(Swift_Events_TransportExceptionE in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Plugins/LoggerPlugin.php on line 157
+[07-Aug-2010 14:11:07] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[07-Aug-2010 14:11:07] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://mail.lightning-.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[07-Aug-2010 14:13:36] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[07-Aug-2010 14:13:36] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://mail.mmmortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[07-Aug-2010 14:13:38] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://mail.mortgage.com:465 (Connection timed out) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[07-Aug-2010 14:14:50] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[07-Aug-2010 14:14:50] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://mail.mmmortgage.com:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[07-Aug-2010 16:16:58] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://mail.lightning-mortgage.com:999 (Connection refused) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:01:02] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:06:28] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:06:32] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:06:40] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:07:03] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:08:00] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:08:04] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:08:18] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:09:22] PHP Parse error:  syntax error, unexpected ',', expecting T_VARIABLE in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php on line 177
+[08-Aug-2010 10:10:18] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:11:17] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:12:48] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:12:51] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:14:13] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:14:41] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:15:35] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:16:23] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting T_STRING in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php on line 172
+[08-Aug-2010 10:21:52] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:22:39] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:22:42] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:22:50] PHP Fatal error:  Uncaught exception 'Swift_RfcComplianceException' with message 'Address in mailbox given [] does not comply with RFC 2822, 3.6.2.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php:309
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(239): Swift_Mime_Headers_MailboxHeader->_assertValidAddress('')
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(97): Swift_Mime_Headers_MailboxHeader->normalizeMailboxes(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php(61): Swift_Mime_Headers_MailboxHeader->setNameAddresses(Array)
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/SimpleMimeEntity.php(571): Swift_Mime_Headers_MailboxHeader->setFieldBodyModel(Array)
+#4 /home/prontoc2/public_html/lightning in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mime/Headers/MailboxHeader.php on line 309
+[08-Aug-2010 10:23:27] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:23:27] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:23:27] PHP Fatal error:  Uncaught exception 'Swift_TransportException' with message 'Connection could not be established with host  [php_network_getaddresses: getaddrinfo failed: Name or service not known #0]' in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php:235
+Stack trace:
+#0 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php(70): Swift_Transport_StreamBuffer->_establishSocketConnection()
+#1 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/AbstractSmtpTransport.php(101): Swift_Transport_StreamBuffer->initialize(Array)
+#2 /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Mailer.php(74): Swift_Transport_AbstractSmtpTransport->start()
+#3 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php(170): Swift_Mailer->send(Object(Swift_Message), Array)
+#4 /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php( in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 235
+[08-Aug-2010 10:24:29] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:24:29] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:38:19] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:38:19] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:42:30] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:42:30] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:46:49] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:46:49] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:51:19] PHP Parse error:  syntax error, unexpected T_TRY in /home/prontoc2/public_html/lightning-mortgage.com/pr/SwiftTestAction.php on line 169
+[08-Aug-2010 10:54:26] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:54:26] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:54:55] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://mail.lightning-mortgage.com:0 (Failed to parse address &quot;mail.lightning-mortgage.com&quot;) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:55:20] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:55:20] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://mail.h:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:59:58] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 10:59:58] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ssl://badSMTPhost:465 (php_network_getaddresses: getaddrinfo failed: Name or service not known) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[08-Aug-2010 11:04:12] PHP Warning:  fsockopen() [<a href='function.fsockopen'>function.fsockopen</a>]: unable to connect to ddd://mail.lightning-mortgage.com:465 (Unable to find the socket transport &quot;ddd&quot; - did you forget to enable it when you configured PHP?) in /home/prontoc2/public_html/lightning-mortgage.com/pr/Swift-4.0.6/lib/classes/Swift/Transport/StreamBuffer.php on line 233
+[09-Aug-2010 10:03:10] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 30
+[09-Aug-2010 10:07:52] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 30
+[09-Aug-2010 10:07:56] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 30
+[09-Aug-2010 10:08:53] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 30
+[09-Aug-2010 10:08:58] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 30
+[09-Aug-2010 10:08:58] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 30
+[09-Aug-2010 10:08:59] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 30
+[09-Aug-2010 10:13:25] PHP Parse error:  syntax error, unexpected '.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 30
+[09-Aug-2010 10:13:30] PHP Parse error:  syntax error, unexpected '.' in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 30
+[09-Aug-2010 10:35:01] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 5
+[09-Aug-2010 10:35:01] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:5) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 5
+[09-Aug-2010 10:36:01] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 5
+[09-Aug-2010 10:36:01] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:5) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 5
+[09-Aug-2010 10:37:01] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[09-Aug-2010 10:37:01] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[09-Aug-2010 10:38:01] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[09-Aug-2010 10:38:01] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[09-Aug-2010 12:00:03] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[09-Aug-2010 12:00:03] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[09-Aug-2010 15:58:29] PHP Warning:  opendir(uploadedimages) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory in /home/prontoc2/public_html/lightning-mortgage.com/pr/ViewImages.php on line 16
+[10-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[10-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[10-Aug-2010 12:00:03] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[10-Aug-2010 12:00:03] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[11-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[11-Aug-2010 00:00:03] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[11-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[11-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[12-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[12-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[12-Aug-2010 12:00:03] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[12-Aug-2010 12:00:03] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[13-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[13-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[13-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[13-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[13-Aug-2010 16:20:08] PHP Parse error:  syntax error, unexpected T_STRING in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddCampaignAction.php on line 46
+[13-Aug-2010 17:45:20] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddCampaignAction.php on line 16
+[13-Aug-2010 17:45:44] PHP Parse error:  syntax error, unexpected '"', expecting T_STRING or T_VARIABLE or T_NUM_STRING in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddCampaignAction.php on line 23
+[13-Aug-2010 17:56:15] PHP Parse error:  syntax error, unexpected ';' in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddCampaignAction.php on line 101
+[13-Aug-2010 18:02:04] PHP Warning:  Unexpected character in input:  '\' (ASCII=92) state=1 in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddCampaignAction.php on line 101
+[13-Aug-2010 18:02:04] PHP Parse error:  syntax error, unexpected T_STRING in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddCampaignAction.php on line 118
+[14-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[14-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[14-Aug-2010 10:04:34] PHP Parse error:  syntax error, unexpected ',' in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddCampaignAction.php on line 180
+[14-Aug-2010 11:42:00] PHP Parse error:  syntax error, unexpected T_IF in /home/prontoc2/public_html/lightning-mortgage.com/pr/AddCampaignAction.php on line 196
+[14-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[14-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[15-Aug-2010 00:00:03] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[15-Aug-2010 00:00:03] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[15-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[15-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[15-Aug-2010 17:47:08] PHP Parse error:  syntax error, unexpected '}' in /home/prontoc2/public_html/lightning-mortgage.com/pr/ManageMessages.php on line 215
+[16-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[16-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[16-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[16-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[16-Aug-2010 12:47:06] PHP Parse error:  syntax error, unexpected '[' in /home/prontoc2/public_html/lightning-mortgage.com/pr/ManageMessages.php on line 132
+[17-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[17-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[17-Aug-2010 11:41:05] PHP Parse error:  syntax error, unexpected '<' in /home/prontoc2/public_html/lightning-mortgage.com/pr/ManageMessages.php on line 132
+[17-Aug-2010 11:54:52] PHP Parse error:  syntax error, unexpected $end in /home/prontoc2/public_html/lightning-mortgage.com/pr/ManageMessages.php on line 190
+[17-Aug-2010 11:56:16] PHP Parse error:  syntax error, unexpected $end in /home/prontoc2/public_html/lightning-mortgage.com/pr/ManageMessages.php on line 190
+[17-Aug-2010 11:56:34] PHP Parse error:  syntax error, unexpected $end in /home/prontoc2/public_html/lightning-mortgage.com/pr/ManageMessages.php on line 190
+[17-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[17-Aug-2010 12:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[18-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cookie - headers already sent in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2
+[18-Aug-2010 00:00:02] PHP Warning:  session_start() [<a href='function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php:2) in /home/prontoc2/public_html/lightning-mortgage.com/pr/mailout.php on line 2

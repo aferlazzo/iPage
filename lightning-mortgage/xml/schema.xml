@@ -1,0 +1,278 @@
+<Schema name="CREDITAPI_GETREPORT2" xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes">
+	<!-- INPUT SECTION -->
+	<ElementType name="INPUT" content="eltOnly" model="closed">
+		<element type="USER_INFO" minOccurs="1" maxOccurs="1"/>
+		<element type="REQUEST" minOccurs="1" maxOccurs="1"/>
+	</ElementType>
+	<ElementType name="USER_INFO" content="empty" model="closed">
+		<AttributeType name="login" dt:type="string"/>
+		<AttributeType name="password" dt:type="string"/>
+		<attribute type="login" required="yes"/>
+		<attribute type="password" required="yes"/>
+	</ElementType>
+	<!-- 
+	The ORDER_DETAIL contains information identifying the bureau to order, 
+	reference number, etc.
+	
+	The report ID is required only if request_type = UPGRADE or GET.
+
+	The CONSUMER & ADDRESS is required if the request_type = NEW or UPGRADE
+-->
+	<ElementType name="REQUEST" content="eltOnly" model="closed">
+		<AttributeType name="request_type" dt:type="enumeration" dt:values="NEW UPGRADE GET"/>
+		<attribute type="request_type" required="yes"/>
+		<element type="ORDER_DETAIL" minOccurs="1" maxOccurs="1"/>
+		<element type="SUBSCRIBER_INFO" minOccurs="0" maxOccurs="1"/>
+		<element type="CREDITCARD_PAYMENT" minOccurs="0" maxOccurs="1"/>
+		<element type="APPLICANT" minOccurs="0" maxOccurs="1"/>
+		<element type="SPOUSE" minOccurs="0" maxOccurs="1"/>
+		<element type="CURRENT_ADDRESS" minOccurs="0" maxOccurs="1"/>
+		<element type="PREVIOUS_ADDRESS" minOccurs="0" maxOccurs="1"/>
+		<element type="OUTPUT_FORMAT" minOccurs="1" maxOccurs="*"/>
+	</ElementType>
+	<ElementType name="CREDITCARD_PAYMENT" content="empty" model="closed">
+		<AttributeType name="billing_firstname" dt:type="string"/>
+		<AttributeType name="billing_surname" dt:type="string"/>
+		<AttributeType name="card_number" dt:type="string"/>
+		<AttributeType name="billing_street" dt:type="string"/>
+		<AttributeType name="billing_city" dt:type="string"/>
+		<AttributeType name="billing_state" dt:type="string"/>
+		<AttributeType name="billing_zip" dt:type="string"/>
+		<AttributeType name="expiration_month" dt:type="int"/> <!-- 1 = January...12 = December -->
+		<AttributeType name="expiration_year" dt:type="int"/> <!-- e.g., 2003 -->
+		<AttributeType name="cvv" dt:type="string"/>
+		<attribute type="billing_firstname" required="yes"/>
+		<attribute type="billing_surname" required="yes"/>
+		<attribute type="card_number" required="yes"/>
+		<attribute type="billing_street" required="yes"/>
+		<attribute type="billing_city" required="yes"/>
+		<attribute type="billing_state" required="yes"/>
+		<attribute type="billing_zip" required="yes"/>
+		<attribute type="expiration_month" required="yes"/>
+		<attribute type="expiration_year" required="yes"/>
+		<attribute type="cvv" required="no"/>
+	</ElementType>
+	<ElementType name="ORDER_DETAIL" content="empty" model="closed">
+		<!-- only this field is required if the request is a GET -->
+		<AttributeType name="report_id" dt:type="int"/>
+		<!-- the reference # will be returned in the report -->
+		<AttributeType name="reference_number" dt:type="string"/>
+		<AttributeType name="loan_type" dt:type="string"/>
+		<!-- when making a NEW request, report_owner_login can take the login name of the desired report owner -->
+		<!-- login user must have permission to order report for other users -->
+		<AttributeType name="report_owner_login" dt:type="string"/>
+		<AttributeType name="experian_credit_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="transunion_credit_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="equifax_credit_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="experian_score_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="transunion_score_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="equifax_score_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="experian_fraud_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="transunion_fraud_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="equifax_fraud_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="fannie_flag" dt:type="enumeration" dt:values="T F"/>
+		<!-- Tell CreditAPI to select the bureau based on the zip-code input instead of the various
+bureau flags. Attribute fannie_flag is still used even in this case. -->
+		<AttributeType name="use_zipcode_flag" dt:type="enumeration" dt:values="T F"/>
+		<AttributeType name="status_code" dt:type="enumeration" dt:values="READY NOTREADY ERROR"/>
+		<attribute type="report_id" required="no"/>
+		<attribute type="reference_number" required="no"/>
+		<attribute type="loan_type" required="no"/>
+		<attribute type="experian_credit_flag" required="no"/>
+		<attribute type="transunion_credit_flag" required="no"/>
+		<attribute type="equifax_credit_flag" required="no"/>
+		<attribute type="experian_score_flag" required="no"/>
+		<attribute type="transunion_score_flag" required="no"/>
+		<attribute type="equifax_score_flag" required="no"/>
+		<attribute type="experian_fraud_flag" required="no"/>
+		<attribute type="transunion_fraud_flag" required="no"/>
+		<attribute type="equifax_fraud_flag" required="no"/>
+		<attribute type="fannie_flag" required="no"/>
+		<attribute type="use_zipcode_flag" required="no"/>
+		<!-- only returned in RESPONSE -->
+		<attribute type="status_code" required="no"/>
+	</ElementType>
+	<ElementType name="SUBSCRIBER_INFO" content="empty" model="closed">
+		<AttributeType name="exp_subcode" dt:type="string"/>
+		<AttributeType name="exp_password" dt:type="string"/>
+		<AttributeType name="exp_preamble" dt:type="string"/>
+		<AttributeType name="exp_purposecode" dt:type="string"/>
+		<AttributeType name="tuc_industry" dt:type="string"/>
+		<AttributeType name="tuc_market" dt:type="string"/>
+		<AttributeType name="tuc_submarket" dt:type="string"/>
+		<AttributeType name="tuc_membercode" dt:type="string"/>
+		<AttributeType name="tuc_password" dt:type="string"/>
+		<AttributeType name="tuc_purposecode" dt:type="string"/>
+		<AttributeType name="eqf_membernumber" dt:type="string"/>
+		<AttributeType name="eqf_securitycode" dt:type="string"/>
+		<AttributeType name="eqf_customercode" dt:type="string"/>
+		<AttributeType name="eqf_purposecode" dt:type="string"/>
+		<AttributeType name="end_user_name" dt:type="string"/>
+	</ElementType>
+	<ElementType name="APPLICANT" content="empty" model="closed">
+		<AttributeType name="firstname" dt:type="string"/>
+		<AttributeType name="surname" dt:type="string"/> <!-- will accept 'lastname', but 'surname' is preferred' -->
+		<AttributeType name="middlename" dt:type="string"/>
+		<!-- 1 = SR, 2 = JR, 3 = III, 4 = IV, 5 = I, 6 = II -->
+		<AttributeType name="suffix" dt:type="enumeration" dt:values="1 2 3 4 5 6"/>
+		<!-- must be 9 digits; no dashes-->
+		<AttributeType name="ssn" dt:type="string"/>
+		<AttributeType name="dob" dt:type="string"/>
+		<AttributeType name="exp_ca_freeze_pin" dt:type="string"/>
+		<AttributeType name="tuc_ca_freeze_pin" dt:type="string"/>
+		<AttributeType name="eqf_ca_freeze_pin" dt:type="string"/>
+		<attribute type="firstname" required="yes"/>
+		<attribute type="middlename" required="no"/>
+		<attribute type="surname" required="yes"/>
+		<attribute type="suffix" required="no"/>
+		<attribute type="ssn" required="yes"/>
+		<attribute type="dob" required="no"/>
+		<attribute type="exp_ca_freeze_pin" required="no"/>
+		<attribute type="tuc_ca_freeze_pin" required="no"/>
+		<attribute type="eqf_ca_freeze_pin" required="no"/>
+	</ElementType>
+	<ElementType name="SPOUSE" content="empty" model="closed">
+		<AttributeType name="firstname" dt:type="string"/>
+		<AttributeType name="surname" dt:type="string"/>
+		<AttributeType name="middlename" dt:type="string"/>
+		<!-- 1 = SR, 2 = JR, 3 = III, 4 = IV, 5 = I, 6 = II -->
+		<AttributeType name="suffix" dt:type="enumeration" dt:values="1 2 3 4 5 6"/>
+		<!-- must be 9 digits; no dashes-->
+		<AttributeType name="ssn" dt:type="string"/>
+		<AttributeType name="dob" dt:type="string"/>
+		<attribute type="firstname" required="yes"/>
+		<attribute type="middlename" required="no"/>
+		<attribute type="surname" required="yes"/>
+		<attribute type="suffix" required="no"/>
+		<attribute type="ssn" required="yes"/>
+		<attribute type="dob" required="no"/>
+	</ElementType>
+	<!--
+You can use the streetaddress to send in unparsed address. The preferred
+method however is to pass in the streetname, streetnumber, streetdirection, 
+streettype and aptnumber as it may provide better results.
+-->
+	<ElementType name="CURRENT_ADDRESS" content="empty" model="closed">
+		<AttributeType name="streetaddress" dt:type="string"/>
+		<AttributeType name="streetname" dt:type="string"/>
+		<AttributeType name="streetnumber" dt:type="string"/>
+		<AttributeType name="streetdirection" dt:type="enumeration" dt:values="N S W E NW SW NE SE"/>
+		<AttributeType name="streettype" dt:type="enumeration" dt:values="AV BV CI CT DR LN LP PI PL PT PY PZ RD RO ST SQ TE TR WAY"/>
+		<AttributeType name="aptnumber" dt:type="string"/>
+		<AttributeType name="city" dt:type="string"/>
+		<AttributeType name="state" dt:type="string"/>
+		<AttributeType name="zip" dt:type="string"/>
+		<AttributeType name="years_at_address" dt:type="string"/>
+		<attribute type="streetaddress" required="no"/>
+		<attribute type="streetdirection" required="no"/>
+		<attribute type="streetnumber" required="no"/>
+		<attribute type="streetname" required="no"/>
+		<attribute type="streettype" required="no"/>
+		<attribute type="aptnumber" required="no"/>
+		<attribute type="city" required="yes"/>
+		<attribute type="state" required="yes"/>
+		<attribute type="zip" required="yes"/>
+		<attribute type="years_at_address" required="no"/>
+	</ElementType>
+	<ElementType name="PREVIOUS_ADDRESS" content="empty" model="closed"> <!-- Can be used for Spouse's address if diffent from the applicant's. -->
+		<AttributeType name="streetaddress" dt:type="string"/>
+		<AttributeType name="streetname" dt:type="string"/>
+		<AttributeType name="streetnumber" dt:type="string"/>
+		<AttributeType name="streetdirection" dt:type="enumeration" dt:values="N S W E NW SW NE SE"/>
+		<AttributeType name="streettype" dt:type="enumeration" dt:values="AV BV CI CT DR LN LP PI PL PT PY PZ RD RO ST SQ TE TR WAY"/>
+		<AttributeType name="aptnumber" dt:type="string"/>
+		<AttributeType name="city" dt:type="string"/>
+		<AttributeType name="state" dt:type="string"/>
+		<AttributeType name="zip" dt:type="string"/>
+		<AttributeType name="years_at_address" dt:type="string"/>
+		<attribute type="streetaddress" required="no"/>
+		<attribute type="streetdirection" required="no"/>
+		<attribute type="streetnumber" required="no"/>
+		<attribute type="streetname" required="no"/>
+		<attribute type="streettype" required="no"/>
+		<attribute type="aptnumber" required="no"/>
+		<attribute type="city" required="yes"/>
+		<attribute type="state" required="yes"/>
+		<attribute type="zip" required="yes"/>
+		<attribute type="years_at_address" required="no"/>
+	</ElementType>
+	<!-- Define the type of output requested by the client -->
+	<ElementType name="OUTPUT_FORMAT" content="mixed">
+		<AttributeType name="format_type" dt:type="enumeration" dt:values="MBA86 FNMA3 HTML XML TEXT PDF-HEX PDF-BASE64 MISMO1_0_1 MISMO1_1 MISMO2_1 MISMO2_3"/>
+		<attribute type="format_type" required="yes"/>
+	</ElementType>
+
+	<!-- OUTPUT SECTION -->
+	<ElementType name="OUTPUT" content="eltOnly" model="closed">
+		<element type="RESPONSE" minOccurs="0" maxOccurs="*"/>
+		<element type="INETAPI_ERROR" minOccurs="0" maxOccurs="1"/>
+	</ElementType>
+	<ElementType name="RESPONSE" content="eltOnly" model="closed">
+		<!-- If the order is NEW, the ORDER_DETAIL::report_id field will contain the id for the newly created credit report. -->
+		<element type="ORDER_DETAIL" minOccurs="1" maxOccurs="1"/>
+		<element type="OUTPUT_FORMAT" minOccurs="0" maxOccurs="*"/>
+		<element type="INETAPI_ERROR" minOccurs="0" maxOccurs="1"/>
+	</ElementType>
+
+	<!-- ERROR SECTION -->
+	<ElementType name="INETAPI_ERROR" content="textOnly"/>
+</Schema>
+<!--
+NOTES:
+
+Street Type Codes
+	AL - Alley
+	AV - Avenue
+	BV - Boulevard
+	CI - Circle
+	CK - Creek
+	CN - Center
+	CO - Corner(s)
+	CR - Crescent
+	CT - Court
+	CX - Crossing
+	DA - Dale
+	DR - Drive
+	ET - Extension
+	EX - Expressway
+	FY - Freeway
+	GA - Garden
+	GR - Grove
+	HL - Hill
+	HT - Heights
+	HY - Highway
+	KN - Knoll
+	LN - Lane
+	LP - Loop
+	MA - Mall
+	PA - Path
+	PI - Pike
+	PK - Park
+	PL - Place
+	PS - Pass
+	PT - Point
+	PY - Parkway
+	PZ - Plaza
+	RC - Ranch
+	RD - Road
+	RN - Run
+	RO - Row
+	RT - Route
+	SM - Stream
+	SN - Station
+	SQ - Square
+	ST - Street
+	TC - Trace
+	TE - Terrace
+	TK - Track
+	TP - Turnpike
+	TR - Trail
+	TY - TrafficWay
+	VI - Viaduct
+	VS - Vista
+	WK - Walk
+	WY - Way
+	
+State value should be 2 character abbreviations of the state.
+
+-->

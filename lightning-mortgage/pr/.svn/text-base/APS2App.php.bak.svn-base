@@ -1,0 +1,124 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>APS to Application</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="PerfectResponse.css" type="text/css">
+<style type="text/css">
+th, td { font-family: Verdana, Arial, Helvetica; color: #000080; font-size: x-small; }
+body {background:#fff;}
+.content {border:none;background: transparent;}
+</style>
+</HEAD>
+<BODY>
+
+<?php
+$user = $_COOKIE["UName"];
+include ("conn.php");
+$WithinScript = "I am embedded in another script";
+include("settings.php");
+?>
+	<div class="content" style="width:55em;">
+	<div class="title"> 
+	<table>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+			</td>
+		</tr>
+	<tr><td>&nbsp;</td></tr>
+	</table>
+	</div>
+
+
+<TABLE style='width:100%;text-align:left;'>
+<?php
+
+
+/* variables to access LoanApp Database */
+
+	$Host="localhost";
+	$User="lightnin_Tony";
+	$Password="ipowerwe";
+	$DBname2="lightnin_LoanApps";
+	$TableName="ContactInfo";
+	/* first, connect to the MySQL DBMS on this server */
+	$Link2=mysql_connect ($Host, $User, $Password) or die ('I cannot connect to the DBMS because: '.mysql_error());
+
+
+print ("<tr><th colspan='4' style='text-align:right;'>");
+print ("As of ".date('l F j, Y g:i A')."</th></tr>\n");	
+print ("<tr><th style='width:15%;text-align:left;'>Name</th>");
+print ("<th style='width:25%;text-align:left;'>Email Address</th>");
+print ("<th style='width:25%;'>Message</th><th style='width:35%;'></th></tr>\n");
+
+$SQL_Statement = "select * from users order by email ";
+	
+$Query_Result = mysql_query($SQL_Statement) or die ("APS2App (".__LINE__.") $SQL_Statement");
+$num_rows_usr = mysql_num_rows($Query_Result);
+$LastE="";
+$m=0;
+$t=0;
+for($ucount=0;$ucount<$num_rows_usr;$ucount++)
+{	
+	mysql_data_seek($Query_Result, $ucount);
+	$rowSubscriber 			= mysql_fetch_object($Query_Result);
+	$Email_Address 			= $rowSubscriber->email;
+	$Full_Name 				= trim($rowSubscriber->fname." ".$rowSubscriber->lname);
+	if ((stristr($Email_Address,"lightning-mortgage.com") == false) && (strcmp($Email_Address, $LastE) != 0))
+	{
+	 print ("<tr><td>$Full_Name</td>");				
+	 print ("<td>$Email_Address</td>\n");
+
+	/* ----- Now check for a match in LoanApps */
+	$Query2 = "SELECT * from $TableName where email='$Email_Address'";
+	$Result2=mysql_db_query($DBname2, $Query2, $Link2);
+	if ($Row=mysql_fetch_array($Result2))
+	{
+	 $m++;	
+	 print("<td>Match $m of $t</td>");
+
+	 $Query2 = "SELECT LoanStatus from ApplicantInfo where SSN = $Row[SSN]";
+	 $Result2=mysql_db_query($DBname2, $Query2, $Link2);
+	 $Record=mysql_fetch_array($Result2);
+	 print("<td>Status: $Record[LoanStatus]</td>");
+	}
+
+	$t++;
+	print("</tr>");
+
+	}
+	
+	$LastE = $Email_Address;
+}
+print("</table>Total non-test APS subscribers=$t\n");	
+
+?>
+
+<script language='Javascript1.2'>
+if (window.history.length == 0)
+{
+	document.write("<form>");
+	document.write("<input class='cancel' type='button' value='Close' onClick='window.close();'>");
+	document.write("</form>");
+}
+else
+{
+	document.write("<form>");
+	document.write("<input class='cancel' type='button' value='Continue' onClick='window.history.back();'>");
+	document.write("</form>");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Home Loan Financing Even with Bad Credit</title>
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="description"
+content="We provide real solutions, and refinancing &amp; home equity loans nationally to all credit grades,
+with liberal borrowing guidelines. ">
+<meta name="keywords"
+content="home loan, mortgage finance, bad credit, mortgage calculator, Lightning Mortgage, MORTGAGE FINANCE, BAD CREDIT,
+MORTGAGE CALCULATOR, LIGHTNING MORTGAGE">
+<base target="_self">
+<link rel="stylesheet" href="../css/IndexStyles.css" type="text/css">
+<link rel="stylesheet" href="../css/Tabs.css" type="text/css">
+<script src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en" type="text/javascript"></script>
+</head>
+<body>
+<?php include('../include/top.php'); ?>
+<iframe 
+src ="http://federalreserve.gov/pubs/foreclosurescamtips/default.php"
+width="95%" height="1200px" frameborder="0" scrolling="no"></iframe>
+<?php include('../include/bottom.php'); ?>
+</body>
+</html>

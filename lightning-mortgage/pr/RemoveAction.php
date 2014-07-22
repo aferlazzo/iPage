@@ -1,0 +1,248 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+Include("conn.php");
+$arid=$_POST["arid"];
+$_SESSION['LockKey'] = "RemoveAction.php";
+
+$Send_Removal_Email=$_POST["Send_Removal_Email"];
+$tareaRemoveText=$_POST["tareaRemoveText"];
+
+//die("RemoveAction (".__LINE__.") $arid \$tareaRemoveText |$tareaRemoveText|");
+
+$WithinScript = "I know the arid";
+include("settings.php");
+
+?>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>RemoveAction</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="./css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="./css/niftyCorners.css">
+<script type="text/javascript" src="./js/PerfectResponse.js"></script>
+<script type="text/javascript" src="./js/nifty.js"></script>
+</HEAD>
+<body>
+<div id='ProgressBarOutline'><div id='ProgressBar'></div></div>
+<div id='Wrapper'><div id='content'> 
+
+<?php	
+// first get the SMTP settings from the admin table
+$result = mysql_query("SELECT * FROM admin where adminname='admin'", $link);
+if($result == false)
+{							
+	die(logMessage("removeAction (".__LINE__.")  Session |".$_SESSION['LockKey']."| No admin row to fetch"));
+}
+
+$num_rows = mysql_num_rows($result); 	
+if ($num_rows == 0)
+{							
+	die(logMessage("RemoveAction (".__LINE__.")  Session |".$_SESSION['LockKey']."| No admin row to found"));
+}
+//mysql_data_seek($result, 0);
+$row = mysql_fetch_object($result);
+$SMTPDebugging=$row->SMTPDebugging;
+$SMTPTimeout=$row->SMTPTimeout;
+require("removesettings.php");
+
+		set_time_limit(0);
+
+	if (!$tareaRemoveText) 
+	{
+		print "There was no address to be removed.\n";
+		//print ("<form>");
+		//print ("Please press <input class='cancel' type='button' value='Continue' onClick='window.history.back()'></center><br>&nbsp;<br>&nbsp;");
+		//print ("</form>");    
+
+		exit;
+	}
+
+	$tareaRemoveText = trim($tareaRemoveText);
+	$lstSplitTareaRemove = split("[\n| ]", $tareaRemoveText);
+	$TotalSubscribers = count($lstSplitTareaRemove);
+	
+	$SQL_Statement = "select * from autoresponders where arid=$arid";
+	$Query_Result = mysql_query($SQL_Statement,$link);
+	mysql_data_seek($Query_Result, 0);
+	$row = mysql_fetch_object($Query_Result);
+
+	$ArDescription = $row->ardescription;
+	$user = "arid ".$arid;
+	$msgSQL = "select * from messages where (arid=$arid) and (seqno=0)"; //signature
+	$result_msg = mysql_query($msgSQL) or die(logMessage("RemoveAction (".__LINE__.") Error: $msgSQL"));
+	mysql_data_seek($result_msg, 0);  // signature message is seqno zero
+	$row_msg = mysql_fetch_object($result_msg);
+			
+	if ($row_msg->seqno != 0) 
+		die(logMessage("RemoveAction (".__LINE__.") sequence error. No signature record found.")); // no signature found
+				
+	$Signature = $row_msg->body;
+	
+	$msgSQL = "select * from messages where (arid=$arid) and (seqno=-1)"; //unsubscribe message
+	$result_msg = mysql_query($msgSQL) or die(logMessage("RemoveAction (".__LINE__.") Error: $msgSQL"));
+	mysql_data_seek($result_msg, 0); 
+	$row_msg = mysql_fetch_object($result_msg);
+			
+	if ($row_msg->seqno != -1) 
+		die(logMessage("RemoveAction (".__LINE__.") sequence error"));		
+
+	$Remove_Email_Subject = $row_msg->subject;
+	$Remove_Email_Body = $row_msg->body.$Signature;
+	$Count = 0;
+	$Email_Bounced_Back = 0;
+	$Invalid = 0;
+
+	reset ($lstSplitTareaRemove);
+	
+	while (list(, $temp) = each ($lstSplitTareaRemove))  
+	{
+		$Email_Flag = 0;
+		$EmailFromDB = "";
+		trim($temp);
+		$EmailFromList = $temp;
+		$EmailFromList = trim($EmailFromList);
+		$EmailFromList = ereg_replace ( "[:><]", "", $EmailFromList);
+		print("you passed |$EmailFromList|<br/>");
+		$EmailFromList = strtolower($EmailFromList);
+		//die("Finding |$EmailFromList|<br />");
+
+		$SQL_Statement = "select * from users where email='$EmailFromList' AND arid=$arid";
+		$Query_Result = mysql_query($SQL_Statement,$link);
+		$num_rows = mysql_num_rows($Query_Result);
+		
+		if ( $num_rows <= 0 ) 
+		{
+			$Email_Flag = 0;
+			$Invalid++;
+		}
+		else
+		{
+			mysql_data_seek($Query_Result, 0);
+			$row = mysql_fetch_object($Query_Result);
+			$EmailFromDB = $row->email;
+			//$FullName = $row->fname." ".$row->lname;
+			
+			// added the 'trim' to fix personalization 'FullName' trailing space 12-31-03 - Tony Ferlazzo
+			// capitalized the first letter of each word 1-4-04 - Tony Ferlazzo
+
+			$Full_Name = strtolower(trim($row->fname." ".$row->lname));
+			$Full_Name = ucwords($Full_Name);	
+		}
+		
+		if ($EmailFromDB == $EmailFromList) 
+			$Email_Flag = 1;
+		
+		if ($Email_Flag == 1)  // if found a match
+		{
+			$Email_Bounced_Back++;
+			
+			//if ($debugIt > 0)
+			//	logMessage ("RemoveAction (".__LINE__.") Deleted subscriber email '$EmailFromList' from autoresponder '$arid' - '$ArDescription'");
+				
+			if (($Send_Removal_Email) && ($Remove_Email_Body != ""))
+			{
+		
+				$Remove_Email_Body = eregi_replace("%EmailAddress%",$EmailFromList,$Remove_Email_Body);
+				$Remove_Email_Subject = eregi_replace("%EmailAddress%",$EmailFromList,$Remove_Email_Subject);
+				$Remove_Email_Body = eregi_replace("%FullName%",$Full_Name,$Remove_Email_Body);
+				$Remove_Email_Subject = eregi_replace("%FullName%",$Full_Name,$Remove_Email_Subject);
+				$Remove_Email_Body = eregi_replace("%UserDefined1%",$UserDefined1,$Remove_Email_Body);
+				$Remove_Email_Subject = eregi_replace("%UserDefined1%",$UserDefined1,$Remove_Email_Subject);
+				$Remove_Email_Body = eregi_replace("%UserDefined2%",$UserDefined2,$Remove_Email_Body);
+				$Remove_Email_Subject = eregi_replace("%UserDefined2%",$UserDefined2,$Remove_Email_Subject);
+				$Remove_Email_Body = eregi_replace("%UserDefined3%",$UserDefined3,$Remove_Email_Body);
+				$Remove_Email_Subject = eregi_replace("%UserDefined3%",$UserDefined3,$Remove_Email_Subject);
+				$Remove_Email_Body = eregi_replace("%UserDefined4%",$UserDefined4,$Remove_Email_Body);
+				$Remove_Email_Subject = eregi_replace("%UserDefined4%",$UserDefined4,$Remove_Email_Subject);
+		
+	
+				if (($Wrap_On == 1) && ($Mail_Format == 0))
+				{ 
+					$Remove_Email_Body = wordwrap($Remove_Email_Body, $Length_Of_Wrap);
+				}
+
+				$Remove_Email_Body = eregi_replace("\r\n","\n",$Remove_Email_Body);
+				$txtMessage_Send = $Remove_Email_Body;
+				$txtMessage_Text = $txtMessage_Send;
+				$txtMessage_Body = stripslashes($txtMessage_Text);
+				$txtMessage_Subject = stripslashes($Remove_Email_Subject);
+				$Final_Body = $txtMessage_Body;
+				
+				//Append the removal instructions and the removal instructions lines to *every* message body
+
+				if($Mail_Format == 1)
+				{
+					if ($Ad != 45)
+						$Final_Body.=$PoweredbyHTML;
+				}
+				else
+				{
+					if ($Ad != 45)
+						$Final_Body.=$PoweredbyText;
+				}
+
+				$Sent = SwiftMailer($EmailFromList, $Full_Name, $txtMessage_Subject,  "$Final_Body",  "$Final_Body", "", $Mail_Format, $arid, $SMTPDebugging, $SMTPTimeout);
+
+				if ($debugIt > 0)
+					logMessage ("RemoveAction (".__LINE__.") Sending removal notification email to '$EmailFromList'");
+		
+				if ($Sent == true)
+				{
+					UnsubscriptionNotification("$Full_Name", "$EmailFromList", $arid, "$CampaignDescription", $MessageToBeSent, $link);
+	
+					if ($debugIt == 2)
+					{
+						logMessage ("RemoveAction (".__LINE__.") Wrap_On: ".$Wrap_On." Length_Of_Wrap: ".$Length_Of_Wrap);
+						logMessage ("RemoveAction Final_Body (wrapped): ".$Final_Body);
+					}
+		
+				}
+			}	// end send removal email
+
+			
+			// Update the record from the users database. We do not delete unsubscriptions so that those addresses won't 
+			// be erroneously added a second time.
+			$Query ="UPDATE users set currentmsg='254' where arid=$arid AND email='$EmailFromList'";
+
+			// really delete the user
+			//$Query = "DELETE from users where arid=$arid AND email='$EmailFromList' limit 1";
+			
+			
+			//die ("Query: |$Query|");
+			$result = mysql_query($Query, $link) or die(logMessage("RemoveAction (".__LINE__.") Could not move pointer to next update user record")); 
+			$num_rows = mysql_affected_rows();	
+	
+			if ($debugIt > 0)
+				logMessage ("RemoveAction (".__LINE__.") unsubscribed $Full_Name &lt;$EmailFromList&gt; from Campaign $arid - $ArDescription");
+			print("<p>Removing $Full_Name &lt;$EmailFromList&gt;</p>\n");	
+		}	// end if found matching record
+		else
+			print ("<p style='text-align:left;margin:0 auto;width:100%;'>Invalid: &lt;$EmailFromList&gt; not subscribed</p>\n");
+			
+		print("<script type='text/javascript'>ProgressBar($Count, $TotalSubscribers, 500);</script>\n");
+		ob_flush();
+		flush();  // needed ob_flush
+		$Count++;
+	}	// end while not at end of list
+
+print("<h3><b>Delete Subscribers from\n");
+print("<br /><i>$CampaignDescription</i></h3>");
+print("<p>$Email_Bounced_Back</b> subscribers were deleted from your database.</p>\n");
+print("<p>$Invalid</b> subscribers were not in the campaign and not deleted.</p>\n");
+mysql_close($link);
+?> 
+</div></div>
+
+</BODY>
+</HTML>

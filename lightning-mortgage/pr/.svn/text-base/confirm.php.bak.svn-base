@@ -1,0 +1,107 @@
+<?php
+
+Include("conn.php");
+$ID=$HTTP_GET_VARS["arid"];
+$arid=$HTTP_GET_VARS["arid"];
+Include("settings.php");
+Include("removesettings.php");
+$Email_Address=$HTTP_GET_VARS["email"];
+if($Is_Custom==1)
+$GoTo=$RedirectPage;
+else
+$GoTo="$Installation_Path/thankyou.php";
+
+if($Mail_Format == 1)
+{
+	$Mail_Header="Content-type: text/html; charset=iso-8859-1";
+	$Mail_Footer=$Removal_Link_HTML;
+}
+else
+{
+	$Mail_Header="Content-Type: text/plain; charset=us-ascii";
+	$Mail_Footer=$Removal_Link_Text;
+}
+
+		
+$Email_Flag = 1;
+$Email_Address = trim($Email_Address);
+$Email_Address = strtolower($Email_Address);
+
+if (eregi( "([^-\.a-z0-9[:space:]])", $Full_Name) )
+{ 
+	print ("<br>Names can only contain letters, number, and - or . characters.<br><br>\n"); 
+	$Email_Flag = 0; 
+}
+
+if (!eregi(".+@.+\\..+",$Email_Address))
+{ 
+	print ("<br>Invalid email address was given. Please make sure your formatting is correct<br><br>\n"); 
+	$Email_Flag = 0; 
+}
+
+if ($Email_Flag == 1) 
+{
+	$SQL_Statement = "select * from users where EMAIL='$Email_Address'";
+	$Query_Result =  mysql_query($SQL_Statement);
+//	$Query_Result_Data = @MYSQL_FETCH_ARRAY($Query_Result);
+	$num_rows = mysql_num_rows($Query_Result); 	
+	if($num_rows > 0)
+	{
+		mysql_data_seek($Query_Result, 0);
+		$row = mysql_fetch_object($Query_Result);
+		$Check_Email = $row->email;
+		$What_Address = $row->ip;
+		$Full_Name=$row->fname.$row->lname;
+	}
+	$result_ar = mysql_query("SELECT arname,aradminemail,armode FROM autoresponders where arid=$ID", $link); 
+	mysql_data_seek($result_ar, 0);
+	$row_ar = mysql_fetch_object($result_ar);	
+	if(($Check_Email==$Email_Address))
+	{
+		$IP_Address = getenv("REMOTE_ADDR");
+		$Send_To = mktime(date("H")-1,date("i"),date("s"),date("m"),date("d")+1,date("Y"));
+		
+		$SQL_Statement = "update users set confirmed='Y' where arid=$arid and email='$Email_Address'";
+		$Query_Result =  mysql_query($SQL_Statement); 
+	
+			$SQL_Statement = "Select consubject,conbody from autoresponders where arid=$arid";
+		$Query_Result =  mysql_query($SQL_Statement);
+
+		mysql_data_seek($Query_Result, 0);
+		$row = mysql_fetch_object($Query_Result);
+		$Automatic_Subject_Text = $row->consubject;
+		$Automatic_Message_Text = $row->conbody; 
+
+		
+		$Automatic_Message_Text = eregi_replace("%EmailAddress%",$Email_Address,$Automatic_Message_Text);
+		$Automatic_Subject_Text = eregi_replace("%EmailAddress%",$Email_Address,$Automatic_Subject_Text);
+		$Automatic_Message_Text = eregi_replace("%FullName%",$Full_Name,$Automatic_Message_Text);
+		$Automatic_Subject_Text = eregi_replace("%FullName%",$Full_Name,$Automatic_Subject_Text);
+		
+		if ($Wrap_On == 1)
+		{ 
+			$Automatic_Message_Text = wordwrap($Automatic_Message_Text, $Length_Of_Wrap);
+		}
+		$Automatic_Message_Text = eregi_replace("\r\n","\n",$Automatic_Message_Text);
+		
+		$txtMessage_Send = $Automatic_Message_Text;
+		$txtMessage_Text = $txtMessage_Send; 
+		
+		$txtMessage_Body = stripslashes($txtMessage_Text);
+		$txtMessage_Subject = stripslashes($Automatic_Subject_Text);
+		
+		if($Mail_Format == 1)
+			$Final_Body="$txtMessage_Body$Removal_Link_HTML$Email_Address'>$Remove_HTML$Removal_Link_HTML2";
+		else
+			$Final_Body="$txtMessage_Body$Remove_Text\n$Removal_Link_Text$Email_Address\n\nPowered by E.G.G.S.\n\nhttp://www.emailgogettersystem.com";
+		
+		mail("$Email_Address", "$txtMessage_Subject", "$Final_Body",
+		"From: $Display_Name <$EmailAddressFrom>\nReply-To: <$EmailAddressReplyTo>\nReturn-Path: <$EmailAddressReturn>\nErrors-To: <$EmailAddressReturn>\n$Mail_Header");
+		Header("Location: $GoTo");
+				
+	} 
+	else Header("Location: $GoTo");
+	
+}
+
+?>

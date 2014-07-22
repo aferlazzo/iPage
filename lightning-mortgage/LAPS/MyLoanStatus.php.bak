@@ -1,0 +1,672 @@
+<?php
+require ("../include/authenticate.php");
+?>
+
+<!DOCTYPE html PUBLIC "-//W3//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>My Loan Status</title>
+<script language="JavaScript" src="https://host373.ipowerweb.com/~lightnin/js/Common.js">
+</script>
+<link rel="stylesheet" href="../css/AdministrativeStyles.css" type="text/css">
+
+<!--[if IE 6]>
+<style type="text/css">
+html
+{
+	scrollbar-base-color: #F4F4F4;
+	scrollbar-arrow-color: #FFFFFF;
+	scrollbar-track-color: #002179;
+	scrollbar-face-color: #009;
+	scrollbar-3dlight-color: #009;
+}
+</style>
+<![endif]-->
+</head>
+
+<body topmargin="0" leftmargin="0">
+<script>
+  if (window.location.href.substring(0,5)!="https"){ window.location.replace('https://host373.ipowerweb.com/~lightnin/LAPS/MyLoanStatus.php') }
+</script>
+
+<?php
+
+	 $ApplicantName				= "Robbie Refinance";
+	 $LoanAmount 				= "$999,9999";
+	 $InterestRate 				= "99.999%";
+	 $MonthlyPayment 			= "$9,999";
+	 $CreditReportOrdered 		= "12/34/56";
+	 $CreditReportReceived 		= "12/34/56";
+	 $PrelimOrdered 			= "12/34/56";
+	 $PrelimReceived 			= "12/34/56";
+	 $ApprisalOrdered 			= "12/34/56";
+	 $AppraisalReceived 		= "12/34/56";
+	 $ApplicationDate 			= "12/34/56";
+	 $ApprovalDate 				= "12/34/56";
+	 $SubmittedToUnderwriting	= "12/34/56";
+	 $DocsOrderedDate 			= "12/34/56";
+	 $LoanFundingDate 			= "12/34/56";
+	 $LoanClosed 				= "12/34/56";
+
+
+
+
+
+
+
+//
+//	GetLoanStatus - Reads the exported Point file that has been uploaded to the server.
+//	The Applicant data is retrieved.
+//
+
+function GetLoanStatus($RealName)
+{
+	global $ApplicantName;	// change real values when you change the values of these variable within this function
+	global $LoanAmount;		// that is how 'global' works
+	global $InterestRate;
+	global $MonthlyPayment;
+	global $CreditReportOrdered;
+	global $CreditReportReceived;
+	global $PrelimOrdered;
+	global $PrelimReceived;
+	global $ApprisalOrdered;
+	global $AppraisalReceived;
+	global $ApplicationDate;
+	global $ApprovalDate;
+	global $SubmittedToUnderwriting;
+	global $DocsOrderedDate;
+	global $LoanFundingDate;
+	global $LoanClosed;
+	global $LoanFile;
+
+	if (!file_exists($LoanFile))
+	{
+		print("Can't locate Loan File at |$LoanFile|\n");
+		return;
+	}
+
+	$Open = fopen ($LoanFile, "r");
+
+	if ($Open)
+	{
+		$Data=file($LoanFile);
+
+		for ($n = 0; $n < count($Data); $n++) // for each record
+		{
+			$GetLine = explode("\t", $Data[$n]);
+/*
+			for ($i = 0; $i < 30; $i++) // for debugging, list the array values
+			{
+
+				if ($n == 0)
+					print("($i) ");			// for headings, precede the variarble name with the index number
+
+				print("$GetLine[$i]\t");	// print value
+			}
+
+			//print("<br>\n");
+*/
+
+			$ApplicantName				= $GetLine[1];//name is in 'last, first' format
+			$LastName = strtok($ApplicantName, ",");
+			$FirstName = substr(strstr($ApplicantName, ", "), 2, 25);
+			$ApplicantName = $FirstName." ".$LastName;
+			//print("ApplicantName-->$ApplicantName<--");
+
+			if ($ApplicantName == $RealName)
+			{
+				$LoanAmount 				= $GetLine[7];
+				$InterestRate 				= $GetLine[7];
+				$MonthlyPayment 			= $GetLine[7];
+				$CreditReportOrdered 		= $GetLine[12];
+				$CreditReportReceived 		= $GetLine[13];
+				$PrelimOrdered 				= $GetLine[16];
+				$PrelimReceived 			= $GetLine[17];
+				$ApprisalOrdered 			= $GetLine[14];
+				$AppraisalReceived 			= $GetLine[15];
+				$ApplicationDate 			= $GetLine[11];
+				$ApprovalDate 				= $GetLine[22];
+				$SubmittedToUnderwriting	= $GetLine[21];
+				$DocsOrderedDate 			= $GetLine[24];
+				$LoanFundingDate 			= $GetLine[26];
+				$LoanClosed 				= $GetLine[28];
+			}
+		}
+
+		fclose($Open);
+	}
+	else
+	{
+		print("Unable to read from $LoanFile<br>\n");
+	}
+}
+
+?>
+<!-- - - - - - - - - - - - - Beginning Of Common Header - - - - - - - - - - - - - - - - -->
+
+<div align="center">
+
+ <center>
+
+ <table cellspacing="0" width="720" cellpadding="0" border="0">
+
+
+
+</left><!-- end of Top header -->
+
+  <td>
+
+<div align="center">
+
+ <table border="1" cellpadding="0" cellspacing="0" bordercolor="#000099"
+
+ width="720" bgcolor="#000099" height="108">
+
+  <tr>
+
+   <td height="108">
+
+<div align="center">
+
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+
+				<tr>
+
+					<td height="101" align="center" width="144" rowspan="2">                 
+
+
+
+
+
+
+<p class="White">
+<script language="JavaScript1.2"> 
+document.write(doClock("M0","%20","D1",",%20","Y0"));
+</script>    
+</p>
+
+<!-- Atomz Search HTML for Lightning Mortgage -->
+
+ </center>
+
+<font face="Verdana" size="2">
+
+<form method="get" action="http://search.atomz.com/search/">
+
+<input type=hidden name="sp-a" value="sp1002b74c"><input size=15 name="sp-q">
+
+<br>
+<br>
+
+<input type=hidden name="sp-p" value="all">
+
+<input type=hidden name="sp-f" value="ISO-8859-1">
+
+<input type=submit value="Search Site" ></form>
+</font>
+
+ <center>
+
+<!-- Atomz Search HTML for Lightning Mortgage -->
+
+                    </td>
+
+
+
+		<td class="Top" align="center" height="12" valign="bottom" width="440">
+            <a href="Feedback.htm" class="Top">Help</a>
+            &nbsp;|&nbsp; <a href="AboutUs.htm" class="Top">About</a>
+            &nbsp;|&nbsp; <a href="ContactUs.htm" class="Top">Contact</a>
+            &nbsp;|&nbsp; <a href="Calculators.htm" class="Top">Calculators</a>
+            &nbsp;|&nbsp; <a href="MyLoanStatus.php" class="Top">My Loan Status</a>
+            &nbsp;|&nbsp; <a href="PrivacyPolicy.htm" class="Top">Privacy</a>
+            &nbsp;|&nbsp; <a href="Legal.htm" class="Top">Legal</a>
+		</td>
+
+
+
+		<td height="101" align="right" width="144" rowspan="2" valign="middle">
+
+
+
+            <a href="UpfrontMortgageBroker.htm"><img border="0"
+
+                     src="../images/UMB-inverse.gif" alt="I am an Upfront Mortgage Broker &reg" align="center" width="86" height="108"></a>
+
+       </td>
+
+		</tr>
+
+
+
+		<tr>
+
+
+
+		<td height="66" align="center" width="440">
+
+            <a class="Logo" href="index.htm">
+
+                 <img border="0"
+
+                  src="../images/Lightning-Mortgage.jpg" align="center" alt="Lightning Mortgage - Mortgages, even with Bad Credit" width="279" height="45">
+
+            </a>
+
+		</td>
+
+		</tr>
+
+
+
+   </table>
+
+
+
+</div>
+
+   </td>
+
+  </tr>
+
+ </table>
+
+</div>
+
+
+
+
+
+
+
+<!-- Start of Tab Header -->
+
+
+
+<table width=720 border="0" cellpadding="0" cellspacing="0" height="28">
+
+
+
+	<tr>
+	    	<!--<h2><a class=Index href="index2.htm">Bad Credit Home Loans</a></h2>-->
+		<td align="center" width="120" height="28" background="../images/Home_tab.gif">
+		<a class="IndexMM" href="index.htm">
+		Home</a></td>
+
+		<td align="center" width="120" height="28" background="../images/ApplyNow_tab.gif">
+		<a class="ApplyMM" href="http://host373.ipowerweb.com/~lightnin/LoanAppShort.htm">
+		Apply Now</a></td>
+
+		<td align="center" width="120" height="28" background="../images/Answers_tab.gif">
+		<a class="AnswersMM" href="Answers.php">
+		Answers</span></a>	</td>
+
+		<td align="center" width="120" height="28" background="../images/LoanTypes_tab.gif">
+		<a class="LoanTypesMM" href="LoanTypes.htm">
+		Loan Types</a></td>	
+
+		<td align="center" width="120" height="28" background="../images/InterestRates_tab.gif">
+		<a class="RatesMM" href="InterestRates.htm">
+		Interest Rates</a></td>	
+		
+		<td align="center" width="120" height="28" background="../images/SiteMap_tab.gif">
+		<a class="SiteMapMM" href="SiteMap.htm">
+		Site Guide</a></td>					
+	</tr>	
+</table>
+
+
+
+</table>
+
+ </div>
+
+
+</td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><!--msnavigation--><td valign="top">
+
+
+<!-- - - - - - - - - - - - - Ending Of Common Header - - - - - - - - - - - - - - - - -->
+<div align="center">
+ <center>
+ <table border="1" cellpadding="0" cellspacing="0" width="720" bordercolor="#000099">
+  <tr>
+   <td>
+    <div align="center">
+     <table border="0" cellpadding="4" cellspacing="0">
+      <tr>
+       <td style="background-color: #000099;">&nbsp;<a style="background-color: #000099; width: 10; color: #FFFFFF; font-size: small; 
+       		font-family: Verdana, Arial, Helvetica; text-decoration: none;" 
+       		href="https://host373.ipowerweb.com/~lightnin/LAPS/Logout.phtml"><b>Logout</b></a></td>
+       <td bgcolor="#000099" width="500" colspan="3" height="29">
+        <h1 style="margin-top: 0; margin-bottom: 0; background-color: #000099; width: 10; color: #FFFFFF; font-size: small; 
+       		font-family: Verdana, Arial, Helvetica; text-decoration: none; font-size: medium;"><i>My Loan Status
+        </i></h1></td>
+        <td bgcolor="#000099" colspan="5" align='right' height="29"><p style="color: #ffffff;">
+<?php
+		$LoanFile = "../cgi-bin/uploads/MyLoanStatus.TXT";
+
+		if (file_exists($LoanFile))
+		{
+	    	print("status last updated " . date ("m/d/y H:i", filemtime($LoanFile))." ");
+	    }
+?>
+
+       </p></td>
+      </tr>
+      <tr>
+       <td width="169" colspan="2" height="15" bgcolor="#EBF5F5"><font size="2" face="Verdana"><b>Borrower
+        Name</b></font></td>
+       <td width="85" height="15" bgcolor="#EBF5F5"><font size="2" face="Verdana"><b>Program</b></font></td>
+       <td width="125" align="center" height="15" bgcolor="#EBF5F5"><font size="2" face="Verdana"><b>Loan
+        Amount</b></font></td>
+       <td width="132" colspan="2" align="center" height="15" bgcolor="#EBF5F5"><font size="2"
+        face="Verdana"><b>Interest Rate&nbsp;</b></font></td>
+       <td align="center" colspan="3" width="151" height="15" bgcolor="#EBF5F5"><font size="2"
+        face="Verdana"><b>Monthly Payment</b></font></td>
+      </tr>
+      <tr>
+       <td width="169" colspan="2" height="20"bgcolor="#EBF5F5"></td>
+       <td width="85" height="20" bgcolor="#EBF5F5"></td>
+       <td width="125" align="center" height="20" bgcolor="#EBF5F5"></td>
+       <td width="132" colspan="2" align="center" height="20" bgcolor="#EBF5F5"></td>
+       <td width="151" align="center" colspan="3" height="20" bgcolor="#EBF5F5"></td>
+      </tr>
+
+      <?php GetLoanStatus($RealName); ?>
+
+
+
+      <tr>
+       <td width="169" colspan="2" height="20" bgcolor="#EBF5F5"><font face="Verdana" size="2"><?php print("$ApplicantName"); ?></font></td>
+       <td width="85" height="20" bgcolor="#EBF5F5"></td>
+       <td width="125" align="center" height="20" bgcolor="#EBF5F5"><font size="2" face="Verdana">$999,999</font></td>
+       <td width="132" colspan="2" align="center" height="20" bgcolor="#EBF5F5"><font size="2"
+        face="Verdana">9.999%</font></td>
+       <td width="151" align="center" colspan="3" height="20" bgcolor="#EBF5F5"><font
+        face="Verdana" size="2">$9,999</font></td>
+      </tr>
+ </center>
+      <tr>
+       <td width="169" colspan="2" height="20" bgcolor="#EBF5F5"></td>
+       <td width="85" height="20" bgcolor="#EBF5F5"></td>
+       <td width="125" align="center" height="20" bgcolor="#EBF5F5"></td>
+       <td width="132" colspan="2" align="center" height="20" bgcolor="#EBF5F5"></td>
+       <td width="151" align="center" colspan="3" height="20" bgcolor="#EBF5F5"></td>
+      </tr>
+      <tr>
+       <td style="background-color: #000099; width: 252; color: #FFFFFF; font-size: medium; 
+       		font-family: Verdana, Arial, Helvetica; text-decoration: none; text-align: right" colspan="3">
+       		Basic Loan Documents</td>
+ <center>
+       <td style="background-color: #000099; width: 125; color: #FFFFFF; font-size: large; 
+       		font-family: Verdana, Arial, Helvetica; text-align: center" colspan="2">
+        	<b>Date Ordered</b></td>
+       <td style="background-color: #000099; width: 152; color: #FFFFFF; font-size: medium; 
+       		font-family: Verdana, Arial, Helvetica; text-align: center">
+       		Date Received</td>
+       <td bgcolor="#000099" colspan="2" width="95" height="20" bgcolor="#EBF5F5">&nbsp;</td>
+       <td bgcolor="#000099" width="56" height="20">&nbsp;</td>
+      </tr>
+       <tr>
+       <td height="20" align="right" width="100" bgcolor="#EBF5F5"></td>
+       <td height="20" colspan="2" align="right" width="142" bgcolor="#EBF5F5"></td>
+       <td height="20" width="125" bgcolor="#EBF5F5"></td>
+       <td height="20" colspan="2" width="132" bgcolor="#EBF5F5"></td>
+       <td height="20" colspan="2" width="95" bgcolor="#EBF5F5"></td>
+       <td height="20" width="56" bgcolor="#EBF5F5"></td>
+       </tr>
+       <tr>
+       <td height="20" align="right" width="100" bgcolor="#EBF5F5"></td>
+       <td height="20" colspan="2" align="right" width="142" bgcolor="#EBF5F5"><font size="2"
+        face="Verdana"><b>Credit Report:</b></font></td>
+       <td height="20" width="125" align='middle' bgcolor="#EBF5F5"><font face="Verdana" size="2"><?php print ("$CreditReportOrdered"); ?></font></td>
+       <td height="20" colspan="2" width="132" align='middle' bgcolor="#EBF5F5"><font face="Verdana" size="2"><?php print ("$CreditReportReceived"); ?></font></td>
+       <td height="20" colspan="2" width="95" bgcolor="#EBF5F5"></td>
+       <td height="20" width="56" bgcolor="#EBF5F5"></td>
+       </tr>
+       <tr>
+       <td height="20" align="right" colspan="3" width="252" bgcolor="#EBF5F5"><font size="2"
+        face="Verdana"><b>Preliminary Title Report:</b></font></td>
+       <td height="20" width="125" align='middle' bgcolor="#EBF5F5"><font face="Verdana" size="2"><?php print ("$PrelimOrdered"); ?></font></td>
+       <td height="20" colspan="2" width="132" align='middle' bgcolor="#EBF5F5"><font face="Verdana" size="2"><?php print ("$PrelimReceived"); ?></font></td>
+       <td height="20" colspan="2" width="95" bgcolor="#EBF5F5"></td>
+       <td height="20" width="56" bgcolor="#EBF5F5"></td>
+       </tr>
+      <tr>
+       <td height="20" align="right" width="100" bgcolor="#EBF5F5"></td>
+       <td height="20" colspan="2" align="right" width="142" bgcolor="#EBF5F5"><font size="2"
+        face="Verdana"><b>Appraisal:</b></font></td>
+       <td height="20" width="125" align='middle' bgcolor="#EBF5F5"><font face="Verdana" size="2"><?php print ("$AppraisalOrdered"); ?></td>
+       <td height="20" colspan="2" width="132" align='middle' bgcolor="#EBF5F5"><font face="Verdana" size="2"><?php print ("$AppraisalReceived"); ?></font></td>
+       <td height="20" colspan="2" width="95" bgcolor="#EBF5F5"></td>
+       <td height="20" width="56" bgcolor="#EBF5F5"></td>
+      </tr>
+      <tr>
+       <td height="20" align="right" width="100" bgcolor="#EBF5F5"></td>
+       <td height="20" colspan="2" align="right" width="142" bgcolor="#EBF5F5"></td>
+       <td height="20" width="125" align='middle' bgcolor="#EBF5F5"></td>
+       <td height="20" colspan="2" width="132" align='middle' bgcolor="#EBF5F5"></td>
+       <td height="20" colspan="2" width="95" bgcolor="#EBF5F5"></td>
+       <td height="20" width="56" bgcolor="#EBF5F5"></td>
+      </tr>
+      <tr>
+       <td width="100" height="20" bgcolor="#000099">&nbsp;</td>
+       <td width="59" height="20" bgcolor="#000099">&nbsp;</td>
+       <td width="85" height="20" bgcolor="#000099">&nbsp;</td>
+       <td width="125" height="20" bgcolor="#000099">
+        <p style="background-color: #000099; color: #FFFFFF; font-size: medium; 
+       		font-family: Verdana, Arial, Helvetica; text-decoration: none; text-align: right"><b>Loan History</b></font></td>
+       <td width="72" height="20" bgcolor="#000099">&nbsp;</td>
+       <td width="50" height="20" bgcolor="#000099">&nbsp;</td>
+       <td width="95" height="20" bgcolor="#000099">&nbsp;</td>
+       <td width="66" height="20" bgcolor="#000099" colspan="2">&nbsp;</td>
+      </tr>
+      <tr>
+       <td width="169" height="20" align="right" colspan="2" bgcolor="#EBF5F5"></td>
+       <td width="85" height="20" bgcolor="#EBF5F5"></td>
+       <td width="207" height="20" colspan="2" align="right" bgcolor="#EBF5F5"></td>
+       <td width="155" height="20" colspan="2" bgcolor="#EBF5F5"></td>
+       <td height="20" colspan="2" width="66" bgcolor="#EBF5F5"></td>
+      </tr>
+      <tr>
+       <td width="169" height="20" align="right" colspan="2" bgcolor="#EBF5F5"><font size="2"
+        face="Verdana"><b>Application Received:</b></font></td>
+       <td width="85" height="20" bgcolor="#EBF5F5"><font size="2" face="Verdana"><?php print ("$ApplicationDate"); ?></font></td>
+       <td width="207" height="20" bgcolor="#EBF5F5" colspan="2" align="right"><font size="2"
+        face="Verdana"><b>Submitted to Underwriting:</b></font></td>
+       <td width="155" height="20" bgcolor="#EBF5F5" colspan="2"><font size="2" face="Verdana"><?php print ("$SubmittedToUnderwriting"); ?></font></td>
+       <td height="20" colspan="2" bgcolor="#EBF5F5" width="66"></td>
+      </tr>
+      <tr>
+       <td width="169" height="20"  bgcolor="#EBF5F5"align="right" colspan="2"><font size="2"
+        face="Verdana"><b>Loan Approved:</b></font></td>
+       <td width="85" height="20" bgcolor="#EBF5F5"><font size="2" face="Verdana"><?php print ("$ApprovalDate"); ?></font></td>
+       <td width="207" height="20" bgcolor="#EBF5F5" colspan="2" align="right"><font size="2"
+        face="Verdana"><b>Documents Ordered:</b></font></td>
+       <td width="155" height="20" bgcolor="#EBF5F5" colspan="2"><font size="2" face="Verdana"><?php print ("$DocsOrderedDate"); ?></font></td>
+       <td height="20" colspan="2" bgcolor="#EBF5F5" width="66"></td>
+      </tr>
+      <tr>
+       <td width="169" height="20" bgcolor="#EBF5F5" align="right" colspan="2"><font size="2"
+        face="Verdana"><b>Loan Funded:</b></font></td>
+       <td width="85" height="20" bgcolor="#EBF5F5"><font size="2" face="Verdana"><?php print ("$LoanFundingDate"); ?></font></td>
+       <td width="207" height="20" bgcolor="#EBF5F5" colspan="2" align="right"><font size="2"
+        face="Verdana"><b>Loan Closed:</b></font></td>
+       <td width="155" height="20" bgcolor="#EBF5F5" colspan="2"><font size="2" face="Verdana"><?php print ("$LoanClosed"); ?></font></td>
+       <td height="20" colspan="2" bgcolor="#EBF5F5" width="66"></td>
+      </tr>
+      <tr>
+       <td width="169" height="20" bgcolor="#EBF5F5" align="right" colspan="2"></td>
+       <td width="85" height="20" bgcolor="#EBF5F5"></td>
+       <td width="207" height="20" bgcolor="#EBF5F5" colspan="2" align="right"></td>
+       <td width="155" height="20" bgcolor="#EBF5F5" colspan="2"></td>
+       <td height="20" colspan="2" bgcolor="#EBF5F5" width="66"></td>
+      </tr>
+     </table>
+    </div>
+   </center>
+   </td>
+  </tr>
+ </table>
+</div>
+<p style="position: absolute; top: 115; left: 142; width: 756; height: 18"></p><!--msnavigation--></td></tr><!--msnavigation--></table><!--msnavigation--><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td>
+
+<!-- - - - - - - - - - - - - Beginning Of Common Footer - - - - - - - - - - - - - - - - -->
+
+
+  <div align="center">
+
+   <center>
+
+   <table border="1" cellpadding="2" bordercolor="#000099" width="720"
+
+   cellspacing="0" height="100" bgcolor="#FFFFFF">
+
+    <tr>
+
+     <td bgcolor="#000099" height="1">
+
+
+
+&nbsp;
+
+
+
+     </td>
+
+    </tr>
+
+    <tr>
+
+     <td height="97">
+
+
+
+  <div align="center">
+
+
+
+  <table cellspacing="0" cellpadding="0" height="118" width="712">
+
+  <tr>
+
+
+
+    <td height="69" valign="middle" align="center" rowspan="4" width="88">
+
+<a href="Guarantee.htm"><img border="0" src="../images/guarantee.jpg" width="69"
+
+height="79" alt="Lightning Mortgage Financing Guarantee"></a>
+
+
+
+</td>
+
+
+
+		<td height="18" valign="top" align="center" width="620">
+		
+		<p class="CenterSmall">
+
+       <a href="index.htm">Home</a>&nbsp;| 
+		<a href="LoanAppShort.htm">Apply Now</a>&nbsp;| 
+		<a href="OrderCreditDirect.htm">Order Credit</a>&nbsp;|
+       <a href="LoanTypes.htm">Loan Types</a>&nbsp;|
+       <a href="InterestRates.htm">Interest Rates</a>&nbsp;|
+       <a href="Documentation.htm">Documents</a>&nbsp;| 
+       <a href="FAQ.htm">FAQ</a> |
+       <a href="ContactUs.htm">Contact</a></p>
+
+	</td>
+
+  </tr>
+
+  <tr>
+
+
+
+   <td height="18" valign="top" align="center" width="620">
+
+        <p class="CenterSmall">
+
+        <a href="SiteMap.htm">Site Map</a> | 
+        <a href="Calculators.htm">Calculators</a>&nbsp;|
+        <a href="Glossary.htm">Glossary</a>&nbsp;|
+        <a href="RebateRequest.htm">Instant Cash</a>&nbsp;|
+        <a href="CreditScores.htm">Credit Scores</a>&nbsp;|
+        <a href="PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+        <a href="Legal.htm">Legal</a> | 
+        <a href="AffiliateLinks.htm">Affiliates</a></p>
+
+	</td>
+
+
+
+  </tr>
+
+   </center>
+
+  <tr>
+
+
+
+    <td height="17" valign="top" align="center">
+
+      <p class="CenterSmall">&copy; 2003 Lightning Mortgage - Last Updated: October 2003</p></td></tr>
+
+   <center>
+
+      <tr><td width="620" height="16">
+        <p class="CenterSmall">Click on <a href="Feedback.htm">feedback</a> or call (866) 822-8500 for assistance</p>
+
+</td>
+
+
+
+  </tr>
+
+  <tr>
+
+
+
+    <td height="29" valign="middle" align="center" width="710" colspan="2">
+
+
+
+       <p class="CenterSmall">This Website is NOT intended as a solicitation to customers in any
+
+       jurisdiction in which we are not authorized to operate.
+
+
+
+</td>
+
+
+
+  </tr>
+
+</table>
+
+
+
+  </div>
+
+
+
+     </td>
+
+    </tr>
+
+   </table>
+
+  </div>
+
+
+
+</td></tr><!--msnavigation--></table></body>
+</html>

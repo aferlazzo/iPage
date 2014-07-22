@@ -1,0 +1,65 @@
+<!-- JustHost NEW ./include/top-root.php is a copy of the contents ./include/top.php with the directory levels changed-->
+<div class="Top">
+	<div id='TipTop'>
+		<img id='logo' src='../images/sprites.png'>
+		<a class="Logo" onfocus="if(this.blur) this.blur();" href="../index.php"
+		alt="Lightning Mortgage" title="Lucio is in the house!"></a>
+	</div><!--TipTop-->		
+	<div id="MSborder">
+		 <div id="Inside">
+				<a id='Inside' href="../Answers/MortgageInsiderSecrets.php" 
+				title='Sign-up'>Mortgage Insider Secrets</a>
+		 </div>
+	</div>
+	<noscript>
+	<!--
+	<p style="text-align:center;border:5px dotted #fff;font-size:large;color:#fff;">
+	<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+	This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+	//-->
+	</noscript>
+	<br style="clear:both;"> <!-- tabs here -->
+	<div id="TabDiv">
+		<div id="navTab">
+			<ul id='nav-list'>
+				<li id='Index'><a href='../index.php'>Home</a></li>
+				<li id='ApplyNow'><a href='../MortgageApplication/LoanAppShort.php'>Apply Now</a></li>
+				<li id='Answers'><a href='../Answers.php'>Loan Process</a></li>
+				<li id='CreditScores'><a href='../CreditScores.php'>Credit Scores</a></li>
+				<li id='LoanTypes'><a href='../LoanTypes.php'>Loan Types</a></li>
+				<li id='InterestRates'><a href='../InterestRates.php'>Interest Rates</a></li>
+			</ul>
+		</div><!--navTab-->
+	</div><!-- TabDiv-->
+</div><!--Top-->
+
+<div class="TopFrame">
+	<div class="TFL"></div>
+	<div id='BelowTabs'>
+		<a href="../Administrative/Feedback.php" title="Ask questions and give us feedback"
+		class="Top">Questions?</a>&nbsp;|
+		<a href="../Administrative/AboutUs.php" title="About Us"
+		class="Top">About</a>&nbsp;|
+		<a href="../Administrative/ContactUs.php" title="How to contact us"
+		class="Top">Contact</a>&nbsp;|
+		<a href="#" title="opens a new window" onclick="if (window.MapWindow) window.MapWindow.close();MapWindow=open('../Administrative/WhereWeLend.php',
+			'pcalculator','height=520,width=600,top=0,left=0,alwaysRaised=yes,resizable=no,scrollbars=no,menubar=no,titlebar=yes,toolbar=no, scroll=yes');"
+		class="Top">Where We Lend</a><img id='NewWindow' src="../images/sprites.png" alt="opens new window">
+	</div> <!-- BelowTabs -->
+	<div class="TFR">
+		<form style="margin:0;" action="http://www.google.com/cse" id="cse-search-box">
+			<input type="hidden" name="cx" value="004479662315342353177:6xh8ho2tt9s" />
+			<input type="hidden" name="ie" value="utf-8" />
+			<input type="text" name="q" style="font-size:x-small;width:100px;height:14px;margin-top:1px;border:silver;" />
+			<input type="submit" class="Submit" name="sa" value="Search" style="margin-top:1px;"
+				onMouseover="this.style.cursor='pointer';this.style.color='#009';this.style.background='#fff';"
+				onMouseout="this.style.color='#fff';this.style.background='transparent';">
+		</form>
+	</div><!--TFR-->
+</div>
+
+<div class="Main">
+	<div id="ContentBackground">
+		<div id='TopLeftCorner'></div><div id='TopFrame'></div><div id='TopRightCorner'></div><br style='clear:left;'>
+		<div id="ContentDIV">
+<!-- TopFrame -->

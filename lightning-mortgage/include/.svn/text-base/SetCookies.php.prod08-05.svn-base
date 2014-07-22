@@ -1,0 +1,200 @@
+<?php
+
+// puts every part of the name in the correct case
+
+function FormatNames()
+{
+	global $ApplicantName;
+	global $ApplicantFirstName;
+	global $ApplicantLastName;
+	global $Co_ApplicantName;
+	global $Co_ApplicantFirstName;
+	global $Co_ApplicantLastName;
+
+	// -*-*-*-*- Separate the first/middle name from the last name for applicant -*-*-*-*-*-*-
+
+	$ApplicantName = strtolower($ApplicantName); // james r. cleaver iii | james cleaver iii
+	$ApplicantName = ucwords($ApplicantName);	// James R. Cleaver Iii | James Cleaver Iii
+
+	$Co_ApplicantName = strtolower($Co_ApplicantName);
+	$Co_ApplicantName = ucwords($Co_ApplicantName);
+
+	$ApplicantFirstName = strtok($ApplicantName, " "); //everything up to the space //James
+	$ApplicantLastName = substr ($ApplicantName, strlen($ApplicantFirstName) + 1, 30); //R. Cleaver Iii | Cleaver Iii
+
+	$Middle = strtok(trim($ApplicantLastName), " "); //" R." | "Cleaver"
+	//print ("Line ".__LINE__." ApplicantLastName =:$ApplicantLastName: ApplicantFirstName =:$ApplicantFirstName: Middle = :$Middle:<br>\n");
+
+	if ($Middle != $ApplicantLastName)  // "R." != "R. Cleaver Iii" | "Cleaver" != "Cleaver Iii"
+	{
+		$xxx = substr ($ApplicantLastName, strlen($Middle) + 1, 30); // "Cleaver Iii" | "Iii"
+		$ApplicantLastName = $xxx; // "Cleaver Iii" | "Iii"
+
+		if (($ApplicantLastName == "I") || ($ApplicantLastName == "Ii") || ($ApplicantLastName == "Iii") || ($ApplicantLastName == "Iv"))
+		{
+			$xxx = strtoupper($ApplicantLastName); //III
+			print ("going up: $xxx ");
+			$ApplicantLastName = $Middle." ".$xxx ;
+			$Middle = "";
+		}
+		else
+		{
+			$xxx = strtok ($ApplicantLastName, " "); //everything up to the space //"Cleaver"
+			$yyy = substr ($ApplicantLastName, strlen($xxx) + 1, 30); // "Iii"
+			$ApplicantLastName = $xxx." ".strtoupper($yyy);	// "Cleaver III"
+		}
+
+		$xxx = $ApplicantFirstName." ".$Middle;  // put first & middle together
+		$ApplicantFirstName = trim($xxx);	//"James R."
+	}
+
+	//print ("LastName |$ApplicantLastName|<br>\n");
+
+	if (substr ($ApplicantLastName,0,2) == "Mc")
+	{
+		$aaa = substr ($ApplicantLastName, 2, 1);
+		$McLetter = strtoupper($aaa);
+		$bbb = substr ($ApplicantLastName, 3, 30);
+		//die ("|$McLetter|$bbb|");
+		$xxx = "Mc".$McLetter.$bbb;
+		$ApplicantLastName = $xxx;
+	}
+
+	$ApplicantName = trim($ApplicantFirstName)." ".$ApplicantLastName;
+
+	//die ("Line ".__LINE__." ApplicantName = :$ApplicantName: ApplicantLastName =:$ApplicantLastName: ApplicantFirstName =:$ApplicantFirstName: Middle = :$Middle:<br>\n");
+
+	// -*-*-*-*- Separate the first/middle name from the last name for co-applicant -*-*-*-*-*-*-
+
+
+	$Co_ApplicantFirstName = strtok($Co_ApplicantName, " "); //everything up to the space //James
+	$Co_ApplicantLastName = substr ($Co_ApplicantName, strlen($Co_ApplicantFirstName) + 1, 30); //R. Cleaver Iii | Cleaver Iii
+
+	$Middle = strtok(trim($Co_ApplicantLastName), " "); //" R." | "Cleaver"
+	//print ("Line ".__LINE__." Co_ApplicantLastName =:$Co_ApplicantLastName: Co_ApplicantFirstName =:$Co_ApplicantFirstName: Middle = :$Middle:<br>\n");
+
+	if ($Middle != $Co_ApplicantLastName)  // "R." != "R. Cleaver Iii" | "Cleaver" != "Cleaver Iii"
+	{
+		$xxx = substr ($Co_ApplicantLastName, strlen($Middle) + 1, 30); // "Cleaver Iii" | "Iii"
+		$Co_ApplicantLastName = $xxx; // "Cleaver Iii" | "Iii"
+
+		if (($Co_ApplicantLastName == "I") || ($Co_ApplicantLastName == "Ii") || ($Co_ApplicantLastName == "Iii") || ($Co_ApplicantLastName == "Iv"))
+		{
+			$xxx = strtoupper($Co_ApplicantLastName); //III
+			print ("going up: $xxx ");
+			$Co_ApplicantLastName = $Middle." ".$xxx ;
+			$Middle = "";
+		}
+		else
+		{
+			$xxx = strtok ($Co_ApplicantLastName, " "); //everything up to the space //"Cleaver"
+			$yyy = substr ($Co_ApplicantLastName, strlen($xxx) + 1, 30); // "Iii"
+			$Co_ApplicantLastName = $xxx." ".strtoupper($yyy);	// "Cleaver III"
+		}
+
+		$xxx = $Co_ApplicantFirstName." ".$Middle;  // put first & middle together
+		$Co_ApplicantFirstName = trim($xxx);	//"James R."
+	}
+
+	if (substr ($Co_ApplicantLastName,0,2) == "Mc")
+	{
+		$aaa = substr ($Co_ApplicantLastName, 2, 1);
+		$McLetter = strtoupper($aaa);
+		$bbb = substr ($Co_ApplicantLastName, 3, 30);
+		//die ("In FormatNames() Line ".__LINE__." Mc|$McLetter|$bbb|");
+		$xxx = "Mc".$McLetter.$bbb;
+		$Co_ApplicantLastName = $xxx;
+	}
+
+	$Co_ApplicantName = trim($Co_ApplicantFirstName)." ".$Co_ApplicantLastName;
+
+	//print ("Co_ApplicantLastName =:$Co_ApplicantLastName: Co_ApplicantFirstName =:$Co_ApplicantFirstName: Middle = :$Middle:<br>\n");
+}
+
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -*/
+/*																							*/
+/*	SetCookies: Cookies must be set prior to any displaying table							*/
+/*																							*/
+/*  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -*/
+
+function SetCookies ()
+{
+	global $UserName;
+	global $Password;
+	global $SortColumn;
+	global $SearchTerm;
+	global $SavedFilter;
+
+
+	//die("ending now: SavedFilter=$SavedFilter, UserName=$UserName, Password=$Password");
+
+	if (!isset($SortColumn))	//if 'SortColumn' variable not set, make it so...
+	{
+		print("<script language='Javascript'>document.cookie='SortColumn=ApplicantName';</script>");
+
+		//print("Inside SetCookies (), line ".__LINE__." Setting SortColumn cookie to 'ApplicantName'<br>\n");
+		$SortColumn='ApplicantName';
+	}
+	else
+	{
+		//print("Inside SetCookies (), line ".__LINE__." SortColumn cookie previously set to |$SortColumn|<br>\n");
+	}
+
+
+	if (!isset($SavedFilter))  //if 'SavedFilter' variable not set, make it so...
+	{
+		print("<script language='Javascript'>document.cookie='SavedFilter=Active';</script>");
+
+		//print("Inside SetCookies (), line ".__LINE__." Setting SavedFilter cookie to 'Active'<br>\n");
+		$SavedFilter='All';
+	}
+	else
+	{
+		//print("Inside SetCookies (), line ".__LINE__." SavedFilter cookie previously set to |$SavedFilter|<br>\n");
+	}
+
+
+	if (!isset($SearchTerm))	//if 'SearchTerm' variable not set, make it so...
+	{
+		print("<script language='Javascript'>document.cookie='SearchTerm=$SearchTerm';</script>");
+
+		//print("Inside SetCookies (), line ".__LINE__." Setting SearchTerm cookie to ''<br>\n");
+		$SearchTerm='';
+	}
+	else
+	{
+		//print("Inside SetCookies (), line ".__LINE__." SearchTerm cookie previously set to |$SearchTerm|<br>\n");
+	}
+
+
+
+
+	if (isset($_POST[SortColumn]))
+	{
+		$SortColumn = eregi_replace("\+", " ", $_POST[SortColumn]);
+		print("<script language='Javascript'>document.cookie='SortColumn=$SortColumn';</script>");
+
+		//print("Inside SetCookies (), line ".__LINE__." SortColumn set with POST parameter to |$SortColumn|<br>\n");
+	}
+
+
+
+	if (isset($_POST[SavedFilter]))
+	{
+		$SavedFilter = eregi_replace("\+", " ", $_POST[SavedFilter]);
+		print("<script language='Javascript'>document.cookie='SavedFilter=$SavedFilter';</script>");
+
+		//print("Inside SetCookies (), line ".__LINE__." SavedFilter set with POST parameter to |$SavedFilter|<br>\n");
+	}
+
+
+
+	if (isset($_POST[SearchTerm])) //if on cmd line, get the new search term
+	{
+		$SearchTerm=$_POST[SearchTerm];
+		print("<script language='Javascript'>document.cookie='SearchTerm=$SearchTerm';</script>");
+
+		//print("Inside SetCookies (), line ".__LINE__." SearchTerm set with POST parameter to |$SearchTerm|<br>\n");
+	}
+}
+?>

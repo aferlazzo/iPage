@@ -1,0 +1,416 @@
+<html>
+	<head>
+		<title><$BlogPageTitle$></title>
+		<style type="text/css">
+			body{margin:0px;padding:0px;background:#f6f6f6;color:#000000;font-family:"Trebuchet MS",Trebuchet,Verdana,Sans-Serif;}
+			a{color:#DE7008;}
+			a:hover{color:#E0AD12;}
+			#logo{padding:0px;margin:0px;}
+			div#mainClm{float:right;width:66%;padding:30px 7% 10px 3%;border-left:dotted 1px #E0AD12;}
+			div#sideBar{margin:20px 0px 0px 1em;padding:0px;text-align:left;}
+			#header{padding:0px 0px 0px 0px;margin:0px 0px 0px 0px;border-top:1px solid #eeeeee;border-bottom:dotted 1px #E0AD12;background:#F5E39E;color:white;}
+			h1,h2,h3,h4,h5,h6{padding:0px;margin:0px;}
+			h1 a:link {text-decoration:none;color:#F5DEB3}
+			h1 a:visited {text-decoration:none;color:#F5DEB3}
+			h1{padding:25px 0px 10px 5%;border-top:double 3px #BF5C00;border-bottom:solid 1px #E89E47;color:#F5DEB3;background:#DE7008;font:bold 300% Verdana,Sans-Serif;letter-spacing:-2px;}
+			h2{color:#9E5205;font-weight:bold;font-family:Verdana,Sans-Serif;letter-spacing:-1px;}
+			h3{margin:10px 0px 0px 0px;color:#777777;font-size:105%;}
+			h4{color:#aa0033;}
+			h6{color:#B8A80D;font-size:140%;}
+			h2.sidebar-title{color:#B8A80D;margin:0px;padding:0px;font-size:120%;}
+			#sideBar ul{margin:0px 0px 33px 0px;padding:0px 0px 0px 0px;list-style-type:none;font-size:95%;}
+			#sideBar li{margin:0px 0px 0px 0px;padding:0px 0px 0px 0px;list-style-type:none;font-size:95%;}
+			#description{padding:0px;margin:7px 12% 7px 5%;color:#9E5205;background:transparent;font:bold 85% Verdana,Sans-Serif;}
+			.blogPost{margin:0px 0px 30px 0px;font-size:100%;}
+			.blogPost strong{color:#000000;font-weight:bold;}
+			#sideBar ul a{padding:2px;margin:1px;width:100%;border:none;color:#999999;text-decoration:none;}
+			#sideBar ul a:link{color:#999999;}
+			#sideBar ul a:visited{color:#999999;}
+			#sideBar ul a:active{color:#ff0000;}
+			#sideBar ul a:hover{color:#DE7008;text-decoration:none;}
+			pre,code{color:#999999;}
+			strike{color:#999999;}
+			.bug{padding:5px;border:0px;}
+			.byline{padding:0px;margin:0px;color:#444444;font-size:80%;}
+			.byline a{border:none;color:#968A0A;text-decoration:none;}
+			.byline a:hover{text-decoration:underline;}
+			.blogComments{padding:0px;color:#9E5205;font-size:110%;font-weight:bold;font-family:Verdana,Sans-Serif;}
+			.blogComment{margin-top:10px;font-size:100%;font-weight:normal;color:black;}
+			.blogComments .byline{padding-bottom:20px;color:#444444;font-size:80%;font-weight:normal;display:inline;margin-right:10px}
+            .deleted-comment {font-style:italic;color:gray;}
+			#profile-container { }
+			.profile-datablock { }
+			.profile-img {display:inline;}
+			.profile-img img {float:left;margin-right:5px;}
+			.profile-data strong { }
+			#profile-container p { }
+			#profile-container .profile-textblock { }
+            .profile-link a:link {color:#999999;text-decoration:none;}
+            .profile-link a:active {color:#ff0000;text-decoration:none;}
+            .profile-link a:visited {color:#999999;text-decoration:none;}
+			.profile-link a:hover{color:#DE7008;text-decoration:none;}
+
+div.Top{
+position:absolute;
+top:0;
+left:0;
+text-align:center;
+vertical-align:top;
+margin:0;
+width:100%;
+padding:0;
+background:url("../images/TopGradiant.gif")  repeat-x;
+height:150px;
+z-index:3;
+}
+div.TopFrame{
+position:absolute;
+top:144px;
+z-index:3;
+left:0;
+text-align:center;
+padding:0;
+width:100%;
+color:#fff;
+font-size:medium;
+font-weight:bold;
+background:url("../images/IndexFrame.gif") repeat-x;
+}
+div.TFL,div.TFR{
+color:#fff;
+height:34px;
+background:inherit;
+}
+div.TFL{
+padding-top:8px;
+margin-right:1em;
+text-align:right;
+font:small normal Verdana, Arial, Helvetica, sans-serif;
+}
+div.TFR{
+float:right;
+text-align:center;
+width:25%;
+padding:2px 5em;
+}
+a.Top,a.Top:visited{
+text-align:center;
+font-weight:bold;
+font-size:x-small;
+color:#fff;
+border-bottom:none;
+}
+a.Logo{
+text-align:center;
+text-decoration:none;
+vertical-align:middle;
+width:16em;
+height:25px;
+border-bottom:none;
+}
+#TabHeader {
+font-size:75%;
+line-height:normal;
+width:760px;
+margin:auto;
+}
+#TabHeader ul {
+margin:0;
+padding:0 10px 0;
+list-style:none;
+}
+#TabHeader li {
+float:left;
+background:url("../images/TabsAllLeft.gif") no-repeat left top;
+margin:0;
+padding:0 0 0 20px;
+border-bottom:0 solid black;
+}
+#TabHeader a{
+float:left;
+display:block;
+width:0.1em;
+background:url("../images/TabsAllRight.gif") no-repeat right top;
+padding:5px 20px 4px 6px;
+text-decoration:none;
+border-bottom:none;
+font-weight:bold;
+color:#fff;
+font-family:Verdana,Arial,Helvetica,sans-serif;
+white-space:nowrap;
+}
+#TabHeader > ul a {width:auto;}
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+
+/*test #TabHeader a {float:none;}*/
+
+/* End IE5-Mac hack */
+#TabHeader a:hover {
+color:#333;
+}
+#TabHeader #IndexTab-nav{
+background-position:0 0;/* left stacked tab colors */
+border-width:0;
+}
+#TabHeader #IndexTab-nav a{
+background-position:100% 0;/* right stacked tab colors */
+padding-bottom:5px;
+}
+#TabHeader #LoanAppTab-nav{
+background-position:0 -75px;/* left stacked tab colors */
+border-width:0;
+}
+#TabHeader #LoanAppTab-nav a{
+background-position:100% -75px;/* right stacked tab colors */
+padding-bottom:5px;
+}
+#TabHeader #AnswersTab-nav{
+background-position:0 -150px;/* left stacked tab colors */
+border-width:0;
+}
+#TabHeader #AnswersTab-nav a{
+background-position:100% -150px;/* right stacked tab colors */
+padding-bottom:5px;
+}
+#TabHeader #CreditScoresTab-nav{
+background-position:0 -225px;/* left stacked tab colors */
+border-width:0;
+}
+#TabHeader #CreditScoresTab-nav a{
+background-position:100% -225px;/* right stacked tab colors */
+padding-bottom:5px;
+}
+#TabHeader #LoanTypesTab-nav{
+background-position:0 -300px;/* left stacked tab colors */
+border-width:0;
+}
+#TabHeader #LoanTypesTab-nav a{
+background-position:100% -300px;/* right stacked tab colors */
+padding-bottom:5px;
+}
+#TabHeader #InterestRatesTab-nav {
+background-position:0 -375px;/* left stacked tab colors */
+border-width:0;
+}
+#TabHeader #InterestRatesTab-nav a {
+background-position:100% -375px;/* right stacked tab colors */
+padding-bottom:5px;
+}
+
+
+
+div.Bottom1{
+z-index:5;
+height:34px;
+text-align:center;
+width:100%;
+font: small normal Verdana,Arial,Helvetica,sans-serif;
+color:#fff;
+background:url("../images/BottomBorder.gif")  repeat-x;
+padding-top:7px;
+}
+div.Bottom2{
+z-index:5;
+width:720px;
+margin:0 auto;
+padding:0;
+}
+</style>
+
+		<$BlogMetaData$>
+
+	</head>
+
+<body>
+
+
+<div id="header">
+<!--
+// ./include/top-root.php is a copy of the contents ./include/top.php. It is the
+// web page top border that is inserted in all appropriate .php pages located at
+// the root level of the website. //
+-->
+<div class="Top">
+<div style="float:left;width:8em;height:8em;margin:5px 0 -5px 0;padding:1em 0 0 5em;">
+<a href="http://www.lightning-mortgage.com/Administrative/AboutUs.php" class="Top"><img style="border-color: #e5e5e5" border="1"
+src="../images/Tony-Fran.jpg" width="90" height="80"
+alt="Anthony &amp; Fran Ferlazzo of Lightning Mortgage"
+align="top"><span style="color:#fff;font:xx-small;width:15em;margin-left:-2em;">Anthony &amp; Fran Ferlazzo</span></a>
+</div>
+
+<div style="float:right;width:8em;height:8em;margin:5px 0 -5px 0;padding:1em 5em 0 0;">
+<a href="http://www.lightning-mortgage.com/Answers/MortgageInsiderSecrets.php" class="Top"><img style="border-color: #e5e5e5;"
+width="90" height="83" border="0" src="../images/SecretsSignUp.gif" alt="Lightning Mortgage Insider Secrets"><span style="font-size: xx-small;margin-left:1.5em;width:5em;">Sign up!</span></a><br />&nbsp;
+</div>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+if ((window.location.href.indexOf("index.php")==-1) && (window.location.href!="http:\/\/www.lightning-mortgage.com\/")) /* if NOT on home page, enable link */
+{
+document.write('<a class="Top" style=":visited{border-bottom:none;}"  href="http:\/\/www.lightning-mortgage.com\/">');
+document.write('<img onMouseover=\'this.style.backgroundColor="#ffffff";\' onMouseOut=\'this.style.background="transparent";\' src="..\/images\/Lightning-Mortgage-logo.gif" style="margin-bottom:4px;padding:4px 0 0 0;border:1px dotted #000099;}');
+document.write('alt="Lightning Mortgage - Mortgages, even with Bad Credit"><\/a>');
+}
+else
+{
+document.write('<img src="..\/images\/Lightning-Mortgage-logo.gif" ');
+document.write('alt="Lightning Mortgage - Mortgages, even with Bad Credit" ');
+document.write('style="margin:1px 0 2px 0;padding:4px 0 2px 0;border:none;">');
+}
+//-->
+</script>
+<br />
+<span style="color: #FFFFFF;">
+<a  href="http://www.lightning-mortgage.com/Blog/"
+class="Top"><span style="font-size: xx-small;">My Mortgage Blog</span></a>
+&nbsp;|&nbsp;
+<a  href="http://www.lightning-mortgage.com/Administrative/Feedback.php"
+class="Top"><span style="font-size: xx-small;">Questions?</span></a>
+&nbsp;|&nbsp;
+<a  href="http://www.lightning-mortgage.com/Administrative/AboutUs.php"
+class="Top"><span style="font-size: xx-small;">About</span></a>
+&nbsp;|&nbsp;
+<a  href="http://www.lightning-mortgage.com/Administrative/ContactUs.php"
+class="Top"><span style="font-size: xx-small;">Contact</span></a>
+&nbsp;|&nbsp;
+<a  href="http://www.lightning-mortgage.com/Administrative/RecommendSite.php"
+class="Top"><span style="font-size: xx-small;">Recommend Site</span></a>
+&nbsp;</span> <!-- end of white '|' -->
+
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+  // don't do on Macintoshes, Netscape, Opera
+ var ns_lightning = document.layers || navigator.userAgent.toLowerCase().indexOf("mac") != -1;
+
+  if (!ns_lightning) // see common.js for definition of veriable
+  {
+  var sText = '<span style="color: #FFFFFF;">|&nbsp;&nbsp;<\/span><a class="Top"  ';
+  sText += 'href="javascript:AddFavorite()"><span style="font-size: xx-small;">Add to Favorites<\/span><\/a>';
+  document.write(sText);
+  }
+//-->
+</SCRIPT>
+<noscript>
+<p style="text-align: center; border-width: 5px; border-style: dotted; border-color: #ffffff; font-size: large; color: #ffffff;">
+<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+</noscript>
+<br style="clear:both;">
+<div style="position:absolute;top:122px;left:0;text-align:center;width:100%;height:34px;">
+<div id="TabHeader">
+<script language="JavaScript" type="text/javascript">
+<!--
+if (window.location.href.indexOf("\/Index\/")==-1)
+document.write('<ul><li id="IndexTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/index.php">Home<\/a><\/li>');
+else
+document.write('<ul><li id="IndexTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/index.php">To Home<\/a><\/li>');
+
+document.write('<li id="LoanAppTab-nav"><a href="https:\/\/host373.ipowerweb.com\/~lightnin\/MortgageApplication\/LoanAppShort.php">Apply Now<\/a><\/li>');
+
+if (window.location.href.indexOf("\/Answers\/")==-1)
+document.write('<li id="AnswersTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/Answers.php">Our Loan Process<\/a><\/li>')
+else
+document.write('<li id="AnswersTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/Answers.php">More on Our Loan Process<\/a><\/li>')
+
+if (window.location.href.indexOf("\/CreditScores\/")==-1)
+document.write('<li id="CreditScoresTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/CreditScores.php">Credit Scores<\/a><\/li>');
+else
+document.write('<li id="CreditScoresTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/CreditScores.php">More on Credit Scores<\/a><\/li>');
+
+if (window.location.href.indexOf("\/LoanTypes\/")==-1)
+document.write('<li id="LoanTypesTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/LoanTypes.php">Loan Types<\/a><\/li>');
+else
+document.write('<li id="LoanTypesTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/LoanTypes.php">More on Loan Types<\/a><\/li>');
+
+if (window.location.href.indexOf("\/InterestRates\/")==-1)
+document.write('<li id="InterestRatesTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/InterestRates.php">Interest Rates<\/a><\/li>');
+else
+document.write('<li id="InterestRatesTab-nav"><a href="http:\/\/www.lightning-mortgage.com\/InterestRates.php">More on Interest Rates<\/a><\/li><\/ul>');
+//-->
+</SCRIPT>
+</div>
+</div><!-- Top -->
+</div>  <!-- ContactDIV -->
+<div class="TopFrame">
+<div class="TFR">
+</div>
+<div class="TFL">
+</div>
+gggggggggggggggggggggggggggggggggg
+<br style="clear:both;">
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+<br style="clear:both;" />
+
+<div class="Bottom1">
+<div style="z-index:6;float:left;text-align:left;margin-left:8%;margin-right:10%;">
+<form style="margin:0;" name="Atomz" method="get" onsubmit="return isBlank();" action="http://search.atomz.com/search/">
+<input type="hidden" name="sp-a" value="sp1002b74c">
+<input type="text" style="background-color: #e5e5e5; color: #000080; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small;"
+value="Your search word(s)" onfocus="this.value=''" size="20" name="sp-q">
+<input type="hidden" name="sp-p" value="all">
+<input type="hidden" name="sp-f" value="ISO-8859-1">
+<input style="background-color: #009; color: #ffffff; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small"
+type="submit" class='Submit' value="Search Site" title="Search this web site"></form>
+</div> <!-- end of (left) search z-index 6 DIV -->
+<div style="z-index:6; float:right; text-align:left; margin-right:8%;">
+</div>  <!-- end of (right) date z-index 6 DIV -->
+</div>  <!-- end of Bottom1 DIV -->
+<div class="Bottom2">
+<div style="z-index: 6; text-align: center;">
+
+<div style="float:left;vertical-align:middle;text-align:center;width:92px;height:7em;">
+<a href="../Administrative/Guarantee.php"><img border="0"
+onMouseover='this.style.background="#ffffff";' onMouseOut='this.style.background="transparent";'
+src="../images/guarantee88w91h.gif" width="88" height="91" alt="Lightning Mortgage Financing Guarantee"></a>
+</div>
+<div style="float:left;text-align:center;width:553px;height:7em;">
+<a href="http://www.lightning-mortgage.com">Home</a>&nbsp;|
+<a href="https://lightning-mortgage.ipower.com/MortgageApplication/LoanAppShort.php">Apply Now</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/MortgageApplication/OrderCreditDirect.php">Order Credit</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/LoanTypes.php">Loan Types</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Answers/Documentation.php">Documents</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/BusinessPractices.php">Our Meeting</a><br /><br />
+
+<a href="../Administrative/SiteMap.php">Site Map</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/Calculators.php">Calculators</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Answers/GlossaryAD.php">Glossary</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/CreditScores.php">Credit Scores</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/PrivacyPolicy.php">Privacy Policy</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/Legal.php">Legal</a>&nbsp;|
+<a href="http://www.lightning-mortgage.com/Administrative/AffiliateLinks.php">Affiliates</a><br /><br />
+
+<p class="CenterSmall">Click on <a
+href="http://www.lightning-mortgage.com/Administrative/Feedback.php">feedback</a> or call (866) 822-8500 for assistance - Last
+Updated:
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+var lastMod = new Date(document.lastModified);
+var MM = lastMod.getMonth() + 1;
+var DD = lastMod.getDate();
+document.write(MM+"\/"+DD+"\/"+lastMod.getFullYear());
+//-->
+</script>
+</p>
+</div>
+<div style="float:left;vertical-align:middle;text-align:center;width:72px;height:7em;">
+<a href="../Administrative/UpfrontMortgageBroker.php">
+<img onMouseover='this.style.backgroundColor="#ffffff";' onMouseOut='this.style.background="transparent";'
+border="0" src="../images/UMB1.gif" alt="I am an Upfront Mortgage Broker &reg;" width="68" height="85"></a>
+</div>
+<br style="clear:both;"><hr style="width: 100%;">
+<p class="CenterSmall" style="margin:0;">This Website is NOT intended as a solicitation to customers in any jurisdiction in which we
+are not authorized to operate.<br /><br />
+
+&copy; Lightning Mortgage 2002-2005 All Rights Reserved. No part of this website may be
+reused commercially without the expressed<br />written consent of Lightning Mortgage.
+This site is directed at, and made available to, persons in the continental U.S., Alaska and Hawaii only.</p>
+
+<hr style="width:100%;">
+
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

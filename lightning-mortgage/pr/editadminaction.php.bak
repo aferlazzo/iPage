@@ -1,0 +1,102 @@
+<?php
+/*
+	Edit Admin Action
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Perfect Response Edit Admin Action</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css" media="screen">
+@import "PerfectResponse.css";
+</style>
+<?php
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =//
+//																					//
+// editadminaction.php: This script changes passwords and clones demo campaign for 	//
+// new users																		//
+//																					//
+// = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =//
+?>
+</HEAD>
+<body onload="window.document.CloneIt.Submit.focus();">
+
+<div class="content">
+<div class="title"> 
+<table summary="">
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+</div>
+
+<?php
+include("check1.php");
+Include("conn.php");
+//$WithinScript = "I am embedded in another script";
+//include("settings.php");
+
+$user = $_COOKIE["UName"];
+if (($user == "admin") && ($adminname != "admin"))
+{
+  $strSQL  = "Insert admin set adminname='$adminname', adminpwd='$adminpwd',";
+  $strSQL .= "arurl='$arurl',perlpath='$perlpath',adminemail='$adminemail',";
+  $strSQL .= "manarid='$manarid',ActivityLogging='$ActivityLogging',Ad='$Ad'";
+}
+else
+{
+  $strSQL  = "Update admin set adminname='$adminname', adminpwd='$adminpwd',";
+  $strSQL .= "arurl='$arurl',perlpath='$perlpath',adminemail='$adminemail',";
+  $strSQL .= "manarid='$manarid',ActivityLogging='$ActivityLogging',Ad='$Ad' where adminname='$adminname'";
+}
+$result = mysql_query($strSQL, $link); 
+
+if (!$result) 
+{
+	die("<b>Unable to update record for User '$adminname'");
+}	
+else
+{
+if (($user == "admin") && ($adminname != "admin")) /* clone the demo campaign */
+{
+	print("<h1>Create Demo Campaign</h1>");
+	print ("<form name='CloneIt' action='CloneAR.php' method='get'>\n");
+	print ("<input type='hidden' name='NewArid' value=''>\n"); 
+	if (($user == "admin") && ($adminname != "admin"))
+		$NewUser=$adminname;
+	else
+		$NewUser='';
+	print ("<h1>For '$NewUser'</h1>");
+	print ("<input type='hidden' name='NewUser' value='$NewUser'>\n"); 
+	print ("<input type='hidden' name='CloneMessages' value=1>\n");
+	print ("<input type='hidden' name='CloneUsers' value=0>\n");
+	print ("<input type='hidden' name='arid' value=92>\n");
+	print ("<br><input class='submit' type='submit' name='Submit' value='Create' onClick='this.value=\"Now Creating ...\"'>&nbsp;");
+	print ("<input class='cancel' type='button' value='Cancel' onClick='window.history.back()'><br>&nbsp;");
+
+	print ("</form>\n");
+}
+else
+{
+?>
+<script type="text/javascript">
+window.location.href="home.php";
+</script>
+<?php 
+}
+}
+?>
+</div>
+</body>
+</html>

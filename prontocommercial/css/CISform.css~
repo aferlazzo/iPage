@@ -1,0 +1,67 @@
+#controlTablet{
+position: absolute;
+top:0;left:-999px;
+margin:20px;
+width:460px;
+height:320px;
+}
+#directions{
+margin:20px 15px 0;
+width:320px;
+height:330px;
+}
+#directions p{font-size:large;line-height:inherit;text-align:justify;}
+form {text-align:left; width:100%;font-size:12px;height:340px;}
+#formHead {display: inline-block; width: 810px;text-align:left;margin-left:120px;}
+label, .bType {font-size:14px;font-weight:900;width:200px;text-align:right;margin-right:5px;display:inline-block;}
+.bType{display:inline;margin:0;}
+input {text-align:left;border:1px dotted silver;line-height:16px;font-size:13px;}
+#cStructure, #Request{width:173px;}
+textarea
+{
+border: 1px dotted silver;
+width: 410px;
+height: 275px;
+margin: 5px;
+overflow: auto;
+}
+
+#contact, #company, #bank, #service, #use {
+text-align:right;
+width:395px;
+height:315px;
+border:1px solid gray;
+padding:10px 45px 5px 10px;
+background: #2ec4cd;
+background: -webkit-gradient(linear, 0 top, 100% top, from(#2ec4cd), to(#b9e5e9));
+background: -moz-linear-gradient(left, #2ec4cd, #b9e5e9);
+background: linear-gradient(left, #2ec4cd, #b9e5e9);
+-pie-background: linear-gradient(left, #2ec4cd, #b9e5e9);
+behavior: url(/css/PIE.htc);
+}
+#use{text-align:center;padding:5px;width:440px;}
+div#service input, div#company input, div#bank input, div#contact input  {margin:2px 0;}
+#cisSendRequestButton {
+background-color:#025167;
+color:#fff;
+cursor:pointer;
+border:1px solid gray;
+margin:0 auto;
+padding:3px 5px;
+}
+#cisSendRequestButton:hover{background-color:#b9e5e9;color:#025167;}
+#it, #pof  {display:none;text-align:center;}
+
+div#service select, div#company select, div#contact select {margin:2px 0;}
+
+/*#use {margin:5px 0 0 20px;width:780px;height:334px;padding-top:2px;}*/
+
+div#tt{width:95px;text-align:left;margin:3px auto;display:inline-block;}
+div#tt label, div#tt span {width:20px;cursor:pointer;white-space:nowrap;text-align:left;margin-left:4px;}
+div#tt span {margin-left:-283px;margin-right: 45px;}
+div#messageType{width:220px;text-align:left;margin:10px 0 0 220px;}
+
+div#messageType label, div#messageType span {width:50px;cursor:pointer;white-space:nowrap;text-align:left;margin-left:4px;}
+div#messageType span{margin-left:-10px;}
+div#messageType input {margin-left:30px;}
+.countryRightMargin{margin-left:-200px;}

@@ -1,0 +1,98 @@
+<!--
+// ./include/top-root.php is a copy of the contents ./include/top.htm. It is the
+// web page top border that is inserted in all appropriate .htm pages located at
+// the root level of the website. //
+-->
+<div class="Top">
+<div style="float:left;width:8em;height:8em;margin:5px 0 -5px 0;padding:1em 0 0 5em;">
+<a href="http://www.lightning-mortgage.com/Administrative/AboutUs.htm" class="Top"><img style="border-color: #e5e5e5" border="1"
+src="../images/Tony-Fran.jpg" width="90" height="80"
+alt="Tony &quot;Thunder&quot; &amp; Fran Ferlazzo of Lightning Mortgage"
+align="top"><br /><span style="font-size: xx-small;">Tony &amp; Fran Ferlazzo</span></a>
+</div>
+
+<div style="float:right;width:8em;height:8em;margin:5px 0 -5px 0;padding:1em 5em 0 0;">
+<a href="http://www.lightning-mortgage.com/Answers/MortgageInsiderSecrets.htm" class="Top"><img style="border-color: #e5e5e5;"
+width="90" height="83" border="0" src="../images/SecretsSignUp.gif" alt="Lightning Mortgage Insider Secrets"><br /><span style="font-size: xx-small;">Sign up!</span></a><br />&nbsp;
+</div>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+if ((window.location.href.indexOf("index.htm")==-1) && (window.location.href!="http:\/\/www.lightning-mortgage.com\/")) /* if NOT on home page, enable link */
+{
+document.write('<a class="Top" style=":visited{border-bottom:none;}" onclick="Exit=false;" href="http:\/\/www.lightning-mortgage.com\/">');
+document.write('<img onMouseover=\'this.style.backgroundColor="#ffffff";\' onMouseOut=\'this.style.background="transparent";\' src="..\/images\/Lightning-Mortgage-logo.gif" style="margin:0;padding:4px 0 0 0;border:thin #000099;}');
+document.write('alt="Lightning Mortgage - Mortgages, even with Bad Credit"><\/a>');
+}
+else
+{
+document.write('<img border="0" src="..\/images\/Lightning-Mortgage-logo.gif" ');
+document.write('alt="Lightning Mortgage - Mortgages, even with Bad Credit" ');
+document.write('style="margin:0;padding:4px 0 0 0;">');
+}
+//-->
+</script>
+<br />
+<span style="color: #FFFFFF;">
+<a onclick="Exit=false;" href="http://www.lightning-mortgage.com/Administrative/Feedback.htm"
+class="Top"><span style="font-size: xx-small;">Help</span></a>
+&nbsp;|&nbsp;
+<a onclick="Exit=false;" href="http://www.lightning-mortgage.com/Administrative/AboutUs.htm"
+class="Top"><span style="font-size: xx-small;">About</span></a>
+&nbsp;|&nbsp;
+<a onclick="Exit=false;" href="http://www.lightning-mortgage.com/Administrative/ContactUs.htm"
+class="Top"><span style="font-size: xx-small;">Contact</span></a>
+&nbsp;|&nbsp;
+<a onclick="Exit=false;" href="http://www.lightning-mortgage.com/Administrative/RecommendSite.php"
+class="Top"><span style="font-size: xx-small;">Recommend Site</span></a>
+&nbsp;</span> <!-- end of white '|' -->
+
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+  // don't do on Macintoshes, Netscape, Opera
+ var ns_lightning = document.layers || navigator.userAgent.toLowerCase().indexOf("mac") != -1;
+
+  if (!ns_lightning) // see common.js for definition of veriable
+  {
+  var sText = '<span style="color: #FFFFFF;">|&nbsp;&nbsp;<\/span><a class="Top" onclick="Exit=false;" ';
+  sText += 'href="javascript:AddFavorite()"><span style="font-size: xx-small;">Add to Favorites<\/span><\/a>';
+  document.write(sText);
+  }
+//-->
+</SCRIPT>
+<noscript>
+<p style="text-align: center; border-width: 5px; border-style: dotted; border-color: #ffffff; font-size: large; color: #ffffff;">
+<br />Warning! Either your browser does not support JavaScript or it is currently disabled.<br />
+This website requires JavaScript to be properly viewed. Please enable JavaScript.<br />&nbsp;</p>
+</noscript>
+<br style="clear:both;">
+<div style="position:absolute;top:122px;left:0;text-align:center;width:100%;height:34px;">
+<div id="TabHeader">
+<ul>
+<li id="IndexTab-nav"><a href="http://www.lightning-mortgage.com/index.htm">Home</a></li>
+<li id="LoanAppTab-nav"><a href="https://host79.ipowerweb.com/~lightnin/MortgageApplication/LoanAppShort.htm">Apply Now</a></li>
+<li id="AnswersTab-nav"><a href="http://www.lightning-mortgage.com/Answers.php">Loan Process</a></li>
+<li id="CreditScoresTab-nav"><a href="http://www.lightning-mortgage.com/CreditScores.htm">Credit Scores</a></li>
+<li id="LoanTypesTab-nav"><a href="http://www.lightning-mortgage.com/LoanTypes.php">Loan Types</a></li>
+<li id="InterestRatesTab-nav"><a href="http://www.lightning-mortgage.com/InterestRates.htm">Interest Rates</a></li>
+</ul>
+</div>
+</div><!-- Top -->
+</div>  <!-- ContactDIV -->
+<div class="TopFrame">
+<div class="TFR">
+<input style="width: 110px; font-size: xx-small;margin-right:1em;" id="WhiteButton" type="button" class="Submit"
+value="White Background" title="Remove/Adds the background color on this page" onClick="QuakeMe(); WhiteBackground();">
+<input style="height:22px; width:20px;font-size:16px;" type="button" class="Submit"
+value="+" title="Increase font size" onClick="fontSizer(1,'px');">
+<input style="height: 22px; width: 20px;font-size: 16px;margin-left:1em;" type="button" class="Submit"
+value="-" title="Decrease font size" onClick="fontSizer(-1,'px');">
+</div>
+<div class="TFL">
+<SCRIPT language="JavaScript" type="text/javascript">
+<!--
+ShowURLPath();
+//-->
+</SCRIPT>
+</div>
+<br style="clear:both;"></div>

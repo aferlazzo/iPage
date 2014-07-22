@@ -1,0 +1,22 @@
+Header append P3P: 'CP="CAO DSP COR ADM DEV PSA IVA OUR IND STA"'
+ErrorDocument 404 /404.php
+ErrorDocument 403 /403.php
+
+# commented out to use alternative below
+## make htm files be parsed as php scripts
+##AddType application/x-httpd-php .php .htm .html
+##AddHandler x-httpd-php .php .htm .htmlOptions All -Indexes
+
+
+<FilesMatch "\.(txt|html|htm|php)">
+ForceType application/x-httpd-php
+
+php_value auto_prepend_file /public_html/gzip-enable.php
+
+</FilesMatch>
+
+AddType text/x-component .htc
+Options All -Indexes
+order allow,deny
+deny from 72.170.189.210
+allow from all

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Perfect Response - Three Columns - No Tables</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<script language="JavaScript1.2">
+function LLogout()
+{
+	if (confirm('Do you really want to logout?'))
+	{
+		top.location.href='logout.php';  //bust out of frames
+		return (false);
+	}
+
+	return(true);
+}
+</script>
+</head>
+
+<body>
+
+<div class="content">
+	<h2><i>Perfect Response</i> Email Marketing at its best!</h2>
+
+
+	<h3 align='center' style="font-size: medium">Please select an option:</h3>
+	<p><a href="manar.php">Manage Email Campaigns</a> - Both messages and subscribers</p>
+
+
+	<p><a href="DisplayLog.php">Display Activity Log</a>
+<?php
+	$Size = filesize('EggsLog.txt');
+	print("- the log is ");
+
+	if ($Size > 0)
+	{
+		$Size = round($Size/1024, 2);
+		print("$Size K bytes");
+	}
+	else
+	{
+		print("empty");
+	}
+?>
+	<br><a href="setdb.php">Edit <i>Perfect Response</i> Configuration</a>
+	<br><a href="DisplayLog.php?Command=B">Backup and reset Activity Log</a>
+	<br><a href="PerfectResponseAdmin.php">Change <i>Perfect Response</i> Admin password</a>
+	<br><a href='<?php echo "$PHP_SELF" ?>' onclick="return(LLogout());">Logout</a></p>
+</div>
+
+<div class="content">
+	<h2>Known Issues</h2>
+	<p>This layout fails in IE4.5/Mac. That browser has poor support for CSS absolute positioning, yet it recognizes and executes the CSS @import statement used to hide CSS from broken browsers. Currently, there is no known solution.</p>
+</div>
+
+<div class="content">
+	<a href="home.php" title="Perfect Response Home...">&lt; Return Home</a> &nbsp;::&nbsp; <a href="login.php" title="">Login</a>
+</div>
+
+<div id="navAlpha">
+	<h2>Display in Separate Windows</h2>
+	<p>
+<?php
+$user = ucwords(strtolower($_COOKIE["UName"]));
+if(strcasecmp($user,"admin")==0)
+{
+?>
+		<br><a href="DisplayLog.php" target="_blank">Log File</a><br>
+<?php } ?>
+		<a href="DisplaySubscribers.php?arid=<?php echo $arid; ?>" target="_blank">Subscribers</a><br>
+		<a href="Schedule.php?arid=<?php echo $arid; ?>" target="_blank">Queued</a><br>
+		<a href="import.php?arid=<?php echo $arid; ?>" target="_blank">Import</a><br>
+		<a href="export.php?arid=<?php echo $arid; ?>" target="_blank">Export</a><br>
+		<a href="remsubscriber.php?arid=<?php echo $arid; ?>" target="_blank">Delete<br>
+	</p>
+
+
+
+
+</div>
+
+<div id="navBeta">
+	<h2>Help text goes here</h2>
+	<p>No matter how intuitive we think the page is, everyone needs a few words of encouragement.</p>
+</div>
+
+</body>
+</html>

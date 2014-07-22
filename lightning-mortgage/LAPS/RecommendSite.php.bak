@@ -1,0 +1,447 @@
+<?php
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html class="Administrative">
+<head>
+<title>Recommend Lightning Mortgage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">-->
+<link rel="stylesheet" href="bad-credit-mortgage-styles.css" type="text/css">
+
+<script language="JavaScript" src="./js/Common.js" type="text/javascript">
+</script>
+</head>
+
+<body bgcolor="#F4F4F4" topmargin="0" leftmargin="0" onunload="ExitPage();" onload="Exit=true; window.document.Main.to_name.focus();">
+<div class="Top">
+
+	<table border="0" cellpadding="0" cellspacing="0" width="720">
+		<tr>
+			<td class="Top" align="center" width="120" valign="middle" height="84" rowspan="3">
+				<!--<p class="White" style="font-size:xx-small">--><br />
+				<a href="AboutUs.htm" class="Top">
+				<img style="border-color: #e5e5e5;" border="1" src="images/Tony-Fran.jpg" width="83" height="74"
+				 alt="Tony &quot;Thunder&quot; &amp; Fran Ferlazzo of Lightning Mortgage"
+				 align="top"><br />
+				 Tony &amp; Fran Ferlazzo</a>
+			</td>
+
+			<td class="Top" align="left" height="29" width="463" valign="middle">
+				<a onclick="Exit=false" href="http://www.lightning-mortgage.com/Feedback.htm" class="Top">Help</a>
+				&nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/AboutUs.htm" class="Top">About</a>
+				&nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/ContactUs.htm" class="Top">Contact</a>
+				&nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/Calculators.htm" class="Top">Calculators</a>
+				&nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/RecommendSite.php" class="Top">Recommend Site</a>
+				&nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/PrivacyPolicy.htm" class="Top">Privacy</a>
+				&nbsp;|&nbsp; <a onclick="Exit=false" href="http://www.lightning-mortgage.com/Legal.htm" class="Top">Legal</a>
+			</td>
+
+			<td class="Top" align="left" width="127" valign="middle" height="84" rowspan="3">
+				<br />&nbsp;<br />
+				<a href="MortgageInsiderSecrets.htm" class="Top">
+				<IMG style="border-color: #e5e5e5;" border="1" SRC="images/SecretsSignUp.png" ALT="Lightning Mortgage Insider Secrets" width="120" height="60"><br />Sign up!</A>
+<!--
+<script language="JavaScript" type="text/javascript">
+	if (window.location.href.substring(0,5)!="https")  /* if not https secure protocol, display sign-up box */
+	{
+		document.write('<IMG BORDER="0"');
+		document.write('SRC="http://www.lightning-mortgage.com/images/SecretsSignUp.png" ALT="Lightning Mortgage Insider Secrets"><br />Sign up!</A>');
+	}
+</script>
+-->
+
+			</td>
+		</tr>
+		<tr>
+			<td height="50" align="center" width="463">
+
+<script language="JavaScript" type="text/javascript">
+	if ((window.location.href.indexOf("index.htm")==-1) && (window.location.href!="http://www.lightning-mortgage.com/")) /* if NOT on home page, enable link */
+	{
+		document.write('<a class="Logo" onclick="Exit=false" href="http://www.lightning-mortgage.com/index.htm">');
+	}
+</script>
+
+				     <img border="0" src="images/Lightning-Mortgage-logo.gif"
+				      align="middle" alt="Lightning Mortgage - Mortgages, even with Bad Credit" width="279" height="45">
+
+<script language="JavaScript" type="text/javascript">
+	if ((window.location.href.indexOf("index.htm")==-1) && (window.location.href!="http://www.lightning-mortgage.com/")) /* if NOT on home page, enable link */
+	{
+		document.write('</a>');
+	}
+</script>
+
+
+			</td>
+		</tr>
+		<tr>
+			<td class="Top" height="13" align="center" width="463">
+				<a class="Top" onclick="Exit=false" href="javascript:AddFavorite()">Bookmark this Website</a>
+			</td>
+		</tr>
+	</table>
+<!-- Start of Tab Header -->
+	<table width=718 border="0" cellpadding="0" cellspacing="0" height="28">
+		<tr>
+			<td align="center" width="120" height="28" background="images/Home_tab.gif">
+
+<script language="JavaScript" type="text/javascript">
+	/* alert("href=|"+window.location.href+"|"+window.location.href.indexOf("index.htm")); */
+
+	if ((window.location.href.indexOf("index.htm")==-1) && (window.location.href!="http://www.lightning-mortgage.com/")) /* if NOT on home page, enable link */
+	{
+		document.write('<a class="IndexMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/index.htm">Home</a>');
+	}
+	else
+		document.write('<span style="text-align: center; font-size: small; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF;">Home</span>');
+</script>
+
+			</td>
+			<td align="center" width="120" height="28" background="images/ApplyNow_tab.gif">
+
+<script language="JavaScript" type="text/javascript">
+	if (window.location.href.indexOf("LoanAppShort.htm")==-1)  /* if NOT on Answers page, enable link */
+	{
+		document.write('<a class="AnswersMM" onclick="Exit=false" href="https://host79.ipowerweb.com/~lightnin/LoanAppShort.htm">Apply Now</a>');
+	}
+	else
+		document.write('<span style="text-align: center; font-size: small; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF;">Apply Now</span>');
+</script>
+				
+			</td>
+			<td align="center" width="120" height="28" background="images/Answers_tab.gif">
+
+<script language="JavaScript" type="text/javascript">
+	if (window.location.href.indexOf("/Answers.htm")==-1)  /* if NOT on Answers page, enable link */
+	{
+		document.write('<a class="AnswersMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/Answers.htm">Answers</a>');
+	}
+	else
+		document.write('<span style="text-align: center; font-size: small; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF;">Answers</span>');
+</script>
+				
+			</td>
+			<td align="center" width="120" height="28" background="images/SiteMap_tab.gif">
+
+<script language="JavaScript" type="text/javascript">
+	if (window.location.href.indexOf("/CreditScores.htm")==-1)  /* if NOT on Credit Scores page, enable link */
+	{
+		document.write('<a class="SiteMapMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/CreditScores.htm">Credit Scores</a>');
+	}
+	else
+		document.write('<span style="text-align: center; font-size: small; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF;">Credit Scores</span>');
+</script>
+				
+			</td>
+			<td align="center" width="120" height="28" background="images/LoanTypes_tab.gif">
+
+<script language="JavaScript" type="text/javascript">
+	if (window.location.href.indexOf("/LoanTypes.htm")==-1)  /* if NOT on Loan Types page, enable link */
+	{
+		document.write('<a class="LoanTypesMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/LoanTypes.htm">Loan Types</a>');
+	}
+	else
+		document.write('<span style="text-align: center; font-size: small; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF;">Loan Types</span>');
+</script>
+				
+			</td>
+			<td align="center" width="118" height="28" background="images/InterestRates_tab.gif">
+
+<script language="JavaScript" type="text/javascript">
+	if (window.location.href.indexOf("/InterestRates.htm")==-1)  /* if NOT on InterestRates page, enable link */
+	{
+		document.write('<a class="RatesMM" onclick="Exit=false" href="http://www.lightning-mortgage.com/InterestRates.htm">Interest Rates</a>');
+	}
+	else
+		document.write('<span style="text-align: center; font-size: small; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif; color: #FFFFFF;">Interest Rates</span>');
+</script>
+			
+			</td>
+		</tr>
+	</table>
+
+</div>
+
+
+<!-- . . . . . . . . End of common header . . . . . . . . -->
+
+<?php
+	$ReferringServer = "http://" . $HTTP_HOST . $REDIRECT_URL; 
+
+	/*print ("Referrer: $ReferringServer<br>\n");*/
+	
+if (!ReferringServer)
+	die("Sorry, but I did not get the address of the page to send. 
+	This information may be being blocked by your browser settings, 
+	or your firewall");
+
+
+if ($_SERVER['REQUEST_METHOD']=="POST")
+{
+	$to_email=$_POST['to_email'];
+	$to_name=$_POST['to_name'];
+	$from_name=$_POST['from_name'];
+	$from_email=$_POST['from_email'];
+	$url_to_send=$_POST['url_to_send'];
+	$errs="";
+	if (!$to_name)
+		$errs.="<p class='Administrative'>No destination name was specified</p>";
+	if (!$to_email)
+		$errs.="<p class='Administrative'>No destination e-mail address was specified</p>";
+	elseif (!ValidEmail($to_email))
+		$errs.="<p class='Administrative'>The destination e-mail address $to_email appear to be invalid</p>";
+
+	if (!$from_name)
+		$errs.="<p class='Administrative'>No origination name specified</p>";
+	if (!$from_email)
+		$errs.="<p class='Administrative'>No origination e-mail address was specified</p>";
+	elseif (!ValidEmail($from_email))
+		$errs.="<p class='Administrative'>The originatione-mail address $from_email appears to be invalid</p>";
+		
+	if (!$url_to_send)
+		$errs.="<p class='Administrative'>URL to page not recieved. It may be blocked by your firewall or browser</p>";
+	if (strpos($url_to_send, $HTTP_HOST) < 7)
+		$errs.="<p class='Administrative'>Bad referring page|$url_to_send|$HTTP_HOST|<br /></p>";
+	if ($errs)
+	{
+		print ("<div style='width: 100%; background-color: #004a8d;'>.</div>\n");
+		print ("<div class='Main' style='height: 17em;'>");
+		print ("<h1 style='text-align: center; font: italic normal bold x-large Verdana; color: red;'>");
+		print ("Recommendation Not Sent!</h1>");
+		print ("<table border='0' cellpadding='2' cellspacing='0'><tr><td>");
+		print ("<p class='Administrative'>Could not send the link because of the following error(s):<br />$errs</p>");
+
+		print ("<center><input style='color: #ffffff; background-color: #004a8d; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; width: 150px;'");
+		print ("type='button' value='Make Correction(s)' onClick='window.history.back()'></center>");
+		print ("</td></tr></table></div>");
+	}
+	else 
+	{
+		$headers  = "From: $from_name <$from_email>\r\n";
+		$body="$to_name,\n\nHere's a mortgage broker link you might be interested in:\n\n$url_to_send\n\n-$from_name\n";
+
+		print ("<div style='width: 100%; background-color: #004a8d;'>.</div>\n");
+		print ("<div class='Main' style='height: 17em;'>");
+
+		
+		if (@mail("$to_name <$to_email>","Look at this site", $body, $headers))
+		{
+			print ("<h1 style='text-align: center; font: italic normal bold x-large Verdana; color: #004a8d;'>");
+			print ("Recommendation Sent!</h1>");
+			print ("<table border='0' cellpadding='2' cellspacing='0'><tr><td>");
+			print ("<p class='Administrative'>Thank you for recommending our website!</p>");
+			print ("</td></tr></table></div>");			
+		}
+		else
+		{
+			print ("<h1 style='text-align: center; font: italic normal bold x-large Verdana; color: red;'>");
+			print ("Recommendation Not Sent!</h1>");
+			print ("<table border='0' cellpadding='2' cellspacing='0'><tr><td>");
+			print ("<p class='Administrative'>Sorry, but there was a problem and the message could not be sent</p>");
+			print ("<center><input style='color: #ffffff; background-color: #004a8d; font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; width: 100px;'");
+			print ("type='button' value='Try Again' onClick='window.history.back()'></center>");
+			print ("</td></tr></table></div>");
+		}
+
+		$headers  = "From: $from_name <$from_email>\r\n";
+		$body="Alert,\n\nSent from: $from_name <$from_email>\nSent to: $to_name <$to_email>\n";
+		@mail("admin@lightning-mortgage.com","Referral Alert from lightning-mortgage.com", $body, $headers);
+	}
+} else 
+{
+	print ("<div class='AdministrativeTopFrame'><p style='color: #004a8d;'>GG</p></div>\n");
+	
+	$ReferringServer = "http://" . $HTTP_HOST . $REDIRECT_URL; 
+
+	//print ("Referrer: $ReferringServer<br />\n");
+	print ("<div class='Main' style='height: 17em;'>");
+	print ("<h1 style='text-align: center; font: italic normal bold x-large Verdana; color: #004A8D;'>");
+	print ("<br />Recommend This Site to a Friend</h1>");
+	
+	print ("<form name='Main' action=".$_SERVER['PHP_SELF']." method='post'>");
+	print ("<input type='hidden' name='url_to_send' value='$ReferringServer'>");
+?>
+		<table width='720' border="0" cellpadding="2" cellspacing="0">
+			<tr>
+				<td colspan='4'>
+					<p class="Administrative">
+						If there's anyone you really care about who you'd like to share this site with, 
+						please fill in the entries below and I'll send them a polite invitation to stop by:</br />&nbsp;</p>
+				</td>
+			</tr>	
+		<tr>
+			<td>
+				<p class="Administrative" style="text-align: right">
+				<label for="to_name">Friend's name</label></p></td>
+			<td>
+				<p class="Administrative" style="text-align: left">
+				<input name="to_name" type="text" id="to_name" Maxlength="50" size="30"
+					onfocus="this.style.border='2px solid #004a8d'"  onblur="this.style.border='2px solid silver'"></p>
+			</td>
+
+			<td>
+				<p class="Administrative" style="text-align: right">
+				<label for="to_email">E-mail</label></p></td>
+			<td>
+				<p class="Administrative" style="text-align: left">
+				<input name="to_email" type="text" id="to_email" Maxlength="50" size="30"
+					onfocus="this.style.border='2px solid #004a8d'"  onblur="this.style.border='2px solid silver'"></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p class="Administrative" style="text-align: right">
+				<label for="from_name">Your name</label></p>
+			</td>
+			<td>
+				<p class="Administrative" style="text-align: left">			
+				<input name="from_name" type="text" id="from_name" Maxlength="50" size="30"
+					onfocus="this.style.border='2px solid #004a8d'"  onblur="this.style.border='2px solid silver'"></p>
+			</td>
+
+			<td>
+				<p class="Administrative" style="text-align: right">
+				<label for="from_email">E-mail</label>
+			</td>
+			<td>
+				<p class="Administrative" style="text-align: left">
+				<input name="from_email" type="text" id="from_email" Maxlength="50" size="30"
+					onfocus="this.style.border='2px solid #004a8d'"  onblur="this.style.border='2px solid silver'"></p>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="4">
+				<br />
+				<Input style="color: #ffffff; background-color: #004a8d;	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; width: 200px;" 
+					Type="Submit" Value="Recommend Site!"><br />&nbsp;
+			</td>
+		</tr>
+	</table>
+</form>
+</div>
+<?php 
+}
+
+function ValidEmail($addr){
+	list($local, $domain) = explode("@", $addr);
+	
+	$pattern_local = '^([0-9a-z]*([-|_]?[0-9a-z]+)*)(([-|_]?)\.([-|_]?)[0-9a-z]*([-|_]?[0-9a-z]+)+)*([-|_]?)$';
+	$pattern_domain = '^([0-9a-z]+([-]?[0-9a-z]+)*)(([-]?)\.([-]?)[0-9a-z]*([-]?[0-9a-z]+)+)*\.[a-z]{2,4}$';
+
+	$match_local = eregi($pattern_local, $local);
+	$match_domain = eregi($pattern_domain, $domain);
+	
+	return ($match_local && $match_domain && gethostbyname($domain));
+}
+?>
+</div>
+<!-- . . . . . . . . . Start of common footer  . . . . . . . . . . . . . -->
+	<div class="Bottom1">
+	<form method="get" onsubmit="Exit=false" action="http://search.atomz.com/search/">
+	<table border="0" cellpadding="2" bordercolor="#004A8D" width="720" cellspacing="0">
+	<tr>
+		<td style="text-align: right; vertical-align: middle; background-color: #004a8d" width="165" height="37" valign="middle">
+			<input type=hidden name="sp-a" value="sp1002b74c"> 
+			<input style="background-color: #e5e5e5; color: #000080; font-family: Verdana, Arial, Helvetica, sans-serif; size:" 
+			value=" Your search word(s)" onfocus="this.value=''" size=19 name="sp-q">
+			<br />
+
+			<input type=hidden name="sp-p" value="all">
+			<input type=hidden name="sp-f" value="ISO-8859-1">
+		</td>
+
+		<td style="text-align: left; vertical-align: middle; background-color: #004a8d" width="337">
+			<input style="background-color: #004a8d; color: #ffffff; font-family: Verdana, Arial, Helvetica, sans-serif; size: xx-small" 
+				type="submit" value="Search Site" onclick="Exit=false">
+	 	</td>
+		<td style="text-align: right; vertical-align: middle; background-color: #004a8d" width="200" height="37">
+			<font style="font-family: Verdana, Arial, Helvetica, sans-serif; 	color: #ffffff; font-size: small; font-weight: normal;">
+
+<script language="JavaScript1.2"> 
+document.write(doClock("M0","%20","D1",",%20","Y0"));
+</script>	
+			&nbsp;	
+			</font>
+		</td>
+	</tr>
+	</table>
+	</form>
+	</div>
+
+	<div class="Bottom2">
+		<table cellspacing="0" cellpadding="4" width="720" height="84">
+			<tr>
+				<td valign="middle" align="center" rowspan="3" width="85" height="69">
+					<a onclick="Exit=false" href="Guarantee.htm">
+					<img border="0" src="images/guarantee.gif" width="81"
+					height="85" alt="Lightning Mortgage Financing Guarantee"></a>
+				</td>
+				<td valign="middle" align="center" width="553" height="21">
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/index.htm">Home</a>&nbsp;| 
+					<a class="Bottom" onclick="Exit=false" href="LoanAppShort.htm">Apply Now</a>&nbsp;| 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/OrderCreditDirect.htm">Order Credit</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/LoanTypes.htm">Loan Types</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Documentation.htm">Documents</a>&nbsp;| 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/MortgageInsiderSecrets.htm">Mortgage
+                    Insider Secrets</a>
+				</td>
+
+				<td valign="middle" align="center" width="68" rowspan="3" height="69">
+					<a onclick="Exit=false" href="UpfrontMortgageBroker.htm"><img border="0"
+					src="images/UMB1.gif" alt="I am an Upfront Mortgage Broker" width="68" height="85"></a>
+				</td>
+			</tr>
+
+			<tr>
+				<td valign="middle" align="center" width="553" height="4">
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/SiteMap.htm">Site Map</a> | 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Calculators.htm">Calculators</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Glossary.htm">Glossary</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/CreditScores.htm">Credit Scores</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/PrivacyPolicy.htm">Privacy Policy</a>&nbsp;|
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/Legal.htm">Legal</a> | 
+					<a class="Bottom" onclick="Exit=false" href="http://www.lightning-mortgage.com/AffiliateLinks.htm">Affiliates</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="center" height="22">
+					<p class="CenterSmall">Click on <a class="Bottom" onclick="Exit=false" 
+					href="http://www.lightning-mortgage.com/Feedback.htm">feedback</a> or call (866) 822-8500 for assistance
+					- Last Updated: <!--webbot bot="Timestamp" S-Type="EDITED" S-Format="%B %Y" -->
+					</p>
+				</td>
+			</tr>
+		</table>
+		
+		<hr class="Administrative" style="width: 720px;">	
+		<table cellspacing="0" cellpadding="0" width="712">
+			<tr>
+				<td align="center" width="100%" colspan="3" height="15">
+					<p class="CenterSmall">This Website is NOT intended as a solicitation to customers in any
+					jurisdiction in which we are not authorized to operate.</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="center" width="100%" colspan="3" height="15">
+					<font face="Arial, Helvetica, sans-serif" size="1">©
+					Lightning Mortgage 2002-2004 All Rights Reserved. No part
+					of this website may be reused commercially without
+					the expressed written consent of Lightning Mortgage.<br />
+					&nbsp;This site is directed at, and made available
+					to, persons in the continental U.S., Alaska and
+					Hawaii only.</font>
+				</td>
+			</tr>
+		</table>
+
+		<hr class="Administrative" style="width: 720px;">	
+		<img src="pr/imagecron.php" width="1" height="1" border="0" alt="">
+	</div>
+
+</body>
+</html>

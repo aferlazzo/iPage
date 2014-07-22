@@ -1,0 +1,43 @@
+div#BoltGuy {
+position:absolute;
+top:176px;
+left:65%;
+margin:0 auto;
+width:150px;
+height:120px;
+background:url("../images/Bolt/Bolt.gif") center no-repeat;
+z-index:15;
+}
+
+/*  * html #BoltGuy {position:absolute;}*/
+div#LeftSide, div#RightSide {color:#009;background:#eff;float:left;width:48%;padding-right:8px;border:1px solid #777;margin-bottom:10px;}
+div#RightSide {float:right;}
+ul{margin:8px 4px;white-space:normal;}
+ul, ul ul {list-style-type: none;} /*remove bullets*/
+ul li { padding-left:15px;margin:12px 0;}
+li.Folder ul{margin:0;}
+.Even, .Odd{color:#009;background:#f7f7f7;border:1px solid #777;}
+.Odd{background:#dee;}
+li.Folder a{
+background: transparent url(../images/SiteMapFolderBullet.gif) no-repeat;
+margin-left: -14px;
+padding-left: 18px;
+}
+li.Folder li a{
+color:#009;
+background: transparent url(../images/SiteMapDocBullet.gif) no-repeat;
+margin-left: -14px;
+padding-left: 12px;
+}
+li.Folder a:hover{
+color:#009;
+background: #009 url(../images/SiteMapFolderBulletHover.gif) no-repeat;
+margin-left: -14px;
+padding-left: 18px;
+}
+li.Folder li a:hover{
+color:#fff;
+background: #009 url(../images/SiteMapDocBulletHover.gif) no-repeat;
+margin-left: -14px;
+padding-left: 12px;
+}

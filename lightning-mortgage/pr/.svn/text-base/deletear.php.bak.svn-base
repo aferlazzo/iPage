@@ -1,0 +1,20 @@
+<?php
+/*
+
+E.G.G.S. ™
+Email Go Getter System
+Copyright © 2002-2003 
+A product of Turkey Feet Enterprises. (http://www.turkeyfeet.com)
+For more information visit: http://www.emailgogettersystem.com
+
+*/
+?>
+<?php
+include("check1.php");
+Include("conn.php");
+$ID=$HTTP_GET_VARS["arid"];
+$result = mysql_query("delete FROM autoresponders where arid=$ID", $link);
+$result = mysql_query("delete FROM users where arid=$ID", $link);
+$result = mysql_query("delete FROM messages where arid=$ID", $link);
+Header("Location: manar.php"); 
+?>

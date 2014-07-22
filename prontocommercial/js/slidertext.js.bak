@@ -1,0 +1,259 @@
+		var slide_int = null;
+		var Length_int = null;
+		var currencySymbol = "$"; // we start with currency symbol $ and the USD button having class='ui-state-active'
+		var amt;
+		
+		$(document).ready(function(){
+			/* set up the Amount and Length sliders */
+			$('#slider').slider({
+				animate: true,
+				step: 1000000,
+				range: "min",
+				min: 1000000,
+				orientation: 'horizontal',
+				max: 500000000,
+				value: 300000000,
+				start: function(event, ui){
+					$('#current_value').empty();
+					slide_int = setInterval(UpdateAmtTextBox, 1);	
+				},
+				slide: function(event, ui){
+					setTimeout(UpdateAmtTextBox, 1);  
+				},
+				stop: function(event, ui){
+					clearInterval(slide_int);
+				    slide_int = null;
+				}
+			});	
+			
+			$('#Length').slider({
+				animate: true,
+				step: 1,
+				range: "min",
+				min: 1,
+				value: 12,
+				orientation: 'horizontal',
+				max: 15,
+				start: function(event, ui){
+					$('#LengthBox').empty();
+					Length_int = setInterval(UpdateLengthBox, 10);	
+				},
+				slide: function(event, ui){
+					setTimeout(UpdateLengthBox, 10);  
+				},
+				stop: function(event, ui){
+					clearInterval(Length_int);
+				    Length_int = null;
+				}	
+			});
+						
+			//link the Amount textbox changes to the slider
+			$('#Amount').change(function(e) {
+				amt=document.getElementById('Amount').value;
+				//alert(amt);
+				amountTypedIn(amt);
+				e.preventDefault();
+			});
+			//link the Length textbox changes to the slider
+			$('#LengthBox').change(function(e) {
+				amt=document.getElementById('LengthBox').value;
+				//alert(amt);
+				lengthTypedIn(amt);
+				e.preventDefault();
+			});
+			
+			//link the USD button to putting the '$' symbol in the Amount box
+			$('#USD').click(function(e) {
+				Currency = 'USD';
+				$('#USD').show( "pulsate", "fast" );
+				/*$('#USD').addClass('checked');
+				$('#EURO').removeClass('checked');*/
+				currencySymbol = '$';
+				UpdateAmtTextBox();
+				e.preventDefault();
+			});
+				
+			//link the EURO button 
+			$('#EURO').click(function(e) {
+				Currency = 'USD';
+				currencySymbol = '\u20ac';
+				$('#EURO').show( "pulsate", "fast" );
+				/*$('#EURO').addClass('checked');
+				$('#USD').removeClass('checked');*/
+				UpdateAmtTextBox();
+				e.preventDefault();
+			});
+		
+		var sliderWidth= $('#slider').css('width');  //length of slider in px
+		var digitpattern=/\d+/;  //just give me the digits
+		var sliderEnd = digitpattern.exec(sliderWidth);
+		var sliderMiddle = sliderEnd/2;
+		var sStartLabel  = '$100,000,000';
+		var sMiddleLabel = '$250,000,000';
+		var sEndLabel    = '$500,000,000';
+		/*
+		var sL = sStartLabel.length; 
+		var sM = sMiddleLabel.length;
+		var sE = sEndLabel.length;
+		*/
+	//this ordered list is for labels & tick marks
+	/*
+		alert('sL ' + sL + ' sM '+ sM + ' sE ' + sE + ' middle label is at ' + eval(sliderMiddle - (sL + sM)) + '\nend label is at '+ eval(sliderEnd - sE));
+	*/
+		var numberOfTicMarks = 5;
+		var tic = new Array(numberOfTicMarks);
+		ticOffset = sliderEnd / (numberOfTicMarks - 1);
+
+		for(i=0; i<=numberOfTicMarks; i++)
+			tic[i] = i * ticOffset;
+
+		$('#slider').append('<ol class="sliderScale ui-slider" style="position:relative;font-size:10px;background-color:orange;">\n'+
+		'<li class="sStart"  style="position:absolute;left:0;">'+sStartLabel+'</li>\n'+
+		'<li class="sMiddle" style="position:absolute;left:'+ parseInt(sliderMiddle - 40) + 'px;">'+sMiddleLabel+'</li>\n'+
+		'<li class="sEnd"    style="position:absolute;left:'+ parseInt(sliderEnd - 80) +'px;">'+sEndLabel+'</li></ol>\n');
+		
+		//now set the style attributes for sliderScale ol
+		$('.sliderScale').css('list-style-type','none').css('margin','28px 0 0 0').css('padding', 0).css('width', sliderWidth);
+		$('.sliderScale li').css('display', 'inline');  //make sure the sliderScale ol li's are on one horizontal line
+
+		//alert('sStart width: '+ $('.sStart').css('width') + ' sMiddle width: '+ $('.sMiddle').css('width'));
+		
+		// experimenting with adding the span for tic marks
+		$('.sliderScale').find('.sStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[4]+'px;display:none;"></span>\n');
+		$('.sliderScale').find('.sStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[3]+'px;"></span>\n');
+		$('.sliderScale').find('.sStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[2]+'px;"></span>\n');
+		$('.sliderScale').find('.sStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[1]+'px;"></span>\n');
+		$('.sliderScale').find('.sStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[0]+'px;display:none;"></span>\n');
+		//alert('sliderStart 0 sliderMiddle '+ sliderMiddle +' sliderEnd '+sliderEnd+
+		//'\nticOffset '+ticOffset+' location of tic marks: tic['+0+']: '+tic[0] +' tic['+1+']: '+tic[1] +' tic['+2+']: '+tic[2] +' tic['+3+']: '+tic[3] +' tic['+4+']: '+tic[4]);
+	
+	
+	
+		var lengthWidth= $('#Length').css('width');  //length of Length in px
+		var lengthEnd = digitpattern.exec(lengthWidth);
+		var lengthMiddle = lengthEnd/2;
+		var lStartLabel  = '1';
+		var lMiddleLabel = '8';
+		var lEndLabel    = '15';
+
+	//this ordered list is for labels & tick marks
+	/*
+		alert('sL ' + sL + ' sM '+ sM + ' sE ' + sE + ' middle label is at ' + eval(sliderMiddle - (sL + sM)) + '\nend label is at '+ eval(sliderEnd - sE));
+	*/
+		numberOfTicMarks = 15;
+		tic = new Array(numberOfTicMarks);
+		ticOffset = lengthEnd / (numberOfTicMarks - 1);
+
+		for(i=0; i<=numberOfTicMarks; i++)
+			tic[i] = i * ticOffset;
+
+		$('#lengthSlider').append('<ol class="lengthScale ui-slider" style="position:relative;font-size:10px;background-color:orange;">\n');
+		$('#lengthSlider').append('<li class="lStart" style="position:absolute;left:'+ tic[0] + 'px;">'+i+'</li>\n');
+		for(i=1; i<=numberOfTicMarks; i++)
+			$('#Length').append('<li class="lMiddle" style="position:absolute;left:'+ tic[i] + 'px;">'+i+'</li>\n');
+		$('#lengthSlider').append('</ol>\n');
+		
+		//now set the style attributes for LengthScale ol
+		$('.lengthScale').css('list-style-type','none').css('margin','28px 0 0 0').css('padding', 0).css('width', lengthWidth);
+		$('.lengthScale li').css('display', 'inline');  //make sure the lengthScale ol li's are on one horizontal line
+		
+		// adding the spans for tic marks
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[14]+'px;display:none;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[13]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[12]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[11]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[10]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[9]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[8]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[7]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[6]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[5]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[4]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[3]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[2]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[1]+'px;"></span>\n');
+		$('.lengthScale').find('.lStart').prepend('<span class="ui-slider-tic ui-widget-content" style="left:'+tic[0]+'px;display:none;"></span>\n');
+		
+		//alert('sliderStart 0 LengthMiddle '+ LengthMiddle +' LengthEnd '+LengthEnd+
+		//'\nticOffset '+ticOffset+' location of tic marks: tic['+0+']: '+tic[0] +' tic['+1+']: '+tic[1] +' tic['+2+']: '+tic[2] +' tic['+3+']: '+tic[3] +' tic['+4+']: '+tic[4]);
+			});	
+		
+		
+		
+/*
+let's say that we want to display the number with no decimal places using 
+spaces for thousands separators (a common international standard) and a 
+period for the decimal point. It is a monetary value but we don't know if 
+it is euros or USD so we'll leave the currency indicators blank. If the 
+number is negative we'll keep the - on the front. If our number field is 
+mynum then we would just replace the reference to mynum that is displaying 
+with the following to display our formatted version.
+
+formatNumber(mynum,0,' ','.','','','-','')
+*/		
+function formatNumber(num,dec,thou,pnt,curr1,curr2,n1,n2) {
+var x = Math.round(num * Math.pow(10,dec));
+if (x >= 0) n1=n2='';
+var y = (''+Math.abs(x)).split('');
+var z = y.length - dec;
+ if (z<0) z--;
+ for(var i = z;
+ i < 0;
+ i++) y.unshift('0');
+ if (z<0) z = 1;
+ y.splice(z, 0, pnt);
+ if(y[0] == pnt) y.unshift('0');
+ while (z > 3) {z-=3;
+ y.splice(z,0,thou);
+}var r = curr1+n1+y.join('')+n2+curr2;
+return r;
+}
+//when the slider is moved change the amount in the textbox		
+function UpdateLengthBox() {
+    var offset = $('.ui-slider-handle').offset();
+    var value = $('#Length').slider('option', 'value');
+	
+    //$('#current_value').text(value).css({top:offset.top });
+	
+	document.getElementById('LengthBox').value=value;
+	$('#LengthBox').fadeIn();
+}
+//when the slider is moved change the amount in the textbox		
+function UpdateAmtTextBox() {
+    var offset = $('.ui-slider-handle').offset();
+    var value = $('#slider').slider('option', 'value');
+	
+	value = formatNumber(value,0,' ','',currencySymbol,'','-','');
+	
+    //$('#current_value').text("Amount is "+value+" Million").css({top:offset.top });
+	
+	document.getElementById('Amount').value=value;
+	$('#Amount').fadeIn();
+}
+//when Amount textbox is updated, remove non-numerics and update slider
+function amountTypedIn(amt)
+{
+	// make slider's value equal to amount typed in
+	//first remove any non-numerics
+	var pattern = /[^0-9]/g;
+	amt = amt.replace(pattern, "");
+	$('#slider').slider('value', amt);
+	if(amt < 1000000) amt = 1000000;
+	document.getElementById("Amount").value = formatNumber(amt,0,' ','',currencySymbol,'','-','');
+	document.getElementById("slider").value = amt;
+}
+
+function lengthTypedIn(amt)
+{
+	// make slider's value equal to length typed in
+	//first remove any non-numerics
+	var pattern = /[^0-9]/g;
+	amt = amt.replace(pattern, "");
+	(amt < 1)  ? amt=1 : amt=amt;
+	(amt > 15) ? amt=15 : amt=amt;
+	$('#Length').slider('value', amt);
+	document.getElementById("Length").value = amt;
+	document.getElementById("LengthBox").value = amt;
+}
+
+

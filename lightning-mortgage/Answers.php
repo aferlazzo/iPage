@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>Our Mortgage Process</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="description" content="Mortgage process and loan answers. US only.">
+<meta name="keywords" content=
+"Mortgage financing explained and described, bad credit, Answers about mortgage loan financing and bad credit, LIGHTNING MORTGAGE">
+<meta name="copyright" content="Copyright 2006, Anthony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<script src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en" type="text/javascript"></script>
+<link rel="stylesheet" href="./css/AnswersStyles.css" type="text/css">
+<link rel="stylesheet" href="./css/Tabs.css" type="text/css">
+<style type="text/css">
+.Rheader {border:2px solid #93c;background:transparent;padding:0 6px;text-align:left;width:120px;margin-left:1em;color:#009;}
+</style>
+</head>
+<body>
+<?php include('include/top-root.php'); ?>
+			<div id='PageHead'>
+				<h1>Your Mortgage Process</h1>
+				<p>Plain and Simple</p>
+			</div>
+<img src="./images/Bolt/LoanProcess.gif" style="float:left;margin:15px 8px;" onMouseover='this.style.display="none";' alt="Loan Process">
+<p>Obtaining a mortgage is a process that occurs over time, not a one-time event. The loan process is complex, yet 
+<span class="Highlight">we'll do the heavy lifting</span> and leave you with a few simple steps.</p>
+<p>When we're done, our loan servicing institutions will appreciate the attention to detail we provide with your mortgage application. 
+Here are the most important topics having to do with the loan process.</p>
+<div style='float:left;width:550px;margin-top:25px;background:transparent;'>
+<ul>
+<li style="list-style:none">
+<div style='width:180px;float:left;margin:0 0 4px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:178px;'>In The Beginning</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div><br style='clear:left;'>
+</li>
+<li><a href="http://www.lightning-mortgage.com/Answers/WhatsInvolved.php"> Mortgage Financing
+Step-by-Step</a> sums up the process</li>
+<blockquote class="PullQuote" style="margin:0">
+     Don't stress out on the details. We'll guide you through the entire process in a painless fashion.
+</blockquote>
+<li><a href="Answers/Documentation.php">Document Check-list</a> lists what we need from you</li>
+<li><a href="./Answers/HomeBuyingMistakes.php">The 8 Deadly Home Buying Mistakes</a></li>
+<!--
+<li><a href="http://www.lightning-mortgage.com/LoanTypes/IncomeDocVariations.php">
+Income/Asset Record Options</a></li>
+-->
+<li><a href="Answers/PreAnswers.php">Pre-Qualified or Pre-Approved?</a></li>
+<li><a href="Answers/APRAnswers.php">APR, (Annual Percentage Rate)</a> explained</li>
+<li><a href="Answers/GFEExplained.php">The Good Faith Estimate</a>, explained</li>
+<li><a href="Answers/Appraisals.php">The Art and Science of Appraisals</a></li>
+<li><a href="../Administrative/ClosingCosts.php">Closing Costs Calculator</a></li>
+<li><a href="http://www.lightning-mortgage.com/InterestRates/EducationTaxes.php">
+The Tax Advantages of Home Ownership</a></li>
+<li><a href="http://www.lightning-mortgage.com/Answers/MortgageBrokerAnswers.php">
+The Truth about Mortgage Brokers</a></li>
+<li><a href="http://www.lightning-mortgage.com/Answers/eBookRequest.php">Read
+our best selling eBook,<br>
+<i>How To Play The Mortgage Game, And Win!</i></a></li>
+</ul>
+</div><br style='clear:left;'>
+<div style="float:left;margin-top:25px;width:550px;">
+<ul>
+<li style="list-style: none">
+<div style='width:200px;float:left;margin:0 0 4px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:198px;'>In the Midst of it All</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div><br style='clear:left;'>
+</li>
+<li><a href="http://www.lightning-mortgage.com/Answers/PMIAnswers.php">Why
+PMI?</a> We'll help you avoid it, if we can</li>
+<li><a href=
+"http://www.lightning-mortgage.com/Answers/TILExplained.php">The
+Truth-In-Lending Statement</a> will be sent to you once we near loan approval</li>
+<li><a href=
+"http://www.lightning-mortgage.com/Answers/ImpoundAccountAnswers.php">
+Impound/Escrow Accounts</a> and why they're good to have in most cases</li>
+<li><a href=
+"Answers/MortgageHiccups.php">Hiccups Along The Way</a> but our job is to navigate 
+through them for you</li>
+<li><a href=
+"http://www.lightning-mortgage.com/Answers/MortgageTips.php">Top
+Ten Factors Influencing your Mortgage</a></li>
+</ul>
+</div><br style='clear:left;'>
+<div style="float:left;margin-top:25px;width:550px;">
+<ul>
+<li style="list-style:none;">
+<div style='width:230px;float:left;margin:0 0 4px;'>
+<b class="top"><b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b></b>
+<h2 style='width:228px;'>Living Happily Ever After</h2>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b></div><br style='clear:left;'>
+</li>
+<li style="white-space:nowrap;"><a 
+href="http://www.lightning-mortgage.com/Answers/Closing.php">An Overview</a>
+of the Closing Process</li>
+<li><a href="http://www.lightning-mortgage.com/Answers/HUD1Explained.php">HUD1
+Closing Statement</a> is explained for your reference</li>
+<li><a href="http://www.lightning-mortgage.com/Answers/HoldingTitle.php">Vesting
+Title</a>, or how ownership is recorded</li>
+<li><a href="http://www.lightning-mortgage.com/Answers/BiweeklyPayments.php">A Money
+Saving Tip</a></li>
+</ul>
+</div>
+
+<br style="clear:left;">
+<hr>
+<p>Haven't found what you're looking for? Sign up
+for our <a href=
+"http://www.lightning-mortgage.com/Answers/MortgageInsiderSecrets.php">
+Mortgage Insider Secrets</a>. You'll be impressed by the wealth
+of home mortgage information that will be sent to your Inbox.</p>
+<p><span class="Highlight">Whatever your situation, Lightning Mortgage
+can work with you</span> to make sure you get the perfect loan for your
+lifestyle. <a href=
+"../MortgageApplication/LoanAppShort.php">
+Apply now.</a></p>
+<?php include('./include/bottom-root.php'); ?>
+</body>
+</html>

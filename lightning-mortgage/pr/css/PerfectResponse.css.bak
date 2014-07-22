@@ -1,0 +1,291 @@
+label /*to change the pointer to a hand on form fields that have labels*/
+{ 
+	font-weight: bold;
+	cursor:pointer;
+} 
+
+input, select, textarea /* to make input boxes have a 2 pixel wide gray border */
+{ 
+ 	border: 2px solid gray;	
+ 	background: #FFE4C4;
+} 
+
+#arfromemail,    /* equates to id=arfromemail for <input> tage */
+#arreplytoemail,
+#arbademail,
+#aradminemail,
+#arsubemail,
+#popuname
+{
+	text-transform: lowercase;
+}
+
+input.radiogroup /* to make radio button's have a 0 pixel wide transparent backgrounds */
+{border:none;background:transparent;} 
+
+input.submit /* to make  buttons stand out more */
+{ 
+ 	color: #fff;font-weight:bold;
+	cursor:pointer;
+ 	background: #000080;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+-moz-border-radius: 5px;  /* to use css3 to round button corners */
+-webkit-border-radius: 5px;
+
+} 
+.MouseOver {font-weight:bold;color:#009;background:#fff;cursor:pointer;font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+-moz-border-radius: 5px;  /* to use css3 to round button corners */
+-webkit-border-radius: 5px;
+}
+/* input#:hover { }*/
+
+input.cancel /* to make cancel buttons stand out more */
+{ 
+ 	color: #fff;font-weight:bold;
+	cursor:pointer;
+ 	background: #939;
+	font-family : Verdana, Geneva, Arial, Helvetica, sans-serif;
+-moz-border-radius: 5px;  /* to use css3 to round button corners */
+-webkit-border-radius: 5px;
+} 
+
+/* Note: IE on Windows doesn't support the :focus pseudo-class! */
+
+input:focus /*makes the input field on which the user */
+{				/*is currently focused gets a black border to make it stand out from the others.*/
+	border: 2px solid #000080; 
+} 
+
+/* adds a css class for a  box on the left/right side columns */
+
+input#CampaignButton
+{
+-moz-border-radius: 5px;  /* to use css3 to round button corners */
+-webkit-border-radius: 5px;
+}
+body { padding:2px;
+	color: #000080;
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size:small;
+	text-align:left;
+	/*background-image:url("../images/email.gif");*/
+ 	background: #FFE4C4;
+	}
+div, form, p, .Button, #navAlpha {margin:0;padding:0;top:0;bottom:0;}
+h1 {
+	margin:0 0 15px 0;
+	padding:0;
+	font-size: x-large;
+	font-weight:900;
+	}
+content h1 {text-align:center;}
+h2 {
+	/*font:bold 12px/14px verdana, arial, helvetica, sans-serif;*/
+	margin:0 0 5px 0;
+	padding:0;
+	font-size: large;
+	font-weight:900;
+	}
+h3 {
+	/*font:bold 12px/14px verdana, arial, helvetica, sans-serif;*/
+	margin:0 0 5px 0;
+	padding:0;
+	font-size: medium;
+	font-weight:900;
+	}
+
+p {
+	/*font:10px/20px verdana, arial, helvetica, sans-serif;*/
+	font-size: small;
+	margin:0;
+	padding:0;
+	top:0;
+	bottom:0;
+	}
+hr {margin:2px auto;padding:0;text-align:center;color:#000080;width:95%;height:1px;top:0;bottom:0;}
+#Grow{font-size:150%;}
+TD {
+	/* color : #000080;*/
+	font-family : Verdana, Arial, Helvetica, sans-serif;
+	font-size : small;
+}	
+
+a {
+	font-size: small;
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-weight:600;
+	text-decoration:none;
+	}
+	
+a:link {color: #000080;}
+/* a:visited {color: #006400} /* we really don't need to tell the user which page has been visited */
+a:hover {color:#000080;background:#fff;}
+  
+
+/* All the title boxes belong to the title class. */
+.title {
+display:none; /* makes div invisible by default */
+clear:left;
+width:558px; 
+background-color: #000; /*#48d1cc;*/ 
+background: url("../images/PerfectResponseLogo.gif" );
+background-repeat: no-repeat;
+padding:0;
+}
+
+#Wrapper {
+position: relative;
+z-index:1;
+top:16px;
+left:4px;
+text-align:center;
+width:562px;
+border:none;	
+background:transparent;
+padding:0;
+line-height:20px;
+
+}
+#content {
+position: relative;
+z-index:5;
+top:0;
+left:0;
+text-align:center;
+width:560px;
+margin:0; 
+border:none;	
+background: url("../images/background.jpg") repeat;
+/*background:#48D1CC;*/
+padding:0;
+line-height:20px;
+/*overflow:hidden;*/
+}
+
+.BoxHeading { 
+position: relative; 
+z-index:10;
+margin:0;
+top:-15px; 
+border: none; 
+-moz-border-radius: 5px;  /* to use css3 to round button corners */
+-webkit-border-radius: 5px;
+} 
+
+.content p {margin:0;}
+.content p p {text-indent:30px;}
+	
+.footer {
+float:left;
+margin:0 2.5%;
+width:100%;
+border:3px dotted #000080;
+background-color: #48d1cc;
+padding-top:20px;
+}
+
+#navAlpha, #navKappa {
+position: relative;
+z-index:5;
+text-align:left;
+margin:0;
+background:transparent;
+width:560px;
+text-align:center;
+height:70px;
+}
+
+#navKappa, #navKappa a{
+font:8pt verdana, arial, helvetica, sans-serif;
+}
+
+#navKappaPadlock {
+float:left;width:60px;margin:0 0 0 20px;padding:0;height:70px;background:transparent;}
+#navKappaLinks {float:left;width:400px;height:54px;padding-top:16px;background:transparent;}
+#navKappaLinks a {font-weight:bold;}
+#navKappaStop {
+float:left;vertical-align:bottom;width:50px;margin:0;padding:0;height:70px;text-align:left;background:transparent;}
+
+#navAlpha h4
+{
+	font:14px verdana, arial, helvetica, sans-serif;
+	color: #fff;	
+}
+#navAlpha p, #navAlpha u
+{
+	font:12px verdana, arial, helvetica, sans-serif;
+	color: #fff;	
+}
+#navAlpha a {color:#fff;font-size:x-small;background:#004a8d}	
+#navAlpha a:hover {color: #c06; background:#fff;}
+	
+body #navAlpha {width: 128px;}
+
+.Button {
+width:60px;
+background:#004a8d;
+font:small sans-serif;
+color:#fff;
+cursor:pointer;
+width:190px;
+border:2px solid #fff;
+-moz-border-radius: 5px;  /* to use css3 to round button corners */
+-webkit-border-radius: 5px;
+}
+
+#navBeta {
+display:none;
+clear:left;
+width:90%;
+
+position:relative;
+text-align:left;
+margin:20px;
+
+color: #fff;
+border:2px solid #fff;
+background-color:#939;
+padding:10px;
+-moz-border-radius: 5px;  /* to use css3 to round button corners */
+-webkit-border-radius: 5px;
+
+}
+#navBeta h4 
+{ 
+	font:14px verdana, arial, helvetica, sans-serif;
+	color: #ffffff;	
+}
+#navBeta li,
+#navBeta a,
+#navBeta p 
+{
+font:12px verdana, arial, helvetica, sans-serif;
+color: #ffffff;
+}
+#navBeta p { margin-bottom:20px; }
+
+#navBeta a:hover {color: teal; background-color:#ffffff;}
+
+.overlayTitle
+{
+position: relative;
+/*background-color:#99ff99;*/
+/*top: -17px;*/
+top: -17px;
+font-size: small;
+background-color: #fff;
+color: #333;
+padding-left: 5px;
+padding-right: 5px;
+}
+div#ProgressBarOutline {position:relative;z-index:5;top:16px;left:34px;
+margin:0 0 20px 0;padding:0;height:30px;width:500px;background:transparent;border:1px solid #000080;
+-moz-border-radius: 5px;  /* to use css3 to round button corners */
+-webkit-border-radius: 5px;
+}
+div#ProgressBar {margin:0;padding:0;height:30px;background:#48D1CC;border-right:1px solid #000080;width:0;
+-moz-border-radius: 5px;  /* to use css3 to round button corners */
+-webkit-border-radius: 5px;
+}
+div#ProgressBar p {font-size:14pt;padding-left:50px;white-space:nowrap;}
+

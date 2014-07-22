@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<head>
+<title>untitled</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="description" content="blank">
+<meta name="keywords" content="blank">
+<meta name="copyright" content="Copyright 2006, Tony Ferlazzo, Lightning Mortgage">
+<meta name="rating" content="General">
+<meta name="robots" content="Index, ALL">
+<script language="JavaScript" src="./js/Common.js" type="text/javascript"></script>
+<link rel="stylesheet" href="blank.css" type="text/css">
+<script language="javascript" type="text/javascript">
+//------------------------
+
+var xmlhttp=false;
+/*@cc_on @*/
+/*@if (@_jscript_version >= 5)
+// JScript gives us Conditional compilation, we can cope with old IE versions.
+// and security blocked creation of the objects.
+ try {
+  xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+ } catch (e) {
+  try {
+   xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+  } catch (E) {
+   xmlhttp = false;
+  }
+ }
+@end @*/
+if (!xmlhttp && typeof XMLHttpRequest!='undefined') {
+	try {
+		xmlhttp = new XMLHttpRequest();
+	} catch (e) {
+		xmlhttp=false;
+	}
+}
+if (!xmlhttp && window.createRequest) {
+	try {
+		xmlhttp = window.createRequest();
+	} catch (e) {
+		xmlhttp=false;
+	}
+}
+  
+function xmljsDOMExample() {
+
+var sRequest  = "<INPUT>"
+ + "<USER_INFO login='yourLogin' password='yourPassword'/>"
+ + "<REQUEST request_type='NEW' async='T'>"
+ + "<ORDER_DETAIL reference_number='Case #12' experian_credit_flag='T' transunion_credit_flag='T' equifax_credit_flag='T' experian_score_flag='T' transunion_score_flag='T' equifax_score_flag='T' />"
+ + "<APPLICANT firstname='BILL' surname='STEINER' ssn='216965192'/>"
+ + "<CURRENT_ADDRESS streetnumber='563' streetname='68TH' aptnumber='B' city='ARVERNE' state='NY' zip='11692'/>"
+ + "<OUTPUT_FORMAT format_type='XML'/>"
+ + "</REQUEST>"
+ + "</INPUT>";
+
+//instantiate the W3C DOM Parser
+var parser = new DOMImplementation();
+
+//load the XML into the parser and get the DOMDocument
+var domDoc = parser.loadXML(sRequest);
+
+
+} // end function xmljsDOMExample
+
+</script>
+</head>
+<body>
+  <form action="POST">
+   <p>Enter your phone number:
+    <input type="text" size="14" name="phone" id="phone" 
+           onChange="getCustomerInfo();" />
+		   
+           <!--onChange="callServer();" />-->
+   </p>
+   <p>Your order will be delivered to:</p>
+   <div id="address"></div>
+   <p>Type your order in here:</p>
+   <p><textarea name="order" rows="6" cols="50" id="order"></textarea></p>
+   <p><input type="submit" value="Order Pizza" id="submit" /></p>
+  </form>
+</body>
+</html>

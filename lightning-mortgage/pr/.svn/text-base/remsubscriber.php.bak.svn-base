@@ -1,0 +1,191 @@
+<?php
+/*
+
+Perfect Response - Email Marketing at Its Best!
+Copyright © Tony Ferlazzo 2004 
+Version 1.0 Written by: Tony Ferlazzo, tony@lightning-mortgage.com
+
+*/
+
+include("check1.php");
+Include("conn.php");
+$arid=$_GET["arid"];
+$WithinScript = "I know the arid";
+Include("settings.php");
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Remove Sunbscribers - Prefect Response</TITLE>
+<meta name="robots" content="NoIndex, NoFollow">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="../css/PerfectResponse.css">
+<link rel="stylesheet" type="text/css" href="../css/niftyCorners.css">
+<script type="text/javascript" src="../js/nifty.js"></script>
+<script type="text/javascript">
+<!--
+function LLogout()
+{
+	if (confirm('Do you really want to logout?'))
+	{
+		top.location.href='logout.php';  //bust out of frames
+		return (false);
+	}
+	
+	return(true);
+}
+
+function manar(id)
+{
+	location.href="editar.php?arid="+id;
+}
+
+function Trim(strInput) 
+{
+	if(strInput.length == 0) 
+	{
+		return "";
+	} 
+	else 
+	{
+		strTemp = strInput.substring(strInput.length - 1)
+	}
+
+	while (strTemp == " ") 
+	{
+		strInput = strInput.substring(0, strInput.length - 1)
+
+		if (strInput.length == 0) 
+		{
+			strTemp = "";
+		} 
+		else 
+		{
+			strTemp = strInput.substring(strInput.length - 1)
+		}
+	}
+
+	if (strInput.length == 0) 
+	{
+		strTemp = "";
+	} 
+	else 
+	{
+		strTemp = strInput.substring(0, 1)
+	}
+
+	while (strTemp == " ") 
+	{
+		strInput = strInput.substring(1)
+
+		if (strInput.length == 0) 
+		{
+			strTemp = "";
+		} 
+		else 
+		{
+			strTemp = strInput.substring(0, 1)
+		}
+	}
+
+	return strInput;
+
+}//close Trim Function
+
+function Validate()
+{
+	var objName = document.Remove;
+	var xxx;
+
+	if (objName.tareaRemoveText.value == "")
+	{
+		alert("Please enter the Email Address(es) to remove")
+		objName.tareaRemoveText.focus();
+		return false;
+	}
+
+	return true;
+}
+
+//-------------------------------
+//
+//To do rounded corners on the <div id=' contents':
+//
+//(link rel="stylesheet" type="text/css" href="../css/niftyCorners.css")
+//(script type="text/javascript" src="../js/nifty.js"></script)
+//
+//The function NiftyCheck performs a check for DOM support. If the test has passed,
+//the Rounded function is called, that is now the only one function that you should 
+//call to get nifty corners. It accepts five parameters, that are in order:
+//
+//   1. A CSS selector that indicates on wich elements apply the function
+//   2. A string that indicates which corners to round: all, top, bottom, etc.
+//   3. Outer color of the rounded corners
+//   4. Inner color of the rounded corners
+//   5. An optional fifth parameter, that will contain the options for Nifty Corners
+//
+//-------------------------------
+window.onload=function(){
+if(!NiftyCheck())
+    return;
+Rounded("div.Wrapper","all","#FFE4C4","#48D1CC","border #000080");
+window.document.Import.tareaRemoveText.focus();
+}
+//-->
+</script>
+</HEAD>
+<body>
+<div class="Wrapper"><div class="content">
+<div class="title"> 
+<table>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td width="45%"><td>
+		<td width="55%"><h2>&nbsp;</h2>
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+</table>
+</div>
+<h2>Delete Subscribers from<br />
+<?php print("<h2 id='Grow'><i>$CampaignDescription</i></h2>"); ?>
+<form name="Remove" onSubmit="return(Validate());" method="post" action="removeAction.php">
+<input type="hidden" name="arid" value="<?php echo $arid;?>">		
+<p style="text-align:left;padding:1em;"><i>Perfect Response</i>&#153; lets subscribers remove themselves 
+automatically and securely. You also have the ability
+to delete subscribers manually. Simply add one 
+email address per line in the text box below.<BR>&nbsp;</p>
+<textarea name="tareaRemoveText" wrap="VIRTUAL" rows="8" cols="55"></textarea><br />&nbsp;			
+<input type='hidden' id='arid' name='arid' value="<?php echo $arid; ?>">
+<table width="100%">
+	<tr>
+		<td align="right" width="15%"> 
+			<input class='radiogroup' type="RADIO" name="Send_Removal_Email" id="Send_Removal_Email0" value="0" checked>
+		</td>
+		<td align="LEFT" width="85%"><label for="Send_Removal_Email0"><b>DO NOT</b> send an &quot;unsubscribe&quot;email notice</label></td>
+	</tr>
+	<tr> 
+		<td align="right" width="15%"> 
+			<input class='radiogroup' type="RADIO" name="Send_Removal_Email" id="Send_Removal_Email1" value="1">
+		</td>
+		<td align="LEFT" width="85%"><label for="Send_Removal_Email1"><b>Send</b> an &quot;unsubscribe&quot;email notice</label></td>
+	</tr>
+	<tr>
+		<td colspan='2' style='text-align:center;vertical-align:middle;'>
+				<br><input class='submit' type="submit" value="Remove" name="submit" onClick="this.value='Removing'"
+	 			onMouseover="this.className='MouseOver'" onMouseout="this.className='submit'">&nbsp;
+				
+				<input class='cancel' type='button' value='Cancel' onClick='window.location.href="CampaignManager.php?arid=<?php echo $arid ?>&cmd=1"' 
+				onMouseover="this.className='MouseOver'" onMouseout="this.className='cancel'">
+		</td>
+	</tr>
+	</form>
+</table>
+<?php
+	JumpToCampaign($link, $arid); 
+	ReferenceLinks($arid);
+	print("</div>\n"); 
+?>
+</div> <!-- end of Wrapper -->
+</BODY>
+</HTML>

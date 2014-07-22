@@ -1,0 +1,4 @@
+Header append P3P: 'CP="CAO DSP COR ADM DEV PSA IVA OUR IND STA"' 
+ErrorDocument 404  404.php
+#ErrorDocument 403 /lightning-mortgage.com/403.php
+Options All -Indexes
